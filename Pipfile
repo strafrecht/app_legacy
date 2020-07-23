@@ -11,6 +11,12 @@ psycopg2 = "*"
 wagtail = "*"
 wiki = "*"
 django-admin-interface = "*"
+django-pipeline = "*"
+django-pagedown = "*"
+html2text = "*"
+tqdm = "*"
+markdownify = "*"
+django-leaflet = "*"
 
 [requires]
 python_version = "3.8"

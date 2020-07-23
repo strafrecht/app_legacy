@@ -25,6 +25,11 @@ from wagtail.core import urls as wagtail_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    # Pages
+    path('profile/', include('profiles.urls')),
+    path('quiz/', include('core.urls')),
+    path('run/', include('core.urls')),
+
     # Wagtail
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
@@ -37,4 +42,5 @@ urlpatterns = [
     #path('chat/', include('django_chatter.urls')),
 
     path('', include(wagtail_urls)),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

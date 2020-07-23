@@ -1,0 +1,80 @@
+{% load pipeline %}
+{% load static wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<meta name="author" content="Institut für Kriminologie und Wirtschaftsstrafrecht Freiburg">
+				<meta name="description" content="Website des Instituts für Kriminologie und Wirtschaftsstrafrecht Freiburg">
+
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+
+        {# Global stylesheets #}
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+				<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,500|Roboto:400,500,600,700&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+				<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css">
+
+				{% stylesheet 'base' %}
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+				{% include "layout/navbar.html" %}
+
+				{% if page.slug != "strafrecht-online" %}
+				<main role="main" class="container">
+					<div class="row">
+				{% endif %}
+
+						{% block content %}{% endblock %}
+						{% block sidebar %}{% endblock %}
+
+				{% if page.slug != "strafrecht-online" %}
+					</div>
+				</main>
+				{% endif %}
+
+				<footer class="footer">
+					<div class="container">
+						<ul>
+							<li><a href="#" class="text-muted">Impressum</a></li>
+							<li><a href="#" class="text-muted">Kontakt</a></li>
+							<li><a href="#" class="text-muted">Datenschutz</a></li>
+							<li><a href="#" class="text-muted">Cookies & Tracking</a></li>
+						</ul>
+					</div>
+				</footer>
+
+        {# Global javascript #}
+				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+				<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js"></script>
+				<script src="https://www.jsdelivr.com/package/npm/chart.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
+				<script src="https://use.fontawesome.com/2f4f67fb08.js"></script>
+
+				{% javascript 'base' %}
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

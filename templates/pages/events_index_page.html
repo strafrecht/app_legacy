@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags website_tags %}
+{% load wagtailroutablepage_tags %}
+
+{% block extra_css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/person_index_page.css' %}">
+{% endblock %}
+
+{% block body_class %}template-websitepage{% endblock %}
+
+{% block content %}
+	<div class="events-index-page container">
+		<div class="col-md-12">
+			<h2 style="font-weight: 700; margin-bottom: 50px;">Events</h2>
+
+			<div class="role-group" style="display: flex;">
+				{% for event in events %}
+				<div class="text-center" style="width: fit-content; margin-right: 20px;">
+					<a class="text-dark" href="{% routablepageurl page "event" event.id %}">
+						{% image event.poster width-200 %}
+						<h6 class="mt-2" style="max-width: 200px;">{{ event.name }}</h6>
+						<!--p class="meta badge badge-dark">{{ event.date }}</p-->
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

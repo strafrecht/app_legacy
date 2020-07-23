@@ -41,10 +41,22 @@ INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
     'django.contrib.admin',
+    'pagedown',
+
+    # Assets
+    'pipeline',
+
+    # Pages
+    'pages',
+    'profiles',
+    'core',
+    'leaflet',
 
     # Wagtail
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
+    'wagtail.contrib.routable_page',
+    'wagtail.contrib.modeladmin',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -70,6 +82,7 @@ INSTALLED_APPS = [
     'wiki.plugins.notifications.apps.NotificationsConfig',
     'wiki.plugins.images.apps.ImagesConfig',
     'wiki.plugins.macros.apps.MacrosConfig',
+    'editors',
 
     # Chatter
     #'django_chatter',
@@ -92,7 +105,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -178,11 +191,74 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-WAGTAIL_SITE_NAME = 'app'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineManifestStorage'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+WAGTAIL_SITE_NAME = 'strafrecht-online'
+WAGTAILADMIN_RICH_TEXT_EDITORS = {
+    'default': {
+        'WIDGET': 'wagtail.admin.rich_text.HalloRichTextArea'
+    }
+}
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 SITE_ID = 1
 
+
+PIPELINE = {
+    'PIPELINE_ENABLED': False, #not DEBUG
+    'COMPILERS': (
+        'pipeline.compilers.sass.SASSCompiler',
+        'pipeline.compilers.es6.ES6Compiler'
+    ),
+    'STYLESHEETS': {
+        'base': {
+            'source_filenames': (
+                'css/base.css',
+                'css/bootstrap.css',
+                'css/charts.css'
+                'css/mysite.css',
+                'css/content.css',
+                'css/sidebar.css',
+                'css/navbar.css'
+                #'css/wiki.css',
+            ),
+            'output_filename': 'css/main.css',
+        },
+    },
+    'JAVASCRIPT': {
+        'base': {
+            'source_filenames': (
+                'js/mysite.js',
+                'js/index.js',
+                'js/editor.js',
+                'js/chartist.js',
+                'js/chartist-plugin-fill-donut.js',
+            ),
+            'output_filename': 'js/index.js'
+        },
+        'vendor': {
+            'source_filenames': (
+                'tui-editor'
+            ),
+            'output_filename': 'js/vendor.js',
+        }
+    }
+}
+
 X_FRAME_OPTIONS='SAMEORIGIN'
+
+WIKI_ACCOUNT_HANDLING = True
+WIKI_ACCOUNT_SIGNUP_ALLOWED = True
+WIKI_ANONYMOUS = True
+WIKI_ANONYMOUS_CREATE = True
+WIKI_ANONYMOUS_WRITE = True
+WIKI_EDITOR = 'editors.modern.Modern'

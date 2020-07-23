@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags website_tags %}
+{% load leaflet_tags %}
+
+{% block extra_css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/event_page.css' %}">
+	{% leaflet_css %}
+{% endblock %}
+
+{% block extra_js %}
+	{% leaflet_js %}
+{% endblock %}
+
+{% block body_class %}template-websitepage{% endblock %}
+
+{% block content %}
+	<div class="event-page">
+		<div class="row">
+			<h2 class="font-weight-bold" style="width: 100%;">{{ event.name }}</h2><br>
+
+			<div class="col-md-9">
+				<img src="https://images.unsplash.com/photo-1579101814434-d87f3bc6f5c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80">
+
+				<h4 class="font-weight-bold">Referent</h4>
+				<p class="bold font-sm"><span class="meta font-sm">{{ event.speaker }}</span></p>
+
+				<h4 class="font-weight-bold">Veranstaltungsbeschreibung</h4>
+				<p class="richtext">{{ event.description|richtext }}</p>
+
+				<p class="richtext"><u>Zum Referenten:</u> {{ event.speaker_description|richtext }}</p>
+			</div>
+			<div class="col-md-3">
+				{% image event.poster width-320 %}
+
+				<h4 style="margin-top: 20px;">Location</h4>
+				<p class="small">{{ event.location }}</p>
+
+				{% leaflet_map "event-4" callback="window.map_init_basic" %}
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function map_init_basic(map, options) {
+			var accessToken = "pk.eyJ1Ijoic3RyYWZyZWNodCIsImEiOiJjazN5bDc5YjgwMXltM29xbXA5aXdrd3NoIn0.LF_egdLW4ROv-FZv8XMLJA"
+
+			map.setView([47.9939, 7.8460], 13)
+			L.marker([47.9939, 7.8460]).addTo(map);
+			L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + accessToken, {
+				maxZoom: 18,
+				id: 'mapbox/streets-v11',
+				accessToken: accessToken
+			}).addTo(map);
+		}
+	</script>
+{% endblock %}
