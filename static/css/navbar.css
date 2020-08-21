@@ -1,8 +1,7 @@
 #nav {
-	background-color: black;
-	/*box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2);*/
-	border-bottom: 2px solid #eee;
-	color: white;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	background: white;
+	color: black;
 	margin-top: 0px !important;
 	padding: 0px;
 	top: 0px;
@@ -18,7 +17,7 @@
 	width: 100%;
 }
 #nav .navbar-trans .navbar-nav .nav-link {
-	color: white;
+	color: black;
 	font-size: 14px;
 	font-weight: 500;
 }
@@ -48,7 +47,7 @@
 }
 
 #nav .navbar-brand {
-	color: white;
+	color: black;
 	font-family: 'Source Serif Pro', serif !important;
 	font-size: 28px;
 	font-weight: 900;
@@ -57,14 +56,14 @@
 }
 
 #nav .navbar-trans .navbar-brand {
-	color: white;
+	color: black;
 }
 
 #nav .navbar-nav .nav-link:hover {
 	background-color: inherit;
 }
 #nav .navbar-nav .nav-link {
-	color: white;
+	color: black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -136,8 +135,7 @@
 }
 
 #nav .navbar-collapse {
-	background-color: black;
-	color: white;
+	color: black;
 	width: 100% !important;
 	top: 40px;
 }

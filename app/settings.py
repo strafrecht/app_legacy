@@ -262,6 +262,7 @@ WIKI_ANONYMOUS = True
 WIKI_ANONYMOUS_CREATE = True
 WIKI_ANONYMOUS_WRITE = True
 WIKI_EDITOR = 'editors.modern.Modern'
+WIKI_CHECK_SLUG_URL_AVAILABLE = False
 
 import os
 if os.name == 'nt':
