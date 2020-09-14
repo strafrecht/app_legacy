@@ -41,6 +41,9 @@ urlpatterns = [
     # Chat
     #path('chat/', include('django_chatter.urls')),
 
+    # Comments
+    path('comments/', include('django_comments_xtd.urls')),
+
     path('', include(wagtail_urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

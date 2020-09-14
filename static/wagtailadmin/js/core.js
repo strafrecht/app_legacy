@@ -177,7 +177,8 @@ $(function() {
 
     /* tabs */
     if (window.location.hash) {
-      $('a[href="' + window.location.hash + '"]').tab('show');
+        var cleanedHash = window.location.hash.replace(/[^\w\-\#]/g, '');
+        $('a[href="' + cleanedHash + '"]').tab('show');
     }
 
     $(document).on('click', '.tab-nav a', function(e) {
@@ -336,7 +337,6 @@ $(function() {
         }, 10);
     });
 });
-
 
 // =============================================================================
 // Wagtail global module, mainly useful for debugging.
@@ -538,6 +538,33 @@ wagtail = (function(document, window, wagtail) {
     $(document).ready(initDropDowns);
     wagtail.ui.initDropDowns = initDropDowns;
     wagtail.ui.DropDownController = DropDownController;
+
+    // provide a workaround for NodeList#forEach not being available in IE 11
+    function qsa(element, selector) {
+      return [].slice.call(element.querySelectorAll(selector));
+    }
+
+    // Initialise button selectors
+    function initButtonSelects() {
+        qsa(document, '.button-select').forEach(function(element) {
+            var inputElement = element.querySelector('input[type="hidden"]');
+            qsa(element, '.button-select__option').forEach(function(buttonElement) {
+                buttonElement.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    inputElement.value = buttonElement.value;
+
+                    qsa(element, '.button-select__option--selected').forEach(function(selectedButtonElement) {
+                        selectedButtonElement.classList.remove('button-select__option--selected');
+                    });
+
+                    buttonElement.classList.add('button-select__option--selected');
+                });
+            });
+        });
+    }
+
+    $(document).ready(initButtonSelects);
+
     return wagtail;
 
 })(document, window, wagtail);

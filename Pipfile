@@ -17,6 +17,7 @@ html2text = "*"
 tqdm = "*"
 markdownify = "*"
 django-leaflet = "*"
+django-comments-xtd = "*"
 
 [requires]
 python_version = "3.8"

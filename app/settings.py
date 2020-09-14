@@ -86,6 +86,10 @@ INSTALLED_APPS = [
 
     # Chatter
     #'django_chatter',
+
+    # Comments
+    'django_comments_xtd',
+    'django_comments',
 ]
 
 MIDDLEWARE = [
@@ -263,6 +267,10 @@ WIKI_ANONYMOUS_CREATE = True
 WIKI_ANONYMOUS_WRITE = True
 WIKI_EDITOR = 'editors.modern.Modern'
 WIKI_CHECK_SLUG_URL_AVAILABLE = False
+
+COMMENTS_APP = 'django_comments_xtd'
+COMMENTS_XTD_MAX_THREAD_LEVEL = 5
+COMMENTS_XTD_CONFIRM_EMAIL = False
 
 import os
 if os.name == 'nt':
