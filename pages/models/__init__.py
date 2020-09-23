@@ -5,3 +5,4 @@ from .news import *
 from .category import *
 from .wiki import *
 from .events import *
+from .sessions import *

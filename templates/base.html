@@ -1,5 +1,5 @@
 {% load pipeline %}
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar menu_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -26,8 +26,16 @@
 				<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,500|Roboto:400,500,600,700&display=swap" rel="stylesheet">
 				<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
 				<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css">
+				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 				{% stylesheet 'base' %}
+				{% stylesheet 'sidebar' %}
+
+				<link href="{% static "css/sidebar.css" %}" rel="stylesheet">
+				<link href="{% static "css/sidebars/simple.css" %}" rel="stylesheet">
+				<link href="{% static "css/sidebars/header.css" %}" rel="stylesheet">
+				<link href="{% static "css/sidebars/image_text.css" %}" rel="stylesheet">
+				<link href="{% static "css/sidebars/poll.css" %}" rel="stylesheet">
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
@@ -36,7 +44,7 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-				{% include "layout/navbar.html" %}
+				{% include "layout/menu.html" %}
 
 				{% if page.slug != "strafrecht-online" %}
 				<main role="main" class="container">
@@ -63,12 +71,13 @@
 				</footer>
 
         {# Global javascript #}
-				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 				<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js"></script>
+				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+				<!--
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 				<script src="https://www.jsdelivr.com/package/npm/chart.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script-->
 				<script src="https://use.fontawesome.com/2f4f67fb08.js"></script>
 
 				{% javascript 'base' %}
@@ -76,5 +85,6 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+				<script src="{% static "wiki/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
     </body>
 </html>

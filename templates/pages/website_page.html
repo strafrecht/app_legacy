@@ -35,6 +35,10 @@
 {% block sidebar %}
 	<div class="col-md-4 sidebar no-gutters overflow-hidden flex-md-row position-relative">
 
+	{% if page.sidebar %}
+		{{ page.sidebar | richtext }}
+	{% endif %}
+
 	{% for sidebar_placement in page.sidebar_placements.all %}
 		<!--div class="row sidebar-item">
 			{# if sidebar_placement.sidebar.type == "poll" #}

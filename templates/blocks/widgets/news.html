@@ -1,0 +1,20 @@
+{% load i18n %}
+{% load wagtailcore_tags wagtailnews_admin_tags %}
+
+<div class="">
+	<h3 style="font-weight: bold; margin-bottom: 20px;">Letzte News & Abstimmungen</h3>
+
+	<div class="news-widgets">
+	{% for article in articles %}
+		<div class="news-widget">
+			<div class="news-widget-inner">
+				<div class="date">{{ article.date|date:"jS F Y" }}</div>
+				<div class="title">{{ article.title }}</div>
+				<div class="body">{{ article.body | richtext | truncatechars:100 }}</div>
+				<div class="comments">0 comments</div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+
+</div>

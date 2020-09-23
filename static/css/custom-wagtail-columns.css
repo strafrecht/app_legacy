@@ -1,0 +1,35 @@
+.columns-block .fields {
+	    display: flex;
+}
+
+.columns-block .fields li label:first-child {
+	    display: block;
+							     margin-bottom: 7.5px;
+									     float: unset;
+															    width: unset;
+																				     padding: 0;
+}
+
+.columns-block .fields li {
+	    padding-right: 1.5em
+}
+
+.columns-block .fields li:last-child {
+	    padding-right: 0
+}
+
+#wagtail-columns-container {
+	    display: flex;
+}
+
+.flex-col-6 {
+	    flex: 6;
+}
+
+.flex-col-4 {
+	    flex: 4;
+}
+
+.flex-col-8 {
+	    flex: 8;
+}

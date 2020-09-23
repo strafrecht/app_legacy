@@ -3,6 +3,8 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
+from itertools import groupby
+
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 
@@ -22,6 +24,8 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
+
+import pages 
 
 class PeopleIndexPage(RoutablePageMixin, Page):
     subtitle = models.CharField(max_length=255, null=True, blank=True)
@@ -46,8 +50,19 @@ class PeopleIndexPage(RoutablePageMixin, Page):
     def person_page(self, request, person):
         context = super().get_context(request)
         person = People.objects.get(id=person)
+
+        articles = pages.models.NewsArticlePage.objects.filter(live=True).filter(owner__id=person.id).order_by('-date')
+
+        years = []
+        keys = []
+
+        for key, group in groupby(articles, lambda x: x.date.year):
+            years.append({"year": key, "articles": list(group)})
+            keys.append(key)
+
+        context['groups'] = years
         context['person'] = person
-        return render(request, "pages/person_page.html", {'person': person})
+        return render(request, "pages/person_page.html", context)
     
 class FormerPeopleIndexPage(Page):
     def get_context(self, request):

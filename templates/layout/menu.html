@@ -1,0 +1,21 @@
+{% load menu_tags %}
+
+{% main_menu max_levels=3 template="menus/custom_main_menu.html" sub_menu_template="menus/custom_sub_menu.html" %}
+{# main_menu max_levels=2 #}
+
+<ul>
+	{% for item in menu_items %}
+		<li class="{{ item.active_class }}">
+			<a href="{{ item.href }}">{{ item.text }}</a>
+				{% if item.sub_menu %}
+
+				LOL
+				<ul class="sub-menu">
+					{% for sub_item in item.sub_menu.items %}
+						<li class="{{ sub_item.active_class }}"><a href="{{ sub_item.href }}">{{ sub_item.text }}</a></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>

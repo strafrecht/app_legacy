@@ -27,10 +27,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Live Reload
+    'livereload',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -42,12 +48,14 @@ INSTALLED_APPS = [
     'colorfield',
     'django.contrib.admin',
     'pagedown',
+    #'debug_toolbar',
 
     # Assets
     'pipeline',
 
     # Pages
     'pages',
+    'news',
     'profiles',
     'core',
     'leaflet',
@@ -66,6 +74,7 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    'wagtailcolumnblocks',
 
     'modelcluster',
     'taggit',
@@ -90,6 +99,12 @@ INSTALLED_APPS = [
     # Comments
     'django_comments_xtd',
     'django_comments',
+
+    # Wagtail News
+    'wagtailnews',
+
+    # Wagtail Menus
+    'wagtailmenus',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +117,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    'livereload.middleware.LiveReloadScript',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -122,6 +139,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'sekizai.context_processors.sekizai',
+                'wagtailmenus.context_processors.wagtailmenus',
             ],
         },
     },
@@ -204,18 +222,11 @@ STATICFILES_FINDERS = (
 )
 
 WAGTAIL_SITE_NAME = 'strafrecht-online'
-WAGTAILADMIN_RICH_TEXT_EDITORS = {
-    'default': {
-        'WIDGET': 'wagtail.admin.rich_text.HalloRichTextArea'
-    }
-}
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 SITE_ID = 1
-
 
 PIPELINE = {
     'PIPELINE_ENABLED': False, #not DEBUG
@@ -231,8 +242,9 @@ PIPELINE = {
                 'css/charts.css'
                 'css/mysite.css',
                 'css/content.css',
+                'css/navbar.css',
+                'css/custom-wagtail-columns.css'
                 'css/sidebar.css',
-                'css/navbar.css'
                 #'css/wiki.css',
             ),
             'output_filename': 'css/main.css',

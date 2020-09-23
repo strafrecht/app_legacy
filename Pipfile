@@ -18,6 +18,12 @@ tqdm = "*"
 markdownify = "*"
 django-leaflet = "*"
 django-comments-xtd = "*"
+django-livereload-server = "*"
+wagtailcolumnblocks = "*"
+wagtailnews = "*"
+wagtailmenus = "*"
+django-debug-toolbar = "*"
+django-compressor = "*"
 
 [requires]
 python_version = "3.8"
