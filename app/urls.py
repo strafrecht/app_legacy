@@ -22,6 +22,8 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.core import urls as wagtail_urls
 
+from birdsong import urls as birdsong_urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -37,6 +39,9 @@ urlpatterns = [
     # Wiki
     path('notifications/', include('django_nyt.urls')),
     path('wiki/', include('wiki.urls')),
+
+    # Newsletter
+    path('mail/', include(birdsong_urls)),
 
     # Chat
     #path('chat/', include('django_chatter.urls')),

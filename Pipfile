@@ -24,6 +24,8 @@ wagtailnews = "*"
 wagtailmenus = "*"
 django-debug-toolbar = "*"
 django-compressor = "*"
+wagtail-birdsong = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.8"

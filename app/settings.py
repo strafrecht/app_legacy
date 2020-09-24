@@ -48,16 +48,18 @@ INSTALLED_APPS = [
     'colorfield',
     'django.contrib.admin',
     'pagedown',
+    'django_filters',
     #'debug_toolbar',
 
     # Assets
     'pipeline',
 
     # Pages
+    'core',
     'pages',
     'news',
+    'emails',
     'profiles',
-    'core',
     'leaflet',
 
     # Wagtail
@@ -105,6 +107,11 @@ INSTALLED_APPS = [
 
     # Wagtail Menus
     'wagtailmenus',
+
+    # Wagtail Newsletter
+    'mjml',
+    'birdsong',
+
 ]
 
 MIDDLEWARE = [
@@ -147,6 +154,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 ASGI_APPLICATION = 'app.routing.application'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.yourserver.com'
+    EMAIL_PORT = '<your-server-port>'
+    EMAIL_HOST_USER = 'your@djangoapp.com'
+    EMAIL_HOST_PASSWORD = 'your-email account-password'
+    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = False
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
