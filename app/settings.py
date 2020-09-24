@@ -112,6 +112,9 @@ INSTALLED_APPS = [
     'mjml',
     'birdsong',
 
+    # Wagtail Polls
+    'wagtailpolls',
+
 ]
 
 MIDDLEWARE = [

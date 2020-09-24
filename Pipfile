@@ -26,6 +26,7 @@ django-debug-toolbar = "*"
 django-compressor = "*"
 wagtail-birdsong = "*"
 django-filter = "*"
+wagtailpolls = "*"
 
 [requires]
 python_version = "3.8"
