@@ -15,8 +15,8 @@
 
 <div class="row">
 
-  <div class="col-lg-8">
-    <form method="POST" class="form-horizontal" id="article_edit_form">
+  <div class="col-lg-12">
+    <form method="POST" class="form-horizontal" id="article_edit_form" spellcheck="false">
       {% with edit_form as form %}
         {% include "wiki/includes/editor.html" %}
       {% endwith %}
@@ -57,7 +57,7 @@
     </form>
   </div>
 
-  <div class="col-lg-4" id="wiki-edit-sidebar">
+  <div class="col-lg-0" id="wiki-edit-sidebar">
     {% include "wiki/includes/editor_sidebar.html" %}
   </div>
 

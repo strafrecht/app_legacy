@@ -88,6 +88,7 @@
 
 .sidebar-border {
 	border: rgb(229, 229, 229) 1px solid;
+	padding: 10px;
 }
 .sidebar-border h2 {
 	color: #6b6b6b;
@@ -98,6 +99,7 @@
 .jurcoach-links-widgets {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 }
 .jurcoach-link {
 	background: rgb(243, 243, 243);
@@ -105,10 +107,11 @@
 	color: #444;
 	display: flex;
 	flex-direction: column;
-	margin: 10px;
+	margin: 10px 0;
 	padding: 20px;
 	max-width: 300px;
 	min-width: 200px;
+	width: 47.5%;
 }
 .jurcoach-link:hover {
 	background: rgb(76, 158, 187);
@@ -121,4 +124,8 @@
 }
 .jurcoach-link p {
 	font-size: 0.9rem;
+}
+.jurcoach-link:hover h3,
+.jurcoach-link:hover p {
+	color: white;
 }

@@ -266,7 +266,7 @@ PIPELINE = {
                 'css/navbar.css',
                 'css/custom-wagtail-columns.css'
                 'css/sidebar.css',
-                #'css/wiki.css',
+                'css/wiki.css',
             ),
             'output_filename': 'css/main.css',
         },

@@ -22,6 +22,8 @@ from wagtail.core import fields
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+
+from wagtailpolls.edit_handlers import PollChooserPanel
 from wagtailcolumnblocks.blocks import ColumnsBlock
 from news.models import NewsItem
 
@@ -235,10 +237,17 @@ class SidebarPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+    poll = models.ForeignKey(
+        'wagtailpolls.Poll',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
 
     content_panels = [
         FieldPanel('title'),
         ImageChooserPanel('cover'),
+        PollChooserPanel('poll'),
         StreamFieldPanel('content')
     ]
 

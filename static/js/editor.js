@@ -14,7 +14,7 @@ if (document.querySelector('.modern')) {
 
 	var editor = new tui.Editor({
 		el: document.querySelector('.editor'),
-		initialEditType: 'markdown',
+		initialEditType: 'wysiwyg',
 		previewStyle: 'vertical',
 		height: '600px',
 		initialValue: content,
