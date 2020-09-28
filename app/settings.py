@@ -25,7 +25,11 @@ SECRET_KEY = '#g*o!3=v$8+ag9%^&llf6h-fhm9zsrjlmb+s0)g&#*b1*8l##w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'a8ab7d659866.ngrok.io',
+    'localhost',
+    '127.0.0.1',
+]
 
 INTERNAL_IPS = [
     '127.0.0.1',
@@ -94,6 +98,7 @@ INSTALLED_APPS = [
     'wiki.plugins.images.apps.ImagesConfig',
     'wiki.plugins.macros.apps.MacrosConfig',
     'editors',
+    'markdownify',
 
     # Chatter
     #'django_chatter',

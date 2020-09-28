@@ -27,6 +27,7 @@ django-compressor = "*"
 wagtail-birdsong = "*"
 django-filter = "*"
 wagtailpolls = "*"
+django-markdownify = "*"
 
 [requires]
 python_version = "3.8"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "99eed9399e7fcc926b193e49af194b0addb387485d3ee6f7fbda4ccfab41bc78"
+            "sha256": "0227588309905d0c9c1cd6f0d71d6966fba96349ebdfda6f11d96fa00aac0ebe"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -98,11 +98,11 @@
         },
         "django-comments-xtd": {
             "hashes": [
-                "sha256:74c5fdbb62c33d5f1c9ae93cc755046c800e4ec116076fc82031c91854cd17f6",
-                "sha256:9de93ae0b1b7f23b3992c01caf4c2b1927a8b8bbe46b120db200b27b62a669fb"
+                "sha256:b05ce52623e3476a70eebd6b23826553abeaf72da240dd08c7262b3fe1e5f1f1",
+                "sha256:fa8f47f467a415dea772835733cc68120a1be6b7233dbd49521afef2cb220952"
             ],
             "index": "pypi",
-            "version": "==2.7.2"
+            "version": "==2.8.0"
         },
         "django-compressor": {
             "hashes": [
@@ -121,19 +121,19 @@
         },
         "django-debug-toolbar": {
             "hashes": [
-                "sha256:20d94839b81d8d97194a911fc248d78e9df9ed953016e575dc6bd4c717b99e6e",
-                "sha256:3ef1e3c6f0c35e6fb965fa455020c95bb1852822f2659046ae25f01852611395"
+                "sha256:a1ce0665f7ef47d27b8df4b5d1058748e1f08500a01421a30d35164f38aaaf4c",
+                "sha256:c97921a9cd421d392e7860dc4b464db8e06c8628df4dc58fedab012888c293c6"
             ],
             "index": "pypi",
-            "version": "==3.1"
+            "version": "==3.1.1"
         },
         "django-filter": {
             "hashes": [
-                "sha256:11e63dd759835d9ba7a763926ffb2662cf8a6dcb4c7971a95064de34dbc7e5af",
-                "sha256:616848eab6fc50193a1b3730140c49b60c57a3eda1f7fc57fa8505ac156c6c75"
+                "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06",
+                "sha256:e00d32cebdb3d54273c48f4f878f898dced8d5dfaad009438fe61ebdf535ace1"
             ],
             "index": "pypi",
-            "version": "==2.3.0"
+            "version": "==2.4.0"
         },
         "django-flat-responsive": {
             "hashes": [
@@ -174,6 +174,14 @@
             ],
             "index": "pypi",
             "version": "==0.3.2"
+        },
+        "django-markdownify": {
+            "hashes": [
+                "sha256:5460fc41db2da02c57e2f49f55258aa71a74af48c21b7989985b0a860069a954",
+                "sha256:c9406e1187c68f2ad9e251bf7b586dd4c9309021fafce2c83be99584cb130173"
+            ],
+            "index": "pypi",
+            "version": "==0.8.1"
         },
         "django-mjml": {
             "hashes": [
@@ -241,10 +249,10 @@
         },
         "djangorestframework": {
             "hashes": [
-                "sha256:6dd02d5a4bd2516fb93f80360673bf540c3b6641fec8766b1da2870a5aa00b32",
-                "sha256:8b1ac62c581dbc5799b03e535854b92fc4053ecfe74bad3f9c05782063d4196b"
+                "sha256:7fb1c91a8f9aa5ccb39d1568925a6433659dacfc1af7ac757b293d6451ddb9e1",
+                "sha256:9d5b07a2dd29b4fb18da2e6a888051f34b286b3bfc1c3fe885a17e16e389c569"
             ],
-            "version": "==3.11.1"
+            "version": "==3.12.0"
         },
         "docutils": {
             "hashes": [
@@ -482,11 +490,11 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:8f3c5815e3b5e20bc40463fa6b42a352178859692a68ffaa469706e6d38342a5",
-                "sha256:faf9c671bd3fad5ebaeee366949d969dca2b2be32c872a7092a1e1a9048d105b"
+                "sha256:2dd75fdb764f673b8187643496fcfbeac38348015b665878e582b152f3391cdb",
+                "sha256:93b7a6a9129fce904f6df4cf3ae7ff431d779be681a95c3344c26f3e6c09abfa"
             ],
             "index": "pypi",
-            "version": "==4.49.0"
+            "version": "==4.50.0"
         },
         "unidecode": {
             "hashes": [
@@ -504,11 +512,11 @@
         },
         "wagtail": {
             "hashes": [
-                "sha256:3a1613fd1808f20e8d0244eb6505f5cd9ef257ed9469323ed1d5713ce9aae402",
-                "sha256:b56c07e161ce634aa15b740a203984dd878926488f8cbe791b8bdc3a154bec4e"
+                "sha256:d6937bf1b64b970315867eac08f786e206059bd882f793e2a4bffca81cfe71d9",
+                "sha256:fb3c76685abad023a2e8430e55ec24671ec6b0730759f29aaae5042e581bed92"
             ],
             "index": "pypi",
-            "version": "==2.10.1"
+            "version": "==2.10.2"
         },
         "wagtail-birdsong": {
             "hashes": [

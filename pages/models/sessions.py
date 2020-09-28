@@ -127,5 +127,5 @@ class Sessions(models.Model):
     ]
 
     class Meta:
-        verbose_name = 'Session'
-        verbose_name = 'Sessions'
+        verbose_name = 'Lehrveranstaltung'
+        verbose_plural_name = 'Lehrveranstaltungen'

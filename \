@@ -49,53 +49,30 @@
   {% trans "Click each revision to see a list of edited lines. Click the Preview button to see how the article looked at this stage. At the bottom of this page, you can change to a particular revision or merge an old revision with the current one." %}
 </p>
 
-<!--script>
+<script>
 setTimeout(() => {
-	let cards = document.querySelectorAll('.card')
+	var changes = document.querySelectorAll('.data')
+	cards = document.querySelectorAll('.card')
 
-	for (var i = 0; i < cards.length; i++) {
-		let card = cards[i]
-		let toggle = card.querySelector('.wiki-card-toggle')
-
+	for (card of cards) {
+		var toggle = card.querySelector('.wiki-card-toggle')
 		toggle.addEventListener('click', () => {
-			setTimeout(() => {
-			console.log(card)
+			console.log(toggle)
 
-			let converter = new showdown.Converter()
-			let elements = card.querySelectorAll('.data')
+			var converter = new showdown.Converter()
+			var elements = document.querySelectorAll('.data')
 
 			if (elements) {
-				console.log(elements)
-				for (var j = 0; j < elements.length; j++) {
-					let action, text;
-					let data = elements[j]
-					let s = data.textContent
-
-					if (s.indexOf("- "))
-					{
-						prefix = "- "
-						suffix = s.slice(2, s.length)
-					}
-					else if (s.indexOf("+ "))
-					{
-						prefix = "+ "
-						suffix = s.slice(2, s.length)
-					}
-					else {
-						prefix = ""
-						suffix = s
-					}
-
-					let html = converter.makeHtml(suffix)
-
+				for (data of elements) {
+					var text = data.text
+					var html = converter.makeHtml(text)
 					data.innerHTML = html
 				}
 			}
-			}, 250)
 		})
 	}
 }, 1000)
-</script-->
+</script>
 
 <form method="GET">
   <div class="tab-content" style="overflow: visible;">
