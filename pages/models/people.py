@@ -100,8 +100,8 @@ class People(models.Model):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    first_name = models.CharField("First name", max_length=255)
-    last_name = models.CharField("Last name", max_length=255)
+    first_name = models.CharField("Vorname", max_length=255)
+    last_name = models.CharField("Nachname", max_length=255)
     status = models.CharField(
         choices=STATUS_CHOICES,
         default='former',
@@ -113,9 +113,9 @@ class People(models.Model):
         max_length=255,
         blank=True,
     )
-    telephone = models.CharField("Phone number", max_length=255, blank=True)
-    email = models.CharField("Email", max_length=255, blank=True)
-    room = models.CharField("Room", max_length=255, blank=True)
+    telephone = models.CharField("Telefonnummer", max_length=255, blank=True)
+    email = models.CharField("Mailadresse", max_length=255, blank=True)
+    room = models.CharField("Raumnummer", max_length=255, blank=True)
     description = RichTextField(blank=True)
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -150,7 +150,7 @@ class People(models.Model):
             FieldRowPanel([
                 FieldPanel('description', classname="col-12"),
             ]),
-        ], "Description"),
+        ], "Weitere Informationen"),
         ImageChooserPanel('image')
     ]
 
@@ -171,4 +171,4 @@ class People(models.Model):
 
     class Meta:
         verbose_name = 'Person'
-        verbose_name = 'People'
+        verbose_name_plural = 'Personen'
