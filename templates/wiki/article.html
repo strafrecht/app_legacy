@@ -38,6 +38,7 @@
   </div>
 	{% else %}
 
+<!--
 <div class="py-3">
   {% with children_slice|length as cnt %}
     {% blocktrans with urlpath.path as path and cnt|pluralize:_("article,articles") as articles_plur and cnt|pluralize:_("is,are") as articles_plur_verb trimmed %}
@@ -45,11 +46,12 @@
     {% endblocktrans %}
   {% endwith %}
 </div>
+-->
 
 <table class="table table-striped">
   <tr>
-    <th>{% trans "Title" %}</th>
-    <th>{% trans "Last modified" %}</th>
+    <th>{% trans "In dieser Kategorie" %}</th>
+    <th>{% trans "Letzte Änderung" %}</th>
   </tr>
   	  {% for urlpath in children_slice %}
     <tr>
@@ -70,7 +72,7 @@
     {% empty%}
     <tr>
       <td colspan="100">
-        <em>{% trans "There are no articles in this level" %}</em>
+        <em>{% trans "In dieser Kategorie sind keine Problemfelder vorhanden." %}</em>
       </td>
     </tr>
   {% endfor %}
@@ -80,5 +82,5 @@
 {% endblock %}
 
 {% block wiki_footer_prepend %}
-  <p style="margin-bottom: 10px;"><em>{% trans "This article was last modified:" %} {{ article.current_revision.modified }}</em></p>
+  <p style="margin-bottom: 10px;"><em>{% trans "Dieses Problemfeld wurde zuletzt geändert am:" %} {{ article.current_revision.modified }}</em></p>
 {% endblock %}

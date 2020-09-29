@@ -67,6 +67,8 @@
 .news-widget .date {
 	color: rgb(76, 158, 187);
 	margin-bottom: 10px;
+	font-weight:700;
+	font-size:0.95em;
 }
 .news-widget .title {
 	color: #6b6b6b;
