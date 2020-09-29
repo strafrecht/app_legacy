@@ -72,7 +72,7 @@
     {% empty%}
     <tr>
       <td colspan="100">
-        <em>{% trans "There are no articles in this level" %}</em>
+        <em>{% trans "In dieser Kategorie sind keine Problemfelder vorhanden." %}</em>
       </td>
     </tr>
   {% endfor %}
@@ -82,5 +82,5 @@
 {% endblock %}
 
 {% block wiki_footer_prepend %}
-  <p style="margin-bottom: 10px;"><em>{% trans "This article was last modified:" %} {{ article.current_revision.modified }}</em></p>
+  <p style="margin-bottom: 10px;"><em>{% trans "Dieses Problemfeld wurde zuletzt geändert am:" %} {{ article.current_revision.modified }}</em></p>
 {% endblock %}
