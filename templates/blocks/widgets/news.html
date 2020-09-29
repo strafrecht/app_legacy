@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load wagtailcore_tags wagtailnews_admin_tags %}
 
+{% block widget %}
 <div class="">
 	<h3 style="font-weight: bold; margin-bottom: 20px;">Letzte News & Abstimmungen</h3>
 
@@ -16,5 +17,5 @@
 		</div>
 	{% endfor %}
 	</div>
-
 </div>
+{% endblock %}

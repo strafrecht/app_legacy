@@ -26,9 +26,9 @@ SECRET_KEY = '#g*o!3=v$8+ag9%^&llf6h-fhm9zsrjlmb+s0)g&#*b1*8l##w'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'a8ab7d659866.ngrok.io',
     'localhost',
     '127.0.0.1',
+    'bd3b44d2f1b0.ngrok.io'
 ]
 
 INTERNAL_IPS = [

@@ -2,6 +2,29 @@
 	max-width: 900px;
 }
 
+#wiki .tab-content > div {
+	margin-bottom: 2px;
+}
+#wiki .btn-warning,
+#wiki .btn-danger {
+	color: white;
+}
+
+#wiki #id_title {
+font-size: 16px;
+padding: 4px 10px;
+font-weight: 500;
+}
+
+#wiki .modal .modal-dialog {
+	max-width: 900px !important;
+}
+
+#wiki .page-header {
+	font-size: 2rem;
+	font-weight: 900;
+}
+
 #wiki a {
 	color: rgb(76, 158, 187);
 }

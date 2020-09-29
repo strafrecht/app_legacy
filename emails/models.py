@@ -11,3 +11,11 @@ class NewsletterEmail(Campaign):
     panels = Campaign.panels + [
         StreamFieldPanel('body'),
     ]
+
+# Create your models here.
+class LSHNewsletter(Campaign):
+    body = StreamField(DefaultBlocks())
+
+    panels = Campaign.panels + [
+        StreamFieldPanel('body'),
+    ]

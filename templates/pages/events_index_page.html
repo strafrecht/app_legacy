@@ -15,12 +15,12 @@
 		<div class="col-md-12">
 			<h2 style="font-weight: 700; margin-bottom: 50px;">Events</h2>
 
-			<div class="role-group" style="display: flex;">
+			<div class="role-group" style="display: flex; flex-wrap: wrap;">
 				{% for event in events %}
-				<div class="text-center" style="width: fit-content; margin-right: 20px;">
+				<div class="text-center" style="width: fit-content; padding: 10px 10px; width: 25%;">
 					<a class="text-dark" href="{% routablepageurl page "event" event.id %}">
 						{% image event.poster width-200 %}
-						<h6 class="mt-2" style="max-width: 200px;">{{ event.name }}</h6>
+						<!--h6 class="mt-2">{{ event.name }}</h6-->
 						<!--p class="meta badge badge-dark">{{ event.date }}</p-->
 					</a>
 				</div>

@@ -3,7 +3,7 @@ from birdsong.options import CampaignAdmin
 from birdsong.models import Contact
 
 from .filters import ContactFilter
-from .models import NewsletterEmail
+from .models import NewsletterEmail, LSHNewsletter
 
 # You may want to add your own modeladmin here to list/edit/add contacts
 @modeladmin_register
@@ -14,9 +14,9 @@ class ContactAdmin(ModelAdmin):
     list_diplay = ('email', 'first_name', 'last_name', 'location')
 
 @modeladmin_register
-class NewsletterEmailAdmin(CampaignAdmin):
-    campaign = NewsletterEmail
-    menu_label = 'Newsletter Email'
+class LSHNewsletter(CampaignAdmin):
+    campaign = LSHNewsletter
+    menu_label = 'LSH Newsletter'
     menu_icon = 'mail'
     menu_order = 200
     contact_class = Contact

@@ -128,4 +128,3 @@ class Sessions(models.Model):
 
     class Meta:
         verbose_name = 'Lehrveranstaltung'
-        verbose_plural_name = 'Lehrveranstaltungen'

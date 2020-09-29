@@ -3,13 +3,14 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
+{% csrf_token %}
 	<div class="w-full" style="width: 100%;">
 		<div class="" style="margin-bottom: 20px;">
 			{% image page.cover original %}
 		</div>
 
 		<div class="content">
-		{{page.content}}
+			{% include_block page.content %}
 		</div>
 	</div>
 {% endblock content %}

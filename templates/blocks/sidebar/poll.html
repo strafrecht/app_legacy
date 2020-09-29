@@ -1,6 +1,23 @@
-{% load wagtailimages_tags %}
+{% extends "blocks/widget.html" %}
 
-<div class="sidebar sidebar-poll poll">
+{% load wagtailimages_tags %}
+{% load wagtailpolls_tags %}
+
+{% block widget %}
+	{% if page.poll %}
+	<div class="sidebar sidebar-poll poll">
+		<h5>Poll</h5>
+		<p>{{ page.poll.title }}</p>
+		<form class='poll' method='POST' action='{% url 'wagtailpolls_vote' page.poll.id %}'>
+			{% csrf_token %}
+			{{ page.poll.form }}
+    		<input type="submit" value="Vote">
+    	</form>
+	</div>
+	{% endif %}
+{% endblock %}
+
+<!--div class="sidebar sidebar-poll poll">
 	<h5>Poll</h5>
 	<p>
 		Corona hat die Gefängnisse auf der ganzen Welt teilweise geleert.
@@ -28,4 +45,4 @@
 			<input class="submit" type="submit" value="Submit">
 		</div>
 	</div>
-</div>
+</div-->

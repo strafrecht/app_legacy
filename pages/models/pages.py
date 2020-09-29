@@ -23,6 +23,7 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 
+from wagtailpolls.models import Poll
 from wagtailpolls.edit_handlers import PollChooserPanel
 from wagtailcolumnblocks.blocks import ColumnsBlock
 from news.models import NewsItem
@@ -178,7 +179,6 @@ class SidebarHeaderBlock(blocks.StructBlock):
         template = 'blocks/sidebar/header.html'
 
 class SidebarPollBlock(blocks.StructBlock):
-
     class Meta:
         template = 'blocks/sidebar/poll.html'
 
@@ -227,6 +227,10 @@ class ColumnBlocks(blocks.StreamBlock):
         template='blocks/columnsblock.html',
     )
 
+    def get_context(self, request):
+        context = super().get_context(request)
+        context['request'] = request
+        return context
 
 class SidebarPage(Page):
     content = fields.StreamField(ColumnBlocks)
@@ -255,6 +259,8 @@ class SidebarPage(Page):
         context = super().get_context(request)
         #news_articles = WebsitePage.objects.filter(content_type__model='newsarticlepage').order_by('-first_published_at')[0:2]
         #context['articles'] = news_articles
+        #context['poll'] = Poll.objects.first()
+        context['request'] = request
         return context
 
     def get_absolute_url(self):

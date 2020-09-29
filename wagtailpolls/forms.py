@@ -54,6 +54,7 @@ class VoteForm(forms.ModelForm):
     def save(self, commit=True):
         instance = super(VoteForm, self).save(commit=False)
         instance.ip = self.ip  # TODO
+
         if commit:
             instance.save()
         return instance
