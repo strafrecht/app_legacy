@@ -72,3 +72,11 @@ footer ul li {
 .content .col-8 ul li {
 	margin-bottom: 7px;
 }
+.social-media-icon {
+  font-size: 25px;
+  width:25px;
+  text-align: center;
+  text-decoration:none;
+  margin: 0px 2px;
+  color:#6c757d;
+}
