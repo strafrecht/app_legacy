@@ -74,10 +74,14 @@ footer ul li {
     margin-bottom: 35px;
 }
 .social-media-icon {
-  font-size: 25px;
-  width:25px;
+  font-size: 25px;!important
+  width:25px;!important
   text-align: center;
   text-decoration:none;
   margin: 0px 2px;
+  color:#6c757d;
+}
+.social-media-icon:hover {
+  text-decoration:none;
   color:#6c757d;
 }
