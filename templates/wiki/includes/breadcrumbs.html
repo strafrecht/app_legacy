@@ -42,7 +42,6 @@
         {% if urlpath.parent %}
         <a class="dropdown-item" href="{% url 'wiki:create' path=urlpath.parent.path %}" style="padding: 7px;">
           <span class="fa fa-arrow-right"></span>
-          Problemfeld hinzufügen
           {% blocktrans with article.current_revision.title as title %}Neues Problemfeld auf Ebene der Kategorie {{ title }} erstellen{% endblocktrans %}
         </a>
         {% endif %}
