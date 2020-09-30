@@ -67,13 +67,14 @@
 .news-widget .date {
 	color: rgb(76, 158, 187);
 	margin-bottom: 10px;
+	font-weight:700;
 }
 .news-widget .title {
 	color: #6b6b6b;
 	font-size: 1rem;
 	font-weight: bold;
 	height: 40px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .news-widget .body {
 	font-size: 0.9rem;
