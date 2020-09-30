@@ -129,12 +129,12 @@ setTimeout(() => {
               {% if revision == article.current_revision %}
               <a href="#" class="btn btn-secondary disabled">
                 <span class="fa fa-lock fa-fw"></span>
-                {% trans "Preview this revision" %}
+                {% trans "Vorschau dieser Version" %}
               </a>
               {% else %}
               <button type="submit" class="btn btn-secondary" onclick="$('#previewModal').modal('show'); this.form.target='previewWindow'; this.form.r.value='{{ revision.id }}'; this.form.action='{% url 'wiki:preview_revision' article.id %}'; $('#previewModal .switch-to-revision').attr('href', '{% url 'wiki:change_revision' path=urlpath.path article_id=article.id revision_id=revision.id %}')">
                 <span class="fa fa-eye fa-fw"></span>
-                {% trans "Preview this revision" %}
+                {% trans "Vorschau dieser Version" %}
               </button>
               {% endif %}
 
@@ -156,7 +156,7 @@ setTimeout(() => {
                   <tr>
                     <th class="linenumber">{% if revision.previous_revision %}#{{revision.previous_revision.revision_number}}{% endif %}</th>
                     <th class="linenumber">#{{revision.revision_number}}</th>
-                    <th>{% trans "Change" %}</th>
+                    <th>{% trans "Änderungen" %}</th>
                   </tr>
                 </thead>
               </table>
