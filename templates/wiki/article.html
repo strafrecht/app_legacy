@@ -66,7 +66,7 @@
         {% endif %}
       </td>
       <td>
-        {{ urlpath.article.current_revision.created }}
+        {{ urlpath.article.current_revision.created|date:"j.n.Y G.i Uhr" }}
       </td>
     </tr>
     {% empty%}
@@ -82,5 +82,5 @@
 {% endblock %}
 
 {% block wiki_footer_prepend %}
-  <p style="margin-bottom: 10px;"><em>{% trans "Dieses Problemfeld wurde zuletzt geändert am:" %} {{ article.current_revision.modified }}</em></p>
+  <p style="margin-bottom: 10px;"><em>{% trans "Dieses Problemfeld wurde zuletzt geändert am:" %} {{ article.current_revision.modified|date:"j.n.Y G.i Uhr" }}</em></p>
 {% endblock %}
