@@ -23,9 +23,9 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="dropdown-{{page.title}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ page.title }}</a>
 								<div class="dropdown-menu" aria-labelledby="dropdown-{{page.title}}">
-									<a class="dropdown-item" href="{% pageurl page %}">{{ page.subtitle }}</a>
+									<!--a class="dropdown-item" href="{% pageurl page %}">{{ page.subtitle }}</a-->
 									{% for child in page.get_children.specific %}
-									<a class="dropdown-item" href="{% pageurl child %}">{{ child.title }}</a>
+										<a class="dropdown-item" href="{% pageurl child %}">{{ child.title }}</a>
 									{% endfor %}
 								</div>
 							</li>

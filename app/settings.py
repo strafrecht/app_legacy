@@ -25,12 +25,22 @@ SECRET_KEY = '#g*o!3=v$8+ag9%^&llf6h-fhm9zsrjlmb+s0)g&#*b1*8l##w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'bd3b44d2f1b0.ngrok.io'
+]
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Live Reload
+    'livereload',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -42,14 +52,18 @@ INSTALLED_APPS = [
     'colorfield',
     'django.contrib.admin',
     'pagedown',
+    'django_filters',
+    #'debug_toolbar',
 
     # Assets
     'pipeline',
 
     # Pages
-    'pages',
-    'profiles',
     'core',
+    'pages',
+    'news',
+    'emails',
+    'profiles',
     'leaflet',
 
     # Wagtail
@@ -66,6 +80,7 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    'wagtailcolumnblocks',
 
     'modelcluster',
     'taggit',
@@ -83,9 +98,28 @@ INSTALLED_APPS = [
     'wiki.plugins.images.apps.ImagesConfig',
     'wiki.plugins.macros.apps.MacrosConfig',
     'editors',
+    'markdownify',
 
     # Chatter
     #'django_chatter',
+
+    # Comments
+    'django_comments_xtd',
+    'django_comments',
+
+    # Wagtail News
+    'wagtailnews',
+
+    # Wagtail Menus
+    'wagtailmenus',
+
+    # Wagtail Newsletter
+    'mjml',
+    'birdsong',
+
+    # Wagtail Polls
+    'wagtailpolls',
+
 ]
 
 MIDDLEWARE = [
@@ -98,6 +132,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    'livereload.middleware.LiveReloadScript',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -118,6 +154,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'sekizai.context_processors.sekizai',
+                'wagtailmenus.context_processors.wagtailmenus',
             ],
         },
     },
@@ -125,6 +162,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 ASGI_APPLICATION = 'app.routing.application'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.yourserver.com'
+    EMAIL_PORT = '<your-server-port>'
+    EMAIL_HOST_USER = 'your@djangoapp.com'
+    EMAIL_HOST_PASSWORD = 'your-email account-password'
+    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = False
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -200,18 +248,11 @@ STATICFILES_FINDERS = (
 )
 
 WAGTAIL_SITE_NAME = 'strafrecht-online'
-WAGTAILADMIN_RICH_TEXT_EDITORS = {
-    'default': {
-        'WIDGET': 'wagtail.admin.rich_text.HalloRichTextArea'
-    }
-}
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 SITE_ID = 1
-
 
 PIPELINE = {
     'PIPELINE_ENABLED': False, #not DEBUG
@@ -227,9 +268,10 @@ PIPELINE = {
                 'css/charts.css'
                 'css/mysite.css',
                 'css/content.css',
+                'css/navbar.css',
+                'css/custom-wagtail-columns.css'
                 'css/sidebar.css',
-                'css/navbar.css'
-                #'css/wiki.css',
+                'css/wiki.css',
             ),
             'output_filename': 'css/main.css',
         },
@@ -262,3 +304,20 @@ WIKI_ANONYMOUS = True
 WIKI_ANONYMOUS_CREATE = True
 WIKI_ANONYMOUS_WRITE = True
 WIKI_EDITOR = 'editors.modern.Modern'
+WIKI_CHECK_SLUG_URL_AVAILABLE = False
+
+COMMENTS_APP = 'django_comments_xtd'
+COMMENTS_XTD_MAX_THREAD_LEVEL = 5
+COMMENTS_XTD_CONFIRM_EMAIL = False
+
+import os
+if os.name == 'nt':
+    import platform
+    OSGEO4W = r"C:\OSGeo4W"
+    if '64' in platform.architecture()[0]:
+        OSGEO4W += "64"
+    assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
+    os.environ['OSGEO4W_ROOT'] = OSGEO4W
+    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
+    os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
+    os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']

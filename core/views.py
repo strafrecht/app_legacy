@@ -2,7 +2,7 @@ import os
 import html2text
 import logging
 from tqdm import tqdm
-from markdownify import markdownify as md
+import markdownify as md
 from bs4 import BeautifulSoup
 from collections import deque
 

@@ -46,8 +46,56 @@
 {% endaddtoblock %}
 
 <p class="lead">
-  {% trans "Click each revision to see a list of edited lines. Click the Preview button to see how the article looked at this stage. At the bottom of this page, you can change to a particular revision or merge an old revision with the current one." %}
+  {% trans "Klicke auf eine Version, um eine Zusammenstellung der jeweiligen Änderungen zu sehen. Klicke auf den Vorschau-Button, um das Problemfeld in diesem Zustand zu sehen. Am Ende der Vorschau-Seite kannst du die angezeigte Version ändern und zur aktuellen Version zurückkehren." %}
 </p>
+
+<!--script>
+setTimeout(() => {
+	let cards = document.querySelectorAll('.card')
+
+	for (var i = 0; i < cards.length; i++) {
+		let card = cards[i]
+		let toggle = card.querySelector('.wiki-card-toggle')
+
+		toggle.addEventListener('click', () => {
+			setTimeout(() => {
+			console.log(card)
+
+			let converter = new showdown.Converter()
+			let elements = card.querySelectorAll('.data')
+
+			if (elements) {
+				console.log(elements)
+				for (var j = 0; j < elements.length; j++) {
+					let action, text;
+					let data = elements[j]
+					let s = data.textContent
+
+					if (s.indexOf("- "))
+					{
+						prefix = "- "
+						suffix = s.slice(2, s.length)
+					}
+					else if (s.indexOf("+ "))
+					{
+						prefix = "+ "
+						suffix = s.slice(2, s.length)
+					}
+					else {
+						prefix = ""
+						suffix = s
+					}
+
+					let html = converter.makeHtml(suffix)
+
+					data.innerHTML = html
+				}
+			}
+			}, 250)
+		})
+	}
+}, 1000)
+</script-->
 
 <form method="GET">
   <div class="tab-content" style="overflow: visible;">
@@ -126,11 +174,11 @@
       <div class="float-right">
         <button type="submit" name="preview" value="1" class="btn btn-secondary" onclick="$('#mergeModal').modal('show'); this.form.target='mergeWindow'; this.form.action=$('input[type=radio]:checked').attr('merge-button-href'); $('.merge-revision-commit').attr('href', $('input[type=radio]:checked').attr('merge-button-commit-href'))">
           <span class="fa fa-random"></span>
-          {% trans "Merge selected with current..." %}
+          {% trans "Diese Version mit der aktuellen zusammenführen ..." %}
         </button>
         <button type="submit" name="save" value="1" class="btn btn-primary" onclick="this.form.target='_self'; this.form.action=$('input[type=radio]:checked').attr('switch-button-href')">
           <span class="fa fa-flag"></span>
-          {% trans "Switch to selected version" %}
+          {% trans "Zu dieser Version wechseln" %}
         </button>
       </div>
       <div style="clear:both"></div>
@@ -149,17 +197,17 @@
         <div class="modal-footer">
           <a href="#" class="btn btn-secondary btn-lg" data-dismiss="modal">
             <span class="fa fa-arrow-circle-left"></span>
-            {% trans "Back to history view" %}
+            {% trans "Zurück zur Versionsgeschichte" %}
           </a>
           {% if article|can_write:user %}
           <a href="#" class="btn btn-lg btn-primary switch-to-revision">
             <span class="fa fa-flag"></span>
-            {% trans "Switch to this version" %}
+            {% trans "Zu dieser Version wechseln" %}
           </a>
           {% else %}
             <a href="#" class="btn btn-lg btn-primary disabled">
               <span class="fa fa-lock"></span>
-              {% trans "Switch to this version" %}
+              {% trans "Zu dieser Version wechseln" %}
             </a>
           {% endif %}
         </div>
@@ -171,8 +219,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1>{% trans "Merge with current" %}</h1>
-          <p class="lead"><span class="fa fa-info-circle"></span> {% trans "When you merge a revision with the current, all data will be retained from both versions and merged at its approximate location from each revision." %} <strong>{% trans "After this, it's important to do a manual review." %}</strong></p>
+          <h1>{% trans "Mit der aktuellen Version zusammenführen" %}</h1>
+          <p class="lead"><span class="fa fa-info-circle"></span> {% trans "Wenn du eine Version mit der aktuellen zusammenführst, kann es zu Überschreibungen kommen. Wir versuchen, die Daten aus beiden Versionen zusammenzustellen - so gut es geht." %} <strong>{% trans "After this, it's important to do a manual review." %}</strong></p>
         </div>
         <div class="modal-body">
           <iframe name="mergeWindow" frameborder="0" style="min-height: 0;"></iframe>
@@ -180,17 +228,17 @@
         <div class="modal-footer">
           <a href="#" class="btn btn-secondary btn-lg" data-dismiss="modal">
             <span class="fa fa-arrow-circle-left"></span>
-            {% trans "Back to history view" %}
+            {% trans "Zurück zur Versionsgeschichte" %}
           </a>
           {% if article|can_write:user %}
           <a href="#" class="btn btn-lg btn-primary merge-revision-commit">
             <span class="fa fa-file"></span>
-            {% trans "Create new merged version" %}
+            {% trans "Eine neue Version hieraus erstellen" %}
           </a>
           {% else %}
             <a href="#" class="btn btn-lg btn-primary disabled">
               <span class="fa fa-lock"></span>
-              {% trans "Create new merged version" %}
+              {% trans "Eine neue Version hieraus erstellen" %}
             </a>
           {% endif %}
         </div>

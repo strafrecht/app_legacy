@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load wagtailcore_tags wagtailnews_admin_tags %}
+
+{% block widget %}
+<div class="">
+	<h2>Letzte News & Abstimmungen</h2>
+
+	<div class="news-widgets">
+	{% for article in articles %}
+		<div class="news-widget">
+			<div class="news-widget-inner">
+				<div class="date">{{ article.date|date:"d.m.Y" }}</div>
+				<div class="title">{{ article.title }}</div>
+				<div class="body">{{ article.body | richtext | truncatechars:200 }}</div>
+				<div class="comments">0 comments</div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

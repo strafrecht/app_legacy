@@ -2,7 +2,7 @@
 {% load wiki_tags i18n sekizai_tags static %}
 
 
-{% block wiki_pagetitle %}{% trans "Add new article" %}{% endblock %}
+{% block wiki_pagetitle %}{% trans "Neues Problemfeld hinzufügen" %}{% endblock %}
 
 {% block wiki_contents %}
 
@@ -28,7 +28,7 @@
   {% endaddtoblock %}
 
   {% include "wiki/includes/editormedia.html" %}
-  <h1 class="page-header">{% trans "Add new article" %}</h1>
+  <h1 class="page-header">{% trans "Neues Problemfeld hinzufügen" %}</h1>
 
   <form method="POST" class="form-horizontal">
     {% wiki_form create_form %}
@@ -37,11 +37,11 @@
       <div class="col-lg-10">
         <a href="{% url 'wiki:get' path=parent_urlpath.path %}" class="btn btn-secondary">
           <span class="fa fa-arrow-left"></span>
-          {% trans "Go back" %}
+          {% trans "Zurück" %}
         </a>
         <button type="submit" name="save_changes" class="btn btn-primary">
           <span class="fa fa-plus"></span>
-          {% trans "Create article" %}
+          {% trans "Problemfeld erstellen" %}
         </button>
       </div>
     </div>
