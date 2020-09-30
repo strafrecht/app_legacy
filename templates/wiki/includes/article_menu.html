@@ -5,7 +5,7 @@
 <li class="nav-item">
   <a href="{% url 'wiki:get' article_id=article.id path=urlpath.path %}" class="px-3 nav-link{% if selected == "view" %} active{% endif %}">
     <span class="fa fa-home"></span>
-    <span class="hidden-xs">{% trans "View" %}</span>
+    <span class="hidden-xs">{% trans "Anzeigen" %}</span>
   </a>
 </li>
 
@@ -13,14 +13,14 @@
 <li class="nav-item">
   <a href="{% url 'wiki:edit' article_id=article.id path=urlpath.path %}" class="px-3 nav-link{% if selected == "edit" %} active{% endif %}">
     <span class="fa fa-edit"></span>
-    <span class="hidden-xs">{% trans "Edit" %}</span>
+    <span class="hidden-xs">{% trans "Bearbeiten" %}</span>
   </a>
 </li>
 {% else %}
 <li class="nav-item">
   <a href="{% url 'wiki:source' article_id=article.id path=urlpath.path %}" class="px-3 nav-link{% if selected == "source" %} active{% endif %}">
     <span class="fa fa-lock"></span>
-    <span class="hidden-xs">{% trans "View Source" %}</span>
+    <span class="hidden-xs">{% trans "Quellcode anzeigen" %}</span>
   </a>
 </li>
 {% endif %}
@@ -28,7 +28,7 @@
 <li class="nav-item">
   <a href="{% url 'wiki:history' article_id=article.id path=urlpath.path %}" class="px-3 nav-link{% if selected == "history" %} active{% endif %}">
     <span class="fa fa-clock"></span>
-    <span class="hidden-xs">{% trans "Changes" %}</span>
+    <span class="hidden-xs">{% trans "Versionsgeschichte" %}</span>
   </a>
 </li>
 
@@ -45,7 +45,7 @@
 <li class="nav-item">
   <a href="{% url 'wiki:settings' article_id=article.id path=urlpath.path %}" class="px-3 nav-link{% if selected == "settings" %} active{% endif %}">
     <span class="fa fa-wrench"></span>
-    <span class="hidden-xs">{% trans "Settings" %}</span>
+    <span class="hidden-xs">{% trans "Einstellungen" %}</span>
   </a>
 </li>
 {% endif %}
