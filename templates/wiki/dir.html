@@ -65,7 +65,7 @@
         {% endif %}
       </td>
       <td>
-        {{ urlpath.article.current_revision.created|naturaltime }}
+        {{ urlpath.article.current_revision.created|date:"j.n.Y G.i Uhr" }}
       </td>
     </tr>
     {% empty%}
