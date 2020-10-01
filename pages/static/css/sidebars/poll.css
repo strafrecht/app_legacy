@@ -1,16 +1,11 @@
 .sidebar-poll {
 	border: 1px solid #ddd;
-	padding: 0px 15px 10px 15px;
+	padding: 20px;
 	border-bottom: 1px solid #ddd !important;
 }
 .sidebar-poll label {
 	display: inline-block;
 	margin-bottom: .5rem;
-}
-.sidebar-poll p:first-child {
-	font-weight: bolder;
-	line-height: 1.5;
-	font-size: 1.1rem;
 }
 .sidebar-poll .question {
 	display: flex;
@@ -21,6 +16,9 @@
 .sidebar-poll .question input {
 	margin-right: 10px;
 	margin-top: 3px;
+}
+.sidebar-poll li {
+	margin-bottom: 15px;
 }
 .sidebar-poll .bottom {
 display: flex;
