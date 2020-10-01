@@ -1,7 +1,10 @@
 {% load menu_tags wagtailcore_tags %}
 
-<nav id="nav" class="navbar navbar-expand-md {% if page.slug == "strafrecht-online" %}navbar-trans{% endif %}">
-	<div class="container">
+<nav id="nav" class="navbar navbar-expand-md {% if page.slug == "strafrecht-online" %}navbar-trans{% endif %}" style="flex-direction: column; justify-content: flex-start; padding: 5px 0;">
+	<div class="container" style="flex-direction: row; justify-content: flex-start; margin: 0px; padding: 0px;">
+		<a class="brand" href="/" style="margin-left: 20px; margin-bottom: 10px; color: #515151 !important;">STRAFRECHT-ONLINE.ORG</a>
+	</div>
+	<div class="container" style="margin: 0px; padding: 0px;">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon">
 				<span class="navbar-toggler-bar"></span>
@@ -14,9 +17,6 @@
 			<div class="navbar-collapse-inner">
 				<div style="display: flex; width: 100%;">
 					<ul class="navbar-nav" style="flex-grow: 1;">
-						<li class="nav-item" style="width: max-content; padding: 10px 0;">
-							<a class="brand" href="/">STRAFRECHT-ONLINE.ORG</a>
-						</li>
 
 						{% for item in menu_items %}
 							{% if item.has_children_in_menu %}

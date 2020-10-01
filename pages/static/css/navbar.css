@@ -29,6 +29,7 @@
 #nav .navbar-toggler {
 	padding: 10px 0 !important;
 	outline: none;
+	z-index: 1000;
 }
 #nav .navbar-toggler-icon {
 	display: flex;
@@ -57,6 +58,9 @@
 
 #nav .navbar-trans .navbar-brand {
 	color: black;
+}
+#nav .container {
+	margin-left: -40px !important;
 }
 
 #nav .navbar-nav .nav-link:hover {

@@ -46,6 +46,8 @@
 }
 .sidebar-title p {
 	margin-bottom: 0px;
+	font-size: 1.2em;
+	font-family: 'Corporal' !important;
 }
 
 .news-widgets {
@@ -137,7 +139,6 @@
 
 	/* Columns */
 	.block-column_2_1 {
-		border: 1px solid red !important;
 		flex-direction: column;
 		padding: 10px !important;
 	}
