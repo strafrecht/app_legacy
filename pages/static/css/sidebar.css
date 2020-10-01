@@ -36,10 +36,11 @@
 }
 .sidebar-title {
 	background: #a7a5a5;
+	font-size: 17px;
 	color: white;
 	margin-bottom: 28px;
 	text-align: center;
-	font-weight: 900;
+	font-weight: 400;
 	text-transform: uppercase;
 	padding: 10px 0;
 }
