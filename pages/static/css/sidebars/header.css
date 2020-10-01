@@ -20,9 +20,9 @@
 }
 
 .sidebar-header .title {
-	background-size: cover;
-	background-position-x: center;
-	background-repeat: no-repeat;
+	background-size: cover !important;
+	background-position-x: center !important;
+	background-repeat: no-repeat !important;
 	text-align: center;
 	padding-top: 50px;
 	width: 100%;
