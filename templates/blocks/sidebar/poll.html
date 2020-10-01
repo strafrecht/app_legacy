@@ -6,8 +6,7 @@
 {% block widget %}
 	{% if page.poll %}
 	<div class="sidebar sidebar-poll poll">
-		<h5>Poll</h5>
-		<p>{{ page.poll.title }}</p>
+		<h3><b>{{ page.poll.title }}</b></h3>
 		<form id="poll" class='poll' method='POST' action='{% url 'wagtailpolls_vote' page.poll.id %}'>
 			{% csrf_token %}
 			{{ page.poll.form }}
@@ -66,8 +65,7 @@
 {# block widget %}
 	{% if page.poll %}
 	<div class="sidebar sidebar-poll poll">
-		<h5>Poll</h5>
-		<p>{{ page.poll.title }}</p>
+		<h3><b>{{ page.poll.title }}</b></h3>
 		<form class='poll' method='POST' action='{% url 'wagtailpolls_vote' page.poll.id %}'>
 			{% csrf_token %}
 			{{ page.poll.form }}
