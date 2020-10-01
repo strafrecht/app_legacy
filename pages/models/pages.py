@@ -173,7 +173,7 @@ class SidebarImageTextBlock(blocks.StructBlock):
 class SidebarHeaderBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     image = ImageChooserBlock()
-    content = blocks.RichTextBlock()
+    content = blocks.RichTextBlock(required=False)
 
     class Meta:
         template = 'blocks/sidebar/header.html'
