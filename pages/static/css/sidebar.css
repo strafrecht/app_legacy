@@ -47,6 +47,9 @@
 .sidebar-title p {
 	margin-bottom: 0px;
 }
+div[class^="block-sidebar"]:first-child .widget, div[class^="block-sidebar"]:first-child .sidebar {
+	margin-top: 0px;
+}
 
 .news-widgets {
 	display: flex;
