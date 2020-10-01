@@ -73,6 +73,23 @@ footer ul li {
 .container .header-image {
     margin-bottom: 35px;
 }
+.container .header-image .header-caption {
+    display: inline-block;
+    position: relative;
+    background: rgb(225, 213, 196);
+    color: rgb(89, 89, 89);
+    float: right;
+    z-index: 10;
+    bottom: 40px;
+    right: 0;
+    line-height: 21px;
+    font-size: 21px;
+    padding: 1px 7px;
+    font-family: "Corporal", sans-serif;
+    text-transform: uppercase;
+    opacity: 0.75;
+    font-weight: normal;
+}
 a.social-media-icon {
   font-size: 25px !important;
   width: 25px !important;
