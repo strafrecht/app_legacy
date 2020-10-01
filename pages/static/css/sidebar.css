@@ -49,6 +49,9 @@
 	font-size: 1.2em;
 	font-family: 'Corporal' !important;
 }
+div[class^="block-sidebar"]:first-child .widget, div[class^="block-sidebar"]:first-child .sidebar {
+	margin-top: 0px;
+}
 
 .news-widgets {
 	display: flex;
