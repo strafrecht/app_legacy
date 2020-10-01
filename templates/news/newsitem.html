@@ -11,6 +11,7 @@
 {% block content %}
 <div class="container">
 	<div class="col-md-8">
+		{{ page }}
 		<h1>{{ page.title }}</h1>
 		<p>Von <a href="/personen/{{ page.owner.id }}">{{ page.owner }}</a></p>
 		<p class="meta badge badge-dark">{{ page.date }}</p>

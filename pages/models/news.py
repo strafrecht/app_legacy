@@ -36,6 +36,10 @@ class NewsArticleIndexPage(Page):
         return context
 
 class NewsArticlePage(WebsitePage):
+    print("HERE")
+    def get_context(self, request):
+        print("HERE")
+        print(request)
     def author_name(self):
         "ERROR"
         #return "{} {}".format(self.author.first_name, self.author.last_name)

@@ -79,9 +79,19 @@ a.social-media-icon {
   text-align: center;
   text-decoration: none;
   margin: 0px 2px;
-  color: #6c757d;
+  color: #6c757d !important;
 }
 a.social-media-icon:hover {
   text-decoration: none;
-  color: #6c757d;
+  color: #6c757d !important;
+}
+
+@font-face {
+	font-family: 'Corporal';
+	font-style: normal;
+	src: local('Corporal'), url('/static/fonts/corporal-webfont.ttf') format('truetype');
+}
+
+.brand {
+	font-family: 'Corporal' !important;
 }

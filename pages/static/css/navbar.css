@@ -206,3 +206,7 @@
 		display: none;
 	}
 }
+
+#nav .navbar-toggler-bar {
+	background: #333;
+}
