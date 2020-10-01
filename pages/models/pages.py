@@ -241,12 +241,7 @@ class SidebarPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    cover_caption = models.ForeignKey(
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
+    cover_caption = models.CharField(max_length=255, blank=True, null=True)
     poll = models.ForeignKey(
         'wagtailpolls.Poll',
         null=True,
