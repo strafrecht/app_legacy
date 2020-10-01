@@ -130,3 +130,48 @@
 .jurcoach-link:hover p {
 	color: white;
 }
+
+@media screen and (max-width: 400px) {
+
+	/* Columns */
+	.block-column_2_1 {
+		border: 1px solid red !important;
+		flex-direction: column;
+		padding: 10px !important;
+	}
+
+	.block-column_2_1 .row {
+		flex-basis: auto;
+		margin: 0px;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+	.block-column_2_1 .row .column {
+		flex-basis: auto;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	.block-column_2_1 .col-8 {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	.block-column_2_1 .col-4 {
+		width: 100%;
+		max-width: 100% !important;
+	}
+	.block-column_2_1 h2 {
+		font-size: 1.4em !important;
+	}
+
+	/* Sidebar */
+	.sidebar {
+		margin-right: 0px;
+		max-width: 100%;
+	}
+	.news-widget {
+		width: 100% !important;
+		padding: 0px;
+	}
+}
