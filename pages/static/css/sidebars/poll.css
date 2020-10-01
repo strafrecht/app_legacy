@@ -1,7 +1,5 @@
 .sidebar-poll {
-	background: #fafafa;
 	border: 1px solid #ddd;
- 	border-radius: 10px;
 	padding: 0px 15px 10px 15px;
 	border-bottom: 1px solid #ddd !important;
 }
@@ -9,13 +7,10 @@
 	display: inline-block;
 	margin-bottom: .5rem;
 }
-
-.sidebar-poll h5 {
-	color: #555;
-	font-size: 14px !important;
-	font-family: Roboto !important;
-	text-transform: uppercase;
-	margin-top: 10px;
+.sidebar-poll p:first-child {
+	font-weight: bolder;
+	line-height: 1.5;
+	font-size: 1.1rem;
 }
 .sidebar-poll .question {
 	display: flex;
