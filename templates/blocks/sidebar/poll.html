@@ -10,7 +10,7 @@
 		<form id="poll" class='poll' method='POST' action='{% url 'wagtailpolls_vote' page.poll.id %}'>
 			{% csrf_token %}
 			{{ page.poll.form }}
-    		<input type="submit" value="Abstimmen">
+    		<input type="submit" value="Abstimmen" class="poll-vote-button">
     	</form>
 	</div>
 
@@ -69,7 +69,7 @@
 		<form class='poll' method='POST' action='{% url 'wagtailpolls_vote' page.poll.id %}'>
 			{% csrf_token %}
 			{{ page.poll.form }}
-    		<input type="submit" value="Abstimmen">
+    		<input type="submit" value="Abstimmen" class="poll-vote-button">
     	</form>
 	</div>
 	{% endif %}
