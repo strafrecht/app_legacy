@@ -153,7 +153,7 @@
 	display: flex;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 1000px) {
 	#nav .container {
 		display: contents;
 		margin: 0px;

@@ -29,20 +29,23 @@
 			{% include "layout/menu.html" %}
     {% endblock %}
 
+
     <div class="container" style="margin-top: 40px;">
-    <div class="header-image">
-    	<img src="/media/images/jurcoach_QoAbNtR.original.jpg">
-    	<div class="header-caption">Jurcoach</div>
-    </div>
+    	<div class="header-image">
+    		<img src="/media/images/jurcoach_QoAbNtR.original.jpg">
+    		<div class="header-caption">Jurcoach</div>
+    	</div>
 
-      {% wiki_messages %}
+    	<div class="wiki-content">
+      	  {% wiki_messages %}
 
-      <!-- Reserved for breadcrumbs -->
-      {% block wiki_breadcrumbs %}{% endblock %}
+      	  <!-- Reserved for breadcrumbs -->
+      	  {% block wiki_breadcrumbs %}{% endblock %}
 
-      <!-- Main page contents go here -->
-      {% block wiki_contents %}{% endblock %}
+      	  <!-- Main page contents go here -->
+      	  {% block wiki_contents %}{% endblock %}
 
+		</div>
     </div> <!-- /container -->
 
     {% endblock %}

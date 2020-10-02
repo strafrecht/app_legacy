@@ -70,10 +70,10 @@ footer ul li {
 .content .col-8 ul li {
 	margin-bottom: 7px;
 }
-.container .header-image {
+body .header-image {
     margin-bottom: 35px;
 }
-.container .header-image .header-caption {
+body .header-image .header-caption {
     display: inline-block;
     position: relative;
     background: rgb(225, 213, 196);
@@ -111,4 +111,18 @@ a.social-media-icon:hover {
 
 .brand {
 	font-family: 'Corporal' !important;
+}
+
+@media screen and (max-width: 1000px) {
+	.row {
+		margin: 0px;
+	}
+
+	main {
+		padding: 10px !important;
+	}
+
+	footer {
+		padding: 10px;
+	}
 }
