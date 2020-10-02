@@ -16,6 +16,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
+		$("#poll > label").empty()
 		$("#poll").submit(function(e) {
 			e.preventDefault()
 
@@ -40,7 +41,7 @@
 							return `
 								<div style="margin-bottom: 20px;">
 									<div style="width: 100%; display: flex;">
-										<div style="font-weight: bold; background: rgb(225, 213, 196); width: ${ratio}%;"></div><span style="float: right; margin-left: 10px; font-weight: bold;">${votes} (${ratio} %)</span>
+										<div style="font-weight: bold; background: rgb(225, 213, 196); width: ${ratio}%;"></div><span style="float: right; margin-left: 10px; font-weight: bold;">${votes} (${ratio}%)</span>
 									</div>
 									<div>${question}</div>
 								</div>
