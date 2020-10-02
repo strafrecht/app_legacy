@@ -26,17 +26,20 @@ display: flex;
 }
 
 .sidebar-poll a {
-	color: teal;
+	color: rgb(76, 158, 187);
 	font-family: Crimson;
 	font-size: 14px;
 	display: block;
 	margin: 5px 0;
 }
-.sidebar-poll .submit {
+
+.poll-vote-button {
 	float: right;
-	background: white;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	font-size: 13px;
-	padding: 5px 14px;
+	border: none;
+	background: none;
+	color: rgb(76, 158, 187);
+}
+
+.poll-vote-button:hover{
+	text-decoration:underline;
 }
