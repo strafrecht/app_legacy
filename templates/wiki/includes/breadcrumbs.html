@@ -42,12 +42,12 @@
         {% if urlpath.parent %}
         <a class="dropdown-item" href="{% url 'wiki:create' path=urlpath.parent.path %}" style="padding: 7px;">
           <span class="fa fa-arrow-right"></span>
-          {% blocktrans with article.current_revision.title as title %}Neues Problemfeld auf Ebene der Kategorie {{ title }} erstellen{% endblocktrans %}
+          {% blocktrans with article.current_revision.title as title %}New article next to {{ title }}{% endblocktrans %}
         </a>
         {% endif %}
         <a class="dropdown-item" href="{% url 'wiki:create' path=urlpath.path %}" style="padding: 7px;">
           <span class="fa fa-arrow-down"></span>
-          {% blocktrans with article.current_revision.title as title %}Neues Problemfeld in der Kategorie {{ title }} erstellen{% endblocktrans %}
+          {% blocktrans with article.current_revision.title as title %}New article below {{ title }}{% endblocktrans %}
         </a>
     </div>
   </div>
