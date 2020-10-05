@@ -53,8 +53,8 @@
 
 		<table class="table table-striped">
 			<tr>
-				<th>{% trans "In dieser Kategorie" %}</th>
-				<th>{% trans "Letzte Änderung" %}</th>
+				<th>{% trans "Title" %}</th>
+				<th>{% trans "Last modified" %}</th>
 			</tr>
 			{% for urlpath in children_slice %}
 				<tr>
@@ -75,7 +75,7 @@
 				{% empty%}
 				<tr>
 					<td colspan="100">
-					<em>{% trans "In dieser Kategorie sind keine Problemfelder vorhanden." %}</em>
+					<em>{% trans "There are no articles in this level" %}</em>
 					</td>
 				</tr>
 			{% endfor %}
@@ -85,5 +85,5 @@
 {% endblock %}
 
 {% block wiki_footer_prepend %}
-  <p style="margin-bottom: 10px;"><em>{% trans "Dieses Problemfeld wurde zuletzt geändert am:" %} {{ article.current_revision.modified|date:"j.n.Y G.i Uhr" }}</em></p>
+  <p style="margin-bottom: 10px;"><em>{% trans "This article was last modified:" %} {{ article.current_revision.modified|date:"j.n.Y G.i Uhr" }}</em></p>
 {% endblock %}

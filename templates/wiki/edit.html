@@ -2,14 +2,14 @@
 {% load wiki_tags i18n sekizai_tags %}
 
 
-{% block wiki_pagetitle %}{% trans "Bearbeiten" %}: {{ article.current_revision.title }}{% endblock %}
+{% block wiki_pagetitle %}{% trans "Edit" %}: {{ article.current_revision.title }}{% endblock %}
 
 {% block wiki_contents_tab %}
 
 {% if not user.is_authenticated %}
 <p class="alert alert-warning">
-{% trans "<strong>Achtung:</strong> Du bist nicht im Nutzerprofil eingeloggt. Deine IP-Adresse wird beim Bearbeiten daher gespeichert." %}
-<a href="{% url 'wiki:login' %}?next={% url 'wiki:edit' article_id=article.id path=urlpath.path %}">{% trans "Jetzt einloggen" %} &raquo;</a>
+{% trans "<strong>Warning:</strong> You are not logged in. Your IP address will be logged." %}
+<a href="{% url 'wiki:login' %}?next={% url 'wiki:edit' article_id=article.id path=urlpath.path %}">{% trans "Click here to log in" %} &raquo;</a>
 </p>
 {% endif %}
 
@@ -29,24 +29,24 @@
                     formtarget="previewWindow"
                     >
               <span class="fa fa-eye"></span>
-              {% trans "Vorschau" %}
+              {% trans "Preview" %}
             </button>
             <button class="btn btn-primary" type="submit" name="save" value="1" id="id_save">
               <span class="fa fa-check"></span>
-              {% trans "Änderungen speichern" %}
+              {% trans "Save changes" %}
             </button>
 
             <div class="float-right">
               {% if user.is_authenticated and urlpath.path %}
               <a href="{% url 'wiki:move' path=urlpath.path article_id=article.id %}" class="btn btn-warning ">
                 <span class="fa fa-random"></span>
-                {% trans "Problemfeld verschieben" %}
+                {% trans "Move article" %}
               </a>
               {% endif %}
               {% if article|can_delete:user %}
               <a href="{% url 'wiki:delete' path=urlpath.path article_id=article.id %}" class="btn btn-danger">
                 <span class="fa fa-trash-o"></span>
-                {% trans "Problemfeld löschen" %}
+                {% trans "Delete article" %}
               </a>
               {% endif %}
             </div>
@@ -76,11 +76,11 @@
       <div class="modal-footer">
         <a href="#" class="btn btn-secondary btn-lg" data-dismiss="modal">
           <span class="fa fa-arrow-circle-left"></span>
-          {% trans "Zurück zum Editor" %}
+          {% trans "Back to editor" %}
         </a>
         <a class="btn btn-lg btn-primary" id="id_preview_save_changes" href="#">
           <span class="fa fa-check"></span>
-          {% trans "Änderungen speichern" %}
+          {% trans "Save changes" %}
         </a>
       </div>
     </div>
