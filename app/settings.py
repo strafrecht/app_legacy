@@ -234,11 +234,14 @@ CHANNEL_LAYERS = {
 
 #LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'de-de'
+
 TIME_ZONE = 'UTC'
+
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
