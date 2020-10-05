@@ -14,9 +14,18 @@ import os
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
+sentry_sdk.init(
+    dsn="https://b43678e42cdf4f38a9b0dadf573da567@o244196.ingest.sentry.io/1723408",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0, # We recommend lowering this in production
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -223,14 +232,11 @@ CHANNEL_LAYERS = {
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de-de'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -319,16 +325,6 @@ COMMENTS_XTD_CONFIRM_EMAIL = False
 CHAT_WS_SERVER_HOST = 'localhost'
 CHAT_WS_SERVER_PORT = 5002
 CHAT_WS_SERVER_PROTOCOL = 'ws'
-
-sentry_sdk.init(
-    dsn="https://b43678e42cdf4f38a9b0dadf573da567@o244196.ingest.sentry.io/1723408",
-    integrations=[DjangoIntegration()],
-    traces_sample_rate=1.0, # We recommend lowering this in production
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)
 
 import os
 if os.name == 'nt':
