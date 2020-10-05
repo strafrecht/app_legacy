@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -70,7 +72,6 @@ INSTALLED_APPS = [
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.contrib.routable_page',
-    'wagtail.contrib.modeladmin',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -119,6 +120,7 @@ INSTALLED_APPS = [
 
     # Wagtail Polls
     'wagtailpolls',
+    'wagtail.contrib.modeladmin',
 
 ]
 
@@ -260,6 +262,10 @@ PIPELINE = {
         'pipeline.compilers.sass.SASSCompiler',
         'pipeline.compilers.es6.ES6Compiler'
     ),
+    'CSS_COMPRESSOR': 'pipeline.compressors.yuglify.YuglifyCompressor',
+    'JS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
+    #'pipeline.compressors.uglifyjs.UglifyJSCompressor',
+    'BABEL_ARGUMENTS': '', #'--presets es2016',
     'STYLESHEETS': {
         'base': {
             'source_filenames': (
@@ -279,11 +285,11 @@ PIPELINE = {
     'JAVASCRIPT': {
         'base': {
             'source_filenames': (
-                'js/mysite.js',
                 'js/index.js',
-                'js/editor.js',
-                'js/chartist.js',
-                'js/chartist-plugin-fill-donut.js',
+                #'js/mysite.js',
+                #'js/editor.js',
+                #'js/chartist.js',
+                #'js/chartist-plugin-fill-donut.js',
             ),
             'output_filename': 'js/index.js'
         },
@@ -309,6 +315,20 @@ WIKI_CHECK_SLUG_URL_AVAILABLE = False
 COMMENTS_APP = 'django_comments_xtd'
 COMMENTS_XTD_MAX_THREAD_LEVEL = 5
 COMMENTS_XTD_CONFIRM_EMAIL = False
+
+CHAT_WS_SERVER_HOST = 'localhost'
+CHAT_WS_SERVER_PORT = 5002
+CHAT_WS_SERVER_PROTOCOL = 'ws'
+
+sentry_sdk.init(
+    dsn="https://b43678e42cdf4f38a9b0dadf573da567@o244196.ingest.sentry.io/1723408",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0, # We recommend lowering this in production
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
 
 import os
 if os.name == 'nt':

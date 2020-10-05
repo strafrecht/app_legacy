@@ -1,1 +1,3 @@
-Sentry.init({ dsn: 'https://3e5b3d42c64b4a9e9f91cee20807382a@sentry.io/1730944' });
+Sentry.init({
+	dsn: "https://b43678e42cdf4f38a9b0dadf573da567@o244196.ingest.sentry.io/1723408"
+});
