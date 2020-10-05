@@ -1,7 +1,7 @@
 {% extends "wiki/article.html" %}
 {% load wiki_tags i18n humanize %}
 
-{% block wiki_pagetitle %}{% trans "Alle Problemfelder in" %} {{ article.current_revision.title }}{% endblock %}
+{% block wiki_pagetitle %}{% trans "Listing articles in" %} {{ article.current_revision.title }}{% endblock %}
 
 {% block wiki_contents_tab %}
 
@@ -14,12 +14,12 @@
         {% if urlpath.parent %}
         <a href="{% url 'wiki:dir' path=urlpath.parent.path %}" class="btn btn-secondary">
           <span class="fa fa-arrow-up"></span>
-          {% trans "Eine Ebene höher" %}
+          {% trans "Up one level" %}
         </a>
         {% endif %}
         <a href="{% url 'wiki:create' path=urlpath.path %}" class="btn btn-secondary">
           <span class="fa fa-plus"></span>
-          {% trans "Problemfeld hinzufügen" %}
+          {% trans "Add article" %}
         </a>
         </div>
         <div class="float-right">
@@ -49,8 +49,8 @@
 
 <table class="table table-striped">
   <tr>
-    <th>{% trans "Problemfeld" %}</th>
-    <th>{% trans "Letzte Änderung" %}</th>
+    <th>{% trans "Title" %}</th>
+    <th>{% trans "Last modified" %}</th>
   </tr>
   {% for urlpath in directory %}
     <tr>
@@ -71,7 +71,7 @@
     {% empty%}
     <tr>
       <td colspan="100">
-        <em>{% trans "Keine Problemfelder in dieser Kategorie vorhanden." %}</em>
+        <em>{% trans "There are no articles in this level" %}</em>
       </td>
     </tr>
   {% endfor %}
