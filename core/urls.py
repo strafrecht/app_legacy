@@ -10,5 +10,6 @@ urlpatterns = [
     path('category/<int:category_id>/question/<int:question_id>/', views.category_question, name='category_question'),
     path('category/<int:category_id>/summary/', views.category_summary, name='category_summary'),
 
-    path('scrape/', views.scrape, name='scrape')
+    path('scrape/', views.scrape, name='scrape'),
+    path('exams/', views.exams, name='exams')
 ]

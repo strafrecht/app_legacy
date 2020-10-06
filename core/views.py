@@ -11,6 +11,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from wiki.models import Article, ArticleRevision, URLPath
 from .models import Question, Answer, Quiz, UserAnswer, Choice
+from pages.models import Exams
 
 logger = logging.getLogger('django')
 
@@ -471,3 +472,65 @@ def _traverse_category(node, remaining, cat):
             traverse_category(child, remaining, cat)
             child.save()
 """
+
+def exams(request):
+    import csv
+    import dateutil.parser
+
+    exams = []
+
+    with open('exams.csv', newline='', encoding='utf-8-sig') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        exam_type = {
+            'Klausur im Falltraining': 'falltraining',
+            'Examensklausur': 'exam',
+            'Originalexamensklausur': 'original-exam',
+            'Übungsfall': 'exercise',
+            'Übungsklausur': 'exercise',
+            'AG-Fall': 'tutorial',
+        }
+        exam_difficulty = {
+            'Anfänger': 'beginner',
+            'Fortgeschrittene': 'intermediate',
+            'Examen': 'advanced',
+        }
+
+        for row in reader:
+            if row[0]:
+                date_string = "{}-01".format(row[0])
+                print(repr(date_string))
+                date = dateutil.parser.parse(date_string)
+            else:
+                date = None
+
+            if row[1]:
+                et = exam_type[row[1]]
+            else:
+                et = ""
+
+            if row[2]:
+                ed = exam_difficulty[row[2]]
+            else:
+                ed = ""
+
+            exam = Exams.objects.create(
+                date=date,
+                type=et,
+                difficulty=ed,
+                paragraphs=row[3],
+                problems=row[4],
+                sachverhalt_link=row[5],
+                loesung_link=row[6],
+            )
+            
+            exams.append(exam)
+
+    for exam in exams: print(exam)
+
+    result = Exams.objects.bulk_create(exams)
+
+    if result:
+        return HttpResponse('<p>done</p>')
+    else:
+        return HttpResponse('<p>failed</p>')
+

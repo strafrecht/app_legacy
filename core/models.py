@@ -90,4 +90,3 @@ class UserAnswer(models.Model):
 class Choice(models.Model):
     user_answer = models.ForeignKey(UserAnswer, null=True, on_delete=models.SET_NULL)
     answer = models.ForeignKey(Answer, null=True, on_delete=models.SET_NULL)
-

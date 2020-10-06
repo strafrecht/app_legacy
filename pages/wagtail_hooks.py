@@ -4,7 +4,7 @@ from wagtail.contrib.modeladmin.options import (
 import wagtail.admin.rich_text.editors.draftail.features as draftail_features
 from wagtail.admin.rich_text.converters.html_to_contentstate import InlineStyleElementHandler, BlockElementHandler, InlineEntityElementHandler
 from wagtail.core import hooks
-from pages.models import People, NodeAdmin, Events, Sessions
+from pages.models import People, NodeAdmin, Events, Sessions, Exams
 from wagtailpolls.models import Poll
 
 class PeopleModelAdmin(ModelAdmin):
@@ -35,12 +35,18 @@ class PollsModelAdmin(ModelAdmin):
     menu_order= 200
     #list_display = ('name', 'speaker', 'date')
 
+class ExamsModelAdmin(ModelAdmin):
+    model = Exams
+    menu_label = 'Klausurdatenbank'
+    menu_icon = 'group'
+    menu_order= 200
 
 modeladmin_register(NodeAdmin)
 modeladmin_register(PeopleModelAdmin)
 modeladmin_register(EventsModelAdmin)
 modeladmin_register(SessionsModelAdmin)
 modeladmin_register(PollsModelAdmin)
+modeladmin_register(ExamsModelAdmin)
 
 # pages/news/polls/poll-eval/sessions/events/people/newsletter email/
 @hooks.register('construct_main_menu')
