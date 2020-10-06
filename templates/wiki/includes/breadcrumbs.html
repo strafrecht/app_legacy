@@ -51,7 +51,46 @@
         </a>
     </div>
   </div>
+  
+  <div class="input-group">
+    <select id="links_page_title_query"></select>
+    <div class="input-group-append">
+    </div>
+  </div>
 
 <div class="clearfix"></div>
 </div>
 {% endif %}
+
+{% addtoblock "js" %}<script type="text/javascript" src="{% static "wiki/select2/js/select2.min.js" %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}
+<script
+type = "text/javascript" >
+  $(document).ready(function () {
+    $('#links_page_title_query').select2({
+      dropdownAutoWidth: true,
+      placeholder: "Suche nach...",
+      ajax: {
+        url: function (params) {
+          return "{% url 'wiki:links_query_urlpath' path=urlpath.path article_id=article.id %}?query=" + params.term
+        },
+        processResults: function (data) {
+          let ret = [];
+          data.forEach(function (val) {
+            ret.push({"id": val, "text": val})
+          });
+          return {results: ret};
+        },
+      },
+    });
+
+    $("#link_insert_button").on("click", function () {
+      $('#id_content').insertAtCaret($('#links_page_title_query').val());
+    });
+  });
+
+</script>
+{% endaddtoblock %}
+{% addtoblock "css" %}
+<link rel="stylesheet" href="{% static "wiki/select2/css/select2.min.css" %}" type="text/css" />
+{% endaddtoblock %}
