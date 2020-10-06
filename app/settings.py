@@ -47,6 +47,8 @@ INTERNAL_IPS = [
 ]
 
 # Application definition
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
 
 INSTALLED_APPS = [
     # Live Reload
@@ -70,6 +72,7 @@ INSTALLED_APPS = [
     'pipeline',
 
     # Pages
+    'app',
     'core',
     'pages',
     'news',
@@ -126,6 +129,9 @@ INSTALLED_APPS = [
     # Wagtail Newsletter
     'mjml',
     'birdsong',
+
+    # Link Checker
+    'wagtaillinkchecker',
 
     # Wagtail Polls
     'wagtailpolls',
