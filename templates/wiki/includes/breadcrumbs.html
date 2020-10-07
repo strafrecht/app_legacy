@@ -1,4 +1,5 @@
-{% load i18n %}
+{% load i18n sekizai_tags static %}
+
 {% if urlpath %}
 <div id="article-breadcrumbs" class="row">
 <nav aria-label="breadcrumb">
@@ -53,44 +54,81 @@
   </div>
   
   <div class="input-group">
-    <select id="links_page_title_query"></select>
-    <div class="input-group-append">
-    </div>
+	<div id="app">
+		<v-autocomplete
+		  auto-select-first
+		    clearable
+		    ></v-autocomplete>
+	</div>
   </div>
 
-<div class="clearfix"></div>
+  <div class="clearfix"></div>
 </div>
 {% endif %}
 
-{% addtoblock "js" %}<script type="text/javascript" src="{% static "wiki/select2/js/select2.min.js" %}"></script>{% endaddtoblock %}
-{% addtoblock "js" %}
-<script
-type = "text/javascript" >
-  $(document).ready(function () {
-    $('#links_page_title_query').select2({
-      dropdownAutoWidth: true,
-      placeholder: "Suche nach...",
-      ajax: {
-        url: function (params) {
-          return "{% url 'wiki:links_query_urlpath' path=urlpath.path article_id=article.id %}?query=" + params.term
-        },
-        processResults: function (data) {
-          let ret = [];
-          data.forEach(function (val) {
-            ret.push({"id": val, "text": val})
-          });
-          return {results: ret};
-        },
+
+<script src="https://unpkg.com/vue@latest"></script>
+<script src="https://unpkg.com/vuetify@latest"></script>
+<script src="https://unpkg.com/v-autocomplete@latest"></script>
+<script>
+	Vue.component('v-autocomplete', VAutocomplete)
+
+	new Vue({
+  	  el: '#app',
+  	  data: () => ({
+      descriptionLimit: 60,
+      entries: [],
+      isLoading: false,
+      model: null,
+      search: null,
+    }),
+
+    computed: {
+      fields () {
+        if (!this.model) return []
+
+        return Object.keys(this.model).map(key => {
+          return {
+            key,
+            value: this.model[key] || 'n/a',
+          }
+        })
       },
-    });
+      items () {
+        return this.entries.map(entry => {
+          const Description = entry.Description.length > this.descriptionLimit
+            ? entry.Description.slice(0, this.descriptionLimit) + '...'
+            : entry.Description
 
-    $("#link_insert_button").on("click", function () {
-      $('#id_content').insertAtCaret($('#links_page_title_query').val());
-    });
-  });
+          return Object.assign({}, entry, { Description })
+        })
+      },
+    },
 
+    watch: {
+      search (val) {
+        // Items have already been loaded
+        if (this.items.length > 0) return
+
+        // Items have already been requested
+        if (this.isLoading) return
+
+        this.isLoading = true
+
+        // Lazily load input items
+        fetch('https://api.publicapis.org/entries')
+          .then(res => res.json())
+          .then(res => {
+            const { count, entries } = res
+            this.count = count
+            this.entries = entries
+          })
+          .catch(err => {
+            console.log(err)
+          })
+          .finally(() => (this.isLoading = false))
+      },
+    },
+  })
 </script>
-{% endaddtoblock %}
-{% addtoblock "css" %}
-<link rel="stylesheet" href="{% static "wiki/select2/css/select2.min.css" %}" type="text/css" />
-{% endaddtoblock %}
+

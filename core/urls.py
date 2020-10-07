@@ -11,5 +11,6 @@ urlpatterns = [
     path('category/<int:category_id>/summary/', views.category_summary, name='category_summary'),
 
     path('scrape/', views.scrape, name='scrape'),
-    path('exams/', views.exams, name='exams')
+    path('exams/', views.exams, name='exams'),
+    path('search/wiki/<str:query>', views.search_wiki, name='search_wiki'),
 ]

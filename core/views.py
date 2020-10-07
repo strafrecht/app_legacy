@@ -1,4 +1,5 @@
 import os
+import json
 import html2text
 import logging
 from tqdm import tqdm
@@ -7,8 +8,9 @@ from bs4 import BeautifulSoup
 from collections import deque
 
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.models import User
+from django.core import serializers
 from wiki.models import Article, ArticleRevision, URLPath
 from .models import Question, Answer, Quiz, UserAnswer, Choice
 from pages.models import Exams
@@ -534,3 +536,22 @@ def exams(request):
     else:
         return HttpResponse('<p>failed</p>')
 
+
+def search_wiki(request, query):
+    from django.contrib.postgres.search import SearchVector, TrigramSimilarity, TrigramDistance
+    results = Article.objects.annotate(
+        search=SearchVector(
+        'current_revision__title',
+        'current_revision__content',
+        ),
+    ).filter(search__icontains=query)
+    #articles = Article.objects.annotate(
+    #    #similarity=TrigramSimilarity('current_revision__title', query),
+    #    distance=TrigramDistance('current_revision__content', query),
+    #).filter(distance__gt=0.7).order_by('distance')
+    articles = [{
+        'title': article.current_revision.title,
+        'url': article.get_absolute_url(),
+    } for article in results]
+
+    return JsonResponse({'articles': articles})
