@@ -58,7 +58,7 @@ class WebsitePage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
-        )
+    )
     cover_caption = models.CharField(max_length=255, blank=True, null=True)
 
     def main_image(self):
