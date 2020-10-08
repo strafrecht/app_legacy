@@ -52,6 +52,14 @@ class WebsitePage(Page):
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=WebsitePageTag, blank=True)
     sidebar = RichTextField(blank=True)
+    cover = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+        )
+    cover_caption = models.CharField(max_length=255, blank=True, null=True)
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -67,6 +75,8 @@ class WebsitePage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('subtitle'),
+        ImageChooserPanel('cover'),
+        FieldPanel('cover_caption'),
         MultiFieldPanel([
             FieldPanel('date'),
             FieldPanel('tags')
@@ -251,8 +261,8 @@ class SidebarPage(Page):
 
     content_panels = [
         FieldPanel('title'),
-        FieldPanel('cover_caption'),
         ImageChooserPanel('cover'),
+        FieldPanel('cover_caption'),
         PollChooserPanel('poll'),
         StreamFieldPanel('content')
     ]
