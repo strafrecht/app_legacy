@@ -21,6 +21,20 @@ from pages.models import WebsitePage
 #class NewsIndexPage(Page):
 
 class NewsArticleIndexPage(Page):
+    cover = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    cover_caption = models.CharField(max_length=255, blank=True, null=True)
+    
+    content_panels = Page.content_panels + [
+        ImageChooserPanel('cover'),
+        FieldPanel('cover_caption'),
+    ]
+    
     def get_context(self, request):
         context = super().get_context(request)
         news_article_pages = NewsArticlePage.objects.filter(live=True).order_by('-date')
