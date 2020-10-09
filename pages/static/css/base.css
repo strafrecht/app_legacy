@@ -131,6 +131,11 @@ p.roofline {
 	font-weight: 600;
 	margin-bottom: 10px;
 }
+.content-list { border: 1px solid red; }
+
+.columns-block {
+	display: flex;
+}
 
 @font-face {
 	font-family: 'Corporal';

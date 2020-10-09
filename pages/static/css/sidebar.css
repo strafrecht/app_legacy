@@ -138,6 +138,8 @@ div[class^="block-sidebar"]:first-child .widget, div[class^="block-sidebar"]:fir
 	color: white;
 }
 
+.blocks-column_2_1 { border: 1px solid red; }
+
 @media screen and (max-width: 600px) {
 
 	/* Columns */
