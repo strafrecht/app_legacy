@@ -65,73 +65,6 @@ def hide_snippets_menu_item(request, menu_items):
   menu_items[:] = [item for item in menu_items if item.name not in ['snippets', 'images', 'documents', 'categories', 'contacts', 'Polls']]
 
 @hooks.register('register_rich_text_features')
-def register_neu_feature(features):
-    feature_name = 'neulabel'
-    type_ = 'NEULABEL'
-    tag = 'NEU'
-
-    control = {
-        'type': type_,
-        'label': 'NEU',        
-        'description': 'Neu-Label',        
-        'style': {            
-            'font-size': '75%',            
-            'color': '#666'        
-        }    
-    }
-
-    features.register_editor_plugin(        
-        'draftail',
-        feature_name,
-        draftail_features.InlineStyleFeature(control)    
-    )     
-
-    db_conversion = {        
-        'from_database_format': {'NEU': InlineStyleElementHandler(type_)},        'to_database_format': {'block_map': {type_: 'span class="label neu"'}},    
-    }     
-
-    features.register_converter_rule(
-        'contentstate',
-        feature_name,
-        db_conversion
-    )
-
-    features.default_features.append('n')
-
-@hooks.register('register_rich_text_features')
-def register_ueberarbeitet_feature(features):
-    feature_name = 'ueberarbeitetlabel'
-    type_ = 'UEBERARBEITETLABEL'
-    control = {
-        'type': type_,
-        'label': 'Überarbeitet',        
-        'description': 'Überarbeitet-Label',        
-        'style': {            
-            'font-size': '75%',            
-            'color': '#666'        
-        }    
-    }
-    features.register_editor_plugin(        
-        'draftail',
-        feature_name,
-        draftail_features.InlineStyleFeature(control)    
-    )     
-    db_conversion = {        
-        'from_database_format': {
-            'span[class="label ueberarbeitet"]':
-                   InlineStyleElementHandler(type_)
-        },        
-        'to_database_format': {
-            'style_map': {type_: 'span class="label ueberarbeitet"'}
-        },    
-    }     
-    features.register_converter_rule(
-        'contentstate',
-        feature_name,
-        db_conversion
-    )
-
-@hooks.register('register_rich_text_features')
 def register_roofline_feature(features):
     feature_name = 'roofline'
     type_ = 'roofline'
@@ -147,34 +80,55 @@ def register_roofline_feature(features):
         'draftail', feature_name, draftail_features.BlockFeature(control, css={'all': ['base.css']})
     )
 
-@hooks.register('register_rich_text_features')
-def register_blockquote_feature(features):
-    """
-    Registering the `blockquote` feature, which uses the `blockquote` Draft.js block type,
-    and is stored as HTML with a `<blockquote>` tag.
-    """
-    feature_name = 'blockquote'
-    type_ = 'blockquote'
-    tag = 'blockquote'
-
-    control = {
-        'type': type_,
-        'label': '❝',
-        'description': 'Blockquote',
-        # Optionally, we can tell Draftail what element to use when displaying those blocks in the editor.
-        'element': 'blockquote',
-    }
-
-    features.register_editor_plugin(
-        'draftail', feature_name, draftail_features.BlockFeature(control)
-    )
-
-    features.register_converter_rule('contentstate', feature_name, {
-        'from_database_format': {tag: BlockElementHandler(type_)},
-        'to_database_format': {'block_map': {type_: tag}},
-    })
-
     features.register_converter_rule('contentstate', feature_name, {
         'from_database_format': {'p[class=roofline]': BlockElementHandler(type_)},
         'to_database_format': {'block_map': {type_: {'element': 'p', 'props': {'class': 'roofline'}}}},
     })
+
+    features.default_features.append('roofline')
+
+@hooks.register('register_rich_text_features')
+def register_revised_label_feature(features):
+    feature_name = 'revised_label'
+    type_ = 'revised_label'
+
+    control = {
+        'type': type_,
+        'label': '♻️',        
+        'description': 'Überarbeitet Label',        
+        'element': 'div',
+    }
+
+    features.register_editor_plugin(
+        'draftail', feature_name, draftail_features.BlockFeature(control, css={'all': ['base.css']})
+    )
+
+    features.register_converter_rule('contentstate', feature_name, {
+        'from_database_format': {'p[class=label revised]': BlockElementHandler(type_)},
+        'to_database_format': {'block_map': {type_: {'element': 'div', 'props': {'class': 'label revised'}}}},
+    })
+
+    features.default_features.append('revised_label')
+
+@hooks.register('register_rich_text_features')
+def register_new_label_feature(features):
+    feature_name = 'new_label'
+    type_ = 'new_label'
+
+    control = {
+        'type': type_,
+        'label': '☝️',        
+        'description': 'Neu Label',        
+        'element': 'div',
+    }
+
+    features.register_editor_plugin(
+        'draftail', feature_name, draftail_features.BlockFeature(control, css={'all': ['base.css']})
+    )
+
+    features.register_converter_rule('contentstate', feature_name, {
+        'from_database_format': {'p[class=label new]': BlockElementHandler(type_)},
+        'to_database_format': {'block_map': {type_: {'element': 'div', 'props': {'class': 'label new'}}}},
+    })
+
+    features.default_features.append('new_label')

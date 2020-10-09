@@ -107,19 +107,19 @@ a.social-media-icon:hover {
 	margin-left: 0.5em;
 	border-radius: 6px;
 	padding: 2px 5px;
-	font-size: 0.7px;
+	font-size: 0.7rem;
 	font-weight: normal;
 	display: inline-block;
 	line-height: 1.5em;
 }
     
-.ueberarbeitet:after {
+.revised:after {
 	content: "Überarbeitet";
 	color: #ffffff;
 	background: #416fd6;
 }
     
-.neu:after {
+.new:after {
 	content: "NEU";
 	background: rgb(225, 213, 196);
 	color: #b2ab40;
