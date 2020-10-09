@@ -123,32 +123,20 @@ def register_ueberarbeitet_feature(features):
 @hooks.register('register_rich_text_features')
 def register_roofline_feature(features):
     feature_name = 'roofline'
-    type_ = 'ROOFLINE'
+    type_ = 'roofline'
+
     control = {
         'type': type_,
-        'label': 'Dachzeile',        
-        'description': 'Blaue Dachzeile',        
-        'style': {            
-            'font-size': '75%',            
-            'color': '#666'        
-        }    
+        'label': '⛅',
+        'description': 'Dachzeile',
+        'element': 'p',
     }
-    features.register_editor_plugin(        
-        'draftail',
-        feature_name,
-        draftail_features.InlineStyleFeature(control)    
-    )     
-    db_conversion = {        
-        'from_database_format': {
-            'p[class="roofline"]':
-                   InlineStyleElementHandler(type_)
-        },        
-        'to_database_format': {
-            'style_map': {type_: 'p class="roofline"'}
-        },    
-    }     
-    features.register_converter_rule(
-        'contentstate',
-        feature_name,
-        db_conversion
+
+    features.register_editor_plugin(
+        'draftail', feature_name, draftail_features.BlockFeature(control, css={'all': ['base.css']})
     )
+
+    features.register_converter_rule('contentstate', feature_name, {
+        'from_database_format': {'p[class=roofline]': BlockElementHandler(type_)},
+        'to_database_format': {'block_map': {type_: {'element': 'p', 'props': {'class': 'roofline'}}}},
+    })
