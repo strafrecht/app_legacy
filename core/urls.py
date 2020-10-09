@@ -12,5 +12,6 @@ urlpatterns = [
 
     path('scrape/', views.scrape, name='scrape'),
     path('exams/', views.exams, name='exams'),
+    path('search/wiki/', views.search_wiki, name='search_wiki'),
     path('search/wiki/<str:query>', views.search_wiki, name='search_wiki'),
 ]

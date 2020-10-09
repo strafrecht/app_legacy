@@ -52,83 +52,161 @@
         </a>
     </div>
   </div>
-  
-  <div class="input-group">
-	<div id="app">
-		<v-autocomplete
-		  auto-select-first
-		    clearable
-		    ></v-autocomplete>
-	</div>
-  </div>
 
+	<script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+	<!--script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script-->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.13/dist/vuetify.min.js"></script>
+	<script src="https://unpkg.com/v-autocomplete@latest"></script>
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+
+	<div id="app">
+  <v-app id="inspire">
+    <v-card
+      color="teal lighten-2"
+      dark
+    > <v-card-title class="headline teal lighten-3">
+        Search for wiki articles
+      </v-card-title>
+      <v-card-text>
+        <v-autocomplete
+          v-model="model"
+          :items="items"
+          :loading="isLoading"
+          color="white"
+          hide-no-data
+          hide-selected
+          item-text="Description"
+          item-value="API"
+          label="Public APIs"
+          placeholder="Start typing to Search"
+          prepend-icon="mdi-database-search"
+          return-object
+@change="someHandler"
+        ></v-autocomplete>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-expand-transition>
+        <v-list
+          v-if="model"
+          class="teal lighten-3"
+        >
+          <v-list-item
+            v-for="(field, i) in fields"
+            :key="i"
+          >
+            <v-list-item-content>
+              <v-list-item-title v-text="field.value"></v-list-item-title>
+              <v-list-item-subtitle v-text="field.key"></v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-expand-transition>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+          :disabled="!model"
+          color="grey darken-3"
+          @click="model = null"
+        >
+          Clear
+          <v-icon right>
+            mdi-close-circle
+          </v-icon>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-app>
+</div>
+  
   <div class="clearfix"></div>
 </div>
 {% endif %}
 
 
-<script src="https://unpkg.com/vue@latest"></script>
-<script src="https://unpkg.com/vuetify@latest"></script>
-<script src="https://unpkg.com/v-autocomplete@latest"></script>
 <script>
-	Vue.component('v-autocomplete', VAutocomplete)
+	Vue.component('v-autocomplete', VAutocomplete.default)
 
-	new Vue({
+	const app = new Vue({
   	  el: '#app',
+  	  vuetify: new Vuetify(),
   	  data: () => ({
-      descriptionLimit: 60,
-      entries: [],
-      isLoading: false,
-      model: null,
-      search: null,
-    }),
+    	descriptionLimit: 60,
+    	titleLimit: 60,
+    	entries: [],
+    	isLoading: false,
+    	model: null,
+    	search: null,
+  	  }),
 
-    computed: {
-      fields () {
-        if (!this.model) return []
+  	  computed: {
+    	fields () {
+      	  if (!this.model) return []
 
-        return Object.keys(this.model).map(key => {
-          return {
-            key,
-            value: this.model[key] || 'n/a',
-          }
-        })
-      },
-      items () {
-        return this.entries.map(entry => {
-          const Description = entry.Description.length > this.descriptionLimit
-            ? entry.Description.slice(0, this.descriptionLimit) + '...'
-            : entry.Description
+      	  return Object.keys(this.model).map(key => {
+        	return {
+          	  key,
+          	  value: this.model[key] || 'n/a',
+        	}
+      	  })
+    	},
+    	items () {
+      	  return this.entries.map(entry => {
+        	const Content = entry.content.length > this.descriptionLimit
+          	  ? entry.content.slice(0, this.descriptionLimit) + '...'
+          	  : entry.content
+			const Title = entry.title.length > this.titleLimit
+			  ? entry.title.slice(0, this.titleLimit) + '...'
+			  : entry.title
 
-          return Object.assign({}, entry, { Description })
-        })
-      },
-    },
+        	return Object.assign({}, entry, { Title })
+      	  })
+    	},
+  	  },
+  	  methods: {
+		someHandler: function(query) {
+      	  //fetch('https://api.publicapis.org/entries')
+		  fetch(`/run/search/wiki/${query}`)
+        	.then(res => res.json())
+        	.then(res => {
+			  console.log(res)
+          	  const { count, articles } = res
+          	  this.count = count
+          	  this.entries = articles
+        	})
+        	.catch(err => {
+          	  console.log(err)
+        	})
+        	.finally(() => (this.isLoading = false))
+		}
+	  },
+  	  watch: {
+    	search (val) {
+      	  // Items have already been loaded
+      	  if (this.items.length > 0) return
 
-    watch: {
-      search (val) {
-        // Items have already been loaded
-        if (this.items.length > 0) return
+      	  // Items have already been requested
+      	  if (this.isLoading) return
 
-        // Items have already been requested
-        if (this.isLoading) return
+      	  this.isLoading = true
 
-        this.isLoading = true
+      	  // Lazily load input items
+      	  fetch('https://api.publicapis.org/entries')
+        	.then(res => res.json())
+        	.then(res => {
+          	  const { count, entries } = res
+          	  this.count = count
+          	  this.entries = entries
+        	})
+        	.catch(err => {
+          	  console.log(err)
+        	})
+        	.finally(() => (this.isLoading = false))
+    	},
+  	  },
+	})	
 
-        // Lazily load input items
-        fetch('https://api.publicapis.org/entries')
-          .then(res => res.json())
-          .then(res => {
-            const { count, entries } = res
-            this.count = count
-            this.entries = entries
-          })
-          .catch(err => {
-            console.log(err)
-          })
-          .finally(() => (this.isLoading = false))
-      },
-    },
-  })
 </script>
 

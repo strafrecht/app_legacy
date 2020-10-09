@@ -537,21 +537,27 @@ def exams(request):
         return HttpResponse('<p>failed</p>')
 
 
-def search_wiki(request, query):
+def search_wiki(request, query = False):
     from django.contrib.postgres.search import SearchVector, TrigramSimilarity, TrigramDistance
-    results = Article.objects.annotate(
-        search=SearchVector(
-        'current_revision__title',
-        'current_revision__content',
-        ),
-    ).filter(search__icontains=query)
     #articles = Article.objects.annotate(
     #    #similarity=TrigramSimilarity('current_revision__title', query),
     #    distance=TrigramDistance('current_revision__content', query),
     #).filter(distance__gt=0.7).order_by('distance')
+
+    if query:
+        results = Article.objects.annotate(
+            search=SearchVector(
+            'current_revision__title',
+            'current_revision__content',
+            ),
+        ).filter(search__icontains=query)
+    else:
+        results = Article.objects.all()
+
     articles = [{
         'title': article.current_revision.title,
         'url': article.get_absolute_url(),
+        'content': article.current_revision.content,
     } for article in results]
 
-    return JsonResponse({'articles': articles})
+    return JsonResponse({'count': len(articles), 'articles': articles})
