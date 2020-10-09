@@ -125,6 +125,13 @@ a.social-media-icon:hover {
 	color: #b2ab40;
 }
 
+p.roofline {
+	color: #4c9dbb;
+	font-size: 0.97em;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
 @font-face {
 	font-family: 'Corporal';
 	font-style: normal;
