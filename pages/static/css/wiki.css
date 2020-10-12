@@ -133,7 +133,10 @@ font-weight: 500;
 .v-toolbar__content {
 	padding: 0px !important;
 }
-#app header {
+.v-application .primary--text {
+	color: rgb(76, 158, 187) !important;
+}
+.v-sheet {
 	border: 0px;
 	box-shadow: none !important;
 }
