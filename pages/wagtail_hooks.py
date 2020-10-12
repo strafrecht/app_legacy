@@ -96,7 +96,7 @@ def register_revised_label_feature(features):
         'type': type_,
         'label': '♻️',        
         'description': 'Überarbeitet Label',        
-        'element': 'div',
+        'element': 'span',
     }
 
     features.register_editor_plugin(
@@ -104,7 +104,7 @@ def register_revised_label_feature(features):
     )
 
     features.register_converter_rule('contentstate', feature_name, {
-        'from_database_format': {'p[class=label revised]': BlockElementHandler(type_)},
+        'from_database_format': {'p[label revised]': BlockElementHandler(type_)},
         'to_database_format': {'block_map': {type_: {'element': 'div', 'props': {'class': 'label revised'}}}},
     })
 

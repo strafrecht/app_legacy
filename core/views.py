@@ -554,10 +554,16 @@ def search_wiki(request, query = False):
     else:
         results = Article.objects.all()
 
+
+
     articles = [{
         'title': article.current_revision.title,
         'url': article.get_absolute_url(),
         'content': article.current_revision.content,
-    } for article in results]
+        'breadcrumb': " / ".join([ancestor.article.current_revision.title for ancestor in article.ancestor_objects()])
+    } for article in results if sum(1 for x in article.get_children()) == 0 and article.id != 1]
 
-    return JsonResponse({'count': len(articles), 'articles': articles})
+    # get breadcrumb
+    # filter by content
+
+    return JsonResponse({'data': articles})

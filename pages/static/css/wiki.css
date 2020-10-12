@@ -123,3 +123,19 @@ font-weight: 500;
 		padding: 10px;
 	}
 }
+
+
+.v-application--wrap {
+	border-radius: 8px;
+	padding: 8px 0;
+	min-height: 64px !important;
+	max-height: 64px !important;
+}
+
+#app header {
+	border-radius: 6px;
+	border: 1px solid #ddd;
+}
+#wiki .btn-dark {
+	color: #ffffff !important;
+}
