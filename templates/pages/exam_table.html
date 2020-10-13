@@ -23,7 +23,7 @@
   	<v-app id="inspire">
   		<v-data-table
     		:headers="examHeaders"
-    		:items="exams"
+    		:items="items"
     		:single-expand="singleExpand"
     		:expanded.sync="expanded"
     		item-key="id"
@@ -78,18 +78,20 @@
         .then((data) => {
 						const records = data.records
 						console.log(records[0])
+
 						const result = records.map((exam) => {
 							return {
 								id: exam.id,
 								title: exam.fields["Titel"],
 								datetime: exam.fields["Stand"],
 								difficulty: exam.fields["Schwierigkeit"],
-								links: "Links", //exam.fields["Paragraphen"],
+								links: "Links",
 								paragraphs: exam.fields["Paragraphen"],
 								problems: exam.fields["Probleme"],
 							}
 						})
-						this.exams = result
+
+						this.items = result
         })
       	.catch(err => {
         	console.log(err)
@@ -111,20 +113,9 @@
           	{ text: 'Stand', value: 'datetime' },
           	{ text: 'Niveau', value: 'difficulty' },
           	{ text: 'Links', value: 'links' },
-						/*
           	{ text: '', value: 'data-table-expand' },
-						*/
         	],
-        	exams: [
-          	/*{
-            	name: 'KitKat',
-            	calories: 518,
-            	fat: 26.0,
-            	carbs: 65,
-            	protein: 7,
-            	iron: '6%',
-          	},*/
-        	],
+        	items: []
       	}
     	},
   	})
