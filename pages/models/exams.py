@@ -25,6 +25,11 @@ from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
+class ExamTable(Page):
+    def __str__(self):
+        print('exam table')
+    
+
 @register_snippet
 class Exams(models.Model):
 

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% load static wagtailuserbar wagtailcore_tags wagtailimages_tags website_tags %}
+
+{% include "layout/navbar.html" %}
+
+{% block extra_css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/exam_table.css' %}">
+{% endblock %}
+
+{% block body_class %}template-websiteindexpage{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h1>Klausurdatenbank</h1>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.13/dist/vuetify.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.3.13/dist/vuetify.min.css" rel="stylesheet">
+
+	<div id="app">
+  	<v-app id="inspire">
+  		<v-data-table
+    		:headers="examHeaders"
+    		:items="exams"
+    		:single-expand="singleExpand"
+    		:expanded.sync="expanded"
+    		item-key="id"
+    		show-expand
+    		class="elevation-1"
+  		>
+    		<template v-slot:top>
+      		<v-toolbar flat style="padding: 10px;">
+        		<v-toolbar-title>Expandable Table</v-toolbar-title>
+        		<v-spacer></v-spacer>
+        		<v-switch
+          		v-model="singleExpand"
+          		label="Single expand"
+          		class="mt-2"
+        		></v-switch>
+      		</v-toolbar>
+    		</template>
+    		<template v-slot:expanded-item="{ headers, item }">
+      		<td :colspan="headers.length">
+      			<p>{{ item.title }}</p>
+      			<table style="margin: 10px;">
+      				<tr>
+      					<td>Paragraphen</td>
+      					<td>{{ item.title }}</td>
+      				</tr>
+      				<tr>
+      					<td>Problemfelder</td>
+      					<td>{{ item.problems }}</td>
+      				</tr>
+      			</table>
+      		</td>
+    		</template>
+  		</v-data-table>
+  	</v-app>
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+			vuetify: new Vuetify(),
+			mounted() {
+				const url = "https://api.airtable.com/v0/appRVBj7QbVl67Xta/Table%201?maxRecords=1000&view=Grid%20view"
+        const key = "key9Ijp0aD38teo3b"
+          
+        fetch(url, {
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + key
+          }
+        })
+        .then(result => result.json())
+        .then((data) => {
+						const records = data.records
+						console.log(records[0])
+						const result = records.map((exam) => {
+							return {
+								id: exam.id,
+								title: exam.fields["Titel"],
+								datetime: exam.fields["Stand"],
+								difficulty: exam.fields["Schwierigkeit"],
+								links: "Links", //exam.fields["Paragraphen"],
+								paragraphs: exam.fields["Paragraphen"],
+								problems: exam.fields["Probleme"],
+							}
+						})
+						this.exams = result
+        })
+      	.catch(err => {
+        	console.log(err)
+      	})
+      	.finally(() => (this.loading = false))
+			
+			},
+			data() {
+      	return {
+        	expanded: [],
+        	singleExpand: true,
+        	examHeaders: [
+          	{
+            	text: 'Charakterisierung',
+            	align: 'start',
+            	sortable: false,
+            	value: 'title',
+          	},
+          	{ text: 'Stand', value: 'datetime' },
+          	{ text: 'Niveau', value: 'difficulty' },
+          	{ text: 'Links', value: 'links' },
+						/*
+          	{ text: '', value: 'data-table-expand' },
+						*/
+        	],
+        	exams: [
+          	/*{
+            	name: 'KitKat',
+            	calories: 518,
+            	fat: 26.0,
+            	carbs: 65,
+            	protein: 7,
+            	iron: '6%',
+          	},*/
+        	],
+      	}
+    	},
+  	})
+	</script>
+{% endblock %}
