@@ -131,6 +131,38 @@ p.roofline {
 	font-weight: 600;
 	margin-bottom: 10px;
 }
+.Draftail-block--roofline {
+	color: #4c9dbb !important;
+	font-size: 0.97em !important;
+	font-weight: 600 !important;
+}
+
+.Draftail-block--revised_label span[data-text]:after {
+	content: "Überarbeitet" !important;
+	color: #ffffff !important;
+	background: #416fd6 !important;
+	margin-left: 0.5em !important;
+	border-radius: 6px !important;
+	padding: 2px 5px !important;
+	font-size: 0.7rem !important;
+	font-weight: normal !important;
+	display: inline-block !important;
+	line-height: 1.5em !important;
+}
+
+.Draftail-block--new_label span[data-text]:after {
+	content: "NEU" !important;
+	background: rgb(225, 213, 196) !important;
+	color: #b2ab40 !important;
+	margin-left: 0.5em !important;
+	border-radius: 6px !important;
+	padding: 2px 5px !important;
+	font-size: 0.7rem !important;
+	font-weight: normal !important;
+	display: inline-block !important;
+	line-height: 1.5em !important;
+}
+
 .content-list { border: 1px solid red; }
 
 .columns-block {
