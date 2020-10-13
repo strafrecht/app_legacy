@@ -23,7 +23,7 @@
   	<v-app id="inspire">
   		<v-data-table
     		:headers="examHeaders"
-    		:items="items"
+    		:items="exams"
     		:single-expand="singleExpand"
     		:expanded.sync="expanded"
     		item-key="id"
@@ -43,7 +43,6 @@
     		</template>
     		<template v-slot:expanded-item="{ headers, item }">
       		<td :colspan="headers.length">
-      			<p>{{ item.title }}</p>
       			<table style="margin: 10px;">
       				<tr>
       					<td>Paragraphen</td>
@@ -91,7 +90,7 @@
 							}
 						})
 
-						this.items = result
+						this.exams = result
         })
       	.catch(err => {
         	console.log(err)
@@ -115,7 +114,7 @@
           	{ text: 'Links', value: 'links' },
           	{ text: '', value: 'data-table-expand' },
         	],
-        	items: []
+        	exams: []
       	}
     	},
   	})
