@@ -169,6 +169,13 @@ p.roofline {
 	display: flex;
 }
 
+#exam-table-page .v-label {
+	margin: 0px;
+}
+#exam-table-page .v-application--wrap {
+	display: inline-table;
+}
+
 @font-face {
 	font-family: 'Corporal';
 	font-style: normal;

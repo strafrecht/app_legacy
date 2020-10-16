@@ -3,7 +3,7 @@ import json
 from django.contrib.auth.models import User 
 from django.http import JsonResponse
 from django.shortcuts import render
-from pages.models import Node
+from pages.models import Node, Exams
 
 def categories(request):
     root = Node.objects.first()

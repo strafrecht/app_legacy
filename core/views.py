@@ -567,3 +567,19 @@ def search_wiki(request, query = False):
     # filter by content
 
     return JsonResponse({'data': articles})
+
+def api_exams(request):
+    exams = Exams.objects.all()
+
+    data = [{
+    	'id': exam.id,
+    	'type': exam.type,
+    	'datetime': exam.date,
+    	'difficulty': exam.difficulty,
+    	'paragraphs': exam.paragraphs,
+    	'problems': exam.problems,
+    	'situation': exam.sachverhalt_link,
+    	'solution': exam.loesung_link,
+    } for exam in exams]
+
+    return JsonResponse({'data': data})
