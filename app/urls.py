@@ -13,32 +13,26 @@ from birdsong import urls as birdsong_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # Pages
+    path('cms/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+
+    path('notifications/', include('django_nyt.urls')),
+
+    path('feedback/', include('feedback.urls')),
+
     path('profile/', include('profiles.urls')),
     path('quiz/', include('core.urls')),
     path('run/', include('core.urls')),
 
-    # Wagtail
-    path('cms/', include(wagtailadmin_urls)),
-    path('documents/', include(wagtaildocs_urls)),
-
-    # Wiki
-    path('notifications/', include('django_nyt.urls')),
-    path('wiki/', include('wiki.urls')),
-
-    # Newsletter
     path('mail/', include(birdsong_urls)),
 
-    # Chat
     #path('chat/', include('django_chatter.urls')),
 
-    # Comments
     path('comments/', include('django_comments_xtd.urls')),
 
-    # Vote
     re_path(r'^vote/(?P<poll_pk>.*)/$', vote, name='wagtailpolls_vote'),
 
-    # General
+    path('wiki/', include('wiki.urls')),
     path('', include(wagtail_urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
