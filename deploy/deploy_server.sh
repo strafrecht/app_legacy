@@ -4,17 +4,20 @@ set -e
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 #PYTHON="$SCRIPTPATH/../venv/bin/python"
-#PIP="$SCRIPTPATH/../venv/bin/pip"
+#PIPENV="$SCRIPTPATH/../venv/bin/pip"
+PYTHON="python"
+PIPENV="pipenv"
 
 echo "Deploying application ..."
 
 #cd $(dirname $SCRIPTPATH)
+cd /home/admin/app
 
 # Update codebase
-git fetch origin production
-git reset --hard origin/production
+git fetch origin master
+git reset --hard origin/master
 
-$PIP install -r requirements.txt
+$PIPENV install
 
 # collect static stuff
 $PYTHON manage.py collectstatic --noinput;
@@ -25,3 +28,4 @@ $PYTHON manage.py migrate
 systemctl --user restart django_deploy_test
 
 echo "Application deployed!"
+
