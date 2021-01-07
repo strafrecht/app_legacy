@@ -18,4 +18,4 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           port: ${{ secrets.PORT }}
           script: |
-            /home/admin/app/deploy/deploy_server.sh
+            /home/admin/deploy/deploy_server.sh
