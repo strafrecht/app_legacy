@@ -7,20 +7,27 @@
 	<h2>Quizes</h2>
 
 	<div class="flex flex-col col-md-9">
-		{% for category in categories %}
-				<div class="d-flex bg-white rounded p-4 mb-2 align-items-center justify-content-between">
-					<h6 class="font-weight-bold">
+		{% for item in categories %}
+			{% if item.first.id > 0 %}
+				<div class="d-flex bg-white rounded p-2 mb-2 align-items-center justify-content-between">
+					<h6 class="">
 						<img src="">
-						{{ category.current_revision.long_name }}
+						{{ item.category.article.current_revision.title }}
 					</h6>
-
-					{% for question in category.question_set.all %}
-						{% if forloop.first %}
-						<a href="{% url 'quiz:category_question' category.id question.id %}?state=start" class="btn btn-info">Start Quiz</a>
-						{% endif %}
-					{% endfor %}
+					
+					<a href="{% url 'quiz:category_question' item.category.article.id item.first.id  %}?state=start" class="btn btn-info">
+						Start Quiz
+					</a>
 				</div>
+			{% endif %}
 		{% endfor %}
 	</div>
+
+	{% if 'bt' in request.path %}
+		<a href="{% url 'quiz:index' %}">Wechsel in den AT</a>
+	{% else %}
+		<a href="{% url 'quiz:index_bt' %}">Wechsel in den BT</a>
+	{% endif %}
+
 </div>
 {% endblock %}

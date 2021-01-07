@@ -10,8 +10,43 @@ def index(request):
     return render(request, "profiles/index.html", {"quizzes": quizzes})
 
 def quizzes(request):
-    quizzes = Quiz.objects.filter(user__id=request.user.id).filter(completed=True).order_by('-created')
-    return render(request, "profiles/quizzes.html", {"quizzes": quizzes})
+    filter_by = request.GET.get('filter_by', 'all')
+    order_by = request.GET.get('order_by', 'created')
+
+    print(filter_by)
+    print(order_by)
+
+    query = Quiz.objects.filter(user__id=request.user.id)
+
+    if filter_by == 'completed':
+        query = query.filter(completed=True)
+    elif filter_by == 'incomplete':
+        query = query.filter(completed=False)
+    else:
+        query = query
+
+    if order_by == 'updated-new':
+        query = query.order_by('-updated')
+    elif order_by == 'updated-old':
+        query = query.order_by('updated')
+    elif order_by == 'created-new':
+        query = query.order_by('-created')
+    elif order_by == 'created-old':
+        query = query.order_by('created')
+    elif order_by == 'score-high':
+        query = query.order_by('created')
+    elif order_by == 'score-low':
+        query = query.order_by('created')
+    else:
+        query = query
+
+    #quizzes = Quiz.objects.filter(user__id=request.user.id).order_by('-created')
+    quizzes = query.all()
+    return render(request, "profiles/quizzes.html", {
+        "quizzes": quizzes,
+        "filter": filter_by,
+        "order": order_by
+    })
 
 def wiki(request):
     revisions = ArticleRevision.objects.filter(user__id=request.user.id)

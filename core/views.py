@@ -3,9 +3,11 @@ import json
 import html2text
 import logging
 from tqdm import tqdm
-import markdownify as md
+from markdownify import markdownify as md
 from bs4 import BeautifulSoup
 from collections import deque
+from time import sleep
+from itertools import chain
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -18,11 +20,11 @@ from pages.models import Exams
 logger = logging.getLogger('django')
 
 def index(request):
-    #Poll.objects.annotate(choice_count=Count('choice')).filter(choice_count__gt=0)
-    #categories = Article.objects.filter(is_category=True)
-    #categories = Article.objects.filter(question__isnull=False).filter(is_category=True).filter()
-    at = URLPath.objects.get(article=364)
-    categories = [child.article for child in at.get_children()]
+    categories = get_at_categories()
+    return render(request, "core/quiz.html", {"categories": categories})
+
+def index_bt(request):
+    categories = get_bt_categories()
     return render(request, "core/quiz.html", {"categories": categories})
 
 def detail(request, question_id):
@@ -102,7 +104,12 @@ def category_question(request, category_id, question_id):
 
             question = questions.first()
 
-        return render(request, 'core/category_question.html', {'category': category, 'question': question, 'questions': questions})
+        return render(request, 'core/category_question.html', {
+            'category': category,
+            'question': question,
+            'questions': questions,
+            'categories': get_bt_categories() if '/bt' in category.get_absolute_url() else get_at_categories()
+        })
 
 def category_summary(request, category_id):
     category = get_object_or_404(Article, id=category_id)
@@ -129,45 +136,24 @@ def _get_questions_for_category(category_id):
 
 
 def scrape(request):
-    """
     # init
     path = os.path.abspath("core")
-    os.chdir(path)
+    os.chdir('/home/admin/Workspace/app/core')
 
     # delete all wiki/categories
-    URLPath.objects.all().delete()
-    ArticleRevision.objects.all().delete()
-    Article.objects.all().delete()
+    #URLPath.objects.all().delete()
+    #ArticleRevision.objects.all().delete()
+    #Article.objects.all().delete()
     Question.objects.all().delete()
 
     # Create root article
-    root_article = Article(owner=User.objects.first())
-    root_article.save()
+    root_url = URLPath.create_root(title="StGB")
+    root_url.save()
 
-    urlpath = URLPath(
-        slug='stgb',
-        article=root_article,
-        site_id=1
-    )
-    urlpath.save()
-
-    root_article.urlpath_set.add(urlpath)
-    root_article.save()
-
-    root_article_revision = ArticleRevision(
-        article=root_article,
-        title="StGB",
-        content="links",
-        revision_number=1
-    )
-
-    root_article_revision.save()
-
-    
     # prepare module
     base_dir = "stgb"
-    #get = lambda node_id: Category.objects.get(pk=node_id)
-    #root_node = Category.add_root(name="StGB", slug="stgb")
+    # get = lambda node_id: Category.objects.get(pk=node_id)
+    # root_node = Category.add_root(name="StGB", slug="stgb")
 
     # preprocess total file count
     # Preprocess the total files count
@@ -186,16 +172,18 @@ def scrape(request):
                 html = open(path).read()
                 soup = BeautifulSoup(html, "html.parser")
 
+                print("=> {}".format(path))
+
                 # create categories
                 if "category" in get_type(soup):
                     cat = {
                         "root": root,
                         "slug": root.split("/")[-1],
                         "name": soup.article.h1.text.strip(),
-                        "long_name": extract("long_name", soup),
+                        #"long_name": extract("long_name", soup),
                     }
 
-                    create_category(cat)
+                    #create_category(cat)
 
                 # create wikis
                 if "problem" in get_type(soup):
@@ -203,12 +191,12 @@ def scrape(request):
                         "root": root,
                         "slug": root.split("/")[-1],
                         "name": soup.article.h1.text.strip(),
-                        "long_name": extract("long_name", soup),
+                        #"long_name": extract("long_name", soup),
                         "tags": extract("tags", soup),
                         "content": extract("content", soup),
                     }
 
-                    create_wiki(wiki)
+                    #create_wiki(wiki)
 
                 # create mct
                 if "frage" in get_type(soup):
@@ -233,20 +221,39 @@ def scrape(request):
     })
 
 def traverse_ancestors(parent, slug_list):
+    #print("  ENTER: traverse_ancestors()")
+    #print("  parent: {}, slug_list: {}".format(parent, slug_list))
+
     if len(slug_list) == 0:
+        #print("    POS: 1")
         return parent
     else:
+        #print("    POS: 2")
         remaining = slug_list
-        next = remaining.popleft()
+        up = remaining.popleft()
+        #print("    UP: {}".format(up))
 
         try:
-            child = parent.get_children().get(slug=next)
-            return traverse_ancestors(child, remaining)
+            children = parent.get_children()
+            child = list(filter(lambda c: c.slug == up, children))
+
+            #print("      CHILDREN: {}".format(child))
+
+            if len(child) == 1:
+                #print("        POS: 4")
+                return traverse_ancestors(child[0], remaining)
+            else:
+                raise URLPath.DoesNotExist
         except URLPath.DoesNotExist:
+            #print("      POS: 5")
             return parent
+
+        #print("    POS: 6")
         return parent
 
-def create_category(wiki):
+    #print("  EXIT: traverse_ancestors()")
+
+def old_create_category(wiki):
     admin = User.objects.first()
     root = Article.objects.first().urlpath_set.first()
 
@@ -256,7 +263,7 @@ def create_category(wiki):
     # create Article
     article = Article(
         owner=admin,
-        is_category=True,
+        #is_category=True,
     )
     article.save()
 
@@ -275,7 +282,7 @@ def create_category(wiki):
     article_revision = ArticleRevision(
         article=article,
         title=wiki['name'],
-        long_name=wiki['long_name'],
+        #long_name=wiki['long_name'],
         content="LINKS",
         revision_number=1
     )
@@ -286,8 +293,57 @@ def create_category(wiki):
     # add tags
     #article_revision.tags.add(*tags)
 
+def create_category(wiki):
+    #print("ENTER: create_category()")
+    root = Article.objects.first().urlpath_set.first()
+    slug_list = deque(wiki["root"].split("/")[1:])
+    parent = traverse_ancestors(root, slug_list)
+
+    #print("root: {}".format(root))
+    #print("slug_list: {}".format(slug_list))
+    #print("parent: {}".format(parent))
+
+    urlpath = URLPath.create_urlpath(
+        parent=parent,
+        slug=wiki['slug'],
+        site=None,
+        title=wiki['name'],
+        article_kwargs={},
+        request=None,
+        article_w_permissions=None,
+        content="",
+    )
+
+    urlpath.save()
+    #print("EXIT: create_category()")
 
 def create_wiki(wiki):
+    #print("ENTER: create_wiki()")
+    root = Article.objects.first().urlpath_set.first()
+    slug_list = deque(wiki["root"].split("/")[1:])
+    parent = traverse_ancestors(root, slug_list)
+
+    #print("root: {}".format(root))
+    #print("slug_list: {}".format(slug_list))
+    #print("parent: {}".format(parent))
+
+    urlpath = URLPath.create_urlpath(
+        parent=parent,
+        slug=wiki['slug'],
+        site=None,
+        title=wiki['name'],
+        article_kwargs={},
+        request=None,
+        article_w_permissions=None,
+        content=wiki['content'],
+    )
+
+    urlpath.save()
+
+    #print("NEW: {}".format(urlpath))
+    #print("EXIT: create_wiki()")
+
+def old_create_wiki(wiki):
     tags = wiki['tags']
     admin = User.objects.first()
     root = Article.objects.first().urlpath_set.first()
@@ -316,7 +372,7 @@ def create_wiki(wiki):
     article_revision = ArticleRevision(
         article=article,
         title=wiki['name'],
-        long_name=wiki['long_name'],
+        #long_name=wiki['long_name'],
         content=wiki['content'],
         revision_number=1
     )
@@ -325,7 +381,7 @@ def create_wiki(wiki):
     article_revision.save()
 
     # add tags
-    article.tags.add(*tags)
+    # article.tags.add(*tags)
 
 def create_question(question):
     answers = question['answers']
@@ -342,6 +398,8 @@ def create_question(question):
         description=question['description'],
         category=parent.article,
     )
+
+    print(question)
 
     # save question
     question.save()
@@ -387,9 +445,12 @@ def extract(field, soup):
 
     #
     if field == "content":
-        header = soup.article.find(lambda tag: tag.name == "h2" and ("Sachverhalt" in tag.text) or ("Problemaufriss" in tag.text))
+        header = soup.article.find(lambda tag: tag.name == "h2" and ("Sachverhalt" in tag.text) or ("Problemaufriss" in tag.text) or ("Tags" in tag.text))
+        if "siehe hier" in soup.prettify():
+            nextNode = soup.article.find("p")
+        else:
+            nextNode = header
         content = ""
-        nextNode = header
 
         while True:
             try:
@@ -397,7 +458,7 @@ def extract(field, soup):
             except AttributeError:
                 tag_name = "none"
 
-            if tag_name in ["h2","p","ol","li","span", "\n"]:
+            if tag_name in ["h2","p","ol","li","span", "\n", "h5"]:
                 # if element has class, remove it
                 if 'class' in nextNode.attrs.keys():
                     del nextNode.attrs['class']
@@ -409,7 +470,11 @@ def extract(field, soup):
 
                 # replace <u> with <b>
                 #html = str(nextNode).replace("<u>", " <b>").replace("</u>", "</b> ").replace("<a", " <a").replace("/a>", "/a> ").replace("<span>", "").replace("</span>", "")
-                html = str(nextNode).replace("<u>", " <b>").replace("</u>", "</b> ").replace("<span>", "").replace("</span>", "")
+                html = str(nextNode).replace("<u>", " <b>").replace("</u>", "</b> ").replace("<span>", "").replace("</span>", "").replace("<em>", "<i>").replace("</em>", "</i>").replace("<h5", "<p").replace("</h5>", "</p>")
+
+                if "Fragment" in html: html = html.replace("<!--StartFragment-->", "").replace("<!--EndFragment-->", "")
+                if "siehe hier" in soup.prettify():
+                    html = html.replace("problemfelder", "wiki")
                 markdown = md(html)
                 content += markdown
             elif tag_name == "sonline-revision":
@@ -468,12 +533,11 @@ def _traverse_category(node, remaining, cat):
             child = node.add_child(
                 name=cat["name"],
                 slug=cat["slug"],
-                long_name=cat["long_name"],
+                #long_name=cat["long_name"],
                 filepath=cat["root"]
             )
             traverse_category(child, remaining, cat)
             child.save()
-"""
 
 def exams(request):
     import csv
@@ -547,20 +611,18 @@ def search_wiki(request, query = False):
     if query:
         results = Article.objects.annotate(
             search=SearchVector(
-            'current_revision__title',
+            #'current_revision__title',
             'current_revision__content',
             ),
         ).filter(search__icontains=query)
     else:
         results = Article.objects.all()
 
-
-
     articles = [{
         'title': article.current_revision.title,
         'url': article.get_absolute_url(),
         'content': article.current_revision.content,
-        'breadcrumb': " / ".join([ancestor.article.current_revision.title for ancestor in article.ancestor_objects()])
+        #'breadcrumb': " / ".join([ancestor.article.current_revision.title for ancestor in article.ancestor_objects()])
     } for article in results if sum(1 for x in article.get_children()) == 0 and article.id != 1]
 
     # get breadcrumb
@@ -583,3 +645,65 @@ def api_exams(request):
     } for exam in exams]
 
     return JsonResponse({'data': data})
+
+def get_first_at(cat):
+    categories = [child for child in cat.get_descendants()]
+    question_set = [sub.article.question_set.all() for sub in categories if len(sub.article.question_set.all()) > 0]
+    pre = [[q for q in question] for question in question_set]
+    result = list(chain.from_iterable(pre))
+    if len(result) > 0:
+        return result[0]
+    else:
+        Question.objects.first()
+
+def get_first_bt(cat):
+    cur_question_set = cat.article.question_set.all()
+    question_set = [sub.article.question_set.all() for sub in cat.get_descendants() if len(sub.article.question_set.all()) > 0]
+
+    pre = [[q for q in question] for question in question_set]
+    result = list(chain.from_iterable(pre)) + [question for question in list(cur_question_set)]
+
+    if len(result) > 0:
+        return result[0]
+    else:
+        #print("YYY")
+        Question.objects.first()
+
+def get_at_categories():
+    at = URLPath.objects.filter(slug='at').last()
+    grundlagen = URLPath.objects.filter(slug='grundlagen').first()
+
+    categories = [
+        {"category": child,
+        "first": get_first_at(child),
+        "questions": [
+            [
+                question for question in sub.article.question_set.all() if len(sub.article.question_set.all()) > 1
+            ] for sub in child.get_descendants() if len(child.get_descendants()) > 0
+        ]} for child in at.get_children()]
+
+    categories.insert(0, {
+        "category": grundlagen,
+        "first": grundlagen.article.question_set.first(),
+        "questions": [
+            question for question in grundlagen.article.question_set.all() if len(grundlagen.article.question_set.all()) > 1
+        ]
+    })
+
+    return categories
+
+def get_bt_categories():
+    bt = URLPath.objects.filter(slug='bt').first()
+
+    categories = [
+        {"category": child,
+        "first": get_first_bt(child),
+        "questions": [
+            [
+            question for question in child.article.question_set.all() if len(child.article.question_set.all()) > 0
+        ]
+    ]} for child in bt.get_children()]
+
+    categories.sort(key=lambda c: c["category"].path)
+
+    return categories

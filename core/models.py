@@ -35,32 +35,35 @@ class Quiz(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def calculate_score(self):
-        user_answers = self.useranswer_set.all()
-        x = {}
-        y = {}
+        if self.useranswer_set:
+            user_answers = self.useranswer_set.all()
+            x = {}
+            y = {}
 
-        total = 0
+            total = 0
 
-        for user_answer in user_answers:
-            answers = set()
-            uanswers = set()
+            for user_answer in user_answers:
+                answers = set()
+                uanswers = set()
 
-            for answer in user_answer.question.answer_set.all():
-                if answer.correct:
-                    answers.add(answer.id)
+                if hasattr(y, 'question'):
 
-            for choice in user_answer.choice_set.all():
-                uanswers.add(choice.answer.id)
+                    for answer in user_answer.question.answer_set.all():
+                        if answer.correct:
+                            answers.add(answer.id)
 
-            # real answers
-            x[user_answer.question.id] = answers
-            # user answers
-            y[user_answer.question.id] = uanswers
+                    for choice in user_answer.choice_set.all():
+                        uanswers.add(choice.answer.id)
 
-            if y[user_answer.question.id] == x[user_answer.question.id]:
-                total += 1
+                    # real answers
+                    x[user_answer.question.id] = answers
+                    # user answers
+                    y[user_answer.question.id] = uanswers
 
-        return total
+                    if y[user_answer.question.id] == x[user_answer.question.id]:
+                        total += 1
+
+            return total
 
     def total_questions(self):
         return self._get_questions_for_category().count()

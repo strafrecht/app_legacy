@@ -5,6 +5,7 @@ app_name = 'quiz'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('bt', views.index_bt, name='index_bt'),
     path('question/<int:question_id>/', views.detail, name='detail'),
     path('category/<int:category_id>/', views.category, name='category'),
     path('category/<int:category_id>/question/<int:question_id>/', views.category_question, name='category_question'),

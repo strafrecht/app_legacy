@@ -133,7 +133,7 @@ INSTALLED_APPS = [
     'birdsong',
 
     # Link Checker
-    'wagtaillinkchecker',
+    #'wagtaillinkchecker',
 
     # Wagtail Polls
     'wagtailpolls',
@@ -240,8 +240,8 @@ CHANNEL_LAYERS = {
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-#LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'de-de'
+LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'de-de'
 
 TIME_ZONE = 'UTC'
 

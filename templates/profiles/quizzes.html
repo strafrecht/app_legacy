@@ -26,9 +26,45 @@
 {% block contents %}
 <div class="flex">
 	<div class="d-flex flex-row align-items-center justify-content-between">
-		<h4>Completed Quizzes</h4>
+		<h4>Your Quizzes</h4>
 		<a href="{% url 'quiz:index' %}" class="">Browse all Quizzes</a>
 	</div>
+
+	<div style="display: flex; justify-content: space-between; width: 100%;">
+		<div style="display: flex; flex-direction: column;">
+			<label>Filter by</label>
+			<select id="filter_by" name="filter_by" onchange="handleFilter(this)">
+				<option value="all" {% if filter == "all" %}selected{% endif %}>All</option>
+				<option value="completed" {% if filter == "completed" %}selected{% endif %}>Completed</option>
+				<option value="incomplete" {% if filter == "incomplete" %}selected{% endif %}>Incomplete</option>
+			</select>
+		</div>
+
+		<div style="display: flex; flex-direction: column;">
+			<label>Order by</label>
+			<select id="order_by" name="order_by" onchange="handleOrder(this)">
+				<option value="updated-new" {% if filter == "updated-new" %}selected{% endif %}>Updated (newest)</option>
+				<option value="updated-old" {% if filter == "updated-old" %}selected{% endif %}>Updated (oldest)</option>
+				<option value="created-new" {% if filter == "created-new" %}selected{% endif %}>Started (newest)</option>
+				<option value="created-old" {% if filter == "created-old" %}selected{% endif %}>Started (oldest)</option>
+				<option value="score-high" {% if filter == "score-high" %}selected{% endif %}>Score (highest)</option>
+				<option value="score-low" {% if filter == "score-low" %}selected{% endif %}>Score (lowest)</option>
+			</select>
+		</div>
+	</div>
+
+	<script>
+		const filter_by = document.querySelector('#filter_by').value
+		const order_by = document.querySelector('#filter_by').value
+
+		function handleFilter(e) {
+			window.location = `?filter_by=${e.value}&order_by=${order_by}`
+		}
+
+		function handleOrder(e) {
+			window.location = `?filter_by=${filter_by}&order_by=${e.value}`
+		}
+	</script>
 
 		{% if quizzes %}
 			{% for quiz in quizzes %}
