@@ -187,7 +187,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app.wsgi.application'
+#WSGI_APPLICATION = 'wsgi.application'
 ASGI_APPLICATION = 'app.routing.application'
 
 if DEBUG:
