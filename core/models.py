@@ -9,18 +9,33 @@ import logging
 logger = logging.getLogger('django')
 
 class Question(models.Model):
-    filepath = models.CharField(max_length=255)
+    filepath = models.CharField(max_length=255, null=True, blank=True)
     slug = models.CharField(max_length=255)
-    title = models.TextField(max_length=255)
-    order = models.CharField(max_length=255)
-    description = models.TextField(null=True, blank=True)
+    order = models.CharField(max_length=255, null=True, blank=True)
     category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        #return self.question_versions_choice.first.title
+        return 'title'
 
-class Answer(models.Model):
+class QuestionVersion(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    slug = models.CharField(max_length=255)
+    title = models.TextField(max_length=255)
+    description = models.TextField(null=True, blank=True)
+    category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)
+    approved = models.BooleanField(default=False)
+
+#class Answer(models.Model):
+#    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+#    text = models.TextField()
+#    correct = models.BooleanField(default=False)
+#
+#    def __str__(self):
+#        return self.text
+
+class AnswerVersion(models.Model):
+    question_version = models.ForeignKey(QuestionVersion, on_delete=models.CASCADE)
     text = models.TextField()
     correct = models.BooleanField(default=False)
 
@@ -92,4 +107,4 @@ class UserAnswer(models.Model):
 
 class Choice(models.Model):
     user_answer = models.ForeignKey(UserAnswer, null=True, on_delete=models.SET_NULL)
-    answer = models.ForeignKey(Answer, null=True, on_delete=models.SET_NULL)
+    answer = models.ForeignKey(AnswerVersion, null=True, on_delete=models.SET_NULL)
