@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from core.models import Quiz
+from core.models import Quiz, Question
 from wiki.models import ArticleRevision
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -83,4 +85,3 @@ def logout(request):
     except:
      pass
     return render(request, 'profiles/login.html', {})
-

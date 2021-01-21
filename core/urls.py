@@ -1,5 +1,13 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'questions', views.QuestionViewSet)
+router.register(r'answers', views.AnswerViewSet)
+router.register(r'quizzes', views.QuizViewSet)
+router.register(r'user-answers', views.UserAnswerViewSet)
+router.register(r'choices', views.ChoiceViewSet)
 
 app_name = 'quiz'
 
@@ -17,4 +25,8 @@ urlpatterns = [
     path('search/wiki/<str:query>', views.search_wiki, name='search_wiki'),
 
     path('api/exams', views.api_exams, name='api_exams'),
+
+    path('add_question/', views.add_question, name='add_question'),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

@@ -2,6 +2,9 @@ import os
 import json
 import html2text
 import logging
+
+from django.contrib.auth.decorators import login_required
+from rest_framework.permissions import AllowAny
 from tqdm import tqdm
 from markdownify import markdownify as md
 from bs4 import BeautifulSoup
@@ -16,6 +19,9 @@ from django.core import serializers
 from wiki.models import Article, ArticleRevision, URLPath
 from .models import Question, Answer, Quiz, UserAnswer, Choice
 from pages.models import Exams
+
+from rest_framework import viewsets, permissions
+from .serializers import QuestionSerializer, ChoiceSerializer, UserAnswerSerializer, QuizSerializer, AnswerSerializer
 
 logger = logging.getLogger('django')
 
@@ -707,3 +713,38 @@ def get_bt_categories():
     categories.sort(key=lambda c: c["category"].path)
 
     return categories
+
+
+@login_required(login_url="/profile/login")
+def add_question(request):
+    return render(request, 'core/add_question.html', {})
+
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+    permission_classes = [AllowAny]
+
+
+class AnswerViewSet(viewsets.ModelViewSet):
+    queryset = Answer.objects.all()
+    serializer_class = AnswerSerializer
+    permission_classes = [AllowAny]
+
+
+class QuizViewSet(viewsets.ModelViewSet):
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer
+    permission_classes = [AllowAny]
+
+
+class UserAnswerViewSet(viewsets.ModelViewSet):
+    queryset = UserAnswer.objects.all()
+    serializer_class = UserAnswerSerializer
+    permission_classes = [AllowAny]
+
+
+class ChoiceViewSet(viewsets.ModelViewSet):
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+    permission_classes = [AllowAny]

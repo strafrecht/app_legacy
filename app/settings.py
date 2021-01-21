@@ -129,7 +129,7 @@ INSTALLED_APPS = [
     'wagtailmenus',
 
     # Wagtail Newsletter
-    'mjml',
+    #'mjml',
     'birdsong',
 
     # Link Checker
@@ -139,9 +139,17 @@ INSTALLED_APPS = [
     'wagtailpolls',
     'wagtail.contrib.modeladmin',
 
+    # DRF
+    'rest_framework',
+
+    # cors-headers
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -348,3 +356,18 @@ if os.name == 'nt':
     os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
     os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
     os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8080",
+#     "http://127.0.0.1:8000"
+# ]
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
