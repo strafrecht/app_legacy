@@ -10,17 +10,17 @@ logger = logging.getLogger('django')
 
 class Question(models.Model):
     filepath = models.CharField(max_length=255, null=True, blank=True)
-    slug = models.CharField(max_length=255)
+    slug = models.CharField(max_length=255, null=True, blank=True)
     order = models.CharField(max_length=255, null=True, blank=True)
     category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        #return self.question_versions_choice.first.title
-        return 'title'
+        #return self.questionversion_set.all().first().title
+        return "{}".format(self.id)
 
 class QuestionVersion(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    slug = models.CharField(max_length=255)
+    slug = models.CharField(max_length=255, blank=True, null=True)
     title = models.TextField(max_length=255)
     description = models.TextField(null=True, blank=True)
     category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)

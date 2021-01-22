@@ -110,6 +110,11 @@ def category_question(request, category_id, question_id):
 
             question = questions.first()
 
+        #question_version = QuestionVersion.objects.first()
+        question_version = question.questionversion_set.all().first()
+
+        question = question_version
+
         return render(request, 'core/category_question.html', {
             'category': category,
             'question': question,
