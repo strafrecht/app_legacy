@@ -4,6 +4,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'questions', views.QuestionViewSet)
+router.register(r'question-versions', views.QuestionVersionViewSet)
 router.register(r'answers', views.AnswerViewSet)
 router.register(r'quizzes', views.QuizViewSet)
 router.register(r'user-answers', views.UserAnswerViewSet)

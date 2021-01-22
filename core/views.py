@@ -21,7 +21,8 @@ from .models import Question, QuestionVersion, AnswerVersion, Quiz, UserAnswer, 
 from pages.models import Exams
 
 from rest_framework import viewsets, permissions
-from .serializers import QuestionSerializer, ChoiceSerializer, UserAnswerSerializer, QuizSerializer, AnswerSerializer
+from .serializers import QuestionSerializer, ChoiceSerializer, UserAnswerSerializer, QuizSerializer, AnswerSerializer, \
+    QuestionVersionSerializer
 
 logger = logging.getLogger('django')
 
@@ -743,6 +744,12 @@ def add_question(request):
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+    permission_classes = [AllowAny]
+
+
+class QuestionVersionViewSet(viewsets.ModelViewSet):
+    queryset = QuestionVersion.objects.all()
+    serializer_class = QuestionVersionSerializer
     permission_classes = [AllowAny]
 
 

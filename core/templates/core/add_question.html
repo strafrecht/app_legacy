@@ -1,57 +1,64 @@
+{% extends "base.html" %}
+
 {% load static %}
 
-{% block contents %}
-
-
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frage hinzufügen</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
   <section id="add-question">
-    <form @submit.prevent="createQuestion">
+    <form @submit.prevent="addQuestion">
       <h2>neue Frage hinzufügen</h2>
       <div>
-        <textarea id="add-title" name="add-title" rows="2" cols="50" v-model="questionInput"
+        <!-- <input id="add-title" type="text" v-model="questionTitleInput" placeholder="Bitte geben Sie hier Ihre Frage ein" /></br></br> -->
+        <textarea id="add-title" name="add-title" rows="2" cols="50" v-model="title"
           placeholder="Bitte geben Sie hier Ihre Frage ein">
         </textarea>
 
       </div>
       <div>
-        <textarea id="add-description" name="add-description" rows="4" cols="50" v-model="descriptionInput"
+        <!-- <input id="add-description" type="text" v-model="descriptionInput" placeholder="Fragenbeschreibung" /></br></br> -->
+        <textarea id="add-description" name="add-description" rows="4" cols="50" v-model="description"
           placeholder="Fragenbeschreibung">
         </textarea>
       </div></br></br>
       <!-- <p>{{ questionInput }}</p> -->
-      <!-- <p>{{ descriptionInput }}</p> -->
       <div>
+        <!-- <input id="add-answer" type="text" placeholder="Antwortmöglichkeit geben" /> -->
         <button @click="addAnswer">neu Antwort</button>
       </div>
       <div>
-        <div>
+        <span>
           <p v-for="(answer, index) in answers">
             <button id="trashcan" @click="deleteAnswer(index)"> &#128465; </button> &ensp;&ensp;
+            <!-- <input id="answer-option" type="text" v-model="answerInput" :key="index"
+              :value="answer.answerText">&ensp;&ensp; -->
             <textarea name="answer-option" id="answer-option" v-model="answer[index]" :key="index" rows="1"
               cols="50"></textarea> &ensp;&ensp;
             <label class="switch">
               <input type="checkbox" @click="handleCheckboxClick(index)" :value="answer.correctAnswer">
               <span class="slider"></span>
             </label>
+            <!-- <input type="checkbox" @click="handleCheckboxClick(index)" :value="answer.correctAnswer"> -->
+
           </p>
-        </div>
+        </span>
       </div></br></br>
       <div class="category">
-        <label class="label">Kategorie wahlen</label>
+        <label class="label">Kategorie wählen</label>
         <div class="control">
           <select class="select" v-model="selectedCategory">
             <option v-for="category in categories" :key="category.id" :value="category.id">
-              <!-- {{ category.name }} -->
+              <!-- {{ category }} -->
             </option>
           </select>
         </div>
@@ -66,26 +73,24 @@
   </section>
 
   <script src="https://unpkg.com/vue@next"></script>
-  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script>
     const app = Vue.createApp({
       data() {
         return {
-          questionInput: '',
-          descriptionInput: '',
+          title: '',
+          description: '',
           answerInput: '',
+          questions: [],
           answers: [],
           categories: [],
           selectedCategory: 0,
         };
       },
 
-      // created() {
-      //   // Simple GET request using fetch
-      //   fetch("http://127.0.0.1:8000/quiz/questions/" + id + "/")
-      //     .then(response => response.json())
-      //     .then(data => (this.totalVuePackages = data.total));
+      // mounted() {
+      //   this.getQuestions();
       // },
 
       methods: {
@@ -100,7 +105,33 @@
         },
         print() {
           console.log(this.answers)
-        }
+        },
+        addQuestion() {
+          axios
+            .post("http://127.0.0.1:8000/quiz/questions/", {
+              title: this.title,
+              description: this.description,
+              category: this.selectedCategory,
+            })
+            .then((response) => {
+              let newQuestion = {
+                id: response.data.id,
+                title: this.title,
+                description: this.description,
+                category: this.selectedCategory,
+              };
+
+              this.questions.push(newQuestion);
+
+              this.title = " ";
+              this.description = " ";
+
+              // this.getQuestions(id);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        },
       }
     })
 
@@ -108,8 +139,6 @@
   </script>
 
   <style scoped>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
     * {
       box-sizing: border-box;
     }
@@ -262,7 +291,6 @@
       transform: translateX(16px);
     }
 
-    /* Rounded sliders */
     .slider.round {
       border-radius: 34px;
     }
@@ -274,10 +302,5 @@
 </body>
 
 </html>
-
-
-{% endblock %}
-
-{% block extra_js %}
 
 {% endblock %}
