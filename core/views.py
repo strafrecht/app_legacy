@@ -1,6 +1,5 @@
-import os
-import json
 import html2text
+import json
 import logging
 from tqdm import tqdm
 from markdownify import markdownify as md
@@ -707,3 +706,16 @@ def get_bt_categories():
     categories.sort(key=lambda c: c["category"].path)
 
     return categories
+
+def get_categories_tree(request):
+    root = URLPath.objects.first()
+    tree = create_categories(root)
+    data = json.dumps(tree)
+    return JsonResponse(data, safe=False)
+
+def create_categories(category):
+    return {
+        "id": category.id,
+        "label": category.article.articlerevision_set.first().title,
+        "children": [create_categories(child) for child in category.get_children() if len(category.get_children()) > 0]
+    }

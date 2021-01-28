@@ -17,4 +17,5 @@ urlpatterns = [
     path('search/wiki/<str:query>', views.search_wiki, name='search_wiki'),
 
     path('api/exams', views.api_exams, name='api_exams'),
+    path('api/category_tree', views.get_categories_tree, name='get_category_tree'),
 ]
