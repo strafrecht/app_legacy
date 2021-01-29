@@ -20,7 +20,7 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnswerVersion
         # fields = "__all__"
-        fields = ['id', 'question', 'text', 'correct']
+        fields = ['id', 'question_version', 'text', 'correct']
 
 
 class QuizSerializer(serializers.ModelSerializer):

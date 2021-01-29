@@ -1,306 +1,356 @@
-{% extends "base.html" %}
-
 {% load static %}
 
 {% block content %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frage hinzufügen</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-
-  <section id="add-question">
+<section id="app">
+  <div class="container-question">
     <form @submit.prevent="addQuestion">
       <h2>neue Frage hinzufügen</h2>
       <div>
-        <!-- <input id="add-title" type="text" v-model="questionTitleInput" placeholder="Bitte geben Sie hier Ihre Frage ein" /></br></br> -->
         <textarea id="add-title" name="add-title" rows="2" cols="50" v-model="title"
-          placeholder="Bitte geben Sie hier Ihre Frage ein">
-        </textarea>
-
-      </div>
+          placeholder="Bitte geben Sie hier Ihre Frage ein" required>
+                </textarea>
+      </div><br>
       <div>
-        <!-- <input id="add-description" type="text" v-model="descriptionInput" placeholder="Fragenbeschreibung" /></br></br> -->
         <textarea id="add-description" name="add-description" rows="4" cols="50" v-model="description"
-          placeholder="Fragenbeschreibung">
-        </textarea>
-      </div></br></br>
-      <!-- <p>{{ questionInput }}</p> -->
+          placeholder="Fragenbeschreibung" required>
+                </textarea>
+      </div><br>
       <div>
-        <!-- <input id="add-answer" type="text" placeholder="Antwortmöglichkeit geben" /> -->
-        <button @click="addAnswer">neu Antwort</button>
-      </div>
+        <button @click="generateAnswer">neu Antwort</button>
+      </div><br>
       <div>
-        <span>
-          <p v-for="(answer, index) in answers">
-            <button id="trashcan" @click="deleteAnswer(index)"> &#128465; </button> &ensp;&ensp;
-            <!-- <input id="answer-option" type="text" v-model="answerInput" :key="index"
-              :value="answer.answerText">&ensp;&ensp; -->
-            <textarea name="answer-option" id="answer-option" v-model="answer[index]" :key="index" rows="1"
-              cols="50"></textarea> &ensp;&ensp;
-            <label class="switch">
-              <input type="checkbox" @click="handleCheckboxClick(index)" :value="answer.correctAnswer">
-              <span class="slider"></span>
-            </label>
-            <!-- <input type="checkbox" @click="handleCheckboxClick(index)" :value="answer.correctAnswer"> -->
-
-          </p>
-        </span>
-      </div></br></br>
+        <div>
+          <span>
+            <div v-for="(answer, index) in answers">
+              <button id="trashcan" @click="deleteAnswer(index)"> &#128465; </button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <textarea id="answer-option" v-model="answer.text" :key="index" rows="2" cols="50"
+                placeholder="Antwortmöglichkeit" required></textarea> &nbsp;&nbsp;&nbsp;&nbsp;
+              <label class="switch">
+                <input type="checkbox" @click="handleCheckboxClick(index)" :value="answer.correctAnswer">
+                <div class="slider round"></div>
+              </label>
+            </div>
+            <br>
+          </span>
+        </div>
+      </div> <br>
       <div class="category">
         <label class="label">Kategorie wählen</label>
         <div class="control">
           <select class="select" v-model="selectedCategory">
-            <option v-for="category in categories" :key="category.id" :value="category.id">
-              <!-- {{ category }} -->
+            <option v-for="category in categories" v-text.number="category.category">
             </option>
           </select>
         </div>
-      </div></br></br>
-
-      <!-- <div>{{answers}}</div> -->
-
+      </div>
+      <br>
+      <div>
+        <treeselect class="treeselect" v-model="value" :multiple="true" :options="options" />
+      </div>
+      <br>
       <button type="submit" class="button is-link">Speichern</button>
     </form>
+  </div>
+</section>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@^0.4.0/dist/vue-treeselect.umd.min.js"></script>
 
-  </section>
+<script>
+  Vue.component('treeselect', VueTreeselect.Treeselect)
 
-  <script src="https://unpkg.com/vue@next"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  new Vue({
+    el: '#app',
 
-  <script>
-    const app = Vue.createApp({
-      data() {
-        return {
-          title: '',
-          description: '',
-          answerInput: '',
-          questions: [],
-          answers: [],
-          categories: [],
-          selectedCategory: 0,
-        };
+    data() {
+      return {
+        title: '',
+        description: '',
+        questions: [],
+        answers: [],
+        categories: [],
+        selectedCategory: 0,
+        newQuestionId: null,
+        text: '',
+        correctAnswer: false,
+
+        value: null,
+        // define options
+        options: [{
+          id: 'a',
+          label: 'a',
+          children: [{
+            id: 'aa',
+            label: 'aa',
+          }, {
+            id: 'ab',
+            label: 'ab',
+          }],
+        }, {
+          id: 'b',
+          label: 'b',
+        }, {
+          id: 'c',
+          label: 'c',
+        }],
+
+      };
+    },
+
+    mounted() {
+      this.getCategories();
+    },
+
+    methods: {
+      generateAnswer() {
+        this.answers.push({ text: '', correctAnswer: false });
+      },
+      deleteAnswer(i) {
+        this.answers.splice(i, 1);
+      },
+      handleCheckboxClick(i) {
+        this.answers[i].correctAnswer = !this.answers[i].correctAnswer
+      },
+      print() {
+        console.log(this.answers)
+      },
+      async generateQuestionId() {
+
+        const response = await axios
+          .post("http://127.0.0.1:8000/quiz/questions/", {
+            id: null,
+          })
+        return response.data.id
+      },
+      async addQuestion() {
+        try {
+          const id = await this.generateQuestionId();
+          const newQuestion = {
+            question: id,
+            title: this.title,
+            description: this.description,
+            category: this.selectedCategory,
+          };
+
+          await axios
+            .post("http://127.0.0.1:8000/quiz/question-versions/", newQuestion) // push new question title, description and category to API
+            .then((response) => (this.newQuestionId = response.data.id)); // get question-version id 
+
+          answers_text = this.answers.map(x => x["text"]); // get answers' texts in an new array
+          answers_correct = this.answers.map(x => x["correctAnswer"]); // get true/false values in new array
+
+          for (let i = 0; i < answers_text.length; i++) {
+            const newAnswer = {
+              question_version: this.newQuestionId, // assign question-version id to answers
+              text: answers_text[i], // save answer text for i position in array
+              correct: answers_correct[i] // save true/false value for i position in array
+            }
+            await axios
+              .post("http://127.0.0.1:8000/quiz/answers/", newAnswer)  // push new answers to API
+          }
+
+          this.title = null;
+          this.description = null;
+          this.selectedCategory = 0;
+          this.answers = [];
+
+          alert('New question saved!');
+
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      getCategories() {
+        axios.get("http://127.0.0.1:8000/quiz/questions/")
+          .then((response) => (this.categories = response.data));
       },
 
-      // mounted() {
-      //   this.getQuestions();
-      // },
-
-      methods: {
-        addAnswer() {
-          this.answers.push({ answerText: this.answerInput, correctAnswer: false });
-        },
-        deleteAnswer(i) {
-          this.answers.splice(i, 1);
-        },
-        handleCheckboxClick(i) {
-          this.answers[i].correctAnswer = !this.answers[i].correctAnswer
-        },
-        print() {
-          console.log(this.answers)
-        },
-        addQuestion() {
-          axios
-            .post("http://127.0.0.1:8000/quiz/questions/", {
-              title: this.title,
-              description: this.description,
-              category: this.selectedCategory,
-            })
-            .then((response) => {
-              let newQuestion = {
-                id: response.data.id,
-                title: this.title,
-                description: this.description,
-                category: this.selectedCategory,
-              };
-
-              this.questions.push(newQuestion);
-
-              this.title = " ";
-              this.description = " ";
-
-              // this.getQuestions(id);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        },
-      }
-    })
-
-    app.mount('#add-question')
-  </script>
-
-  <style scoped>
-    * {
-      box-sizing: border-box;
     }
+  })
 
-    html {
-      font-family: "Roboto";
-    }
+</script>
 
-    body {
-      margin: 0;
-    }
+<style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+  @import url('https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@^0.4.0/dist/vue-treeselect.min.css');
 
-    #add-question {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-      margin: 3rem;
-      border-radius: 10px;
-      padding: 1rem;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    h2 {
-      font-size: 2rem;
-      border-bottom: 4px solid #ccc;
-      color: rgb(61, 61, 61);
-      margin: 0 0 1rem 0;
-    }
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
 
-    ul {
-      list-style: none;
-      margin: 1rem 0;
-      padding: 0;
-    }
+  body {
+    margin: 0;
+  }
 
-    li {
-      margin: 1rem 0;
-      font-size: 1rem;
-      background-color: #ccc;
-      padding: 0.5rem;
-      color: #1f1f1f;
-      border-radius: 2px;
-    }
+  #app {
+    margin: 3rem;
+    padding: 1rem;
+  }
 
-    #add-title {
-      width: 600px;
-      font: inherit;
-      border: 1px solid #ccc;
-    }
+  h2 {
+    font-size: 2rem;
+    border-bottom: 4px solid #ccc;
+    color: rgb(61, 61, 61);
+    margin: 0 0 1rem 0;
+  }
 
-    #add-description,
-    #add-answer {
-      width: 600px;
-      font: inherit;
-      border: 1px solid #ccc;
-    }
+  ul {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+  }
 
-    #answer-option {
-      width: 495px;
-      font: inherit;
-      border: 1px solid #ccc;
-    }
+  li {
+    margin: 1rem 0;
+    font-size: 1rem;
+    background-color: #ccc;
+    padding: 0.5rem;
+    color: #1f1f1f;
+    border-radius: 2px;
+  }
 
-    input:focus {
-      outline: none;
-      border-color: rgb(61, 61, 61);
-      background-color: #d7fdeb;
-    }
+  #add-title,
+  #add-description {
+    width: 80%;
+    font: inherit;
+    border: 1px solid #ccc;
+  }
 
-    button {
-      font: inherit;
-      cursor: pointer;
-      border: 1px solid rgb(167, 165, 165);
-      background-color: rgb(167, 165, 165);
-      color: white;
-      padding: 0.05rem 1rem;
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
-    }
+  #answer-option {
+    width: 68%;
+    font: inherit;
+    border: 1px solid #ccc;
+  }
 
-    button:hover,
-    button:active {
-      background-color: rgb(167, 165, 165);
-      border-color: rgb(167, 165, 165);
-      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
-    }
+  .treeselect {
+    width: 35%;
+    font: inherit;
+    border: 1px solid #ccc;
 
-    #trashcan {
-      font: inherit;
-      cursor: pointer;
-      border: none;
-      background-color: rgb(211, 30, 30);
-      padding: 0.1rem 0.2rem;
-      color: white;
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
-      border-radius: 5px;
-    }
+  }
 
-    #trashcan:hover,
-    #trashcan:active {
-      background-color: rgb(235, 15, 15);
-      border-color: rgb(211, 30, 30);
-      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
-    }
+  input:focus {
+    outline: none;
+    border-color: rgb(61, 61, 61);
+    background-color: #d7fdeb;
+  }
 
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 36px;
-      height: 20px;
-    }
+  button {
+    font: inherit;
+    cursor: pointer;
+    border: 1px solid rgb(167, 165, 165);
+    background-color: rgb(167, 165, 165);
+    color: white;
+    padding: 0.05rem 1rem;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+  }
 
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
+  button:hover,
+  button:active {
+    background-color: rgb(167, 165, 165);
+    border-color: rgb(167, 165, 165);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+  }
 
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgb(231, 39, 39);
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+  #trashcan {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(211, 30, 30);
+    padding: 0.1rem 0.2rem;
+    color: white;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+    border-radius: 3px;
+  }
 
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 16px;
-      width: 16px;
-      left: 2px;
-      bottom: 2px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+  #trashcan:hover,
+  #trashcan:active {
+    background-color: rgb(235, 15, 15);
+    border-color: rgb(211, 30, 30);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+  }
 
-    input:checked+.slider {
-      background-color: #3ac73e;
-    }
+  .switch {
+    position: absolute;
+    display: inline-block;
+    width: 74px;
+    height: 20px;
+  }
 
-    input:focus+.slider {
-      box-shadow: 0 0 1px #3ac73e;
-    }
+  .switch input {
+    display: none;
+  }
 
-    input:checked+.slider:before {
-      -webkit-transform: translateX(16px);
-      -ms-transform: translateX(16px);
-      transform: translateX(16px);
-    }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ca2222;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+  }
 
-    .slider.round {
-      border-radius: 34px;
-    }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
 
-    .slider.round:before {
-      border-radius: 50%;
-    }
-  </style>
-</body>
+  input:checked+.slider {
+    background-color: #2ab934;
+  }
 
-</html>
+  input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
 
+  input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(55px);
+  }
+
+  .slider:after {
+    content: 'Falsch';
+    color: white;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+  }
+
+  input:checked+.slider:after {
+    content: 'Richtig';
+  }
+
+  .container-question {
+    min-width: 400px;
+    width: 100%;
+    display: block;
+  }
+</style>
 {% endblock %}
+
+{% block extra_js %}{% endblock %}
