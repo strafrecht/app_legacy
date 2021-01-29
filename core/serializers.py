@@ -6,14 +6,21 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         # fields = "__all__"
-        fields = ['id', 'filepath', 'slug', 'title', 'order', 'description', 'category']
+        fields = ['id', 'filepath', 'slug', 'order', 'category']
+
+
+class QuestionVersionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = QuestionVersion
+        # fields = "__all__"
+        fields = ['id', 'question', 'slug', 'title', 'description', 'category', 'approved']
 
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnswerVersion
         # fields = "__all__"
-        fields = ['id', 'question', 'text', 'correct']
+        fields = ['id', 'question_version', 'text', 'correct']
 
 
 class QuizSerializer(serializers.ModelSerializer):
