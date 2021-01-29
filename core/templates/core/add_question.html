@@ -1,19 +1,8 @@
+{% extends "base_vue.html" %}
+
 {% load static %}
 
-{% block contents %}
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frage hinzufügen</title>
-</head>
-
-<body>
-
+{% block content %}
   <section id="add-question">
     <form @submit.prevent="createQuestion">
       <h2>neue Frage hinzufügen</h2>
@@ -271,13 +260,6 @@
       border-radius: 50%;
     }
   </style>
-</body>
-
-</html>
-
-
 {% endblock %}
 
-{% block extra_js %}
-
-{% endblock %}
+{% block extra_js %}{% endblock %}

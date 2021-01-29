@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib import admin
 from pagedown.widgets import AdminPagedownWidget
-from .models import Question, Answer, Quiz, UserAnswer, Choice
+from .models import Question, QuestionVersion, AnswerVersion, Quiz, UserAnswer, Choice
 
 class AnswerInline(admin.TabularInline):
-    model = Answer
+    model = AnswerVersion
     extra = 0
 
     formfield_overrides = {
@@ -12,7 +12,7 @@ class AnswerInline(admin.TabularInline):
     }
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('title','category')
+    list_display = ('question_id', 'title','category')
     inlines = [AnswerInline]
 
     formfield_overrides = {
@@ -50,6 +50,6 @@ class QuizAdmin(admin.ModelAdmin):
     }
 
 
-admin.site.register(Question, QuestionAdmin)
+admin.site.register(QuestionVersion, QuestionAdmin)
 admin.site.register(Quiz, QuizAdmin)
 #admin.site.register(UserAnswer, UserAnswerAdmin)

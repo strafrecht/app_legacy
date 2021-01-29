@@ -16,7 +16,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.models import User
 from django.core import serializers
 from wiki.models import Article, ArticleRevision, URLPath
-from .models import Question, Answer, Quiz, UserAnswer, Choice
+from .models import Question, QuestionVersion, AnswerVersion, Quiz, UserAnswer, Choice
 from pages.models import Exams
 
 from rest_framework import viewsets, permissions
@@ -62,7 +62,7 @@ def category_question(request, category_id, question_id):
             for answer in request.POST.getlist('answer'):
                 choice = Choice(
                     user_answer=user_answer,
-                    answer=Answer.objects.get(pk=answer)
+                    answer=AnswerVersion.objects.get(pk=answer)
                 )
                 choice.save()
 
@@ -108,6 +108,11 @@ def category_question(request, category_id, question_id):
             quiz.save()
 
             question = questions.first()
+
+        #question_version = QuestionVersion.objects.first()
+        question_version = question.questionversion_set.all().first()
+
+        question = question_version
 
         return render(request, 'core/category_question.html', {
             'category': category,
@@ -209,13 +214,22 @@ def scrape(request):
                         "root": root,
                         "slug": root.split("/")[-1],
                         "category": "", #Category
-                        "title": extract("question", soup),
+                        #"title": extract("question", soup),
                         "answers": extract("answers", soup),
-                        "description": extract("description", soup),
+                        #"description": extract("description", soup),
                         "order": extract("order", soup),
                     }
 
-                    create_question(question)
+                    question = create_question(question)
+
+                    question_version = {
+                        "question_id": question.id,
+                        "title": extract("question", soup),
+                        "answers": extract("answers", soup),
+                        "description": extract("description", soup),
+                    }
+
+                    create_question_version(question_version)
 
     # output
     #categories = Category.objects.all()
@@ -388,30 +402,41 @@ def old_create_wiki(wiki):
     # add tags
     # article.tags.add(*tags)
 
-def create_question(question):
-    answers = question['answers']
-
+def create_question(question_data):
     root = Article.objects.first().urlpath_set.first()
-    slug_list = deque(question["root"].split("/")[1:-2])
+    slug_list = deque(question_data["root"].split("/")[1:-2])
     parent = traverse_ancestors(root, slug_list)
 
     question = Question(
-        filepath=question['root'],
-        slug=question['slug'],
-        title=question['title'],
-        order=question['order'],
-        description=question['description'],
+        filepath=question_data['root'],
+        slug=question_data['slug'],
+        #title=question_data['title'],
+        order=question_data['order'],
+        #description=question_data['description'],
         category=parent.article,
     )
-
-    print(question)
 
     # save question
     question.save()
 
+    return question
+
+def create_question_version(question_data):
+    answers = question_data['answers']
+
+    question_version = QuestionVersion(
+        question_id=question_data['question_id'],
+        title=question_data['title'],
+        #title="placeholder title",
+        description=question_data['description'],
+        #description="placeholder description"
+    )
+
+    question_version.save()
+
     # save answers
     for answer in answers:
-        question.answer_set.create(text=answer['text'], correct=answer['correct'])
+        question_version.answerversion_set.create(text=answer['text'], correct=answer['correct'])
 
 def get_type(soup):
     return extract("type", soup)
@@ -726,7 +751,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 
 
 class AnswerViewSet(viewsets.ModelViewSet):
-    queryset = Answer.objects.all()
+    queryset = AnswerVersion.objects.all()
     serializer_class = AnswerSerializer
     permission_classes = [AllowAny]
 

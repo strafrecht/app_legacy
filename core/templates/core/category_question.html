@@ -11,12 +11,12 @@
 	</div>
 
 	<div class="p-4 pb-5">
-	<form action="{% url 'quiz:category_question' category.id question.id %}" method="post">
+	<form action="{% url 'quiz:category_question' category.id question.question.id %}" method="post">
 		{% csrf_token %}
-		<input type="hidden" name="question-id" value={{question.id}}>
+		<input type="hidden" name="question-id" value={{question.question.id}}>
 
 		<ul class="p-2">
-			{% for answer in question.answer_set.all %}
+			{% for answer in question.answerversion_set.all %}
 				<label for={{answer.id}}>
 					<input type="checkbox" id={{answer.id}} class="answer" name="answer" value="{{answer.id}}" data-correct={{answer.correct}}> {{ answer }}
 				</label><br>
@@ -26,7 +26,7 @@
 		<div class="float-right">
 			<button id="show-results-button" class="btn btn-success">Lösung</button>
 			{% for quest in questions %}
-				{% if quest.id == question.id %}
+				{% if quest.id == question.question.id %}
 					{% if forloop.counter == questions.count and quest.id == question.id %}
 						<input type="hidden" value="finished" name="state">
 						<input type="submit" value="Finish Quiz" hidden class="btn btn-info">

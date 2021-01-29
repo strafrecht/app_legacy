@@ -11,7 +11,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Answer
+        model = AnswerVersion
         # fields = "__all__"
         fields = ['id', 'question', 'text', 'correct']
 
