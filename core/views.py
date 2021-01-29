@@ -776,12 +776,11 @@ class ChoiceViewSet(viewsets.ModelViewSet):
 def get_category_tree(request):
     root = URLPath.objects.first()
     tree = create_categories(root)
-    data = json.dumps(tree)
-    return JsonResponse(data, safe=False)
+    return JsonResponse(tree)
 
 def create_categories(category):
     return {
-        "id": category.id,
-        "label": category.article.articlerevision_set.first().title,
-        "children": [create_categories(child) for child in category.get_children() if len(category.get_children()) > 0]
+        'id': category.article.id,
+        'label': category.article.articlerevision_set.first().title,
+        'children': [create_categories(child) for child in category.get_children() if len(category.get_children()) > 0]
     }
