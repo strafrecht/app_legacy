@@ -1,6 +1,5 @@
-import os
-import json
 import html2text
+import json
 import logging
 
 from django.contrib.auth.decorators import login_required
@@ -748,3 +747,16 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
     permission_classes = [AllowAny]
+    
+def get_categories_tree(request):
+    root = URLPath.objects.first()
+    tree = create_categories(root)
+    data = json.dumps(tree)
+    return JsonResponse(data, safe=False)
+
+def create_categories(category):
+    return {
+        "id": category.id,
+        "label": category.article.articlerevision_set.first().title,
+        "children": [create_categories(child) for child in category.get_children() if len(category.get_children()) > 0]
+    }
