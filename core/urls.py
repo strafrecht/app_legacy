@@ -27,7 +27,7 @@ urlpatterns = [
     path('api/exams', views.api_exams, name='api_exams'),
 
     path('add_question/', views.add_question, name='add_question'),
-    path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/category_tree', views.get_categories_tree, name='get_category_tree'),
+    # path('api/', include(router.urls)),
 ]
