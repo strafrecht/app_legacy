@@ -1,8 +1,15 @@
 from django.urls import path, include
 from . import views
-#from rest_framework import routers
+from rest_framework import routers
 
 app_name = 'quiz'
+
+router = routers.DefaultRouter()
+router.register(r'questions', views.QuestionViewSet)
+router.register(r'answers', views.AnswerViewSet)
+router.register(r'quizzes', views.QuizViewSet)
+router.register(r'user-answers', views.UserAnswerViewSet)
+router.register(r'choices', views.ChoiceViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -20,14 +27,8 @@ urlpatterns = [
     path('api/exams', views.api_exams, name='api_exams'),
 
     path('add_question/', views.add_question, name='add_question'),
-    #path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api/category_tree', views.get_category_tree, name='get_category_tree'),
-    # path('api/', include(router.urls)),
+    path('api/category_tree/', views.get_category_tree, name='get_category_tree'),
+    path('api/json/', include(router.urls)),
+    path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
-#router = routers.DefaultRouter()
-#router.register(r'questions', views.QuestionViewSet)
-#router.register(r'answers', views.AnswerViewSet)
-#router.register(r'quizzes', views.QuizViewSet)
-#router.register(r'user-answers', views.UserAnswerViewSet)
-#router.register(r'choices', views.ChoiceViewSet)
