@@ -1,2 +1,4 @@
 /static/
+*.swp
+*.swo
 /node_modules/
