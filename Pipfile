@@ -28,6 +28,8 @@ sentry-sdk = "*"
 django-pipeline = "*"
 vine = "*"
 markdownify = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.8"
