@@ -773,7 +773,7 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     serializer_class = ChoiceSerializer
     permission_classes = [AllowAny]
     
-def get_categories_tree(request):
+def get_category_tree(request):
     root = URLPath.objects.first()
     tree = create_categories(root)
     data = json.dumps(tree)
