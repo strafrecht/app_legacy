@@ -1,37 +1,50 @@
+from rest_framework.fields import SerializerMethodField
+
 from core.models import *
 from rest_framework import serializers
 
 
-class QuestionSerializer(serializers.ModelSerializer):
+class QuestionOnlySerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        # fields = "__all__"
-        fields = ['id', 'filepath', 'slug', 'title', 'order', 'description', 'category']
+        fields = ['id', 'filepath', 'slug', 'order', 'category']
+
+
+class QuestionVersionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = QuestionVersion
+        fields = ['id', 'question', 'slug', 'title', 'description', 'categories', 'approved']
 
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnswerVersion
-        # fields = "__all__"
-        fields = ['id', 'question', 'text', 'correct']
+        fields = ['id', 'question_version', 'text', 'correct']
+
+
+class QuestionSerializer(serializers.Serializer):
+    title = serializers.CharField()
+    description = serializers.CharField()
+    categories = serializers.ListField(child=serializers.IntegerField())
+    answers = serializers.JSONField()
+
+    class Meta:
+        fields = ['categories', 'description', 'title', 'answers']
 
 
 class QuizSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quiz
-        # fields = "__all__"
-        fields = ['id', 'user', 'category', 'completed', 'created', 'updated']
+        fields = ['id', 'user', 'categories', 'completed', 'created', 'updated']
 
 
 class UserAnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserAnswer
-        # fields = "__all__"
         fields = ['id', 'quiz', 'question', 'created']
 
 
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        # fields = "__all__"
         fields = ['id', 'user_answer', 'answer']

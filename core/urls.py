@@ -5,7 +5,8 @@ from rest_framework import routers
 app_name = 'quiz'
 
 router = routers.DefaultRouter()
-router.register(r'questions', views.QuestionViewSet)
+# router.register(r'questions', views.QuestionOnlyViewSet)
+router.register(r'question-versions', views.QuestionVersionViewSet)
 router.register(r'answers', views.AnswerViewSet)
 router.register(r'quizzes', views.QuizViewSet)
 router.register(r'user-answers', views.UserAnswerViewSet)
@@ -30,5 +31,6 @@ urlpatterns = [
     path('api/category_tree/', views.get_category_tree, name='get_category_tree'),
     path('api/json/', include(router.urls)),
     path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('questions/', views.QuestionViewSet.as_view(), name='questions')
 ]
 
