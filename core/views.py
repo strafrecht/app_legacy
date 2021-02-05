@@ -760,7 +760,7 @@ class QuestionViewSet(generics.GenericAPIView):
 
         data = request.data
         categories = Article.objects.filter(id__in=data.get("categories"))
-        question = Question()
+        question = Question(user=request.user)
         question.save()
 
         question_version = QuestionVersion.objects.create(

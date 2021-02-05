@@ -13,6 +13,7 @@ class Question(models.Model):
     slug = models.CharField(max_length=255, null=True, blank=True)
     order = models.CharField(max_length=255, null=True, blank=True)
     category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         #return self.questionversion_set.all().first().title

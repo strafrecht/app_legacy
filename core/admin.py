@@ -11,7 +11,16 @@ class AnswerInline(admin.TabularInline):
         models.TextField: {'widget': AdminPagedownWidget},
     }
 
+
 class QuestionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'category', 'user')
+
+    formfield_overrides = {
+        models.TextField: {'widget': AdminPagedownWidget},
+    }
+
+
+class QuestionVersionAdmin(admin.ModelAdmin):
     list_display = ('question_id', 'title')
     inlines = [AnswerInline]
 
@@ -50,6 +59,7 @@ class QuizAdmin(admin.ModelAdmin):
     }
 
 
-admin.site.register(QuestionVersion, QuestionAdmin)
+admin.site.register(QuestionVersion, QuestionVersionAdmin)
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Quiz, QuizAdmin)
 #admin.site.register(UserAnswer, UserAnswerAdmin)
