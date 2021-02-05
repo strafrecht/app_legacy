@@ -1,6 +1,7 @@
 import html2text
 import json
 import logging
+import os
 
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -154,9 +155,12 @@ def scrape(request):
     os.chdir('/home/admin/Workspace/app/core')
 
     # delete all wiki/categories
-    #URLPath.objects.all().delete()
-    #ArticleRevision.objects.all().delete()
-    #Article.objects.all().delete()
+    URLPath.objects.all().delete()
+    ArticleRevision.objects.all().delete()
+    Article.objects.all().delete()
+
+    AnswerVersion.objects.all().delete()
+    QuestionVersion.objects.all().delete()
     Question.objects.all().delete()
 
     # Create root article
@@ -196,7 +200,7 @@ def scrape(request):
                         #"long_name": extract("long_name", soup),
                     }
 
-                    #create_category(cat)
+                    create_category(cat)
 
                 # create wikis
                 if "problem" in get_type(soup):
@@ -209,7 +213,7 @@ def scrape(request):
                         "content": extract("content", soup),
                     }
 
-                    #create_wiki(wiki)
+                    create_wiki(wiki)
 
                 # create mct
                 if "frage" in get_type(soup):

@@ -4,3 +4,7 @@
 /node_modules/
 /db.dump
 *.xml
+.idea
+*/__pycache__
+!**/__pycache__/
+*.pyc
