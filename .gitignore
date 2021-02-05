@@ -1,4 +1,6 @@
 /static/
+*.swp
+*.swo
 /node_modules/
 /db.dump
 *.xml

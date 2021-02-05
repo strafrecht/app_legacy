@@ -6,28 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
-psycopg2 = "*"
-wagtail = "*"
-wiki = "*"
-django-admin-interface = "*"
-django-pagedown = "*"
-html2text = "*"
-tqdm = "*"
-django-leaflet = "*"
-django-comments-xtd = "*"
-django-livereload-server = "*"
-wagtailcolumnblocks = "*"
-wagtailnews = "*"
-wagtailmenus = "*"
-django-debug-toolbar = "*"
-wagtail-birdsong = "*"
-django-filter = "*"
-wagtailpolls = "*"
-sentry-sdk = "*"
-django-pipeline = "*"
-vine = "*"
-markdownify = "*"
 
 [requires]
 python_version = "3.8"

@@ -103,7 +103,7 @@ class Quiz(models.Model):
 class UserAnswer(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, null=True, on_delete=models.SET_NULL)
-    #answer = models.ForeignKey(Answer, null=True, on_delete=models.SET_NULL)
+    answer = models.ForeignKey(AnswerVersion, null=True, on_delete=models.SET_NULL)
     created = models.DateTimeField(auto_now_add=True)
 
 class Choice(models.Model):
