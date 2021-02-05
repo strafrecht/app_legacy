@@ -23,7 +23,8 @@ class QuestionVersion(models.Model):
     slug = models.CharField(max_length=255, blank=True, null=True)
     title = models.TextField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)
+    # category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)
+    categories = models.ManyToManyField(Article, null=True, blank=True)
     approved = models.BooleanField(default=False)
 
 #class Answer(models.Model):

@@ -12,7 +12,7 @@ class AnswerInline(admin.TabularInline):
     }
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question_id', 'title','category')
+    list_display = ('question_id', 'title')
     inlines = [AnswerInline]
 
     formfield_overrides = {

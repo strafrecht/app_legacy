@@ -1,57 +1,54 @@
-{% extends "base_vue.html" %}
+{% extends "base_vue.html" %} {% load static %} {% block content %}
 
-{% load static %}
-
-{% block content %}
-
-<section id="app">
+<section id="add-question">
   <div class="container-question">
     <form @submit.prevent="addQuestion">
+      {% csrf_token %}
       <h2>neue Frage hinzufügen</h2>
       <div>
         <textarea id="add-title" name="add-title" rows="2" cols="50" v-model="title"
           placeholder="Bitte geben Sie hier Ihre Frage ein" required>
-                </textarea>
-      </div><br>
+        </textarea>
+      </div>
+      <br />
       <div>
         <textarea id="add-description" name="add-description" rows="4" cols="50" v-model="description"
           placeholder="Fragenbeschreibung" required>
-                </textarea>
-      </div><br>
+        </textarea>
+      </div>
+      <br />
       <div>
         <button @click="generateAnswer">neu Antwort</button>
-      </div><br>
+      </div>
+      <br />
       <div>
         <div>
           <span>
             <div v-for="(answer, index) in answers">
-              <button id="trashcan" @click="deleteAnswer(index)"> &#128465; </button>
+              <button id="trashcan" @click="deleteAnswer(index)">
+                &#128465;
+              </button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <textarea id="answer-option" v-model="answer.text" :key="index" rows="2" cols="50"
-                placeholder="Antwortmöglichkeit" required></textarea> &nbsp;&nbsp;&nbsp;&nbsp;
+                placeholder="Antwortmöglichkeit" required></textarea>
+              &nbsp;&nbsp;&nbsp;&nbsp;
               <label class="switch">
-                <input type="checkbox" @click="handleCheckboxClick(index)" :value="answer.correctAnswer">
+                <input type="checkbox" @click="handleCheckboxClick(index)" :value="answer.correct" />
                 <div class="slider round"></div>
               </label>
             </div>
-            <br>
+            <br />
           </span>
         </div>
-      </div> <br>
+      </div>
+      <br />
       <div class="category">
         <label class="label">Kategorie wählen</label>
-        <div class="control">
-          <select class="select" v-model="selectedCategory">
-            <option v-for="category in categories" v-text.number="category.category">
-            </option>
-          </select>
-        </div>
       </div>
-      <br>
       <div>
-        <treeselect class="treeselect" v-model="value" :multiple="true" :options="options" />
+        <treeselect class="treeselect" v-model="selectedCategory" :multiple="true" :options="categories" required />
       </div>
-      <br>
+      <br />
       <button type="submit" class="button is-link">Speichern</button>
     </form>
   </div>
@@ -62,43 +59,21 @@
 <script src="https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@^0.4.0/dist/vue-treeselect.umd.min.js"></script>
 
 <script>
-  Vue.component('treeselect', VueTreeselect.Treeselect)
+  Vue.component("treeselect", VueTreeselect.Treeselect);
 
   new Vue({
-    el: '#app',
+    el: "#add-question",
 
     data() {
       return {
-        title: '',
-        description: '',
+        title: "",
+        description: "",
         questions: [],
         answers: [],
+        selectedCategory: null,
+        text: "",
+        correct: false,
         categories: [],
-        selectedCategory: 0,
-        newQuestionId: null,
-        text: '',
-        correctAnswer: false,
-
-        value: null,
-        // define options
-        options: [{
-          id: 'a',
-          label: 'a',
-          children: [{
-            id: 'aa',
-            label: 'aa',
-          }, {
-            id: 'ab',
-            label: 'ab',
-          }],
-        }, {
-          id: 'b',
-          label: 'b',
-        }, {
-          id: 'c',
-          label: 'c',
-        }],
-
       };
     },
 
@@ -108,90 +83,64 @@
 
     methods: {
       generateAnswer() {
-        this.answers.push({ text: '', correctAnswer: false });
+        this.answers.push({ text: "", correct: false });
       },
       deleteAnswer(i) {
         this.answers.splice(i, 1);
       },
       handleCheckboxClick(i) {
-        this.answers[i].correctAnswer = !this.answers[i].correctAnswer
-      },
-      print() {
-        console.log(this.answers)
-      },
-      async generateQuestionId() {
-
-        const response = await axios
-          .post("http://127.0.0.1:8000/quiz/questions/", {
-            id: null,
-          })
-        return response.data.id
+        this.answers[i].correct = !this.answers[i].correct;
       },
       async addQuestion() {
         try {
-          const id = await this.generateQuestionId();
           const newQuestion = {
-            question: id,
             title: this.title,
             description: this.description,
-            category: this.selectedCategory,
+            categories: this.selectedCategory,
+            answers: this.answers,
           };
 
-          await axios
-            .post("http://127.0.0.1:8000/quiz/question-versions/", newQuestion) // push new question title, description and category to API
-            .then((response) => (this.newQuestionId = response.data.id)); // get question-version id 
-
-          answers_text = this.answers.map(x => x["text"]); // get answers' texts in an new array
-          answers_correct = this.answers.map(x => x["correctAnswer"]); // get true/false values in new array
-
-          for (let i = 0; i < answers_text.length; i++) {
-            const newAnswer = {
-              question_version: this.newQuestionId, // assign question-version id to answers
-              text: answers_text[i], // save answer text for i position in array
-              correct: answers_correct[i] // save true/false value for i position in array
-            }
-            await axios
-              .post("http://127.0.0.1:8000/quiz/answers/", newAnswer)  // push new answers to API
-          }
+          await axios.post(
+            "http://127.0.0.1:8000/quiz/questions/",
+            newQuestion
+          );
 
           this.title = null;
           this.description = null;
-          this.selectedCategory = 0;
+          this.selectedCategory = null;
           this.answers = [];
 
-          alert('New question saved!');
-
+          alert("neue Frage gespeichert!");
         } catch (error) {
           console.log(error);
         }
       },
       getCategories() {
-        axios.get("http://127.0.0.1:8000/quiz/questions/")
-          .then((response) => (this.categories = response.data));
+        axios
+          .get("http://127.0.0.1:8000/quiz/api/category_tree/")
+          .then((response) => this.categories.push(response.data));
       },
-
-    }
-  })
-
+    },
+  });
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-  @import url('https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@^0.4.0/dist/vue-treeselect.min.css');
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+  @import url("https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@^0.4.0/dist/vue-treeselect.min.css");
 
   * {
     box-sizing: border-box;
   }
 
   html {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   body {
     margin: 0;
   }
 
-  #app {
+  #add-question {
     margin: 3rem;
     padding: 1rem;
   }
@@ -235,7 +184,6 @@
     width: 35%;
     font: inherit;
     border: 1px solid #ccc;
-
   }
 
   input:focus {
@@ -299,8 +247,8 @@
     right: 0;
     bottom: 0;
     background-color: #ca2222;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
     border-radius: 34px;
   }
 
@@ -312,8 +260,8 @@
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
     border-radius: 50%;
   }
 
@@ -322,7 +270,7 @@
   }
 
   input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #2196f3;
   }
 
   input:checked+.slider:before {
@@ -332,7 +280,7 @@
   }
 
   .slider:after {
-    content: 'Falsch';
+    content: "Falsch";
     color: white;
     display: block;
     position: absolute;
@@ -344,7 +292,7 @@
   }
 
   input:checked+.slider:after {
-    content: 'Richtig';
+    content: "Richtig";
   }
 
   .container-question {
@@ -353,6 +301,5 @@
     display: block;
   }
 </style>
-{% endblock %}
 
-{% block extra_js %}{% endblock %}
+{% endblock %} {% block extra_js %}{% endblock %}

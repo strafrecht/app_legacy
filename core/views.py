@@ -3,6 +3,8 @@ import json
 import logging
 
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
 from tqdm import tqdm
 from markdownify import markdownify as md
@@ -19,9 +21,9 @@ from wiki.models import Article, ArticleRevision, URLPath
 from .models import Question, QuestionVersion, AnswerVersion, Quiz, UserAnswer, Choice
 from pages.models import Exams
 
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, mixins, generics, response
 from .serializers import QuestionSerializer, ChoiceSerializer, UserAnswerSerializer, QuizSerializer, AnswerSerializer, \
-    QuestionVersionSerializer
+    QuestionVersionSerializer, QuestionOnlySerializer
 
 logger = logging.getLogger('django')
 
@@ -176,7 +178,7 @@ def scrape(request):
     #for root, dirs, files in os.walk(base_dir, topdown=True, onerror=on_error):
     for root, dirs, files in tqdm(os.walk(base_dir, topdown=True, onerror=on_error), total=filecounter, unit=" files"):
 
-        #if "grundlagen" in root:        
+        #if "grundlagen" in root:
         if True:
             for file in files:
                 path = os.path.join(root, file)
@@ -451,7 +453,7 @@ def extract(field, soup):
     if field == "answers":
         header = soup.find(lambda tag: tag.name == "h2")
         answers = [{
-                'text': md(answer.decode_contents(formatter="html").replace("\n", "")), 
+                'text': md(answer.decode_contents(formatter="html").replace("\n", "")),
                 'correct': 'correct' in answer.attrs.values().__str__()
             } for answer in soup.find("ul").findAll("li")]
         return answers
@@ -619,7 +621,7 @@ def exams(request):
                 sachverhalt_link=row[5],
                 loesung_link=row[6],
             )
-            
+
             exams.append(exam)
 
     for exam in exams: print(exam)
@@ -745,10 +747,41 @@ def add_question(request):
     return render(request, 'core/add_question.html', {})
 
 
-class QuestionViewSet(viewsets.ModelViewSet):
-    queryset = Question.objects.all()
+class QuestionViewSet(generics.GenericAPIView):
+    # queryset = Question.objects.all()
     serializer_class = QuestionSerializer
     permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+
+        data = request.data
+        categories = Article.objects.filter(id__in=data.get("categories"))
+        question = Question()
+        question.save()
+
+        question_version = QuestionVersion.objects.create(
+            question=question,
+            title=data.get("title"),
+            description=data.get("description")
+        )
+
+        question_version.categories.set(categories)
+        question_version.save()
+
+        for answer in data.get("answers"):
+            AnswerVersion.objects.create(
+                question_version=question_version,
+                text=answer.get("text"),
+                correct=answer.get("correct")
+            )
+
+        return JsonResponse(data={"success": True}, status=200)
+
+
+# class QuestionOnlyViewSet(viewsets.ModelViewSet):
+#     queryset = Question.objects.all()
+#     serializer_class = QuestionOnlySerializer
+#     permission_classes = [AllowAny]
 
 
 class QuestionVersionViewSet(viewsets.ModelViewSet):
@@ -779,16 +812,15 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
     permission_classes = [AllowAny]
-    
+
 def get_category_tree(request):
     root = URLPath.objects.first()
     tree = create_categories(root)
-    data = json.dumps(tree)
-    return JsonResponse(data, safe=False)
+    return JsonResponse(tree)
 
 def create_categories(category):
     return {
-        "id": category.id,
+        "id": category.article.id,
         "label": category.article.articlerevision_set.first().title,
         "children": [create_categories(child) for child in category.get_children() if len(category.get_children()) > 0]
     }
