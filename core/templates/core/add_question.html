@@ -3,8 +3,11 @@
 <section id="add-question">
   <div class="container-question">
     <form @submit.prevent="addQuestion">
-      {% csrf_token %}
-      <h2>neue Frage hinzufügen</h2>
+      <!-- {% csrf_token %} -->
+      <h2>neue Frage hinzufügen {{ request.user }}
+        <br>
+        {{user}}
+      </h2>
       <div>
         <textarea id="add-title" name="add-title" rows="2" cols="50" v-model="title"
           placeholder="Bitte geben Sie hier Ihre Frage ein" required>
@@ -80,7 +83,6 @@
     mounted() {
       this.getCategories();
     },
-
     methods: {
       generateAnswer() {
         this.answers.push({ text: "", correct: false });
@@ -91,8 +93,24 @@
       handleCheckboxClick(i) {
         this.answers[i].correct = !this.answers[i].correct;
       },
+      getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      },
+
       async addQuestion() {
         try {
+          const csrftoken = this.getCookie('csrftoken');
           const newQuestion = {
             title: this.title,
             description: this.description,
@@ -100,9 +118,12 @@
             answers: this.answers,
           };
 
+          const headers = { 'X-CSRFToken': csrftoken }
+
           await axios.post(
             "http://127.0.0.1:8000/quiz/questions/",
-            newQuestion
+            newQuestion,
+            { headers: headers }
           );
 
           this.title = null;
