@@ -3,7 +3,7 @@
 <section id="add-question">
   <div class="container-question">
     <form @submit.prevent="addQuestion">
-      <!-- {% csrf_token %} -->
+      {% csrf_token %}
       <h2>neue Frage hinzufügen {{ request.user }}
         <br>
         {{user}}
@@ -87,12 +87,15 @@
       generateAnswer() {
         this.answers.push({ text: "", correct: false });
       },
+
       deleteAnswer(i) {
         this.answers.splice(i, 1);
       },
+
       handleCheckboxClick(i) {
         this.answers[i].correct = !this.answers[i].correct;
       },
+
       getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -110,7 +113,8 @@
 
       async addQuestion() {
         try {
-          const csrftoken = this.getCookie('csrftoken');
+          const csrf_token = this.getCookie('csrftoken');
+
           const newQuestion = {
             title: this.title,
             description: this.description,
@@ -118,13 +122,14 @@
             answers: this.answers,
           };
 
-          const headers = { 'X-CSRFToken': csrftoken }
+          const config = {
+            headers: {
+              'X-CSRFToken': csrf_token,
+            },
+            withCredentials: true,
+          }
 
-          await axios.post(
-            "http://127.0.0.1:8000/quiz/questions/",
-            newQuestion,
-            { headers: headers }
-          );
+          await axios.post("http://localhost:8000/quiz/questions/", newQuestion, config)
 
           this.title = null;
           this.description = null;

@@ -769,25 +769,18 @@ def add_question(request):
 #     if created:
 #         Token.objects.create(user=instance)
 
-
 class QuestionViewSet(mixins.CreateModelMixin, generics.GenericAPIView):
     # queryset = Question.objects.all()
     serializer_class = QuestionSerializer
 
-    # authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [AllowAny]
-
-    # def get(self, request, format=None):
-    #     content = {
-    #         'user': unicode(request.user),  # `django.contrib.auth.User` instance.
-    #         'auth': unicode(request.auth),  # None
-    #     }
-    #     return Response(content)
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [AllowAny,]
 
     def post(self, request, *args, **kwargs):
-
         data = request.data
         categories = Article.objects.filter(id__in=data.get("categories"))
+
+        print(request.user)
 
         print('USER: ', request.user)
         print('ID USER: ', request.user.id)
@@ -796,6 +789,8 @@ class QuestionViewSet(mixins.CreateModelMixin, generics.GenericAPIView):
         # token = Token.objects.create(user=request.user)
         # print(token.key)
         # print(request.user)
+
+        print(request)
 
         if request.user.is_authenticated:
             question = Question(user=request.user)
