@@ -27,9 +27,11 @@ class QuestionSerializer(serializers.Serializer):
     description = serializers.CharField()
     categories = serializers.ListField(child=serializers.IntegerField())
     answers = serializers.JSONField()
+    user = serializers.CharField()
 
     class Meta:
-        fields = ['categories', 'description', 'title', 'answers']
+        # fields = ['categories', 'description', 'title', 'answers']
+        fields = ['user', 'categories', 'description', 'title', 'answers']
 
 
 class QuizSerializer(serializers.ModelSerializer):

@@ -3,10 +3,16 @@ import json
 import logging
 import os
 
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAuthenticated
+from rest_framework.response import Response
 from tqdm import tqdm
 from markdownify import markdownify as md
 from bs4 import BeautifulSoup
@@ -746,21 +752,55 @@ def get_bt_categories():
     return categories
 
 
-@login_required(login_url="/profile/login")
+# @login_required(login_url="/profile/login")
 def add_question(request):
-    return render(request, 'core/add_question.html', {})
+    user = request.user
+    return render(request, 'core/add_question.html', {"user": user})
 
 
-class QuestionViewSet(generics.GenericAPIView):
+# users = User.objects.all()
+# for user in users:
+#     token, created = Token.objects.get_or_create(user=user)
+#     print(user.username, token.key)
+
+
+# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+# def create_auth_token(sender, instance=None, created=False, **kwargs):
+#     if created:
+#         Token.objects.create(user=instance)
+
+
+class QuestionViewSet(mixins.CreateModelMixin, generics.GenericAPIView):
     # queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [AllowAny]
+
+    # def get(self, request, format=None):
+    #     content = {
+    #         'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+    #         'auth': unicode(request.auth),  # None
+    #     }
+    #     return Response(content)
 
     def post(self, request, *args, **kwargs):
 
         data = request.data
         categories = Article.objects.filter(id__in=data.get("categories"))
-        question = Question(user=request.user)
+
+        print('USER: ', request.user)
+        print('ID USER: ', request.user.id)
+        print('AUTHENTICATED?: ', request.user.is_authenticated)
+
+        # token = Token.objects.create(user=request.user)
+        # print(token.key)
+        # print(request.user)
+
+        if request.user.is_authenticated:
+            question = Question(user=request.user)
+        else:
+            question = Question()
         question.save()
 
         question_version = QuestionVersion.objects.create(
