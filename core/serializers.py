@@ -30,7 +30,6 @@ class QuestionSerializer(serializers.Serializer):
     user = serializers.CharField()
 
     class Meta:
-        # fields = ['categories', 'description', 'title', 'answers']
         fields = ['user', 'categories', 'description', 'title', 'answers']
 
 

@@ -4,10 +4,7 @@
   <div class="container-question">
     <form @submit.prevent="addQuestion">
       {% csrf_token %}
-      <h2>neue Frage hinzufügen {{ request.user }}
-        <br>
-        {{user}}
-      </h2>
+      <h2>neue Frage hinzufügen</h2>
       <div>
         <textarea id="add-title" name="add-title" rows="2" cols="50" v-model="title"
           placeholder="Bitte geben Sie hier Ihre Frage ein" required>
