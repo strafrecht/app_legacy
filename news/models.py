@@ -30,6 +30,9 @@ class NewsItem(AbstractNewsItem):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return self.url()
+
 
 class NewsItemRevision(AbstractNewsItemRevision):
         newsitem = models.ForeignKey(NewsItem, related_name='revisions', on_delete=models.CASCADE)

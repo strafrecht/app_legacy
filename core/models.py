@@ -99,8 +99,6 @@ class Quiz(models.Model):
         questions = Question.objects.filter(category_id=id) | Question.objects.filter(category_id__in=ids)
         return questions.order_by('id')
 
-
-
 class UserAnswer(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, null=True, on_delete=models.SET_NULL)
