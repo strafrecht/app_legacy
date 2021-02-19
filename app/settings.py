@@ -304,6 +304,7 @@ PIPELINE = {
                 'css/custom-wagtail-columns.css'
                 'css/sidebar.css',
                 'css/wiki.css',
+                'css/comments.css',
             ),
             'output_filename': 'css/main.css',
         },

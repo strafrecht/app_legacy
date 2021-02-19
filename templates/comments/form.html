@@ -16,7 +16,7 @@
         <div style="display:none">{{ form.honeypot }}</div>
 
         <div class="row form-group {% if 'comment' in form.errors %}has-danger{% endif %}">
-            <div class="offset-md-1 col-md-10">
+            <div class="w-100">
                 {{ form.comment }}
             </div>
         </div>
@@ -39,7 +39,7 @@
             </label>
             <div class="col-md-7">
                 {{ form.email }}
-                <span class="form-text small">{{ form.email.help_text }}</span>
+                <span class="form-text small invisible">{{ form.email.help_text }}</span>
             </div>
         </div>
         {% endif %}
@@ -56,19 +56,61 @@
         {% endif %}
 
         <div class="row form-group">
-            <div class="offset-md-3 col-md-7">
+            <div class="w-100">
                 <div class="custom-control custom-checkbox">
                     {{ form.followup }}
-                    <label for="id_followup{% if cid %}_{{ cid }}{% endif %}" class="custom-control-label">&nbsp;{{ form.followup.label }}</label>
+                    <label for="id_followup{% if cid %}_{{ cid }}{% endif %}" class="custom-control-label" style="font-size: 13px;">&nbsp;{{ form.followup.label }}</label>
                 </div>
             </div>
         </div>
     </fieldset>
 
     <div class="row form-group">
-        <div class="offset-md-3 col-md-7">
+        <div class="w-100 mt-4">
             <input type="submit" name="post" value="{% trans 'send' %}" class="btn btn-primary" />
             <input type="submit" name="preview" value="{% trans 'preview' %}" class="btn btn-secondary" />
         </div>
     </div>
+
+    <script>
+        const username = `{{user.username}}`
+
+        // labels
+        const name_label = document.querySelector("label[for=id_name]")
+        const email_label = document.querySelector("label[for=id_email]")
+
+        // inputs
+        const name_input = document.querySelector(`#id_name`)
+        const email_input = document.querySelector(`#id_email`)
+        const submit_input = document.querySelector("input[name=post]")
+
+        // disable required
+        name_input.required = false
+        email_input.required = false
+
+        if (username) {
+          // hide [name, email] fields
+          name_label.hidden = true
+          email_label.hidden = true
+          name_input.hidden = true
+          email_input.hidden = true
+
+          // set [name, email] fields
+          name_input.value = username
+          email_input.value = `${username}@strafrecht-online.org`
+        }
+
+        submit_input.addEventListener('click', function(e) {
+            console.log('clicked')
+            if (name_input.value == '') {
+                name_input.value = 'Anonymous'
+            }
+            if (email_input.value == '') {
+                email_input.value = 'anonymous@strafrecht-online.org'
+            }
+            console.log(name_input.value)
+            console.log(email_input.value)
+        })
+
+	</script>
 </form>
