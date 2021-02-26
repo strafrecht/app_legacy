@@ -17,4 +17,4 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            /home/admin/deploy/deploy_server.sh
+            /home/production/deploy/deploy_server.sh
