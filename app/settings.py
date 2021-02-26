@@ -138,6 +138,7 @@ INSTALLED_APPS = [
     # Wagtail Polls
     'wagtailpolls',
     'wagtail.contrib.modeladmin',
+    'wagtailstreamforms',
 
     # DRF
     'rest_framework',
@@ -158,7 +159,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'wagtail.core.middleware.SiteMiddleware',
+    #'wagtail.core.middleware.SiteMiddleware', 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     'livereload.middleware.LiveReloadScript',
     #'debug_toolbar.middleware.DebugToolbarMiddleware',

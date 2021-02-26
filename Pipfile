@@ -29,6 +29,7 @@ django-pipeline = "*"
 vine = "*"
 markdownify = "*"
 django-cors-headers = "*"
+wagtailstreamforms = "*"
 
 [requires]
 python_version = "3.8"
