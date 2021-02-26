@@ -95,11 +95,26 @@
 				<!-- or point to a specific vue-select release -->
 				<script src="https://unpkg.com/vue-select@3.0.0"></script>
 				<link rel="stylesheet" href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css">
+	    <script>
+      (function(d,t) {
+        var BASE_URL="http://chat.strafrecht-online.org";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'CYuEHNWYncGMaRAQbRXD4Pb4',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    </script>
 
 				{% javascript 'base' %}
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
+	    
         {% endblock %}
 				<script src="{% static "wiki/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
     </body>
