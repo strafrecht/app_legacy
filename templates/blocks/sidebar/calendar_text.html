@@ -1,0 +1,10 @@
+{% load wagtailimages_tags %}
+
+<div class="sidebar sidebar-calendar-text">
+	<div class="calendar">
+		<calendar date="{% value.calendar %}" />
+	</div>
+	<div class="text">
+		{{ value.content }} 
+	</div>
+</div>

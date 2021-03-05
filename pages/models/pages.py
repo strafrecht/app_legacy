@@ -179,6 +179,13 @@ class SidebarImageTextBlock(blocks.StructBlock):
 
     class Meta:
         template = 'blocks/sidebar/image_text.html'
+        
+class SidebarCalendarTextBlock(blocks.StructBlock):
+    content = blocks.RichTextBlock()
+    calendar = DateBlock(format="%Y-%m-%d")
+
+    class Meta:
+        template = 'blocks/sidebar/calendar_text.html'
 
 class SidebarHeaderBlock(blocks.StructBlock):
     title = blocks.CharBlock()
@@ -211,6 +218,7 @@ class ContentBlocks(blocks.StreamBlock):
     sidebar_simple = SidebarSimpleBlock()
     sidebar_border = SidebarBorderBlock()
     sidebar_image_text = SidebarImageTextBlock()
+    sidebar_calendar_text = SidebarCalendarTextBlock()
     sidebar_header = SidebarHeaderBlock()
     sidebar_poll = SidebarPollBlock()
     sidebar_subscribe = SidebarSubscribeBlock()
