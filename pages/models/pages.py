@@ -182,7 +182,7 @@ class SidebarImageTextBlock(blocks.StructBlock):
         
 class SidebarCalendarTextBlock(blocks.StructBlock):
     content = blocks.RichTextBlock()
-    calendar = DateBlock(format="%Y-%m-%d")
+    calendar = blocks.DateBlock(format="%Y-%m-%d")
 
     class Meta:
         template = 'blocks/sidebar/calendar_text.html'
