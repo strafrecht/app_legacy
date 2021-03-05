@@ -1,3 +1,5 @@
+{% extends "base_vue.html" %} {% load static %} {% block content %}
+
 <template>
 
 <time class="icon">
@@ -8,11 +10,17 @@
 
 </template>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+
 <script>
 import moment from 'moment';
 import localization from 'moment/locale/de';
 moment.locale('de', localization);
 
+new Vue({
+
+el: "#calendar",
+  
 export default {
   name: "calendar",
   props: {
@@ -25,8 +33,8 @@ export default {
       weekday: moment(this.date, 'YYYY-MM-DD').format('dddd'),
     }
   },
-};
-
+  
+});
 </script>
 
 <style scoped>
@@ -108,3 +116,5 @@ time.icon:hover, time.icon:focus
   100% { transform: rotate(0deg)  skewY(0deg); }
 }
 </style>
+
+{% endblock %} {% block extra_js %}{% endblock %}
