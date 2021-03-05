@@ -93,6 +93,7 @@ class Sessions(models.Model):
     assessment = RichTextField(blank=True)
     description = RichTextField(blank=True)
     speaker_description = RichTextField(blank=True)
+    content = RichTextField(blank=True)
     location = RichTextField(blank=True)
     lat = models.FloatField(null=True, blank=True)
     lon = models.FloatField(null=True, blank=True)
