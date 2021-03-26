@@ -52,7 +52,7 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
 INSTALLED_APPS = [
     # Live Reload
-    'livereload',
+    #'livereload',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,6 +70,7 @@ INSTALLED_APPS = [
 
     # Assets
     'pipeline',
+    'pwa',
 
     # Pages
     'app',
@@ -160,7 +161,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
-    'livereload.middleware.LiveReloadScript',
+    #'livereload.middleware.LiveReloadScript',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
@@ -378,3 +379,32 @@ REST_FRAMEWORK = {
     ],
 }
 
+PWA_APP_NAME = 'Strafrecht Online'
+PWA_APP_DESCRIPTION = "Strafrecht Online"
+PWA_APP_THEME_COLOR = 'rgb(76, 158, 187)'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/icon.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/images/icon.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': '/static/images/icon.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'

@@ -25,6 +25,7 @@ urlpatterns = [
     path('run/', include('core.urls')),
 
     path('mail/', include(birdsong_urls)),
+    path('', include('pwa.urls')),
 
     #path('chat/', include('django_chatter.urls')),
 

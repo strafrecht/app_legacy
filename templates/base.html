@@ -1,4 +1,5 @@
 {% load pipeline %}
+{% load pwa %}
 {% load static wagtailuserbar menu_tags %}
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1">
 				<meta name="author" content="Institut für Kriminologie und Wirtschaftsstrafrecht Freiburg">
 				<meta name="description" content="Website des Instituts für Kriminologie und Wirtschaftsstrafrecht Freiburg">
+				{% progressive_web_app_meta %}
 
         <title>
             {% block title %}
