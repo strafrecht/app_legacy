@@ -39,7 +39,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'bd3b44d2f1b0.ngrok.io'
+    'bd3b44d2f1b0.ngrok.io',
+    'app',
 ]
 
 INTERNAL_IPS = [
