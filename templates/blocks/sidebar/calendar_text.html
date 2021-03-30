@@ -9,10 +9,21 @@
 	<div class="sidebar sidebar-calendar-text">
 		<div id="calendar">
             <div class="icon">
-				<p>test</p>
-				<em>[[ weekday ]]</em>
-				<strong>[[ month ]]</strong>
-				<span>[[ day ]]</span>
+				<em>
+				{% verbatim %}
+					{{ weekday }}
+				{% endverbatim %}
+				</em>
+                <strong>
+				{% verbatim %}
+					{{ month }}
+				{% endverbatim %}
+				</strong>
+				<span>
+				{% verbatim %}
+					{{ day }}
+				{% endverbatim %}
+				</span>
 			</div>
 		</div>
 		<div class="text">
@@ -29,7 +40,6 @@ const event_date = `{{ value.calendar|date:"Y-m-d" }}`
 const widget = new Vue({
   el: "#calendar",
   name: "calendar",
-  delimiters: ["[[","]]"],
   props: {
     date: String,
   },
@@ -98,7 +108,7 @@ div.icon span
   width: 100%;
   font-size: 2.8em;
   letter-spacing: -0.05em;
-  padding-top: 10px;
+  padding: 45px 0;
   color: #2f2f2f;
 }
 
