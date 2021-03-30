@@ -2,7 +2,7 @@
 
 <div class="sidebar sidebar-calendar-text">
 	<div class="calendar">
-		<calendar date="{% value.calendar %}" />
+		<calendar date="{{ value.calendar|date:"Y-m-d" }}" />
 	</div>
 	<div class="text">
 		{{ value.content }} 

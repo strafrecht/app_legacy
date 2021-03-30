@@ -1,6 +1,7 @@
-elements.forEach((element) => {
-    var input = element.querySelector('.ui-widget-content .ui-autocomplete-input')
-    input.value = 'newsletter'
-    var button = element.querySelector('input.button')
-    button.click()
-})
+# Strafecht App
+
+## Running locally
+
+1. ´$ cd ~/Workspace/app´
+2. ´$ pipenv shell´
+3. ´$ ./manage.py runserver´
