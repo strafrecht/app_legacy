@@ -6,7 +6,14 @@
 
 <div id="calendar-widget">
 	<div class="sidebar sidebar-calendar-text">
-		<div id="calendar"></div>
+		<div id="calendar">
+            <div class="icon">
+				<p>test</p>
+				<em>[[ weekday ]]</em>
+				<strong>[[ month ]]</strong>
+				<span>[[ day ]]</span>
+			</div>
+		</div>
 		<div class="text">
 			{{ value.content }}
 		</div>
@@ -21,7 +28,7 @@ const event_date = `{{ value.calendar|date:"Y-m-d" }}`
 const widget = new Vue({
   el: "#calendar",
   name: "calendar",
-  delimiters: ["<%","%>"],
+  delimiters: ["[[","]]"],
   props: {
     date: String,
   },
@@ -30,21 +37,15 @@ const widget = new Vue({
 	month: moment(event_date, 'YYYY-MM-DD').format('MMMM'),
 	weekday: moment(event_date, 'YYYY-MM-DD').format('dddd'),
   },
-  template: `
-  	<div class="icon">
-  		<p>test</p>
-		<em><% weekday %></em>
-		<strong><% month %></strong>
-		<span><% day %></span>
-	</div>
-  `
 });
-console.log(widget)
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+#calendar {
+	margin-right: 10px;
+}
 div.icon
 {
   font-size: 1em; /* change icon size */
@@ -62,6 +63,7 @@ div.icon
   -webkit-transform-origin: 50% 10%;
   transform-origin: 50% 10%;
   font-family: 'Roboto', sans-serif;
+  padding-left: 0px !important;
 }
 
 div.icon *
