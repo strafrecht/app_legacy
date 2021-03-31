@@ -8,6 +8,7 @@ import logging
 
 logger = logging.getLogger('django')
 
+
 class Question(models.Model):
     filepath = models.CharField(max_length=255, null=True, blank=True)
     slug = models.CharField(max_length=255, null=True, blank=True)
@@ -27,6 +28,7 @@ class QuestionVersion(models.Model):
     # category = models.ForeignKey('wiki.Article', on_delete=models.SET_NULL, null=True, blank=True)
     categories = models.ManyToManyField(Article, null=True, blank=True)
     approved = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
 #class Answer(models.Model):
 #    question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -108,3 +110,20 @@ class UserAnswer(models.Model):
 class Choice(models.Model):
     user_answer = models.ForeignKey(UserAnswer, null=True, on_delete=models.SET_NULL)
     answer = models.ForeignKey(AnswerVersion, null=True, on_delete=models.SET_NULL)
+SUBMISSION_STATUS = (
+    ('APPROVED', 'Approved'),
+    ('REJECTED', 'Rejected'),
+    ('PENDING', 'Pending'),
+)
+
+class Submission(models.Model):
+    submitted_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='submitted_by')
+    reviewed_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='reviewed_by')
+    article_revision = models.ForeignKey(ArticleRevision, on_delete=models.SET_NULL, blank=True, null=True)
+    question_version = models.ForeignKey(QuestionVersion, on_delete=models.SET_NULL, blank=True, null=True)
+    status = models.CharField(
+        max_length=10,
+        choices=SUBMISSION_STATUS,
+        default='PENDING'
+    )
+    message = models.TextField(blank=True, null=True)
