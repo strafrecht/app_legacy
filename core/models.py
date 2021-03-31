@@ -110,6 +110,7 @@ class UserAnswer(models.Model):
 class Choice(models.Model):
     user_answer = models.ForeignKey(UserAnswer, null=True, on_delete=models.SET_NULL)
     answer = models.ForeignKey(AnswerVersion, null=True, on_delete=models.SET_NULL)
+
 SUBMISSION_STATUS = (
     ('APPROVED', 'Approved'),
     ('REJECTED', 'Rejected'),
