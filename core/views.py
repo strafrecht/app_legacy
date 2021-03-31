@@ -158,7 +158,8 @@ def _get_questions_for_category(category_id):
 def scrape(request):
     # init
     path = os.path.abspath("core")
-    os.chdir('/home/admin/Workspace/app/core')
+    # os.chdir('/home/admin/Workspace/app/core')
+    os.chdir('C://Users//sfvso//Documents//serg1o//straf//app//core')
 
     # delete all wiki/categories
     URLPath.objects.all().delete()
@@ -251,6 +252,11 @@ def scrape(request):
         "wikis": [],
         "questions": [],
     })
+
+
+def scrape_news(request):
+    print("THIS!")
+
 
 def traverse_ancestors(parent, slug_list):
     #print("  ENTER: traverse_ancestors()")
@@ -797,7 +803,6 @@ class QuestionViewSet(mixins.CreateModelMixin, generics.GenericAPIView):
 #     queryset = Question.objects.all()
 #     serializer_class = QuestionOnlySerializer
 #     permission_classes = [AllowAny]
-
 
 class QuestionVersionViewSet(viewsets.ModelViewSet):
     queryset = QuestionVersion.objects.all()

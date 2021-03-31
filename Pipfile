@@ -30,6 +30,7 @@ vine = "*"
 markdownify = "*"
 django-cors-headers = "*"
 wagtailstreamforms = "*"
+requests-html = "*"
 
 [requires]
 python_version = "3.8"
