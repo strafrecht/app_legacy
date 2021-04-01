@@ -71,6 +71,14 @@ def login(request):
             return render(request, 'profiles/login.html', {})
     return render(request, 'profiles/login.html', {})
 
+def register(request):
+    if request.session.has_key('username'):
+        posts = request.session['username']
+        query = User.objects.filter(username=posts)
+        return render(request, 'profiles/index.html', {"query":query})
+    else:
+        return render(request, 'profiles/register.html', {})
+
 def profile(request):
     if request.session.has_key('username'):
         posts = request.session['username']
