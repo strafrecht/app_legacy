@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% avatar_tags %}
 
 {% block content %}
 {% csrf_token %}
-	<div class="w-full" style="width: 100%;">
-		<div class="header-image">
-			{% image page.cover original %}
-			{% if page.cover_caption %}
-			<div class="header-caption">{{ page.cover_caption }}</div>
-			{% endif %}
-		</div>
-
-		<div class="content">
-			{% include_block page.content %}
-		</div>
-	</div>
+    <p>Your current avatar :</p>
+    {% avatar user %}
+    {% if not avatars %}
+        <p>{% trans "You haven't uploaded an avatar yet. Please upload one now." %}</p>
+    {% else %}
+        <form method="POST" action="{% url 'avatar_change' %}">
+            <ul>
+                {{ primary_avatar_form.as_ul }}
+            </ul>
+            <p>{% csrf_token %}<input type="submit" value="{% trans "Choose new Default" %}" /></p>
+        </form>
+    {% endif %}
+    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
+        {{ upload_avatar_form.as_p }}
+        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
+    </form>
 {% endblock content %}
