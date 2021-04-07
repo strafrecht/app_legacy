@@ -167,7 +167,7 @@ MIDDLEWARE = [
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     #'livereload.middleware.LiveReloadScript',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    # 'csp.middleware.CSPMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -417,3 +417,6 @@ PWA_APP_LANG = 'en-US'
 AVATAR_GRAVATAR_DEFAULT = 'identicon'
 AVATAR_EXPOSE_USERNAMES = False
 AVATAR_MAX_AVATARS_PER_USER = '1'
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'unsafe-eval'",)
