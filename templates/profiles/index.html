@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load avatar_tags %}
 
 {% block content %}
 	<div class="col-12">
@@ -24,6 +25,8 @@
 
 	</div>
 	<div class="col-12 mt-4">
+		{% avatar user %}
+		<a href="{% url 'avatar_change' %}">Change your Profile Picture</a>
 		{% block contents %}{% endblock %}
 	</div>
 {% endblock %}
