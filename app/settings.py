@@ -418,5 +418,4 @@ AVATAR_GRAVATAR_DEFAULT = 'identicon'
 AVATAR_EXPOSE_USERNAMES = False
 AVATAR_MAX_AVATARS_PER_USER = '1'
 
-CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'unsafe-eval'",)
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'", "'unsafe-inline'",)
