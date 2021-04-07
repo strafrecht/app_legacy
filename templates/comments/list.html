@@ -1,12 +1,20 @@
 {% load i18n %}
 {% load comments %}
+{% load avatar_tags %}
 {% load comments_xtd %}
 
 <div id="comments" class="media-list">
   {% for comment in comment_list %}
   <div class="media pb-2">
     <a name="c{{ comment.id }}"></a>
-    {{ comment.user_email|xtd_comment_gravatar }}
+    <img
+      {% if comment.user and comment.user|has_avatar %}
+        src="{% avatar_url comment.user 48 %}"
+      {% else %}
+        src="{{ comment.user_email|xtd_comment_gravatar_url }}"
+      {% endif %}
+      class="mr-3" height="48" width="48"
+    >
     <div class="media-body">
       <div class="comment pb-3">
         <h6 class="mb-1 small d-flex">

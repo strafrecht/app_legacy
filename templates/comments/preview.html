@@ -1,5 +1,6 @@
 {% extends "django_comments_xtd/base.html" %}
 {% load i18n %}
+{% load avatar_tags %}
 {% load comments_xtd %}
 
 {% block title %}{% trans "Preview your comment" %}{% endblock %}
@@ -22,9 +23,14 @@
       <em>{% trans "Empty comment." %}</em>
       {% else %}
       <div class="media">
-        <div class="mr-3">
-          {{ form.cleaned_data.email|xtd_comment_gravatar }}
-        </div>
+        <img
+          {% if request.user|has_avatar %}
+            src="{% avatar_url request.user 48 %}"
+          {% else %}
+            src="{{ form.cleaned_data.email|xtd_comment_gravatar_url }}"
+          {% endif %}
+          class="mr-3" height="48" width="48"
+        >
         <div class="media-body">
           <div class="comment pb-3">
             <h6 class="mb-1 small d-flex">

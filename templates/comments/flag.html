@@ -1,5 +1,6 @@
 {% extends "django_comments_xtd/base.html" %}
 {% load i18n %}
+{% load avatar_tags %}
 {% load comments_xtd %}
 
 {% block title %}{% trans "Flag comment" %}{% endblock %}
@@ -19,8 +20,13 @@
     <div class="card mb-4">
       <div class="card-body">
         <div class="media pb-2">
-          <img src="{{ comment.user_email|xtd_comment_gravatar_url }}"
-               width="48" height="48" class="mr-3">
+          <img
+            {% if comment.user and comment.user|has_avatar %}
+              src="{% avatar_url comment.user 48 %}"
+            {% else %}
+              src="{{ comment.user_email|xtd_comment_gravatar_url }}"
+            {% endif %}
+            width="48" height="48" class="mr-3">
           <div class="media-body">
             <h6 class="mb-1 small">
               {{ comment.submit_date|date:"N j, Y, P" }}&nbsp;-&nbsp;
