@@ -60,7 +60,7 @@ footer ul li {
 	line-height: 1.6em;
 	margin-bottom: 25px;
 }
-.content .col-8 a {
+.content .col-8 a, main a {
 	color: rgb(76, 158, 187);
 }
 .content .col-8 ul {
