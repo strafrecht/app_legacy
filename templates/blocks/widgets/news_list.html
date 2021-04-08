@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load comments %}
+{% load wagtailcore_tags wagtailnews_admin_tags %}
+{% load wagtailroutablepage_tags %}
+
+
+{% block widget %}
+<div class="">
+{% regroup articles by date|date:"Y" as articles_by_year %}
+{% for date in articles_by_year %}
+<h3 style="margin-top:30px;">{{ date.grouper }}</h3>
+{% for article in date.list %}
+<p style="margin-bottom:7px;"><a href="{{ article.url }}">{{ article.title }} ({{ article.date|date:"d.m.Y" }})</a></p>
+{% endfor %}
+{% endfor %}
+</div>
+{% endblock %}

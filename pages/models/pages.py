@@ -110,11 +110,20 @@ class WebsitePageGalleryImage(Orderable):
 # Widgets
 class HomeNewsBlock(blocks.StructBlock):
     class Meta:
-        template = 'blocks/widgets/news.html'
+        template = 'blocks/widgets/news_block.html'
 
     def get_context(self, *a, **kw):
         ctx = super().get_context(*a, **kw)
         ctx['articles'] = NewsItem.objects.all()[0:4]
+        return ctx
+
+class NewsListAll(blocks.StructBlock):
+    class Meta:
+        template = 'blocks/widgets/news_list.html'
+
+    def get_context(self, *a, **kw):
+        ctx = super().get_context(*a, **kw)
+        ctx['articles'] = NewsItem.objects.all()
         return ctx
 
 class HomeJurcoachBlock(blocks.StructBlock):
@@ -225,6 +234,7 @@ class ContentBlocks(blocks.StreamBlock):
     sidebar_event = SidebarEventBlock()
 
     home_news_block = HomeNewsBlock()
+    news_list_all = NewsListAll()
     home_jurcoach_block = HomeJurcoachBlock()
     news_newsletter_block = NewsNewsletterBlock()
 
