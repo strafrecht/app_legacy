@@ -63,6 +63,9 @@ footer ul li {
 .content .col-8 a, main a {
 	color: rgb(76, 158, 187);
 }
+.content .col-8 a:hover, main a:hover {
+	color: rgb(76, 158, 187);
+}
 .content .col-8 ul {
 	padding: 0px;
 	list-style: none;
