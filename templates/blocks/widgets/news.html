@@ -1,6 +1,5 @@
 {% load i18n %}
 {% load comments %}
-{% load comments_xtd %}
 {% load wagtailcore_tags wagtailnews_admin_tags %}
 {% load wagtailroutablepage_tags %}
 
@@ -17,7 +16,15 @@
 				<div class="title">{{ article.title }}</div>
 				<div class="body">{{ article.body | richtext | truncatechars:200 }} <a href="{{ article.url }}">weiterlesen</a></div>
 				{% get_comment_count for article as comment_count %}
-				<div class="comments">{{ comment_count }} Kommentar{{ comment_count|pluralize:"e"}} zu diesem Beitrag.</div>
+				<div class="comments">
+					{% if comment_count == 0 %}
+						Noch keine Kommentare.
+					{% elif comment_count == 1 %}
+						Ein Kommentar zu diesem Beitrag.
+					{% else %}
+						{{ comment_count }} Kommentar{{ comment_count|pluralize:"e"}} zu diesem Beitrag.
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	{% endfor %}
