@@ -1,15 +1,18 @@
 from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
+from modelcluster.fields import ParentalKey
+from modelcluster.models import ClusterableModel
 from treebeard.mp_tree import MP_Node
 from taggit.managers import TaggableManager
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
 from wiki.models import Article, ArticleRevision, URLPath
 import logging
 
 logger = logging.getLogger('django')
 
 
-class Question(models.Model):
+class Question(ClusterableModel):
     filepath = models.CharField(max_length=255, null=True, blank=True)
     slug = models.CharField(max_length=255, null=True, blank=True)
     order = models.CharField(max_length=255, null=True, blank=True)
@@ -20,8 +23,8 @@ class Question(models.Model):
         #return self.questionversion_set.all().first().title
         return "{}".format(self.id)
 
-class QuestionVersion(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+class QuestionVersion(ClusterableModel):
+    question = ParentalKey(Question, on_delete=models.CASCADE)
     slug = models.CharField(max_length=255, blank=True, null=True)
     title = models.TextField(max_length=255)
     description = models.TextField(null=True, blank=True)
@@ -29,6 +32,20 @@ class QuestionVersion(models.Model):
     categories = models.ManyToManyField(Article, null=True, blank=True)
     approved = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
+
+    def __str__(self):
+        return "{}".format(self.title)
+
+    panels = [
+        FieldPanel('question'),
+        # FieldPanel('slug'),
+        FieldPanel('title'),
+        FieldPanel('description'),
+        FieldPanel('categories'),
+        FieldPanel('approved'),
+        InlinePanel('answers'),
+    ]
+
 
 #class Answer(models.Model):
 #    question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -38,13 +55,14 @@ class QuestionVersion(models.Model):
 #    def __str__(self):
 #        return self.text
 
-class AnswerVersion(models.Model):
-    question_version = models.ForeignKey(QuestionVersion, on_delete=models.CASCADE)
+class AnswerVersion(ClusterableModel):
+    question_version = ParentalKey(QuestionVersion, on_delete=models.CASCADE, related_name='answers')
     text = models.TextField()
     correct = models.BooleanField(default=False)
 
     def __str__(self):
         return self.text
+
 
 class Quiz(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
@@ -110,6 +128,7 @@ class UserAnswer(models.Model):
 class Choice(models.Model):
     user_answer = models.ForeignKey(UserAnswer, null=True, on_delete=models.SET_NULL)
     answer = models.ForeignKey(AnswerVersion, null=True, on_delete=models.SET_NULL)
+
 
 SUBMISSION_STATUS = (
     ('APPROVED', 'Approved'),

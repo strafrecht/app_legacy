@@ -25,7 +25,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.models import User
 from django.core import serializers
 from wiki.models import Article, ArticleRevision, URLPath
-from .models import Question, QuestionVersion, AnswerVersion, Quiz, UserAnswer, Choice
+from .models import Question, QuestionVersion, AnswerVersion, Quiz, UserAnswer, Choice, Submission
 from pages.models import Exams
 
 from rest_framework import viewsets, permissions, mixins, generics, response
@@ -789,6 +789,12 @@ class QuestionViewSet(mixins.CreateModelMixin, generics.GenericAPIView):
                 text=answer.get("text"),
                 correct=answer.get("correct")
             )
+
+        submission = Submission.objects.create(
+            submitted_by=request.user,
+            question_version=question_version
+        )
+        submission.save()
 
         return JsonResponse(data={"success": True}, status=200)
 
