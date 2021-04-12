@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d640f4cda7de5b9ef569651650b7c735f1eaf1d4ef568a0185eac5e523369f02"
+            "sha256": "dfca863de77feccffe64b2d604716e8fb786fd215966b13a8e859c4767d92163"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -70,11 +70,11 @@
         },
         "django-admin-interface": {
             "hashes": [
-                "sha256:7d1dfd1d85e9947dbb462e0674f001c23dd04fcf927bb4bc87dd2bb500ec6136",
-                "sha256:d18bf7db865f5d40d16f30e94f92a602a4a216dccc117456cff76171eab07a30"
+                "sha256:588958d04bd199635654174d09af1ec1a8f818148eb2224df12bf52a048ab533",
+                "sha256:f94239f396bb4a990af7e5d23170d1951eec28411e436de6c6794ab1cae3f94f"
             ],
             "index": "pypi",
-            "version": "==0.16.0"
+            "version": "==0.16.1"
         },
         "django-appconf": {
             "hashes": [
@@ -530,6 +530,13 @@
             ],
             "index": "pypi",
             "version": "==0.1.3"
+        },
+        "wagtail-color-panel": {
+            "hashes": [
+                "sha256:9e039a8765ca41b036c16bd3c29f0f78a814e59bec7365b7fd290a49b7e67968"
+            ],
+            "index": "pypi",
+            "version": "==1.2.0"
         },
         "wagtailcolumnblocks": {
             "hashes": [

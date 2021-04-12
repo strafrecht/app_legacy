@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
     'wagtailcolumnblocks',
+    'wagtail_color_panel',
 
     'modelcluster',
     'taggit',

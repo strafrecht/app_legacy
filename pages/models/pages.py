@@ -22,6 +22,8 @@ from wagtail.core import fields
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail_color_panel.fields import ColorField
+from wagtail_color_panel.edit_handlers import NativeColorPanel
 
 from wagtailpolls.models import Poll
 from wagtailpolls.edit_handlers import PollChooserPanel
@@ -198,6 +200,10 @@ class SidebarCalendarTextBlock(blocks.StructBlock):
 
 class SidebarHeaderBlock(blocks.StructBlock):
     title = blocks.CharBlock()
+    color = ColorField()
+    content_panels = Page.content_panels + [
+        NativeColorPanel('color'),
+    ]
     image = ImageChooserBlock()
     content = blocks.RichTextBlock(required=False)
 
