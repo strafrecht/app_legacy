@@ -23,7 +23,7 @@ class QuestionVersionAdmin(TreeModelAdmin):
     list_display = ('question', 'title', 'description', 'categories', 'approved', 'user')
 
 
-@modeladmin_register
+# @modeladmin_register
 class QuestionAdmin(TreeModelAdmin):
     menu_label = 'Fragen Admin'
     menu_icon = 'list-ul'
@@ -32,8 +32,7 @@ class QuestionAdmin(TreeModelAdmin):
     child_model_admin = QuestionVersionAdmin
     list_display = ('filepath', 'slug')
 
-"""
-@modeladmin_register
+
 class ArticleAdmin(ModelAdmin):
     model = ArticleRevision
     menu_label = "Wiki Articles"
@@ -43,4 +42,8 @@ class ArticleAdmin(ModelAdmin):
     # exclude_from_explorer = False
     list_display = ('created', 'modified')
     # search_fields = ("email", "full_name",)
-"""
+
+modeladmin_register(SubmissionAdmin)
+modeladmin_register(QuestionVersionAdmin)
+modeladmin_register(QuestionAdmin)
+modeladmin_register(ArticleAdmin)

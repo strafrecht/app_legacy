@@ -29,6 +29,7 @@ vine = "*"
 django-cors-headers = "*"
 django-pwa = "*"
 markdownify = "==0.6.3"
+wagtail-treemodeladmin = "*"
 
 [requires]
 python_version = "3.8"
