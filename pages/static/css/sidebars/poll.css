@@ -56,19 +56,18 @@
 .sidebar-poll .questions {
 	margin-top: 20px;
 }
-.sidebar-poll .questions > answer {
+.sidebar-poll .questions .answer {
 	margin-bottom: 25px;
 }
-.sidebar-poll .questions > answer > bar {
+.sidebar-poll .questions .answer .bar {
 	width: 100%;
 	display: flex;
 	margin-bottom: 8px;
 }
-.sidebar-poll .questions > answer > bar > div {
-	font-weight: bold;
+.sidebar-poll .questions .answer .bar > div {
 	background: rgb(225, 213, 196);
 }
-.sidebar-poll .questions > answer > bar > span {
+.sidebar-poll .questions .answer .bar > span {
 	float: right;
 	margin-left: 10px;
 	font-weight: bold;
