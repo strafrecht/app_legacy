@@ -6,7 +6,8 @@
 .sidebar-poll label {
 	display: inline-flex;
 	align-items: center;
-	padding-left: 1.8em;
+	padding-left: 2em;
+	cursor: pointer;
 }
 .sidebar-poll li {
 	margin-bottom: 1rem;
@@ -29,6 +30,7 @@
 	height: 1.25em;
 	position: absolute;
 	left: 2.4em;
+	cursor: pointer;
 }
 .sidebar-poll label input[type="radio"]:checked {
 	border-color: #fff;
