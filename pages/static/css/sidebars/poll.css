@@ -49,11 +49,21 @@
 	margin-top: 3px;
 }
 .sidebar-poll .bottom {
-display: flex;
-				     justify-content: space-between;
-						     margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
 }
-
+.sidebar-poll .questions {
+	margin-top: 20px;
+}
+.sidebar-poll .questions > div {
+	margin-bottom: 25px;
+}
+.sidebar-poll .questions > div > div:nth-child(0) {
+	width: 100%;
+	display: flex;
+	margin-bottom: 8px;
+}
 .sidebar-poll a {
 	color: rgb(76, 158, 187);
 	font-family: Crimson;
