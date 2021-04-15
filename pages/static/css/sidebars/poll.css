@@ -59,7 +59,7 @@
 .sidebar-poll .questions > div {
 	margin-bottom: 25px;
 }
-.sidebar-poll .questions > div > div:nth-child(0) {
+.sidebar-poll .questions > div > div:first-of-type {
 	width: 100%;
 	display: flex;
 	margin-bottom: 8px;
