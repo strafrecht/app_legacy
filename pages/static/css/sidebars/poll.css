@@ -53,21 +53,21 @@
 	justify-content: space-between;
 	margin-top: 10px;
 }
-.sidebar-poll .questions {
+.sidebar-poll .answers {
 	margin-top: 20px;
 }
-.sidebar-poll .questions .answer {
+.sidebar-poll .answers .answer:not(:last-child) {
 	margin-bottom: 25px;
 }
-.sidebar-poll .questions .answer .bar {
+.sidebar-poll .answers .answer .bar {
 	width: 100%;
 	display: flex;
 	margin-bottom: 8px;
 }
-.sidebar-poll .questions .answer .bar > div {
+.sidebar-poll .answers .answer .bar > div {
 	background: rgb(225, 213, 196);
 }
-.sidebar-poll .questions .answer .bar > span {
+.sidebar-poll .answers .answer .bar > span {
 	float: right;
 	margin-left: 10px;
 	font-weight: bold;
