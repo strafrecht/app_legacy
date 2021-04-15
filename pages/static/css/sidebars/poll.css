@@ -9,7 +9,10 @@
 	padding-left: 2em;
 	cursor: pointer;
 }
-.sidebar-poll li {
+.sidebar-poll ul {
+	margin-bottom: 0px;
+}
+.sidebar-poll li:not(:last-child) {
 	margin-bottom: 1rem;
 }
 .sidebar-poll label input[type="radio"]{
