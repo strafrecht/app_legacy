@@ -135,6 +135,13 @@ class EventsListAll(blocks.StructBlock):
         ctx = super().get_context(*a, **kw)
         ctx['events'] = Events.objects.all()
         return ctx
+   
+    @route('(?P<event>\d+)/$', name="event")
+    def event_page(self, request, event):
+        context = super().get_context(request)
+        event = Events.objects.get(id=event)
+        context['event'] = event
+        return render(request, "pages/event_page.html", {'event': event})
 
 class NewsListAll(blocks.StructBlock):
     class Meta:
