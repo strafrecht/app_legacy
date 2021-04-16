@@ -29,6 +29,7 @@ from wagtail_color_panel.blocks import NativeColorBlock
 from wagtailpolls.models import Poll
 from wagtailpolls.edit_handlers import PollChooserPanel
 from wagtailcolumnblocks.blocks import ColumnsBlock
+from pages.models import Events
 from news.models import NewsItem
 
 
@@ -130,11 +131,10 @@ class EventsListAll(blocks.StructBlock):
     class Meta:
         template = 'blocks/widgets/events_list.html'
 
-    def get_context(self, request):
-        context = super().get_context(request)
-        events = Events.objects.all()
-        context['events'] = events
-        return context
+    def get_context(self, *a, **kw):
+        ctx = super().get_context(*a, **kw)
+        ctx['events'] = Events.objects.all()
+        return ctx
 
 class NewsListAll(blocks.StructBlock):
     class Meta:
