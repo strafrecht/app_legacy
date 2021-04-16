@@ -31,21 +31,25 @@ from wagtailpolls.edit_handlers import PollChooserPanel
 from wagtailcolumnblocks.blocks import ColumnsBlock
 from news.models import NewsItem
 
-#from pages.models import NewsArticleIndexPage
+
+# from pages.models import NewsArticleIndexPage
 
 class WebsiteIndexPage(Page):
     intro = RichTextField(blank=True)
 
     def get_context(self, request):
         context = super().get_context(request)
-        news_articles = WebsitePage.objects.filter(content_type__model='newsarticlepage').order_by('-first_published_at')[0:2]
+        news_articles = WebsitePage.objects.filter(content_type__model='newsarticlepage').order_by(
+            '-first_published_at')[0:2]
         context['articles'] = news_articles
         return context
+
 
 class WebsitePageTag(TaggedItemBase):
     content_object = ParentalKey(
         'WebsitePage', related_name='tagged_items', on_delete=models.CASCADE
     )
+
 
 class WebsitePage(Page):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='+', null=True, blank=True)
@@ -98,6 +102,7 @@ class WebsitePage(Page):
     def get_absolute_url(self):
         return self.get_url()
 
+
 class WebsitePageGalleryImage(Orderable):
     page = ParentalKey(WebsitePage, on_delete=models.CASCADE, related_name='gallery_images')
     image = models.ForeignKey(
@@ -110,6 +115,7 @@ class WebsitePageGalleryImage(Orderable):
         FieldPanel('caption'),
     ]
 
+
 # Widgets
 class HomeNewsBlock(blocks.StructBlock):
     class Meta:
@@ -120,6 +126,7 @@ class HomeNewsBlock(blocks.StructBlock):
         ctx['articles'] = NewsItem.objects.all()[0:4]
         return ctx
 
+
 class NewsListAll(blocks.StructBlock):
     class Meta:
         template = 'blocks/widgets/news_list.html'
@@ -129,9 +136,11 @@ class NewsListAll(blocks.StructBlock):
         ctx['articles'] = NewsItem.objects.all()
         return ctx
 
+
 class HomeJurcoachBlock(blocks.StructBlock):
     class Meta:
         template = 'blocks/widgets/home_jurcoach.html'
+
 
 class NewsNewsletterBlock(blocks.StructBlock):
     class Meta:
@@ -150,20 +159,21 @@ class NewsNewsletterBlock(blocks.StructBlock):
         context['semesters'] = semesters
         return context
 
-def get_semester(doc):
-        date_string = doc.filename.split("Lehrstuhlnewsletter20vom20")[-1].split(".pdf")[0]
-        d = datetime.datetime.strptime(date_string, '%d.%m.%Y')
 
-        if d.month in [4,5,6,7,8,9]:
-            title = "SS {}".format(d.year)
-            return {"title": title, "year": d.year}
+def get_semester(doc):
+    date_string = doc.filename.split("Lehrstuhlnewsletter20vom20")[-1].split(".pdf")[0]
+    d = datetime.datetime.strptime(date_string, '%d.%m.%Y')
+
+    if d.month in [4, 5, 6, 7, 8, 9]:
+        title = "SS {}".format(d.year)
+        return {"title": title, "year": d.year}
+    else:
+        if d.month in [1, 2, 3]:
+            title = "WS {}".format(d.year - 1)
+            return {"title": title, "year": d.year - 1}
         else:
-            if d.month in [1,2,3]:
-                title = "WS {}".format(d.year-1)
-                return {"title": title, "year": d.year-1}
-            else:
-                title = "WS {}".format(d.year)
-                return {"title": title, "year": d.year}
+            title = "WS {}".format(d.year)
+            return {"title": title, "year": d.year}
 
 
 # Sidebars
@@ -173,11 +183,13 @@ class SidebarTitleBlock(blocks.StructBlock):
     class Meta:
         template = 'blocks/sidebar/title.html'
 
+
 class SidebarSimpleBlock(blocks.StructBlock):
     content = blocks.RichTextBlock()
 
     class Meta:
         template = 'blocks/sidebar/simple.html'
+
 
 class SidebarBorderBlock(blocks.StructBlock):
     content = blocks.RichTextBlock()
@@ -185,19 +197,22 @@ class SidebarBorderBlock(blocks.StructBlock):
     class Meta:
         template = 'blocks/sidebar/border.html'
 
+
 class SidebarImageTextBlock(blocks.StructBlock):
     content = blocks.RichTextBlock()
     image = ImageChooserBlock()
 
     class Meta:
         template = 'blocks/sidebar/image_text.html'
-        
+
+
 class SidebarCalendarTextBlock(blocks.StructBlock):
     content = blocks.RichTextBlock()
     calendar = blocks.DateBlock(format="%Y-%m-%d")
 
     class Meta:
         template = 'blocks/sidebar/calendar_text.html'
+
 
 class SidebarHeaderBlock(blocks.StructBlock):
     title = blocks.CharBlock()
@@ -208,19 +223,21 @@ class SidebarHeaderBlock(blocks.StructBlock):
     class Meta:
         template = 'blocks/sidebar/header.html'
 
-class SidebarPollBlock(blocks.StructBlock):
-    poll = PollChooserPanel('poll')
 
+class SidebarPollBlock(blocks.StructBlock):
     class Meta:
         template = 'blocks/sidebar/poll.html'
+
 
 class SidebarSubscribeBlock(blocks.StructBlock):
     class Meta:
         template = 'blocks/sidebar/subscribe.html'
 
+
 class SidebarEventBlock(blocks.StructBlock):
     class Meta:
         template = 'blocks/sidebar/event.html'
+
 
 class ContentBlocks(blocks.StreamBlock):
     """
@@ -244,6 +261,7 @@ class ContentBlocks(blocks.StreamBlock):
     home_jurcoach_block = HomeJurcoachBlock()
     news_newsletter_block = NewsNewsletterBlock()
 
+
 class ColumnBlocks(blocks.StreamBlock):
     """
     All the root level blocks you can use
@@ -266,6 +284,7 @@ class ColumnBlocks(blocks.StreamBlock):
         context['request'] = request
         return context
 
+
 class SidebarPage(Page):
     content = fields.StreamField(ColumnBlocks)
     cover = models.ForeignKey(
@@ -287,14 +306,15 @@ class SidebarPage(Page):
         FieldPanel('title'),
         ImageChooserPanel('cover'),
         FieldPanel('cover_caption'),
+        PollChooserPanel('poll'),
         StreamFieldPanel('content')
     ]
 
     def get_context(self, request):
         context = super().get_context(request)
-        #news_articles = WebsitePage.objects.filter(content_type__model='newsarticlepage').order_by('-first_published_at')[0:2]
-        #context['articles'] = news_articles
-        #context['poll'] = Poll.objects.first()
+        # news_articles = WebsitePage.objects.filter(content_type__model='newsarticlepage').order_by('-first_published_at')[0:2]
+        # context['articles'] = news_articles
+        # context['poll'] = Poll.objects.first()
         context['request'] = request
         return context
 
