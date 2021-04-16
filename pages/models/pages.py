@@ -126,6 +126,15 @@ class HomeNewsBlock(blocks.StructBlock):
         ctx['articles'] = NewsItem.objects.all()[0:4]
         return ctx
 
+class EventsListAll(blocks.StructBlock):
+    class Meta:
+        template = 'blocks/widgets/events_list.html'
+
+    def get_context(self, request):
+        context = super().get_context(request)
+        events = Events.objects.all()
+        context['events'] = events
+        return context
 
 class NewsListAll(blocks.StructBlock):
     class Meta:
@@ -258,6 +267,7 @@ class ContentBlocks(blocks.StreamBlock):
 
     home_news_block = HomeNewsBlock()
     news_list_all = NewsListAll()
+    events_list_all = EventsListAll()
     home_jurcoach_block = HomeJurcoachBlock()
     news_newsletter_block = NewsNewsletterBlock()
 
