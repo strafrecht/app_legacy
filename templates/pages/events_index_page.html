@@ -1,18 +1,27 @@
 {% extends "base.html" %}
 
+
+
+{% extends "base.html" %}
 {% load static %}
 {% load wagtailcore_tags wagtailimages_tags website_tags %}
 {% load wagtailroutablepage_tags %}
 
-{% block extra_css %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/person_index_page.css' %}">
-{% endblock %}
-
 {% block body_class %}template-websitepage{% endblock %}
 
 {% block content %}
-	<div class="events-index-page container">
-		<div class="col-md-12">
+{% csrf_token %}
+	<div class="w-full" style="width: 100%;">
+		<div class="header-image">
+			{% image page.cover original %}
+			{% if page.cover_caption %}
+			<div class="header-caption">{{ page.cover_caption }}</div>
+			{% endif %}
+		</div>
+
+		<div class="content">
+			<!--{% include_block page.content %}-->
+			
 			<h2 style="font-weight: 700; margin-bottom: 50px;">Events</h2>
 
 			<div class="role-group" style="display: flex; flex-wrap: wrap;">
@@ -26,7 +35,7 @@
 				</div>
 				{% endfor %}
 			</div>
-
+			
 		</div>
 	</div>
-{% endblock %}
+{% endblock content %}
