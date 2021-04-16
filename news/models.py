@@ -1,8 +1,9 @@
 from django.db import models
 
 from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.core.fields import RichTextField
 from wagtail.core.models import Page
+from wagtail.core.fields import RichTextField
+
 
 from wagtailnews.models import NewsIndexMixin, AbstractNewsItem, AbstractNewsItemRevision
 from wagtailnews.decorators import newsindex
@@ -13,7 +14,6 @@ from wagtailnews.decorators import newsindex
 class NewsIndex(NewsIndexMixin, Page):
     # Add extra fields here, as in a normal Wagtail Page class, if required
     newsitem_model = 'NewsItem'
-
 
 class NewsItem(AbstractNewsItem):
     # NewsItem is a normal Django model, *not* a Wagtail Page.
