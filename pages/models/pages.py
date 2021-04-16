@@ -30,7 +30,7 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtailpolls.models import Poll
 from wagtailpolls.edit_handlers import PollChooserPanel
 from wagtailcolumnblocks.blocks import ColumnsBlock
-from .events import Events, EventsIndexPage
+from .events import Events
 from news.models import NewsItem
 
 
