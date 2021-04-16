@@ -25,6 +25,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail_color_panel.fields import ColorField
 from wagtail_color_panel.edit_handlers import NativeColorPanel
 from wagtail_color_panel.blocks import NativeColorBlock
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
 from wagtailpolls.models import Poll
 from wagtailpolls.edit_handlers import PollChooserPanel
