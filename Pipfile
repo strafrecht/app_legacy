@@ -32,6 +32,8 @@ markdownify = "==0.6.3"
 django-csp = "*"
 django-avatar = "*"
 wagtail-color-panel = "*"
+comments-wagtail-xtd = "*"
+wagtailfontawesome = "*"
 
 [requires]
 python_version = "3.8"

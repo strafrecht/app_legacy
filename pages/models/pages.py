@@ -209,6 +209,8 @@ class SidebarHeaderBlock(blocks.StructBlock):
         template = 'blocks/sidebar/header.html'
 
 class SidebarPollBlock(blocks.StructBlock):
+    poll = PollChooserPanel('poll')
+
     class Meta:
         template = 'blocks/sidebar/poll.html'
 
@@ -285,7 +287,6 @@ class SidebarPage(Page):
         FieldPanel('title'),
         ImageChooserPanel('cover'),
         FieldPanel('cover_caption'),
-        PollChooserPanel('poll'),
         StreamFieldPanel('content')
     ]
 
