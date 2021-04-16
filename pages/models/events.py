@@ -69,7 +69,7 @@ class Events(models.Model):
 
     name = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255)
-    date = models.DateTimeField()
+    date = models.DateTimeField(primary_key=True)
     #tags = ClusterTaggableManager(through=EventTags, blank=True)
     poster = models.ForeignKey(
         'wagtailimages.Image',
