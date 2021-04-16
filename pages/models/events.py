@@ -8,8 +8,6 @@ from modelcluster.models import ClusterableModel
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 
-from pages.models import WebsitePage
-
 from wagtail.admin.edit_handlers import (
     FieldPanel,
     FieldRowPanel,
@@ -27,7 +25,7 @@ from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
-class EventsIndexPage(RoutablePageMixin, WebsitePage):
+class EventsIndexPage(RoutablePageMixin, Page):
     cover = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
