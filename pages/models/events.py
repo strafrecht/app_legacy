@@ -69,14 +69,23 @@ class Events(models.Model):
     subtitle = models.CharField(max_length=255)
     date = models.DateTimeField()
     #tags = ClusterTaggableManager(through=EventTags, blank=True)
-    poster = models.ForeignKey(
+    posterimage = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
+    posterpdf = models.ForeignKey(
+        'wagtail.documents.Document,',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
     speaker = models.CharField(max_length=255, null=True, blank=True)
+    youtube = models.CharField(max_length=500, null=True, blank=True)
+    newsletter = models.CharField(max_length=500, null=True, blank=True)
     type = models.CharField(
         choices=EVENT_TYPE_CHOICES,
         default='tacheles',
@@ -100,12 +109,17 @@ class Events(models.Model):
             FieldPanel('description', classname="col-12"),
         ], "Info"),
         MultiFieldPanel([
-            ImageChooserPanel('poster', classname="col-12"),
+            ImageChooserPanel('posterimage', classname="col-12"),
+            DocumentChooserPanel('posterpdf', classname="col-12"),
         ], "Poster"),
         MultiFieldPanel([
             FieldPanel('speaker', classname="col-12"),
             FieldPanel('speaker_description', classname="col-12"),
         ], "Speaker"),
+        MultiFieldPanel([
+            FieldPanel('youtube', classname="col-12"),
+            FieldPanel('newsletter', classname="col-12"),
+        ], "Links"),
         MultiFieldPanel([
             FieldPanel('location', classname="col-12"),
             FieldPanel('lat', classname="col-6"),
