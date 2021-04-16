@@ -3,17 +3,10 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
-from wagtail.core import blocks
-from wagtail.core import fields
-
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
-
-from wagtailcolumnblocks.blocks import ColumnsBlock
-from pages.models import ColumnBlocks
-from pages.models import ContentBlocks
 
 from wagtail.admin.edit_handlers import (
     FieldPanel,
@@ -41,11 +34,10 @@ class EventsIndexPage(RoutablePageMixin, Page):
         related_name='+'
     )
     cover_caption = models.CharField(max_length=255, blank=True, null=True)
-    introduction = fields.StreamField(ColumnBlocks)
+    
     content_panels = Page.content_panels + [
         ImageChooserPanel('cover'),
         FieldPanel('cover_caption'),
-        StreamFieldPanel('introduction'),
     ]
     
     def get_context(self, request):
