@@ -79,7 +79,7 @@ class Events(models.Model):
         related_name='+'
     )
     posterpdf = models.ForeignKey(
-        'wagtail.documents.Document,',
+        'wagtaildocs.Document',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
