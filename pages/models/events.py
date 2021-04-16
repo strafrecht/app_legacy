@@ -71,14 +71,14 @@ class Events(models.Model):
     subtitle = models.CharField(max_length=255)
     date = models.DateTimeField()
     #tags = ClusterTaggableManager(through=EventTags, blank=True)
-    posterimage = models.ForeignKey(
+    poster = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    posterpdf = models.ForeignKey(
+    pdf = models.ForeignKey(
         'wagtaildocs.Document',
         null=True,
         blank=True,
@@ -111,8 +111,8 @@ class Events(models.Model):
             FieldPanel('description', classname="col-12"),
         ], "Info"),
         MultiFieldPanel([
-            ImageChooserPanel('posterimage', classname="col-12"),
-            DocumentChooserPanel('posterpdf', classname="col-12"),
+            ImageChooserPanel('poster', classname="col-12"),
+            DocumentChooserPanel('pdf', classname="col-12"),
         ], "Poster"),
         MultiFieldPanel([
             FieldPanel('speaker', classname="col-12"),
