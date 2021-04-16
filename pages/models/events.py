@@ -11,6 +11,10 @@ from modelcluster.models import ClusterableModel
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 
+from wagtailcolumnblocks.blocks import ColumnsBlock
+from pages.models import ColumnBlocks
+from pages.models import ContentBlocks
+
 from wagtail.admin.edit_handlers import (
     FieldPanel,
     FieldRowPanel,
