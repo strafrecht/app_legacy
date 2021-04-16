@@ -29,7 +29,7 @@ from wagtail_color_panel.blocks import NativeColorBlock
 from wagtailpolls.models import Poll
 from wagtailpolls.edit_handlers import PollChooserPanel
 from wagtailcolumnblocks.blocks import ColumnsBlock
-from pages.models import Events
+from events.models import Events
 from news.models import NewsItem
 
 
