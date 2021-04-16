@@ -34,10 +34,11 @@ class EventsIndexPage(RoutablePageMixin, Page):
         related_name='+'
     )
     cover_caption = models.CharField(max_length=255, blank=True, null=True)
-    
+    introduction = fields.StreamField(ColumnBlocks)
     content_panels = Page.content_panels + [
         ImageChooserPanel('cover'),
         FieldPanel('cover_caption'),
+        StreamFieldPanel('introduction'),
     ]
     
     def get_context(self, request):
