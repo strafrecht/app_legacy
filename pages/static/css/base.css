@@ -172,6 +172,11 @@ p.roofline {
 	display: flex;
 }
 
+.comments .comment .well .row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
 #exam-table-page .v-label {
 	margin: 0px;
 }
