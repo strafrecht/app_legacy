@@ -101,6 +101,16 @@ body .header-image .header-caption {
     background-color: #3e7d94 !important;
     border-color: #3e7d94 !important;
 }
+.btn-secondary {
+    color: #212529 !important;
+    background-color: #BDBDBD !important;
+    border-color: #BDBDBD !important;
+}
+.btn-secondary:hover {
+    color: #FFFFFF !important;
+    background-color: #7E7E7E !important;
+    border-color: #7E7E7E !important;
+}
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     border-color: #4c9ebb !important;
     background-color: #4c9ebb !important;
