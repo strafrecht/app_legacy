@@ -101,6 +101,10 @@ body .header-image .header-caption {
     background-color: #3e7d94 !important;
     border-color: #3e7d94 !important;
 }
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    border-color: #4c9ebb !important;
+    background-color: #4c9ebb !important;
+}
 a.social-media-icon {
 	font-size: 25px !important;
 	width: 25px !important;
