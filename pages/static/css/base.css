@@ -93,6 +93,14 @@ body .header-image .header-caption {
 	opacity: 0.75;
 	font-weight: normal;
 }
+.btn-primary {
+    background-color: #4c9ebb !important;
+    border-color: #4c9ebb !important;
+}
+.btn-primary:hover {
+    background-color: #3e7d94 !important;
+    border-color: #3e7d94 !important;
+}
 a.social-media-icon {
 	font-size: 25px !important;
 	width: 25px !important;
