@@ -86,8 +86,8 @@ class Events(models.Model):
     #    related_name='+'
     #)
     speaker = models.CharField(max_length=255, null=True, blank=True)
-    youtube = models.CharField(max_length=500, null=True, blank=True)
-    newsletter = models.CharField(max_length=500, null=True, blank=True)
+    #youtube = models.CharField(max_length=500, null=True, blank=True)
+    #newsletter = models.CharField(max_length=500, null=True, blank=True)
     type = models.CharField(
         choices=EVENT_TYPE_CHOICES,
         default='tacheles',
@@ -118,10 +118,10 @@ class Events(models.Model):
             FieldPanel('speaker', classname="col-12"),
             FieldPanel('speaker_description', classname="col-12"),
         ], "Speaker"),
-        MultiFieldPanel([
-            FieldPanel('youtube', classname="col-12"),
-            FieldPanel('newsletter', classname="col-12"),
-        ], "Links"),
+        #MultiFieldPanel([
+        #    FieldPanel('youtube', classname="col-12"),
+        #    FieldPanel('newsletter', classname="col-12"),
+        #], "Links"),
         MultiFieldPanel([
             FieldPanel('location', classname="col-12"),
             FieldPanel('lat', classname="col-6"),
