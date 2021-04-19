@@ -21,3 +21,7 @@ class LSHNewsletter(CampaignAdmin):
     menu_order = 200
     contact_class = Contact
     contact_filter_class = ContactFilter
+    
+class Meta:
+    verbose_name = 'LSH Newsletter'
+    verbose_name_plural = 'LSH Newsletter'
