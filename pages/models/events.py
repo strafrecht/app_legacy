@@ -152,4 +152,4 @@ class Events(models.Model):
 
     class Meta:
         verbose_name = 'Event'
-        verbose_name = 'Events'
+        verbose_name_plural = 'Events'
