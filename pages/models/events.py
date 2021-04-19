@@ -67,7 +67,7 @@ class Events(models.Model):
     ]
 
     name = models.CharField(max_length=255)
-    subtitle = models.CharField(max_length=255)
+    subtitle = models.CharField(max_length=255, null=True)
     date = models.DateTimeField()
     semester = models.CharField(
         choices=SEMESTER_TYPE_CHOICES,
