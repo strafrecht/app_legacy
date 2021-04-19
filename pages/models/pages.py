@@ -16,6 +16,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
 from wagtail.core import blocks
 from wagtail.core import fields
@@ -295,7 +296,7 @@ class ColumnBlocks(blocks.StreamBlock):
         return context
 
 
-class SidebarPage(Page):
+class SidebarPage(RoutablePageMixin, Page):
     content = fields.StreamField(ColumnBlocks)
     cover = models.ForeignKey(
         'wagtailimages.Image',
@@ -327,6 +328,13 @@ class SidebarPage(Page):
         # context['poll'] = Poll.objects.first()
         context['request'] = request
         return context
-
+    
+    @route('(?P<event>\d+)/$', name="event")
+    def event_page(self, request, event):
+        context = super().get_context(request)
+        event = Events.objects.get(id=event)
+        context['event'] = event
+        return render(request, "pages/event_page.html", {'event': event})
+    
     def get_absolute_url(self):
         return self.get_url()
