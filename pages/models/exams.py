@@ -80,5 +80,5 @@ class Exams(models.Model):
     ]
 
     class Meta:
-        verbose_name = 'Exam'
-        verbose_name_plural = 'Exams'
+        verbose_name = 'Klausur'
+        verbose_name_plural = 'Klausuren'
