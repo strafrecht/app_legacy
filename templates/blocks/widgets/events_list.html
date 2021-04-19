@@ -6,9 +6,9 @@
 
 {% block widget %}
 <div class="">
-{% regroup events by semester as events_by_semester %}
+{% regroup events by get_semester_display as events_by_semester %}
 {% for semester in events_by_semester %}
-<h3 style="margin-top:30px;font-weight:600;">{{ semester.value }}</h3>
+<h3 style="margin-top:30px;font-weight:600;">{{ semester.grouper }}</h3>
 {% for event in semester.list %}
 <p style="margin-bottom:7px;"><a href="{{ event.url }}">{{ event.name }} ({{ event.date|date:"d.m.Y" }})</a></p>
 {% endfor %}
