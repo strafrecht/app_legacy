@@ -173,7 +173,14 @@ class Events(models.Model):
         index.SearchField('title'),
         index.SearchField('speaker'),
     ]
-
+    
+    @route('(?P<event>\d+)/$', name="event")
+    def event_page(self, request, event):
+        context = super().get_context(request)
+        event = Events.objects.get(id=event)
+        context['event'] = event
+        return render(request, "pages/event_page.html", {'event': event})
+    
     @property
     def thumb_image(self):
         try:
