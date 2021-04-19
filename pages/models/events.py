@@ -25,40 +25,6 @@ from wagtail.documents.edit_handlers import DocumentChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
-from wagtail.contrib.routable_page.models import RoutablePageMixin, route
-
-class EventsIndexPage(RoutablePageMixin, Page):
-    cover = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    cover_caption = models.CharField(max_length=255, blank=True, null=True)
-    
-    content_panels = Page.content_panels + [
-        ImageChooserPanel('cover'),
-        FieldPanel('cover_caption'),
-    ]
-    
-    def get_context(self, request):
-        context = super().get_context(request)
-        events = Events.objects.all()
-        context['events'] = events
-        return context
-
-    @route('(?P<event>\d+)/$', name="event")
-    def event_page(self, request, event):
-        context = super().get_context(request)
-        event = Events.objects.get(id=event)
-        context['event'] = event
-        return render(request, "pages/event_page.html", {'event': event})
-
-#class EventTags(TaggedItemBase):
-#    content_object = ParentalKey(
-#        'pages.Events', related_name='tagged_items', on_delete=models.CASCADE
-#    )
     
 @register_snippet
 class Events(models.Model):
