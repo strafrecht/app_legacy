@@ -1,6 +1,7 @@
 {% load pipeline %}
 {% load pwa %}
 {% load static wagtailuserbar menu_tags %}
+{% load manifest %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -117,8 +118,9 @@
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
-	    
         {% endblock %}
+
+				<script src="{% manifest 'index.js' %}"/>
 				<script src="{% static "wiki/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
     </body>
 </html>

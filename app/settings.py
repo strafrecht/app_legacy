@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     # Assets
     'pipeline',
     'pwa',
+    'manifest_loader',
 
     # Pages
     'app',
@@ -281,6 +282,11 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
 )
+
+STATICFILES_DIRS = [
+    #os.path.join(BASE_DIR, 'dist')
+    './dist/'
+]
 
 WAGTAIL_SITE_NAME = 'strafrecht-online'
 
