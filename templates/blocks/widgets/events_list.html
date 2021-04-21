@@ -10,7 +10,7 @@
 {% regroup events by get_semester_display as events_by_semester %}
 {% for semester in events_by_semester %}
 <h4 style="margin-top:30px;font-weight:600;">{{ semester.grouper }}</h4>
-{% for event in semester.list|dictsort:"date" %}
+{% for event in semester.list|dictsortreversed:"date" %}
 <p style="margin-bottom:7px;"><a href="{% routablepageurl page "event" event.id %}">{{ event.name }} ({{ event.date|date:"d.m.Y" }})</a></p>
 {% endfor %}
 {% endfor %}
