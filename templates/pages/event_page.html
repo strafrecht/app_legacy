@@ -38,7 +38,28 @@
 					<p class="richtext"><u>Zum Referenten:</u> {{ event.speaker_description|richtext }}</p>
 				</div>
 				<div class="column col-4">
-					{% image event.poster width-320 %}
+					<p>Vue Calendar Widget here!</p>
+					{% if event.poster_image or event.poster_pdf %}
+					<div class="block-sidebar_image_text">
+					<div class="sidebar sidebar-image-text">
+						{% if event.poster_image %}
+						<div class="image">
+							{% image event.poster width-320 %}
+						</div>
+						{% endif %}
+						{% if event.poster_pdf %}
+						<div class="text">
+							<h3>
+							Veranstaltungsplakat
+							</h3>
+							<p>
+							<a href="{{ url event.poster_pdf }}">Als PDF downloaden</a>
+							</p>
+						</div>
+						{% endif %}
+					</div>
+					</div>
+					{% endif %}
 
 					<h3 style="margin-top:30px;font-weight:600;">Location</h3>
 					<p class="small">{{ event.location }}</p>
