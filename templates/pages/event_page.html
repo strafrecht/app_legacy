@@ -18,6 +18,9 @@
 	<div class="event-page">
 		<div class="row">
 			<div class="col-md-9">
+				{% if event.type == "Tacheles" %}
+				<p class="roofline">Vortragsreihe TACHELES</p>
+				{% endif %}
 				<h2 class="font-weight-bold" style="width: 100%;">{{ event.name }}</h2><br>
 				{% if event.showmap %}
 				<div style="margin-bottom: 20px;">
@@ -38,8 +41,6 @@
 
 				<h4 style="margin-top: 20px;">Location</h4>
 				<p class="small">{{ event.location }}</p>
-
-				{% leaflet_map "event-4" callback="window.map_init_basic" %}
 			</div>
 		</div>
 	</div>
