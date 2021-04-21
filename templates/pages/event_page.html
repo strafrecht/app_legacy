@@ -44,7 +44,7 @@
 					<div class="sidebar sidebar-image-text">
 						{% if event.poster_image %}
 						<div class="image">
-							<img src="{{ event.poster_image.url }}" />
+							{% image event.poster_image width-320 %}
 						</div>
 						{% endif %}
 						{% if event.poster_pdf %}
