@@ -22,7 +22,7 @@
 					{% if event.type == "tacheles" %}
 					<p class="roofline">Vortragsreihe TACHELES</p>
 					{% endif %}
-					<h2 class="font-weight-bold" style="width: 100%;">{{ event.name }}</h2><br>
+					<h2 class="font-weight-bold" style="width: 100%;margin-bottom:0px;">{{ event.name }}</h2>
 					{% if event.showmap %}
 					<div style="margin-bottom: 20px;">
 					{% leaflet_map "event-4" callback="window.map_init_basic" %}
