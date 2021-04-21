@@ -28,9 +28,11 @@
 					{% leaflet_map "event-4" callback="window.map_init_basic" %}
 					</div>
 					{% endif %}
-
+					
+					{% if event.speaker %}
 					<h3 style="margin-top:30px;font-weight:600;">Referent</h3>
 					<p class="bold font-sm"><span class="meta font-sm">{{ event.speaker }}</span></p>
+					{% endif %}
 
 					<h3 style="margin-top:30px;font-weight:600;">Veranstaltungsbeschreibung</h3>
 					{% if event.date or event.location %}
@@ -42,8 +44,9 @@
 					{% endif %}
 					
 					<p class="richtext">{{ event.description|richtext }}</p>
-
+					{% if event.speaker_description %}
 					<p class="richtext"><u>Zum Referenten:</u> {{ event.speaker_description|richtext }}</p>
+					{% endif %}
 				</div>
 				<div class="column col-4">
 					<p>Vue Calendar Widget here!</p>
