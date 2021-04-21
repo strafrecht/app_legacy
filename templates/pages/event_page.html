@@ -16,31 +16,33 @@
 
 {% block content %}
 	<div class="event-page">
-		<div class="row">
-			<div class="column col-8">
-				{% if event.type == "tacheles" %}
-				<p class="roofline">Vortragsreihe TACHELES</p>
-				{% endif %}
-				<h2 class="font-weight-bold" style="width: 100%;">{{ event.name }}</h2><br>
-				{% if event.showmap %}
-				<div style="margin-bottom: 20px;">
-				{% leaflet_map "event-4" callback="window.map_init_basic" %}
+		<div class="content">
+			<div class="row">
+				<div class="column col-8">
+					{% if event.type == "tacheles" %}
+					<p class="roofline">Vortragsreihe TACHELES</p>
+					{% endif %}
+					<h2 class="font-weight-bold" style="width: 100%;">{{ event.name }}</h2><br>
+					{% if event.showmap %}
+					<div style="margin-bottom: 20px;">
+					{% leaflet_map "event-4" callback="window.map_init_basic" %}
+					</div>
+					{% endif %}
+
+					<h3 style="margin-top:30px;font-weight:600;">Referent</h3>
+					<p class="bold font-sm"><span class="meta font-sm">{{ event.speaker }}</span></p>
+
+					<h3 style="margin-top:30px;font-weight:600;">Veranstaltungsbeschreibung</h3>
+					<p class="richtext">{{ event.description|richtext }}</p>
+
+					<p class="richtext"><u>Zum Referenten:</u> {{ event.speaker_description|richtext }}</p>
 				</div>
-				{% endif %}
+				<div class="column col-4">
+					{% image event.poster width-320 %}
 
-				<h3 style="margin-top:30px;font-weight:600;">Referent</h3>
-				<p class="bold font-sm"><span class="meta font-sm">{{ event.speaker }}</span></p>
-
-				<h3 style="margin-top:30px;font-weight:600;">Veranstaltungsbeschreibung</h3>
-				<p class="richtext">{{ event.description|richtext }}</p>
-
-				<p class="richtext"><u>Zum Referenten:</u> {{ event.speaker_description|richtext }}</p>
-			</div>
-			<div class="column col-4">
-				{% image event.poster width-320 %}
-
-				<h4 style="margin-top: 20px;">Location</h4>
-				<p class="small">{{ event.location }}</p>
+					<h4 style="margin-top: 20px;">Location</h4>
+					<p class="small">{{ event.location }}</p>
+				</div>
 			</div>
 		</div>
 	</div>
