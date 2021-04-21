@@ -102,6 +102,7 @@ class Events(models.Model):
     description = RichTextField(blank=True)
     speaker_description = RichTextField(blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
+    showmap = models.BooleanField(default=False)
     lat = models.FloatField(null=True, blank=True)
     lon = models.FloatField(null=True, blank=True)
 
@@ -130,6 +131,7 @@ class Events(models.Model):
         ], "Links"),
         MultiFieldPanel([
             FieldPanel('location', classname="col-12"),
+            FieldPanel('showmap', classname="col-12"),
             FieldPanel('lat', classname="col-6"),
             FieldPanel('lon', classname="col-6"),
         ], "Location"),

@@ -17,9 +17,8 @@
 {% block content %}
 	<div class="event-page">
 		<div class="row">
-			<h2 class="font-weight-bold" style="width: 100%;">{{ event.name }}</h2><br>
-
 			<div class="col-md-9">
+				<h2 class="font-weight-bold" style="width: 100%;">{{ event.name }}</h2><br>
 				<div style="margin-bottom: 20px;">
 				{% leaflet_map "event-4" callback="window.map_init_basic" %}
 				</div>
