@@ -34,10 +34,7 @@
 
 					<h3 style="margin-top:30px;font-weight:600;">Veranstaltungsbeschreibung</h3>
 					{% if event.date or event.location %}
-					<p>{{ event.date|date:"j. F Y, G.i" }} Uhr
-					{% if event.date and event.location %}
-						,
-					{% endif %}
+					<p>{{ event.date|date:"j. F Y, G.i" }} Uhr{% if event.date and event.location %},{% endif %} 
 					{% if event.location %}
 					{{ event.location }}
 					{% endif %}
