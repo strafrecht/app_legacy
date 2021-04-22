@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% load static %}
+
+{% block content %}
+    <!-- {{ self.subtitle }} -->
+
+    {% for page in page.content %}
+        {% include_block page %}
+    {% endfor %}
+
+{% endblock %}
