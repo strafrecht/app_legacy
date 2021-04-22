@@ -33,6 +33,7 @@ django-csp = "*"
 django-avatar = "*"
 wagtail-color-panel = "*"
 django-manifest-loader = "*"
+pipfile = "*"
 
 [requires]
 python_version = "3.8"
