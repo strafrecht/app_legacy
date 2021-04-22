@@ -5,9 +5,13 @@ from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from treebeard.mp_tree import MP_Node
 from taggit.managers import TaggableManager
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, StreamFieldPanel
+from wagtail.core import blocks
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.core.models import Page
 from wiki.models import Article, ArticleRevision, URLPath
 import logging
+
 
 logger = logging.getLogger('django')
 
@@ -136,6 +140,7 @@ SUBMISSION_STATUS = (
     ('PENDING', 'Pending'),
 )
 
+
 class Submission(models.Model):
     submitted_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='submitted_by')
     reviewed_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='reviewed_by')
@@ -147,3 +152,35 @@ class Submission(models.Model):
         default='PENDING'
     )
     message = models.TextField(blank=True, null=True)
+
+
+class Flipcard(blocks.StructBlock):
+    title = blocks.RichTextBlock(required=False)
+    frontside = blocks.RichTextBlock()
+    backside = blocks.RichTextBlock()
+    user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        template = "core/flipcard.html"
+        icon = "edit"
+        label = "Flipcard"
+
+
+class FlipcardPage(Page):
+    template = "core/flipcard_page.html"
+
+    content = StreamField(
+        [
+            ("flipcard", Flipcard())
+        ],
+        null=True,
+        blank=True
+    )
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel("content"),
+    ]
+
+    class Meta:
+        verbose_name = "Flipcard Page"
+        verbose_name_plural = "Flipcard Pages"
