@@ -32,13 +32,10 @@ markdownify = "==0.6.3"
 django-csp = "*"
 django-avatar = "*"
 wagtail-color-panel = "*"
-<<<<<<< HEAD
 comments-wagtail-xtd = "*"
 wagtailfontawesome = "*"
-=======
 django-manifest-loader = "*"
 pipfile = "*"
->>>>>>> webpack-integration
 
 [requires]
 python_version = "3.8"
