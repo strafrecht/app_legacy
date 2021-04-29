@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: wagtailnews
+Version: 2.7.1
+Summary: News / blog plugin for the Wagtail CMS
+Home-page: https://github.com/takeflight/wagtailnews/
+Author: Tim Heap
+Author-email: tim@takeflight.com.au
+License: BSD License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: wagtail (>=2.3.0)
+Provides-Extra: docs
+Requires-Dist: Sphinx (>=1.4.6) ; extra == 'docs'
+Requires-Dist: pyenchant (==1.6.6) ; extra == 'docs'
+Requires-Dist: sphinx-autobuild (>=0.5.2) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (>=0.1.8) ; extra == 'docs'
+Requires-Dist: sphinxcontrib-spelling (==2.1.1) ; extra == 'docs'
+
+===========
+wagtailnews
+===========
+
+A plugin for Wagtail that provides news / blogging functionality.
+
+Installing
+==========
+
+Install using pip::
+
+    pip install wagtailnews
+
+It works with Wagtail 2.3 and upwards. For older versions of Wagtail see past releases.
+
+Documentation
+=============
+
+`Documentation for Wagtail news <http://wagtail-news.readthedocs.org>`_ can be found on Read The Docs
+
+Quick start
+===========
+
+Create news models for your application that inherit from the relevant ``wagtailnews`` models:
+
+.. code:: python
+
+    from django.db import models
+
+    from wagtail.admin.edit_handlers import FieldPanel
+    from wagtail.core.fields import RichTextField
+    from wagtail.core.models import Page
+
+    from wagtailnews.models import NewsIndexMixin, AbstractNewsItem, AbstractNewsItemRevision
+    from wagtailnews.decorators import newsindex
+
+
+    # The decorator registers this model as a news index
+    @newsindex
+    class NewsIndex(NewsIndexMixin, Page):
+        # Add extra fields here, as in a normal Wagtail Page class, if required
+        newsitem_model = 'NewsItem'
+
+
+    class NewsItem(AbstractNewsItem):
+        # NewsItem is a normal Django model, *not* a Wagtail Page.
+        # Add any fields required for your page.
+        # It already has ``date`` field, and a link to its parent ``NewsIndex`` Page
+        title = models.CharField(max_length=255)
+        body = RichTextField()
+
+        panels = [
+            FieldPanel('title', classname='full title'),
+            FieldPanel('body', classname='full'),
+        ] + AbstractNewsItem.panels
+
+        def __str__(self):
+            return self.title
+
+
+    class NewsItemRevision(AbstractNewsItemRevision):
+        newsitem = models.ForeignKey(NewsItem, related_name='revisions')
+
+

@@ -1,0 +1,2035 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Bogdan Mateescu, 2019
+msgid ""
+msgstr ""
+"Project-Id-Version: django-wiki\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-05 14:47+0200\n"
+"PO-Revision-Date: 2019-10-24 02:40+0000\n"
+"Last-Translator: Bogdan Mateescu\n"
+"Language-Team: Romanian (http://www.transifex.com/django-wiki/django-wiki/language/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+#: admin.py:85 models/article.py:38
+msgid "created"
+msgstr "creat"
+
+#: apps.py:12
+msgid "Wiki"
+msgstr "Wiki"
+
+#: conf/settings.py:63 forms.py:198 forms.py:342
+msgid "Contents"
+msgstr "Conținut"
+
+#: core/plugins/base.py:63
+msgid "Settings for plugin"
+msgstr "Setări pentru plugin"
+
+#: forms.py:26
+msgid "A 'slug' cannot consist solely of numbers."
+msgstr "Un 'slug' nu poate fi alcătuit exclusiv din numere."
+
+#: forms.py:53
+msgid "A slug may not begin with an underscore."
+msgstr "Un 'slug' nu poate începe cu bară jos."
+
+#: forms.py:56
+msgid "'admin' is not a permitted slug name."
+msgstr "'admin' nu este un nume permis de 'slug'"
+
+#: forms.py:71
+#, python-format
+msgid "A deleted article with slug \"%s\" already exists."
+msgstr "Un articol șters cu acest slug \"%s\" există deja."
+
+#: forms.py:75
+#, python-format
+msgid "A slug named \"%s\" already exists."
+msgstr "Un slug numit \"%s\" există deja."
+
+#: forms.py:84
+msgid "This slug conflicts with an existing URL."
+msgstr "Acest slug este în conflict cu o adresă URL existentă."
+
+#: forms.py:119
+msgid ""
+"Spam protection failed to find both a logged in user and an IP address."
+msgstr "Protecția împotriva spamului nu a reușit să găsească atât un utilizator conectat, cât și o adresă IP."
+
+#: forms.py:134
+#, python-format
+msgid ""
+"Spam protection: You are only allowed to create or edit %(revisions)d "
+"article(s) per %(interval_name)s."
+msgstr "Protecția împotriva spamului: Aveți dreptul să creați sau să editați numai %(revisions)darticol(e) pe %(interval_name)s."
+
+#: forms.py:152
+msgid "minute"
+msgstr "minut"
+
+#: forms.py:153
+#, python-format
+msgid "%d minutes"
+msgstr "%d minute"
+
+#: forms.py:162
+msgid "hour"
+msgstr "oră"
+
+#: forms.py:168 forms.py:196 forms.py:335 templates/wiki/dir.html:48
+#: templates/wiki/search.html:35
+msgid "Title"
+msgstr "Titlu"
+
+#: forms.py:170
+msgid "Initial title of the article. May be overridden with revision titles."
+msgstr "Titlul inițial al articolului. Poate fi suprascris cu titluri revizuite."
+
+#: forms.py:172
+msgid "Type in some contents"
+msgstr "Introduceți ceva conținut"
+
+#: forms.py:174
+msgid ""
+"This is just the initial contents of your article. After creating it, you "
+"can use more complex features like adding plugins, meta data, related "
+"articles etc..."
+msgstr "Acesta este conținutul inițial al articolului dvs. După crearea acestuia,  puteți utiliza funcții mai complexe, cum ar fi adăugarea de pluginuri, meta date, articole conexe etc...articles etc..."
+
+#: forms.py:180
+msgid "Destination"
+msgstr "Destinaţie"
+
+#: forms.py:182
+msgid "Redirect pages"
+msgstr "Redirecționați paginile"
+
+#: forms.py:183
+msgid "Create a redirect page for every moved article?"
+msgstr "Creați o pagină de redirecționare pentru fiecare articol mutat?"
+
+#: forms.py:203 forms.py:347
+msgctxt "Revision comment"
+msgid "Summary"
+msgstr "Rezumat"
+
+#: forms.py:205
+msgid ""
+"Give a short reason for your edit, which will be stated in the revision log."
+msgstr "Dați un motiv scurt pentru editarea dvs., care va fi menționat în jurnalul de revizie."
+
+#: forms.py:261
+msgid "Article is missing title or has an invalid title"
+msgstr "Articolului îi lipsește titlul sau are un titlu nevalid"
+
+#: forms.py:275
+msgid ""
+"While you were editing, someone else changed the revision. Your contents "
+"have been automatically merged with the new contents. Please review the text"
+" below."
+msgstr "În timp ce editați, altcineva a modificat revizuirea. Conținutul dvs. Conținutul dvs. a fost fuzionat automat cu noul conținut. Revedeți textul de mai jos."
+
+#: forms.py:278
+msgid "No changes made. Nothing to save."
+msgstr "Nu s-au efectuat modificări. Nimic de salvat."
+
+#: forms.py:305
+msgid "Select an option"
+msgstr "Selectează o opțiune"
+
+#: forms.py:337 templates/wiki/dir.html:49
+msgid "Slug"
+msgstr "Slug"
+
+#: forms.py:339
+msgid ""
+"This will be the address where your article can be found. Use only "
+"alphanumeric characters and - or _.<br>Note: If you change the slug later "
+"on, links pointing to this article are <b>not</b> updated."
+msgstr "Aceasta va fi adresa unde se găsește articolul dvs. Utilizați numai caractere alfanumerice și - sau _.<br>Notă: dacă schimbați mai târziu slug-ul, link-urile care indică spre acest articol <b>nu vor fi</b> actualizate."
+
+#: forms.py:348
+msgid "Write a brief message for the article's history log."
+msgstr "Scrieți un mesaj scurt pentru istoricul de jurnal al articolelor."
+
+#: forms.py:367
+msgid "Yes, I am sure"
+msgstr "Da, sunt sigur"
+
+#: forms.py:370 templates/wiki/deleted.html:47
+msgid "Purge"
+msgstr "Curăță"
+
+#: forms.py:372
+msgid ""
+"Purge the article: Completely remove it (and all its contents) with no undo."
+" Purging is a good idea if you want to free the slug such that users can "
+"create new articles in its place."
+msgstr "Curăță articolul: Eliminați-l complet (și întregul conținut) fără a anula. Curățarea este o idee bună dacă vrei să eliberezi slugul, astfel încât utilizatorii să poată crea noi articole în locul acestuia."
+
+#: forms.py:379 plugins/attachments/forms.py:163 plugins/images/forms.py:66
+msgid "You are not sure enough!"
+msgstr "Nu sunteți destul de sigur!"
+
+#: forms.py:382
+msgid "While you tried to delete this article, it was modified. TAKE CARE!"
+msgstr "În timp ce ați încercat să ștergeți acest articol, a fost modificat. AI GRIJĂ!"
+
+#: forms.py:389
+msgid "Lock article"
+msgstr "Blocați articolul"
+
+#: forms.py:390
+msgid "Deny all users access to edit this article."
+msgstr "Interziceți accesul tuturor utilizatorilor pentru a edita acest articol."
+
+#: forms.py:393
+msgid "Permissions"
+msgstr "Permisiuni"
+
+#: forms.py:399
+msgid "Owner"
+msgstr "Proprietar"
+
+#: forms.py:400
+msgid "Enter the username of the owner."
+msgstr "Introduceți numele de utilizator al proprietarului."
+
+#: forms.py:403 forms.py:458 plugins/notifications/util.py:12
+msgid "(none)"
+msgstr ""
+
+#: forms.py:404
+msgid "Group"
+msgstr "Grup"
+
+#: forms.py:410
+msgid "Inherit permissions"
+msgstr "Moșteniți permisiunile"
+
+#: forms.py:411
+msgid ""
+"Check here to apply the above permissions (excluding group and owner of the "
+"article) recursively to articles below this one."
+msgstr ""
+
+#: forms.py:415
+msgid "Inherit owner"
+msgstr "Moșteniți proprietarul"
+
+#: forms.py:416
+msgid ""
+"Check here to apply the ownership setting recursively to articles below this"
+" one."
+msgstr "Verificați aici pentru a aplica recursiv setarea de proprietate asupra articolelor de mai jos."
+
+#: forms.py:420
+msgid "Inherit group"
+msgstr "Moșteniți grupul"
+
+#: forms.py:421
+msgid ""
+"Check here to apply the group setting recursively to articles below this "
+"one."
+msgstr "Verificați aici pentru a aplica recursiv setarea grupului asupra articolelor de mai jos."
+
+#: forms.py:426
+msgid "Permission settings for the article were updated."
+msgstr "Setările de permisiune pentru articol au fost actualizate."
+
+#: forms.py:428
+msgid "Your permission settings were unchanged, so nothing saved."
+msgstr "Setările dvs. de permisiune au rămas neschimbate, astfel nimic nu a fost de salvat."
+
+#: forms.py:486
+msgid "No user with that username"
+msgstr "Niciun utilizator cu acest nume"
+
+#: forms.py:521
+msgid "Article locked for editing"
+msgstr "Articol blocat pentru editare"
+
+#: forms.py:528
+msgid "Article unlocked for editing"
+msgstr "Articol deblocat pentru editare"
+
+#: forms.py:555
+msgid "Filter..."
+msgstr "Filtrează..."
+
+#: forms.py:565
+msgid "Search..."
+msgstr "Caută..."
+
+#: forms.py:614
+msgid "Passwords don't match"
+msgstr "Parolele nu se potrivesc"
+
+#: models/article.py:30 models/pluginbase.py:165
+#: plugins/attachments/models.py:26
+msgid "current revision"
+msgstr "revizia actuală"
+
+#: models/article.py:34
+msgid ""
+"The revision being displayed for this article. If you need to do a roll-"
+"back, simply change the value of this field."
+msgstr ""
+
+#: models/article.py:42
+msgid "modified"
+msgstr "modificat"
+
+#: models/article.py:43
+msgid "Article properties last modified"
+msgstr ""
+
+#: models/article.py:46
+msgid "owner"
+msgstr "proprietar"
+
+#: models/article.py:49
+msgid ""
+"The owner of the article, usually the creator. The owner always has both "
+"read and write access."
+msgstr "Proprietarul articolului, de obicei creatorul. Proprietarul are întotdeauna acces la citire cât și la scriere."
+
+#: models/article.py:53
+msgid "group"
+msgstr "grup"
+
+#: models/article.py:56
+msgid ""
+"Like in a UNIX file system, permissions can be given to a user according to "
+"group membership. Groups are handled through the Django auth system."
+msgstr "Le fel ca într-un sistem de fișiere UNIX, permisiunile pot fi acordate unui utilizator în funcție de apartenența sa la grup. Grupurile sunt gestionate prin sistemul de autentificare Django."
+
+#: models/article.py:61
+msgid "group read access"
+msgstr "grup acces citire"
+
+#: models/article.py:64
+msgid "group write access"
+msgstr "grup acces scriere"
+
+#: models/article.py:67
+msgid "others read access"
+msgstr "alți acces citire"
+
+#: models/article.py:70
+msgid "others write access"
+msgstr "alți acces scriere"
+
+#: models/article.py:179
+#, python-format
+msgid "Article without content (%(id)d)"
+msgstr "Articol fără conținut (%(id)d)"
+
+#: models/article.py:184
+msgid "Can edit all articles and lock/unlock/restore"
+msgstr "Poate edita toate articolele și blochează/deblochează/restabilește"
+
+#: models/article.py:185
+msgid "Can change ownership of any article"
+msgstr "Poate schimba dreptul de proprietate asupra oricărui articol"
+
+#: models/article.py:186
+msgid "Can assign permissions to other users"
+msgstr "Poate aloca permisiuni altor utilizatori"
+
+#: models/article.py:261
+msgid "content type"
+msgstr "tip conținut"
+
+#: models/article.py:263
+msgid "object ID"
+msgstr "ID obiect"
+
+#: models/article.py:272
+msgid "Article for object"
+msgstr "Articol pentru obiect"
+
+#: models/article.py:273
+msgid "Articles for object"
+msgstr "Articole pentru obiect"
+
+#: models/article.py:285
+msgid "revision number"
+msgstr "număr revizie"
+
+#: models/article.py:291
+msgid "IP address"
+msgstr "Adresă IP"
+
+#: models/article.py:295
+msgid "user"
+msgstr "utilizator"
+
+#: models/article.py:310
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:23
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:25
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:44
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:68
+#: templates/wiki/includes/revision_info.html:15
+msgid "deleted"
+msgstr "șters"
+
+#: models/article.py:314
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:74
+#: templates/wiki/article.html:23
+#: templates/wiki/includes/revision_info.html:21
+msgid "locked"
+msgstr "blocat"
+
+#: models/article.py:352 models/pluginbase.py:44 models/urlpath.py:56
+msgid "article"
+msgstr "articol"
+
+#: models/article.py:355
+msgid "article contents"
+msgstr "conținut articol"
+
+#: models/article.py:360
+msgid "article title"
+msgstr "titlu articol"
+
+#: models/article.py:363
+msgid ""
+"Each revision contains a title field that must be filled out, even if the "
+"title has not changed"
+msgstr ""
+
+#: models/pluginbase.py:85
+msgid "original article"
+msgstr "articol original"
+
+#: models/pluginbase.py:87
+msgid "Permissions are inherited from this article"
+msgstr "Permisiunile sunt moștenite de la acest articol"
+
+#: models/pluginbase.py:150
+msgid "A plugin was changed"
+msgstr "Un plugin a fost schimbat"
+
+#: models/pluginbase.py:171
+msgid ""
+"The revision being displayed for this plugin. If you need to do a roll-back,"
+" simply change the value of this field."
+msgstr ""
+
+#: models/urlpath.py:58
+msgid ""
+"This field is automatically updated, but you need to populate it when "
+"creating a new URL path."
+msgstr "Acest câmp este actualizat automat, dar trebuie să îl completați când creați o nouă cale URL."
+
+#: models/urlpath.py:65
+msgid "slug"
+msgstr "slug"
+
+#: models/urlpath.py:74
+msgid "Position of URL path in the tree."
+msgstr "Poziția căii URL în arbore."
+
+#: models/urlpath.py:78
+msgid "Moved to"
+msgstr "Mutat la"
+
+#: models/urlpath.py:79
+msgid "Article path was moved to this location"
+msgstr "Calea articolului a fost mutată în această locație"
+
+#: models/urlpath.py:180
+msgid "(root)"
+msgstr "(rădăcină)"
+
+#: models/urlpath.py:188
+msgid "URL path"
+msgstr "Calea URL"
+
+#: models/urlpath.py:189
+msgid "URL paths"
+msgstr "Căile URL"
+
+#: models/urlpath.py:195
+msgid "Sorry but you cannot have a root article with a slug."
+msgstr "Ne pare rău, dar nu puteți avea un articol rădăcină care are un slug."
+
+#: models/urlpath.py:198
+msgid "A non-root note must always have a slug."
+msgstr "O notă care nu este rădăcină trebuie să aibă întotdeauna un slug."
+
+#: models/urlpath.py:204
+#, python-format
+msgid "There is already a root node on %s"
+msgstr "Există deja un nod rădăcină în %s"
+
+#: models/urlpath.py:405
+msgid ""
+"Articles who lost their parents\n"
+"===============================\n"
+"\n"
+"The children of this article have had their parents deleted. You should probably find a new home for them."
+msgstr ""
+
+#: models/urlpath.py:408
+msgid "Lost and found"
+msgstr "Pierdut și găsit"
+
+#: plugins/attachments/apps.py:7
+msgid "Wiki attachments"
+msgstr "Atașamente Wiki"
+
+#: plugins/attachments/forms.py:15
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:14
+msgid "Description"
+msgstr "Descriere"
+
+#: plugins/attachments/forms.py:16
+msgid "A short summary of what the file contains"
+msgstr "Un scurt rezumat despre ce conține fișierul"
+
+#: plugins/attachments/forms.py:65
+msgid "Remove previous"
+msgstr "Eliminați anteriorul"
+
+#: plugins/attachments/forms.py:66
+msgid "Remove previous attachment revisions and their files (to save space)?"
+msgstr "Eliminați atașamentul reviziilor anteriore și fișierele acestora (pentru a economisi spațiu)?"
+
+#: plugins/attachments/forms.py:75
+msgid "File or zip archive"
+msgstr "Fișier sau arhivă zip"
+
+#: plugins/attachments/forms.py:80
+msgid "Unzip file"
+msgstr "Dezarhivează fișierul"
+
+#: plugins/attachments/forms.py:82
+msgid ""
+"Create individual attachments for files in a .zip file - directories do not "
+"work."
+msgstr "Creați atașamente individuale pentru fișiere într-un fișier .zip - directoarele nu vor funcționa."
+
+#: plugins/attachments/forms.py:103
+msgid "Not a zip file"
+msgstr "Nu este un fișier zip"
+
+#: plugins/attachments/forms.py:112
+msgid "User not allowed to moderate this article"
+msgstr "Utilizatorul nu are permisiunea de a modera acest articol"
+
+#: plugins/attachments/forms.py:158
+msgid "Yes I am sure..."
+msgstr "Da sunt sigur..."
+
+#: plugins/attachments/models.py:30
+msgid ""
+"The revision of this attachment currently in use (on all articles using the "
+"attachment)"
+msgstr "Revizia acestui atașament utilizat în prezent (pentru toate articolele care utilizează atașamentul)"
+
+#: plugins/attachments/models.py:34
+msgid "original filename"
+msgstr "numele fișierului original"
+
+#: plugins/attachments/models.py:47
+msgid "attachment"
+msgstr "atașament"
+
+#: plugins/attachments/models.py:48
+msgid "attachments"
+msgstr "atașamente"
+
+#: plugins/attachments/models.py:67
+msgid "No file extension found in filename. That's not okay!"
+msgstr "Nu există nicio extensie de fișier găsită în numele fișierului. Asta nu e bine!"
+
+#: plugins/attachments/models.py:73
+msgid ""
+"The following filename is illegal: {filename:s}. Extension has to be one of "
+"{extensions:s}"
+msgstr "Următorul nume de fișier este ilegal: {filename:s}. Extensia trebuie să fie una dintre următoarele: {extensions:s}"
+
+#: plugins/attachments/models.py:119
+msgid "file"
+msgstr "fișier"
+
+#: plugins/attachments/models.py:125
+msgid "attachment revision"
+msgstr "revizie atașament"
+
+#: plugins/attachments/models.py:126
+msgid "attachment revisions"
+msgstr "revizii atașament"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:10
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:40
+#: templates/wiki/delete.html:8
+msgid "Delete"
+msgstr "Șterge"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:12
+msgid ""
+"The file may be referenced on other articles. Deleting it means that they "
+"will loose their references to this file. The following articles reference "
+"this file:"
+msgstr "Fișierul poate avea referințe în alte articole. Ștergerea lui înseamnă că vor pierde referințele la acest fișier. Următoarele articole au referințe la acest fișier:"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:27
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:51
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:49
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:39
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:75
+#: plugins/images/templates/wiki/plugins/images/purge.html:23
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:23
+#: templates/wiki/create.html:40 templates/wiki/delete.html:12
+#: templates/wiki/delete.html:48 templates/wiki/move.html:37
+msgid "Go back"
+msgstr "Întoarce-te"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:31
+msgid "Delete it!"
+msgstr "Șterge-l!"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:38
+msgid "Remove"
+msgstr "Elimină"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:40
+msgid ""
+"You can remove a reference to a file, but it will retain its references on "
+"other articles."
+msgstr "Puteți elimina o referință la un fișier, dar acesta își va păstra referințele la alte articole."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:55
+msgid "Remove reference"
+msgstr "Elimină referința"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:9
+msgid "History of"
+msgstr "Istoricul"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:12
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:28
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:43
+msgid "Date"
+msgstr "Dată"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:13
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:42
+msgid "User"
+msgstr "Utilizator"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:15
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:26
+msgid "File"
+msgstr "Fișier"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:16
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:34
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:30
+#: plugins/images/templates/wiki/plugins/images/index.html:22
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:167
+msgid "Size"
+msgstr "Mărime"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:17
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:31
+msgid "Action"
+msgstr "Acțiune"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:28
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:37
+msgid "<em>No description</em>"
+msgstr "<em>Fără descriere</em>"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:36
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:55
+msgid "Download"
+msgstr "Descarcă"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:41
+msgid "Use this!"
+msgstr "Utilizează asta!"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:5
+#: plugins/attachments/wiki_plugin.py:18
+msgid "Attachments"
+msgstr "Atașamente"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:10
+msgid ""
+"The following files are available for this article. Copy the markdown tag to"
+" directly refer to a file from the article text."
+msgstr ""
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:11
+msgid ""
+"Complete markdown code syntax: <code>[attachment:id title:\"text\" "
+"size]</code><br> &nbsp;&nbsp;title: Link text replacement for the file name."
+" size: Show file size after the title."
+msgstr ""
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:32
+#: plugins/images/templates/wiki/plugins/images/index.html:20
+msgid "Markdown tag"
+msgstr ""
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:33
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:29
+#: plugins/images/templates/wiki/plugins/images/index.html:21
+msgid "Uploaded by"
+msgstr "Încărcat de"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:38
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:9
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:54
+msgid "Replace"
+msgstr "Înlocuiește"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:42
+msgid "Detach"
+msgstr "Detașează"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "File history"
+msgstr "Istoric fișier"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "revisions"
+msgstr "revizii"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:66
+msgid "There are no attachments for this article."
+msgstr "Nu există atașamente pentru acest articol."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:76
+msgid "Upload new file"
+msgstr "Încarcă fișier nou"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:88
+msgid "Upload file"
+msgstr "Încarcă fișier"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:99
+msgid "Search and add file"
+msgstr "Caută și adaugă fișier"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:105
+msgid ""
+"You can reuse files from other articles. These files are subject to updates "
+"on other articles which may or may not be a good thing."
+msgstr "Puteți reutiliza fișierele din alte articole. Aceste fișiere fac obiectul unor actualizări privind alte articole care pot sau nu pot fi un lucru bun."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:124
+msgid "Restore attachments"
+msgstr "Restabilește atașamentele"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:137
+#: templates/wiki/deleted.html:25 templates/wiki/deleted.html:30
+#: templates/wiki/deleted_list.html:24
+msgid "Restore"
+msgstr "Restabilește"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:144
+msgid "Nothing to restore"
+msgstr "Nimic de restabilit"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:160
+msgid ""
+"The article is currently locked for editing, and therefore no new "
+"attachments can be added."
+msgstr "Articolul este blocat în prezent pentru editare, iar prin urmare, nu se pot adăuga atașamente noi."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:6
+msgid "This attachment is not permitted on this page."
+msgstr "Acest atașament nu este permis pe această pagină."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:8
+msgid "Click to download"
+msgstr "Apasă aici pentru a descărca"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:12
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>. Please note "
+"that this attachment is in use on other articles, you may distort contents. "
+"However, do not hestitate to take advantage of this and make replacements "
+"for the listed articles where necessary. This way of working is more "
+"efficient...."
+msgstr ""
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:17
+#, python-format
+msgid "Articles using %(filename)s"
+msgstr "Articole care folosesc %(filename)s"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:26
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>."
+msgstr ""
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:43
+#: plugins/images/templates/wiki/plugins/images/index.html:45
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:27
+msgid "Upload replacement"
+msgstr "Încarcă înlocuitor"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:5
+msgid "Add file to"
+msgstr "Adaugă fișier la"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:9
+msgid "Add attachment from other article"
+msgstr "Adaugă atașament de la alt articol"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:17
+msgid "Search files and articles"
+msgstr "Caută fișiere și articole"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:27
+msgid "Main article"
+msgstr "Articol principal"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:59
+msgid "Add to article"
+msgstr "Adaugă la articol"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:67
+msgid "Your search did not return any results"
+msgstr "Căutarea dvs. nu a returnat niciun rezultat"
+
+#: plugins/attachments/views.py:51
+#, python-format
+msgid "Successfully added: %s"
+msgstr "Adăugat cu succes: %s"
+
+#: plugins/attachments/views.py:57
+#, python-format
+msgid "%s was successfully added."
+msgstr "%s a fost adăugat cu succes."
+
+#: plugins/attachments/views.py:153
+#, python-format
+msgid "%s uploaded and replaces old attachment."
+msgstr "%s a fost încărcat și înlocuiește atașamentul vechi."
+
+#: plugins/attachments/views.py:157
+#, python-format
+msgid "Your file could not be saved: %s"
+msgstr "Fișierul dvs. nu a putut fi salvat: %s"
+
+#: plugins/attachments/views.py:186
+msgid ""
+"Your new file will automatically be renamed to match the file already "
+"present. Files with different extensions are not allowed."
+msgstr "Noul fișier va fi redenumit automat pentru a se potrivi cu fișierul deja existent. Fișierele cu extensii diferite nu sunt permise."
+
+#: plugins/attachments/views.py:276
+#, python-format
+msgid "Current revision changed for %s."
+msgstr "Revizia curentă a fost schimbată pentru %s."
+
+#: plugins/attachments/views.py:308
+#, python-format
+msgid "Added a reference to \"%(att)s\" from \"%(art)s\"."
+msgstr "A fost adăugată o referință la \"%(att)s\" de la \"%(art)s\"."
+
+#: plugins/attachments/views.py:313
+#, python-format
+msgid "\"%(att)s\" is already referenced."
+msgstr "\"%(att)s\" are deja o referință."
+
+#: plugins/attachments/views.py:346
+#, python-format
+msgid "The file %s was deleted."
+msgstr "Fișierul %s a fost șters."
+
+#: plugins/attachments/views.py:351
+#, python-format
+msgid "This article is no longer related to the file %s."
+msgstr "Acest articol nu mai este în legătură cu fișierul %s."
+
+#: plugins/attachments/wiki_plugin.py:26
+#, python-format
+msgid "A file was changed: %s"
+msgstr "Un fișier a fost schimbat: %s"
+
+#: plugins/attachments/wiki_plugin.py:29
+#, python-format
+msgid "A file was deleted: %s"
+msgstr "Un fișier a fost șters: %s"
+
+#: plugins/globalhistory/apps.py:7
+msgid "Wiki Global History"
+msgstr "Wiki Istoric Global"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:4
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:8
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/menubaritem.html:7
+msgid "Global history"
+msgstr "Istoric global"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:14
+#, python-format
+msgid "List of <strong>%(cnt)s change</strong> in the wiki."
+msgid_plural "List of <strong>%(cnt)s changes</strong> in the wiki."
+msgstr[0] "Lista a <strong>%(cnt)s modificări</strong> în wiki."
+msgstr[1] "Lista a <strong>%(cnt)s modificări</strong> în wiki."
+msgstr[2] "Lista a <strong>%(cnt)s de modificări</strong> în wiki."
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:25
+msgid "Show all revisions of all articles"
+msgstr "Afișați toate revizuirile tuturor articolelor"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:28
+msgid "Show last revision of every article"
+msgstr "Afișați ultima revizie a fiecărui articol"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:39
+msgid "Revision ID"
+msgstr "ID Revizie"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:40
+msgid "Article"
+msgstr "Articol"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:41
+msgid "Message"
+msgstr "Mesaj"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:65
+#: templates/wiki/history.html:72
+msgid "no log message"
+msgstr "niciun mesaj jurnal"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:71
+#: templates/wiki/includes/revision_info.html:18
+msgid "restored"
+msgstr "restabilit"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:77
+#: templates/wiki/includes/revision_info.html:24
+msgid "unlocked"
+msgstr "deblocat"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:87
+#: templates/wiki/includes/revision_info.html:10
+msgid "anonymous (IP logged)"
+msgstr ""
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:95
+msgid "Go to article history"
+msgstr "Mergi la istoricul articolului"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:96
+msgid "Go to article"
+msgstr "Mergi la articol"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:105
+msgid "No more changes to display !"
+msgstr "Nu mai sunt modificări de afișat !"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:106
+msgid "Go back to previous page"
+msgstr "Reveniți la pagina anterioară"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:108
+msgid "No changes to display !"
+msgstr "Nu sunt modificări de afișat !"
+
+#: plugins/help/apps.py:7
+msgid "Wiki help"
+msgstr "Ajutor Wiki"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:1
+msgid "Adding new articles"
+msgstr "Adăugarea de articole noi"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:3
+msgid ""
+"To create a new wiki article, create a link to it. Clicking the link gives "
+"you the creation page."
+msgstr ""
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:6
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:22
+msgid "An external link"
+msgstr "Un link extern"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:9
+msgid "Headers"
+msgstr "Antete"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:10
+msgid ""
+"Use these codes for headers and to automatically generate Tables of "
+"Contents."
+msgstr ""
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:25
+msgid "Typography"
+msgstr "Tipografie"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:30
+msgid "Lists"
+msgstr "Liste"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:38
+msgid "Tables"
+msgstr "Tabele"
+
+#: plugins/help/wiki_plugin.py:10
+msgid "Help"
+msgstr "Ajutor"
+
+#: plugins/images/apps.py:10
+msgid "Wiki images"
+msgstr "Imagini Wiki"
+
+#: plugins/images/forms.py:17
+#, python-format
+msgid ""
+"New image %s was successfully uploaded. You can use it by selecting it from "
+"the list of available images."
+msgstr "O nouă imagine %s a fost încărcată cu succes. Puteți să o utilizați selectând-o din lista de imagini disponibile."
+
+#: plugins/images/forms.py:61
+msgid "Are you sure?"
+msgstr "Ești sigur?"
+
+#: plugins/images/models.py:38
+msgid "image"
+msgstr "imagine"
+
+#: plugins/images/models.py:39
+msgid "images"
+msgstr "imagini"
+
+#: plugins/images/models.py:44
+#, python-format
+msgid "Image: %s"
+msgstr "Imagine: %s"
+
+#: plugins/images/models.py:46
+msgid "Current revision not set!!"
+msgstr ""
+
+#: plugins/images/models.py:97
+msgid "image revision"
+msgstr "revizie imagine"
+
+#: plugins/images/models.py:98
+msgid "image revisions"
+msgstr "revizii imagine"
+
+#: plugins/images/models.py:104
+#, python-format
+msgid "Image Revision: %d"
+msgstr "Revizie imagine: %d"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:5
+#: plugins/images/wiki_plugin.py:15
+msgid "Images"
+msgstr "Imagini"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:8
+msgid ""
+"The following images are available for this article. Copy the markdown tag "
+"to directly refer to an image from the article text."
+msgstr ""
+
+#: plugins/images/templates/wiki/plugins/images/index.html:12
+msgid "Back to edit page"
+msgstr "Înapoi la pagina de editare"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:19
+msgid "No file"
+msgstr "Niciun fișier"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:36
+msgid "Upload and publish new image"
+msgstr "Încărcați și publicați o imagine nouă"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:40
+msgid "Restore image"
+msgstr "Restabilește imaginea"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:49
+msgid "Remove image"
+msgstr "Elimină imaginea"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:56
+msgid "Completely delete"
+msgstr "Complet ștearsă"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:70
+#: templates/wiki/history.html:5
+msgid "History"
+msgstr "Istoric"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:89
+msgid "Revert to this version"
+msgstr "Reveniți la această versiune"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:102
+msgid "There are no images for this article."
+msgstr "Nu există imagini pentru acest articol."
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:5
+#: templates/wiki/deleted.html:40
+msgid "Purge deletion"
+msgstr ""
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:14
+msgid "Purge image: Completely remove image file and all revisions."
+msgstr ""
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:27
+msgid "Remove it completely!"
+msgstr "Eliminați definitiv!"
+
+#: plugins/images/templates/wiki/plugins/images/render.html:13
+msgid "Image not found"
+msgstr "Imagine negăsită"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:5
+msgid "Replace image"
+msgstr "Înlocuiți imaginea"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:14
+msgid "Choose an image file to replace current image."
+msgstr "Alegeți un fișier tip imagine pentru a înlocui imaginea curentă."
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:9
+msgid "Insert Image"
+msgstr "Inserați imaginea"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:50
+msgid "Image id"
+msgstr "ID imagine"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:52
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:15
+msgid "Insert"
+msgstr "Inserați"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:68
+msgid "No images found for this article"
+msgstr "Nu au fost găsite imagini pentru acest articol"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:76
+msgid "Manage images"
+msgstr "Gestionați imaginile"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:81
+msgid "Add new image"
+msgstr "Adăugați o imagine nouă"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:124
+msgid "Add image"
+msgstr "Adaugă imagine"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:132
+msgid "You do not have permissions to add images."
+msgstr "Nu aveți permisiuni de adăugare a imaginilor."
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:139
+msgid "How to use images"
+msgstr "Cum se utilizează imaginile"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:142
+msgid ""
+"After uploading an image, it is attached to this particular article and can "
+"be used only here. Other users may replace the image, but older versions are"
+" kept. To show the image press the Insert button and select the options you "
+"want to use. You can use Markdown in the caption. The Markdown code syntax "
+"for images looks like this"
+msgstr ""
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:145
+msgid "Possible values for align are"
+msgstr "Valorile posibile pentru aliniere sunt"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:146
+msgid "Possible values for size are"
+msgstr "Valorile posibile pentru dimensiune sunt"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:159
+msgid "Alignment"
+msgstr "Aliniere"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:177
+msgid "Caption"
+msgstr ""
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:178
+msgid "Enter caption"
+msgstr ""
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:183
+msgid "Insert image"
+msgstr "Introduceți imaginea"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:184
+msgid "Cancel"
+msgstr "Anulare"
+
+#: plugins/images/views.py:78
+#, python-format
+msgid "%s has been restored"
+msgstr "%s a fost restabilită"
+
+#: plugins/images/views.py:80
+#, python-format
+msgid "%s has been marked as deleted"
+msgstr "%s a fost marcat ca șters"
+
+#: plugins/images/views.py:140
+#, python-format
+msgid "%(file)s has been changed to revision #%(revision)d"
+msgstr ""
+
+#: plugins/images/views.py:185
+#, python-format
+msgid "%(file)s has been saved."
+msgstr "%(file)s a fost salvat."
+
+#: plugins/images/wiki_plugin.py:26
+#, python-format
+msgid "An image was added: %s"
+msgstr "A fost adăugată o imagine: %s"
+
+#: plugins/links/apps.py:7
+msgid "Wiki links"
+msgstr "Link-uri Wiki"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:3
+msgid "Link to another wiki page"
+msgstr "Link către o altă pagină wiki"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:6
+msgid ""
+"Type in something from another wiki page's title and auto-complete will help"
+" you create a tag for your wiki link. Tags for links look like this:"
+msgstr ""
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:25
+msgid ""
+"You can link to another website simply by inserting an address example.com "
+"or http://example.com or by using the markdown syntax:"
+msgstr "Puteți creați o legătura cu un alt site web, introducând o adresă ca example.com sau http://example.com sau folosind sintaxa markdown:"
+
+#: plugins/links/wiki_plugin.py:20
+msgid "Links"
+msgstr "Link-uri"
+
+#: plugins/macros/apps.py:7
+msgid "Wiki macros"
+msgstr ""
+
+#: plugins/macros/mdx/macro.py:67
+msgid "Article list"
+msgstr "Lista articolelor"
+
+#: plugins/macros/mdx/macro.py:68
+msgid "Insert a list of articles in this level."
+msgstr ""
+
+#: plugins/macros/mdx/macro.py:70
+msgid "Maximum depth to show levels for."
+msgstr ""
+
+#: plugins/macros/mdx/macro.py:76
+msgid "Table of contents"
+msgstr ""
+
+#: plugins/macros/mdx/macro.py:77
+msgid "Insert a table of contents matching the headings."
+msgstr ""
+
+#: plugins/macros/mdx/macro.py:85
+msgid "WikiLinks"
+msgstr "WikiLinks"
+
+#: plugins/macros/mdx/macro.py:87
+msgid "Insert a link to another wiki page with a short notation."
+msgstr ""
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:6
+msgid "Article index"
+msgstr "Indexul articolului"
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:10
+msgid "Nothing below this level"
+msgstr "Nimic sub acest nivel"
+
+#: plugins/macros/wiki_plugin.py:11
+msgid "Macros"
+msgstr ""
+
+#: plugins/notifications/apps.py:7
+msgid "Wiki notifications"
+msgstr "Notificări Wiki"
+
+#: plugins/notifications/forms.py:16
+#, python-format
+msgid "Receive notifications %(interval)s"
+msgstr "Primiți notificări %(interval)s"
+
+#: plugins/notifications/forms.py:26
+#, python-format
+msgid "%(title)s - %(url)s"
+msgstr "%(title)s - %(url)s"
+
+#: plugins/notifications/forms.py:43
+msgid "Remove subscriptions"
+msgstr "Eliminați abonamentele"
+
+#: plugins/notifications/forms.py:45
+msgid "Select article subscriptions to remove from notifications"
+msgstr ""
+
+#: plugins/notifications/forms.py:49
+msgid "Email digests"
+msgstr ""
+
+#: plugins/notifications/forms.py:51
+msgid "Unchanged (selected on each article)"
+msgstr ""
+
+#: plugins/notifications/forms.py:52
+msgid "No emails"
+msgstr "Nu există e-mailuri"
+
+#: plugins/notifications/forms.py:53
+msgid "Email on any change"
+msgstr "Trimiteți un e-mail cu privire la orice modificare"
+
+#: plugins/notifications/forms.py:102
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:5
+msgid "Notifications"
+msgstr "Notificări"
+
+#: plugins/notifications/forms.py:109
+#: templates/wiki/includes/article_menu.html:9 templates/wiki/settings.html:5
+msgid "Settings"
+msgstr "Setări"
+
+#: plugins/notifications/forms.py:113
+msgid "When this article is edited"
+msgstr "Când acest articol este editat"
+
+#: plugins/notifications/forms.py:116
+msgid "Also receive emails about article edits"
+msgstr "De asemenea, primiți e-mailuri despre editarea articolelor"
+
+#: plugins/notifications/forms.py:158
+msgid "Your notification settings were updated."
+msgstr "Setările pentru notificări au fost actualizate."
+
+#: plugins/notifications/forms.py:161
+msgid "Your notification settings were unchanged, so nothing saved."
+msgstr "Setările dvs. de notificare au rămas neschimbate, astfel încât nimic nu a fost salvat."
+
+#: plugins/notifications/models.py:20
+#, python-format
+msgid "%(user)s subscribing to %(article)s (%(type)s)"
+msgstr "%(user)s sa abonat %(article)s (%(type)s)"
+
+#: plugins/notifications/models.py:46
+#, python-format
+msgid "Article deleted: %s"
+msgstr "Articol șters: %s"
+
+#: plugins/notifications/models.py:54
+#, python-format
+msgid "Article modified: %s"
+msgstr "Articol modificat: %s"
+
+#: plugins/notifications/models.py:62
+#, python-format
+msgid "New article created: %s"
+msgstr "Articol nou creat: %s"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:4
+msgid "No notifications"
+msgstr "Nicio notificare"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:9
+msgid "Clear notifications list"
+msgstr "Ștergeți lista de notificări"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:15
+msgid "Notification settings"
+msgstr "Setări de notificare"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:9
+msgid "Your notification settings"
+msgstr "Setările dvs. de notificare"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:11
+msgid "Manage how often you receive notifications"
+msgstr "Gestionați frecvența primirii notificărilor"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "Settings for"
+msgstr "Setări pentru"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "articles"
+msgstr "articole"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:27
+msgid "You are not subscribed to any notifications yet."
+msgstr "Încă nu sunteți abonat la nicio notificare."
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:35
+#: templates/wiki/edit.html:36 templates/wiki/edit.html:83
+#: templates/wiki/settings.html:17
+msgid "Save changes"
+msgstr "Salvează modificările"
+
+#: plugins/notifications/views.py:25
+#, python-format
+msgid "You will receive notifications %(interval)s for %(articles)d articles"
+msgstr "Veți primi notificări %(interval)s pentru %(articles)d articole"
+
+#: plugins/redlinks/apps.py:7
+msgid "Wiki red links"
+msgstr ""
+
+#: templates/wiki/accounts/account_settings.html:4
+#: templates/wiki/accounts/account_settings.html:7
+#: templates/wiki/base_site.html:79
+msgid "Account Settings"
+msgstr "Setările contului"
+
+#: templates/wiki/accounts/account_settings.html:11
+msgid "Update"
+msgstr "Actualizează"
+
+#: templates/wiki/accounts/login.html:4 templates/wiki/base_site.html:109
+msgid "Log in"
+msgstr "Conectează-te"
+
+#: templates/wiki/accounts/login.html:10
+msgid "Please log in"
+msgstr "Conectare"
+
+#: templates/wiki/accounts/login.html:18
+msgid "Log me in..."
+msgstr "Conectează-mă"
+
+#: templates/wiki/accounts/login.html:25
+msgid "Don't have an account?"
+msgstr "Nu ai un cont?"
+
+#: templates/wiki/accounts/login.html:25 templates/wiki/accounts/signup.html:3
+#: templates/wiki/accounts/signup.html:6 templates/wiki/base_site.html:113
+msgid "Sign up"
+msgstr "Înscrie-te"
+
+#: templates/wiki/accounts/signup.html:14
+msgid "Sign me up..."
+msgstr "Înscrie-mă"
+
+#: templates/wiki/article.html:39
+msgid "This article was last modified:"
+msgstr "Acest articol a fost modificat ultima dată:"
+
+#: templates/wiki/base_site.html:53
+msgid "Search from current article..."
+msgstr "Căutați din articolul curent..."
+
+#: templates/wiki/base_site.html:55
+msgid "Search whole wiki..."
+msgstr "Căutați în întregul wiki..."
+
+#: templates/wiki/base_site.html:86
+msgid "Log out"
+msgstr "Deconectează-te"
+
+#: templates/wiki/base_site.html:93
+msgid "Deleted articles"
+msgstr "Articole șterse"
+
+#: templates/wiki/base_site.html:121
+msgid "Home"
+msgstr "Acasă"
+
+#: templates/wiki/base_site.html:122
+msgid "About"
+msgstr "Despre"
+
+#: templates/wiki/base_site.html:147
+msgid ""
+"Powered by <a href=\"http://www.django-wiki.org\">django-wiki</a>, an open "
+"source application under the <a href=\"http://www.gnu.org/licenses/quick-"
+"guide-gplv3.html\">GPLv3</a> license. Let knowledge be the cure."
+msgstr "Realizat de <a href=\"http://www.django-wiki.org\">django-wiki</a>, o aplicație cu sursă deschisă, sub licența <a href=\"http://www.gnu.org/licenses/quick-guide-gplv3.html\">GPLv3</a>. Lăsați cunoștințele să fie leacul."
+
+#: templates/wiki/create.html:5 templates/wiki/create.html:31
+msgid "Add new article"
+msgstr "Adaugă articol nou"
+
+#: templates/wiki/create.html:44
+msgid "Create article"
+msgstr "Creați articol"
+
+#: templates/wiki/create_root.html:4
+msgid "Create root article"
+msgstr "Creați articol rădăcină"
+
+#: templates/wiki/create_root.html:22 templates/wiki/root_missing.html:10
+msgid "Congratulations!"
+msgstr "Felicitări!"
+
+#: templates/wiki/create_root.html:24
+msgid ""
+"You have django-wiki installed... but there are no articles. So it's time to"
+" create the first one, the root article."
+msgstr "Ai django-wiki instalat... dar nu există încă articole. Deci, este timpul să creați primul articol, articolul rădăcină."
+
+#: templates/wiki/create_root.html:25
+msgid ""
+"In the beginning, it will only be editable by administrators, but you can "
+"define permissions after."
+msgstr "La început, acesta va fi editabil doar de administratori, dar poți defini permisiuni după."
+
+#: templates/wiki/create_root.html:28
+msgid "Root article"
+msgstr "Articol rădăcină"
+
+#: templates/wiki/create_root.html:35
+msgid "Create root"
+msgstr "Creați rădăcina"
+
+#: templates/wiki/delete.html:5 templates/wiki/delete.html:52
+#: templates/wiki/edit.html:49
+msgid "Delete article"
+msgstr "Șterge articol"
+
+#: templates/wiki/delete.html:11
+msgid "You cannot delete a root article."
+msgstr "Nu poți șterge un articol rădăcină"
+
+#: templates/wiki/delete.html:17
+msgid ""
+"You cannot delete this article because you do not have permission to delete "
+"articles with children. Try to remove the children manually one-by-one."
+msgstr ""
+
+#: templates/wiki/delete.html:23
+msgid ""
+"You are deleting an article. This means that its children will be deleted as"
+" well. If you choose to purge, children will also be purged!"
+msgstr ""
+
+#: templates/wiki/delete.html:25
+msgid "Articles that will be deleted"
+msgstr "Articole care vor fi șterse"
+
+#: templates/wiki/delete.html:31
+msgid "...and more!"
+msgstr "...și altele!"
+
+#: templates/wiki/delete.html:39
+msgid "You are deleting an article. Please confirm."
+msgstr "Ștergeți un articol. Vă rugăm să confirmați."
+
+#: templates/wiki/deleted.html:5 templates/wiki/deleted.html:14
+msgid "Article deleted"
+msgstr "Articol șters"
+
+#: templates/wiki/deleted.html:17
+msgid "The article you were looking for has been deleted."
+msgstr "Articolul pe care îl căutați a fost șters."
+
+#: templates/wiki/deleted.html:26
+msgid "You may restore this article and its children by clicking restore."
+msgstr ""
+
+#: templates/wiki/deleted.html:41
+msgid ""
+"You may remove this article and any children permanently and free their "
+"slugs by clicking the below button. This action cannot be undone."
+msgstr ""
+
+#: templates/wiki/deleted_list.html:4
+msgid "Admin Panel"
+msgstr "Panoul Administratorului"
+
+#: templates/wiki/deleted_list.html:8
+msgid "Deleted Articles"
+msgstr "Articole șterse"
+
+#: templates/wiki/deleted_list.html:13
+msgid "Page Title"
+msgstr "Titlul paginii"
+
+#: templates/wiki/deleted_list.html:14
+msgid "Date Deleted"
+msgstr "Data ștergerii"
+
+#: templates/wiki/deleted_list.html:15
+msgid "Restore Article"
+msgstr "Restabilește articolul"
+
+#: templates/wiki/deleted_list.html:30
+msgid "No deleted articles to display"
+msgstr "Niciun articol șters de afișat"
+
+#: templates/wiki/dir.html:5
+msgid "Listing articles in"
+msgstr "Afișați articolele în"
+
+#: templates/wiki/dir.html:17
+msgid "Up one level"
+msgstr "Un nivel mai sus"
+
+#: templates/wiki/dir.html:22
+msgid "Add article"
+msgstr "Adaugă articol"
+
+#: templates/wiki/dir.html:30
+msgid "clear"
+msgstr "golește"
+
+#: templates/wiki/dir.html:40
+msgid "article,articles"
+msgstr "articol,articole"
+
+#: templates/wiki/dir.html:40
+msgid "is,are"
+msgstr "este,sunt"
+
+#: templates/wiki/dir.html:40
+#, python-format
+msgid ""
+"Browsing <strong><a href=\"%(self_url)s\">/%(path)s</a></strong>. There "
+"%(articles_plur_verb)s <strong>%(cnt)s %(articles_plur)s</strong> in this "
+"level."
+msgstr ""
+
+#: templates/wiki/dir.html:50 templates/wiki/search.html:36
+msgid "Last modified"
+msgstr "Modificat ultima dată"
+
+#: templates/wiki/dir.html:74 templates/wiki/search.html:45
+msgid "There are no articles in this level"
+msgstr "Nu există articole în acest nivel"
+
+#: templates/wiki/edit.html:5 templates/wiki/includes/article_menu.html:34
+msgid "Edit"
+msgstr "Editează"
+
+#: templates/wiki/edit.html:11
+msgid ""
+"<strong>Warning:</strong> You are not logged in. Your IP address will be "
+"logged."
+msgstr ""
+
+#: templates/wiki/edit.html:12
+msgid "Click here to log in"
+msgstr "Apasă aici pentru a te conecta"
+
+#: templates/wiki/edit.html:32
+msgid "Preview"
+msgstr "Previzualizează"
+
+#: templates/wiki/edit.html:43 templates/wiki/move.html:41
+msgid "Move article"
+msgstr "Mutați articolul"
+
+#: templates/wiki/edit.html:79
+msgid "Back to editor"
+msgstr "Înapoi la editor"
+
+#: templates/wiki/error.html:5 templates/wiki/error.html:26
+msgid "Error"
+msgstr "Eroare"
+
+#: templates/wiki/error.html:15
+msgid "Not found"
+msgstr "Nu a fost găsit"
+
+#: templates/wiki/error.html:18
+msgid "This article was not found, and neither was its parent article."
+msgstr "Acest articol nu a fost găsit, și nici articolul său părinte."
+
+#: templates/wiki/error.html:20
+msgid "Start page"
+msgstr "Pagina de start"
+
+#: templates/wiki/error.html:30
+msgid "There was some sort of error accessing this page. Sorry!"
+msgstr "A apărut o eroare la accesarea acestei pagini. Ne pare rău!"
+
+#: templates/wiki/error.html:38
+msgid "Back to"
+msgstr "Înapoi la"
+
+#: templates/wiki/history.html:49
+msgid ""
+"Click each revision to see a list of edited lines. Click the Preview button "
+"to see how the article looked at this stage. At the bottom of this page, you"
+" can change to a particular revision or merge an old revision with the "
+"current one."
+msgstr ""
+
+#: templates/wiki/history.html:84 templates/wiki/history.html:89
+msgid "Preview this revision"
+msgstr "Previzualizează această revizuire"
+
+#: templates/wiki/history.html:103
+msgid "Auto log:"
+msgstr "Jurnal automat:"
+
+#: templates/wiki/history.html:111
+msgid "Change"
+msgstr "Schimbă"
+
+#: templates/wiki/history.html:129
+msgid "Merge selected with current..."
+msgstr "Îmbină cele selectate cu cel actual..."
+
+#: templates/wiki/history.html:133
+msgid "Switch to selected version"
+msgstr "Treceți la versiunea selectată"
+
+#: templates/wiki/history.html:152 templates/wiki/history.html:183
+msgid "Back to history view"
+msgstr "Înapoi la vizualizarea istoricului"
+
+#: templates/wiki/history.html:157 templates/wiki/history.html:162
+msgid "Switch to this version"
+msgstr "Treceți la această versiune"
+
+#: templates/wiki/history.html:174
+msgid "Merge with current"
+msgstr "Îmbină cu actualul"
+
+#: templates/wiki/history.html:175
+msgid ""
+"When you merge a revision with the current, all data will be retained from "
+"both versions and merged at its approximate location from each revision."
+msgstr ""
+
+#: templates/wiki/history.html:175
+msgid "After this, it's important to do a manual review."
+msgstr "După aceasta, este important să faceți o examinare manuală."
+
+#: templates/wiki/history.html:188 templates/wiki/history.html:193
+msgid "Create new merged version"
+msgstr "Creați o nouă versiune îmbinată"
+
+#: templates/wiki/includes/anonymous_blocked.html:7
+#, python-format
+msgid ""
+"You need to <a href=\"%(login_url)s\">log in</a> or <a "
+"href=\"%(signup_url)s\">sign up</a> to use this function."
+msgstr "Trebuie să vă <a href=\"%(login_url)s\">conectați</a> sau să vă <a href=\"%(signup_url)s\">înregistrați</a> pentru a utiliza această funcție."
+
+#: templates/wiki/includes/anonymous_blocked.html:11
+msgid "You need to log in or sign up to use this function."
+msgstr "Trebuie să vă conectați sau să vă înscrieți pentru a utiliza această funcție."
+
+#: templates/wiki/includes/article_menu.html:26
+msgid "Changes"
+msgstr "Modificări"
+
+#: templates/wiki/includes/article_menu.html:41
+msgid "View Source"
+msgstr "Vizualizare sursă"
+
+#: templates/wiki/includes/article_menu.html:49
+msgid "View"
+msgstr "Vizualizare"
+
+#: templates/wiki/includes/breadcrumbs.html:13
+#: templates/wiki/includes/breadcrumbs.html:39
+msgid "Sub-articles for"
+msgstr "Sub-articole pentru"
+
+#: templates/wiki/includes/breadcrumbs.html:25
+msgid "No sub-articles"
+msgstr "Nu există sub-articole"
+
+#: templates/wiki/includes/breadcrumbs.html:28
+msgid "...and more"
+msgstr "...și altele"
+
+#: templates/wiki/includes/breadcrumbs.html:32
+msgid "Browse articles in this level"
+msgstr "Căutați articole în acest nivel"
+
+#: templates/wiki/includes/breadcrumbs.html:48
+#, python-format
+msgid "New article next to %(title)s"
+msgstr "Articol nou lângă %(title)s"
+
+#: templates/wiki/includes/breadcrumbs.html:53
+#, python-format
+msgid "New article below %(title)s"
+msgstr "Articol nou mai jos %(title)s"
+
+#: templates/wiki/includes/revision_info.html:10
+msgid "by"
+msgstr "de"
+
+#: templates/wiki/move.html:4
+msgid "Move"
+msgstr "Mutați"
+
+#: templates/wiki/move.html:23
+#, python-format
+msgid ""
+"%(cnt)s nested article will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s article nested in this hierarchy will not be updated."
+msgid_plural ""
+"%(cnt)s nested articles will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s articles nested in this hierarchy will not be updated."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: templates/wiki/permission_denied.html:8
+msgid "Permission Denied"
+msgstr "Acces refuzat"
+
+#: templates/wiki/permission_denied.html:11
+msgid "Sorry, you don't have permission to access this page."
+msgstr "Ne pare rău, nu aveți permisiunea de a accesa această pagină."
+
+#: templates/wiki/permission_denied.html:16
+msgid "This article is locked for editing."
+msgstr "Acest articol este blocat pentru editare."
+
+#: templates/wiki/permission_denied.html:22
+msgid "Back to article"
+msgstr "Înapoi la articol"
+
+#: templates/wiki/preview_inline.html:8
+msgid "Previewing revision"
+msgstr "Previzualizare revizie"
+
+#: templates/wiki/preview_inline.html:15
+msgid "Previewing merge between"
+msgstr ""
+
+#: templates/wiki/preview_inline.html:17
+msgid "and"
+msgstr "și"
+
+#: templates/wiki/preview_inline.html:22 views/article.py:924
+msgid "You cannot merge with a deleted revision"
+msgstr ""
+
+#: templates/wiki/preview_inline.html:31
+msgid "This revision has been deleted."
+msgstr "Această revizie a fost ștearsă."
+
+#: templates/wiki/preview_inline.html:32
+msgid "Restoring to this revision will mark the article as deleted."
+msgstr ""
+
+#: templates/wiki/root_missing.html:12
+msgid ""
+"You have django-wiki installed and it seems to be working. But there are no "
+"articles yet."
+msgstr "Ai instalat django-wiki și se pare că funcționează. Dar nu există încă articole."
+
+#: templates/wiki/root_missing.html:17
+msgid ""
+"Not to worry! You simply have to login with a superuser account and create "
+"the first article in the root of the URL hierarchy."
+msgstr "Nu vă faceți griji! Trebuie doar să vă conectași cu un cont de super-utilizator și să creați primul articol în rădăcina ierarhiei URL."
+
+#: templates/wiki/root_missing.html:21
+msgid "Click here to login"
+msgstr "Apasă aici pentru a te conecta"
+
+#: templates/wiki/root_missing.html:27
+msgid ""
+"But since you're logged in as a superuser, we should really get started..."
+msgstr "Dar din moment ce sunteți conectat ca super-utilizator, ar trebui să începem..."
+
+#: templates/wiki/root_missing.html:29
+msgid "Yes, I'll go and create the first article"
+msgstr "Da, voi merge și voi crea primul articol"
+
+#: templates/wiki/root_missing.html:30
+msgid "No thanks, I'd rather read the documentation"
+msgstr "Nu, mulțumesc, aș citi mai degrabă documentația"
+
+#: templates/wiki/search.html:5 templates/wiki/search.html:9
+msgid "Search results for:"
+msgstr "Caută rezultate pentru:"
+
+#: templates/wiki/search.html:15
+msgid "Searching in"
+msgstr "Caută în"
+
+#: templates/wiki/search.html:17
+msgid "Searching whole wiki"
+msgstr "Caută în întregul wiki"
+
+#: templates/wiki/search.html:28
+#, python-format
+msgid "Your search returned <strong>%(cnt)s</strong> results."
+msgstr "Căutarea dvs. a returnat <strong>%(cnt)s</strong> rezultate."
+
+#: templates/wiki/source.html:5
+msgid "Source of"
+msgstr "Sursa"
+
+#: templates/wiki/source.html:10
+msgid "This article is currently locked for editing."
+msgstr "Acest articol este în prezent blocat pentru editare."
+
+#: views/accounts.py:41
+msgid "Account signup is only allowed for administrators."
+msgstr "Înscrierea este permisă numai administratorilor."
+
+#: views/accounts.py:55
+msgid "You are now signed up... and now you can sign in!"
+msgstr "Te-ai înscris... acum te poți conecta!"
+
+#: views/accounts.py:68
+msgid "You are no longer logged in. Bye bye!"
+msgstr "Nu mai sunteți conectat. La revedere!"
+
+#: views/accounts.py:101
+msgid "You are now logged in! Have fun!"
+msgstr "Sunteți conectat acum! Distracție plăcută!"
+
+#: views/accounts.py:138
+msgid "Account info saved!"
+msgstr "Informațiile despre cont au fost salvate!"
+
+#: views/article.py:90
+#, python-format
+msgid "New article '%s' created."
+msgstr "A fost creat un articol nou '%s'"
+
+#: views/article.py:98
+#, python-format
+msgid "There was an error creating this article: %s"
+msgstr "A apărut o eroare la crearea acestui articol: %s"
+
+#: views/article.py:101
+msgid "There was an error creating this article."
+msgstr "A apărut o eroare la crearea acestui articol."
+
+#: views/article.py:191
+msgid ""
+"This article cannot be deleted because it has children or is a root article."
+msgstr ""
+
+#: views/article.py:201
+msgid ""
+"This article together with all its contents are now completely gone! Thanks!"
+msgstr "Acest articol, împreună cu conținutul său, a fost eliminat definitiv! Mulțumim!"
+
+#: views/article.py:210
+#, python-format
+msgid ""
+"The article \"%s\" is now marked as deleted! Thanks for keeping the site "
+"free from unwanted material!"
+msgstr "Articolul \"%s\" este marcat acum ca șters! Vă mulțumim pentru păstrarea acestui site fără materiale nedorite!"
+
+#: views/article.py:322
+msgid "Your changes were saved."
+msgstr "Modificările dvs. au fost salvate."
+
+#: views/article.py:336
+msgid "Please note that your article text has not yet been saved!"
+msgstr "Rețineți că textul articolului dvs. nu a fost încă salvat!"
+
+#: views/article.py:367
+msgid "A new revision of the article was successfully added."
+msgstr "O nouă revizuire a articolului a fost adăugată cu succes."
+
+#: views/article.py:416
+msgid "This article cannot be moved because it is a root article."
+msgstr "Acest articol nu poate fi mutat deoarece este un articol rădăcină."
+
+#: views/article.py:430
+msgid "This article cannot be moved to a child of itself."
+msgstr ""
+
+#: views/article.py:483
+#, python-brace-format
+msgid "Moved: {title}"
+msgstr "Mutat: {title}"
+
+#: views/article.py:484
+#, python-brace-format
+msgid "Article moved to {link}"
+msgstr "Articol mutat la {link}"
+
+#: views/article.py:485
+msgid "Created redirect (auto)"
+msgstr "Creare redirecționare (auto)"
+
+#: views/article.py:493
+#, python-brace-format
+msgid "Article successfully moved! Created {n} redirect."
+msgid_plural "Article successfully moved! Created {n} redirects."
+msgstr[0] "Articol mutat cu succes! A fost creată {n} redirecționare."
+msgstr[1] "Articol mutat cu succes! Au fost create {n} redirecționări."
+msgstr[2] "Articol mutat cu succes! Au fost create {n} de redirecționări."
+
+#: views/article.py:502
+msgid "Article successfully moved!"
+msgstr "Articol mutat cu succes!"
+
+#: views/article.py:544
+msgid "Restoring article"
+msgstr "Restabilește articol"
+
+#: views/article.py:548
+#, python-format
+msgid "The article \"%s\" and its children are now restored."
+msgstr ""
+
+#: views/article.py:816
+#, python-format
+msgid ""
+"The article %(title)s is now set to display revision #%(revision_number)d"
+msgstr "Articolul %(title)s este acum setat să afișeze revizia #%(revision_number)d"
+
+#: views/article.py:890
+msgid "New title"
+msgstr "Titlu nou"
+
+#: views/article.py:937
+#, python-format
+msgid "Merge between revision #%(r1)d and revision #%(r2)d"
+msgstr "Îmbinare între revizia #%(r1)d și revizia #%(r2)d"
+
+#: views/article.py:948
+#, python-format
+msgid ""
+"A new revision was created: Merge between revision #%(r1)d and revision "
+"#%(r2)d"
+msgstr "O nouă revizie a fost creată: Îmbinare între revizia #%(r1)d și revizia #%(r2)d"

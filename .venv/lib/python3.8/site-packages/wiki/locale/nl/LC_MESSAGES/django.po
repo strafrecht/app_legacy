@@ -1,0 +1,2035 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Alexander Schoemaker <alexander.schoemaker@gmail.com>, 2015,2017
+# Benjamin Bach <benjaoming@gmail.com>, 2020
+# Gert-Jan Braas <braas@steckelfisch.nl>, 2020
+# nico ekkart <nicoekkart@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: django-wiki\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-05 14:47+0200\n"
+"PO-Revision-Date: 2021-01-06 08:40+0000\n"
+"Last-Translator: Alexander Schoemaker <alexander.schoemaker@gmail.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/django-wiki/django-wiki/language/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:85 models/article.py:38
+msgid "created"
+msgstr "aangemaakt"
+
+#: apps.py:12
+msgid "Wiki"
+msgstr "Wiki"
+
+#: conf/settings.py:63 forms.py:198 forms.py:342
+msgid "Contents"
+msgstr "Inhoud"
+
+#: core/plugins/base.py:63
+msgid "Settings for plugin"
+msgstr "Plugin instellingen"
+
+#: forms.py:26
+msgid "A 'slug' cannot consist solely of numbers."
+msgstr "De verkorte tekst mag niet uitsluitend uit getallen bestaan."
+
+#: forms.py:53
+msgid "A slug may not begin with an underscore."
+msgstr "De verkorte tekst mag niet beginnen met een underscore karakter."
+
+#: forms.py:56
+msgid "'admin' is not a permitted slug name."
+msgstr "'admin' is niet toegestaan als verkorte tekst."
+
+#: forms.py:71
+#, python-format
+msgid "A deleted article with slug \"%s\" already exists."
+msgstr "Er bestaat al een verwijderd artikel met de verkorte tekst \"%s\""
+
+#: forms.py:75
+#, python-format
+msgid "A slug named \"%s\" already exists."
+msgstr "De verkorte naam \"%s\" bestaat al."
+
+#: forms.py:84
+msgid "This slug conflicts with an existing URL."
+msgstr "Deze verkorte tekst conflicteert met een bestaande url."
+
+#: forms.py:119
+msgid ""
+"Spam protection failed to find both a logged in user and an IP address."
+msgstr "Spambeveiliging heeft geen ingelogde gebruiker en IP-adres gevonden"
+
+#: forms.py:134
+#, python-format
+msgid ""
+"Spam protection: You are only allowed to create or edit %(revisions)d "
+"article(s) per %(interval_name)s."
+msgstr "Spambeveiliging: je mag niet meer dan %(revisions)d artikel(en) per %(interval_name)s"
+
+#: forms.py:152
+msgid "minute"
+msgstr "minuut"
+
+#: forms.py:153
+#, python-format
+msgid "%d minutes"
+msgstr "%d minuten"
+
+#: forms.py:162
+msgid "hour"
+msgstr "uur"
+
+#: forms.py:168 forms.py:196 forms.py:335 templates/wiki/dir.html:48
+#: templates/wiki/search.html:35
+msgid "Title"
+msgstr "Titel"
+
+#: forms.py:170
+msgid "Initial title of the article. May be overridden with revision titles."
+msgstr "Initiële titel van het artikel. Kan worden overschreven door revisie titels"
+
+#: forms.py:172
+msgid "Type in some contents"
+msgstr "Type inhoud"
+
+#: forms.py:174
+msgid ""
+"This is just the initial contents of your article. After creating it, you "
+"can use more complex features like adding plugins, meta data, related "
+"articles etc..."
+msgstr "Dit is de begintekst van je artikel. Zodra het artikel is aangemaakt kun je meer complexe onderdelen toevoegen, zoals plugins, meta gegevens, gerelateerde artikelen etc."
+
+#: forms.py:180
+msgid "Destination"
+msgstr "Bestemming"
+
+#: forms.py:182
+msgid "Redirect pages"
+msgstr "Pagina verwijzingen"
+
+#: forms.py:183
+msgid "Create a redirect page for every moved article?"
+msgstr "Een verwijzing aanmaken voor elk verplaatst artikel?"
+
+#: forms.py:203 forms.py:347
+msgctxt "Revision comment"
+msgid "Summary"
+msgstr "Samenvatting"
+
+#: forms.py:205
+msgid ""
+"Give a short reason for your edit, which will be stated in the revision log."
+msgstr "Geef een korte toelichting voor je wijziging, deze wordt opgeslagen in de revisiehistorie"
+
+#: forms.py:261
+msgid "Article is missing title or has an invalid title"
+msgstr "Titel ontbreekt of is ongeldig voor het artikel"
+
+#: forms.py:275
+msgid ""
+"While you were editing, someone else changed the revision. Your contents "
+"have been automatically merged with the new contents. Please review the text"
+" below."
+msgstr "Iemand anders heeft gelijktijdig wijzigingen aangebracht. De inhoud is automatisch samengevoegd met jouw wijzigingen. Controleer onderstaande tekst."
+
+#: forms.py:278
+msgid "No changes made. Nothing to save."
+msgstr "Geen wijzigingen aangebracht, er is niets opgeslagen. "
+
+#: forms.py:305
+msgid "Select an option"
+msgstr "Selecteer een optie"
+
+#: forms.py:337 templates/wiki/dir.html:49
+msgid "Slug"
+msgstr "Verkorte tekst"
+
+#: forms.py:339
+msgid ""
+"This will be the address where your article can be found. Use only "
+"alphanumeric characters and - or _.<br>Note: If you change the slug later "
+"on, links pointing to this article are <b>not</b> updated."
+msgstr "Dit wordt het adres waar je artikel gevonden kan worden. Gebruik alleen alfanumerieke karakters en - of _. <br>Opmerking: als je de slug later aanpast, worden links die naar dit artikel verwijzen <b>niet</b> bijgewerkt."
+
+#: forms.py:348
+msgid "Write a brief message for the article's history log."
+msgstr "Noteer een kort bericht in de log geschiedenis van het artikel."
+
+#: forms.py:367
+msgid "Yes, I am sure"
+msgstr "Ja, ik weet het zeker"
+
+#: forms.py:370 templates/wiki/deleted.html:47
+msgid "Purge"
+msgstr "Opschonen"
+
+#: forms.py:372
+msgid ""
+"Purge the article: Completely remove it (and all its contents) with no undo."
+" Purging is a good idea if you want to free the slug such that users can "
+"create new articles in its place."
+msgstr "Artikel opschonen: definitief verwijderen (inclusief inhoud), deze actie kan niet ongedaan worden gemaakt. Opschonen is zinvol als de verkorte tekst beschikbaar moet worden gesteld om nieuwe artikelen in te plaatsen."
+
+#: forms.py:379 plugins/attachments/forms.py:163 plugins/images/forms.py:66
+msgid "You are not sure enough!"
+msgstr "Je weet het niet zeker genoeg?!"
+
+#: forms.py:382
+msgid "While you tried to delete this article, it was modified. TAKE CARE!"
+msgstr "Het artikel is gewijzigd terwijl je het probeerde te verwijderen. LET OP!"
+
+#: forms.py:389
+msgid "Lock article"
+msgstr "Artikel vergrendelen"
+
+#: forms.py:390
+msgid "Deny all users access to edit this article."
+msgstr "Weiger alle gebruikers toegang tot het wijzigen van dit artikel."
+
+#: forms.py:393
+msgid "Permissions"
+msgstr "Toegangsrechten"
+
+#: forms.py:399
+msgid "Owner"
+msgstr "Eigenaar"
+
+#: forms.py:400
+msgid "Enter the username of the owner."
+msgstr "Voer de gebruikersnaam in van de eigenaar"
+
+#: forms.py:403 forms.py:458 plugins/notifications/util.py:12
+msgid "(none)"
+msgstr "(geen)"
+
+#: forms.py:404
+msgid "Group"
+msgstr "Groep"
+
+#: forms.py:410
+msgid "Inherit permissions"
+msgstr "Toegangsrechten overerven"
+
+#: forms.py:411
+msgid ""
+"Check here to apply the above permissions (excluding group and owner of the "
+"article) recursively to articles below this one."
+msgstr "Controleer of bovenstaande toegangsrechten (uitgezonderd groep en eigenaar van het artikel) recursief op onderliggende artikelen kunnen worden toegepast"
+
+#: forms.py:415
+msgid "Inherit owner"
+msgstr "Eigenaar overerven"
+
+#: forms.py:416
+msgid ""
+"Check here to apply the ownership setting recursively to articles below this"
+" one."
+msgstr "Controleer of de eigenaar recursief op onderliggende artikelen kan worden toegepast."
+
+#: forms.py:420
+msgid "Inherit group"
+msgstr "Groep overerven"
+
+#: forms.py:421
+msgid ""
+"Check here to apply the group setting recursively to articles below this "
+"one."
+msgstr "Controleer of de groepsinstelling recursief op onderliggende artikelen kan worden toegepast."
+
+#: forms.py:426
+msgid "Permission settings for the article were updated."
+msgstr "Toegangsrechten voor het artikel zijn bijgewerkt."
+
+#: forms.py:428
+msgid "Your permission settings were unchanged, so nothing saved."
+msgstr "De toegangsrechten zijn niet gewijzigd, er is niets opgeslagen."
+
+#: forms.py:486
+msgid "No user with that username"
+msgstr "Er bestaat geen gebruiker met deze gebruikersnaam."
+
+#: forms.py:521
+msgid "Article locked for editing"
+msgstr "Artikel is vergrendeld en kan niet worden  gewijzigd."
+
+#: forms.py:528
+msgid "Article unlocked for editing"
+msgstr "Artikel is ontgrendeld om gewijzigd te worden."
+
+#: forms.py:555
+msgid "Filter..."
+msgstr "Filter..."
+
+#: forms.py:565
+msgid "Search..."
+msgstr "Zoeken..."
+
+#: forms.py:614
+msgid "Passwords don't match"
+msgstr "Wachtwoorden zijn niet gelijk"
+
+#: models/article.py:30 models/pluginbase.py:165
+#: plugins/attachments/models.py:26
+msgid "current revision"
+msgstr "huidige revisie"
+
+#: models/article.py:34
+msgid ""
+"The revision being displayed for this article. If you need to do a roll-"
+"back, simply change the value of this field."
+msgstr "De huidige revisie voor dit artikel. Als je een versie wilt herstellen kun je de waarde van dit veld aanpassen."
+
+#: models/article.py:42
+msgid "modified"
+msgstr "gewijzigd"
+
+#: models/article.py:43
+msgid "Article properties last modified"
+msgstr "Laatst gewijzigde artikel eigenschappen"
+
+#: models/article.py:46
+msgid "owner"
+msgstr "eigenaar"
+
+#: models/article.py:49
+msgid ""
+"The owner of the article, usually the creator. The owner always has both "
+"read and write access."
+msgstr "De eigenaar van het artikel, doorgaans de maker. De eigenaar heeft altijd lees- en schrijfrechten."
+
+#: models/article.py:53
+msgid "group"
+msgstr "groep"
+
+#: models/article.py:56
+msgid ""
+"Like in a UNIX file system, permissions can be given to a user according to "
+"group membership. Groups are handled through the Django auth system."
+msgstr "Permissies kunnen net als op een UNIX bestandssysteem op basis van de groepseigenaar aan een gebruiker worden toegekend. Groepen worden via het autorisatiesysteem van Django afgehandeld."
+
+#: models/article.py:61
+msgid "group read access"
+msgstr "leestoegang groep"
+
+#: models/article.py:64
+msgid "group write access"
+msgstr "schrijftoegang groep"
+
+#: models/article.py:67
+msgid "others read access"
+msgstr "leestoegang anderen"
+
+#: models/article.py:70
+msgid "others write access"
+msgstr "schrijftoegang anderen"
+
+#: models/article.py:179
+#, python-format
+msgid "Article without content (%(id)d)"
+msgstr "Artikel zonder inhoud (%(id)d)"
+
+#: models/article.py:184
+msgid "Can edit all articles and lock/unlock/restore"
+msgstr "Kan alle artikelen wijzigen en vergrendelen/ontgrendelen/herstellen"
+
+#: models/article.py:185
+msgid "Can change ownership of any article"
+msgstr "Kan eigenaar van elk artikel wijzigen"
+
+#: models/article.py:186
+msgid "Can assign permissions to other users"
+msgstr "Kan toegangsrechten aan andere gebruikers toekennen"
+
+#: models/article.py:261
+msgid "content type"
+msgstr "inhoudstype"
+
+#: models/article.py:263
+msgid "object ID"
+msgstr "object ID"
+
+#: models/article.py:272
+msgid "Article for object"
+msgstr "Artikel voor object"
+
+#: models/article.py:273
+msgid "Articles for object"
+msgstr "Artikelen voor object"
+
+#: models/article.py:285
+msgid "revision number"
+msgstr "revisienummer"
+
+#: models/article.py:291
+msgid "IP address"
+msgstr "IP-adres"
+
+#: models/article.py:295
+msgid "user"
+msgstr "gebruiker"
+
+#: models/article.py:310
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:23
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:25
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:44
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:68
+#: templates/wiki/includes/revision_info.html:15
+msgid "deleted"
+msgstr "verwijderd"
+
+#: models/article.py:314
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:74
+#: templates/wiki/article.html:23
+#: templates/wiki/includes/revision_info.html:21
+msgid "locked"
+msgstr "vergrendeld"
+
+#: models/article.py:352 models/pluginbase.py:44 models/urlpath.py:56
+msgid "article"
+msgstr "artikel"
+
+#: models/article.py:355
+msgid "article contents"
+msgstr "artikel inhoud"
+
+#: models/article.py:360
+msgid "article title"
+msgstr "artikel titel"
+
+#: models/article.py:363
+msgid ""
+"Each revision contains a title field that must be filled out, even if the "
+"title has not changed"
+msgstr "Voor elke revisie dient een titel veld worden ingevuld, ook als de titel niet is gewijzigd. "
+
+#: models/pluginbase.py:85
+msgid "original article"
+msgstr "oorspronkelijke artikel"
+
+#: models/pluginbase.py:87
+msgid "Permissions are inherited from this article"
+msgstr "Toegangsrechten worden van dit artikel overgeërfd"
+
+#: models/pluginbase.py:150
+msgid "A plugin was changed"
+msgstr "Een plugin is gewijzigd"
+
+#: models/pluginbase.py:171
+msgid ""
+"The revision being displayed for this plugin. If you need to do a roll-back,"
+" simply change the value of this field."
+msgstr "De huidige revisie voor deze plugin. Als je een versie wilt herstellen kun je de waarde van dit veld aanpassen."
+
+#: models/urlpath.py:58
+msgid ""
+"This field is automatically updated, but you need to populate it when "
+"creating a new URL path."
+msgstr "Dit veld wordt automatisch geüpdatet, maar het moet wel ingevuld worden als je een nieuwe URL aanmaakt."
+
+#: models/urlpath.py:65
+msgid "slug"
+msgstr "verkorte tekst"
+
+#: models/urlpath.py:74
+msgid "Position of URL path in the tree."
+msgstr "Positie van het URL pad in de boom."
+
+#: models/urlpath.py:78
+msgid "Moved to"
+msgstr "Verplaatst naar"
+
+#: models/urlpath.py:79
+msgid "Article path was moved to this location"
+msgstr "Artikel pad is verplaatst naar deze lokatie"
+
+#: models/urlpath.py:180
+msgid "(root)"
+msgstr "(root)"
+
+#: models/urlpath.py:188
+msgid "URL path"
+msgstr "URL pad"
+
+#: models/urlpath.py:189
+msgid "URL paths"
+msgstr "URL paden"
+
+#: models/urlpath.py:195
+msgid "Sorry but you cannot have a root article with a slug."
+msgstr "Een root artikel met een verkorte tekst is niet toegestaan."
+
+#: models/urlpath.py:198
+msgid "A non-root note must always have a slug."
+msgstr "Een non-root notitie moet altijd een verkorte tekst bevatten."
+
+#: models/urlpath.py:204
+#, python-format
+msgid "There is already a root node on %s"
+msgstr "Er bestaat al een root node op %s"
+
+#: models/urlpath.py:405
+msgid ""
+"Articles who lost their parents\n"
+"===============================\n"
+"\n"
+"The children of this article have had their parents deleted. You should probably find a new home for them."
+msgstr "Artikelen zonder ouder-relatie\n==========================\n\nDe onderliggende items voor dit artikel hebben geen ouder-relatie meer. Het is raadzaam om ze elders onder te brengen."
+
+#: models/urlpath.py:408
+msgid "Lost and found"
+msgstr "Gevonden voorwerpen"
+
+#: plugins/attachments/apps.py:7
+msgid "Wiki attachments"
+msgstr "Wiki bijlagen"
+
+#: plugins/attachments/forms.py:15
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:14
+msgid "Description"
+msgstr "Beschrijving"
+
+#: plugins/attachments/forms.py:16
+msgid "A short summary of what the file contains"
+msgstr "Een korte samenvatting van de bestandsinhoud"
+
+#: plugins/attachments/forms.py:65
+msgid "Remove previous"
+msgstr "Vorige verwijderen"
+
+#: plugins/attachments/forms.py:66
+msgid "Remove previous attachment revisions and their files (to save space)?"
+msgstr "Wil je voorgaande bijlage revisies en bijbehorende bestanden verwijderen (om schijfruimte te besparen)? "
+
+#: plugins/attachments/forms.py:75
+msgid "File or zip archive"
+msgstr "Bestand of zip-archief"
+
+#: plugins/attachments/forms.py:80
+msgid "Unzip file"
+msgstr "Bestand uitpakken"
+
+#: plugins/attachments/forms.py:82
+msgid ""
+"Create individual attachments for files in a .zip file - directories do not "
+"work."
+msgstr "Maak afzonderlijke bijlagen voor bestanden in een zip-bestand, directories worden niet ondersteund."
+
+#: plugins/attachments/forms.py:103
+msgid "Not a zip file"
+msgstr "Geen zip-bestand"
+
+#: plugins/attachments/forms.py:112
+msgid "User not allowed to moderate this article"
+msgstr "Deze gebruiker heeft geen rechten om dit artikel te modereren"
+
+#: plugins/attachments/forms.py:158
+msgid "Yes I am sure..."
+msgstr "Ja, ik weet het zeker"
+
+#: plugins/attachments/models.py:30
+msgid ""
+"The revision of this attachment currently in use (on all articles using the "
+"attachment)"
+msgstr "De revisie van deze bijlage die momenteel in gebruik is (geldt voor alle artikelen die deze bijlage gebruiken)"
+
+#: plugins/attachments/models.py:34
+msgid "original filename"
+msgstr "oorspronkelijke bestandsnaam"
+
+#: plugins/attachments/models.py:47
+msgid "attachment"
+msgstr "bijlage"
+
+#: plugins/attachments/models.py:48
+msgid "attachments"
+msgstr "bijlagen"
+
+#: plugins/attachments/models.py:67
+msgid "No file extension found in filename. That's not okay!"
+msgstr "Geen extensie gevonden in bestandsnaam. Dat is niet OK!"
+
+#: plugins/attachments/models.py:73
+msgid ""
+"The following filename is illegal: {filename:s}. Extension has to be one of "
+"{extensions:s}"
+msgstr "Deze bestandsnaam is niet toegelaten: {filename:s}. De extensie moet een van deze zijn: {extensions:s}"
+
+#: plugins/attachments/models.py:119
+msgid "file"
+msgstr "bestand"
+
+#: plugins/attachments/models.py:125
+msgid "attachment revision"
+msgstr "bijlage revisie"
+
+#: plugins/attachments/models.py:126
+msgid "attachment revisions"
+msgstr "bijlage revisies"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:10
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:40
+#: templates/wiki/delete.html:8
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:12
+msgid ""
+"The file may be referenced on other articles. Deleting it means that they "
+"will loose their references to this file. The following articles reference "
+"this file:"
+msgstr "Andere artikelen kunnen verwijzen naar het bestand. Door het te verwijderen gaat de verwijzing verloren. De volgende artikelen verwijzen naar dit bestand:"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:27
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:51
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:49
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:39
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:75
+#: plugins/images/templates/wiki/plugins/images/purge.html:23
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:23
+#: templates/wiki/create.html:40 templates/wiki/delete.html:12
+#: templates/wiki/delete.html:48 templates/wiki/move.html:37
+msgid "Go back"
+msgstr "Ga terug"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:31
+msgid "Delete it!"
+msgstr "Verwijderen!"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:38
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:40
+msgid ""
+"You can remove a reference to a file, but it will retain its references on "
+"other articles."
+msgstr "Je kunt de verwijzing naar een bestand verwijderen, maar verwijzingen naar andere artikelen blijven behouden."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:55
+msgid "Remove reference"
+msgstr "Verwijzing verwijderen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:9
+msgid "History of"
+msgstr "Geschiedenis van"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:12
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:28
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:43
+msgid "Date"
+msgstr "Datum"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:13
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:42
+msgid "User"
+msgstr "Gebruiker"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:15
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:26
+msgid "File"
+msgstr "Bestand"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:16
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:34
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:30
+#: plugins/images/templates/wiki/plugins/images/index.html:22
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:167
+msgid "Size"
+msgstr "Omvang"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:17
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:31
+msgid "Action"
+msgstr "Actie"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:28
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:37
+msgid "<em>No description</em>"
+msgstr "<em>Geen beschrijving</em>"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:36
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:55
+msgid "Download"
+msgstr "Downloaden"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:41
+msgid "Use this!"
+msgstr "Gebruik dit!"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:5
+#: plugins/attachments/wiki_plugin.py:18
+msgid "Attachments"
+msgstr "Bijlagen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:10
+msgid ""
+"The following files are available for this article. Copy the markdown tag to"
+" directly refer to a file from the article text."
+msgstr "De volgende bestanden zijn beschikbaar voor dit artikel. Kopieer de markdown tag om in de tekst direct naar een bestand te verwijzen."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:11
+msgid ""
+"Complete markdown code syntax: <code>[attachment:id title:\"text\" "
+"size]</code><br> &nbsp;&nbsp;title: Link text replacement for the file name."
+" size: Show file size after the title."
+msgstr "Volledige markdown code syntax: <code>[attachment:id title:\"text\" size]</code><br> &nbsp;&nbsp;title: Verwijzingstext vervanging voor de bestandsnaam. size: Toon de bestandsomvang na de titel."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:32
+#: plugins/images/templates/wiki/plugins/images/index.html:20
+msgid "Markdown tag"
+msgstr "Markdown tag"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:33
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:29
+#: plugins/images/templates/wiki/plugins/images/index.html:21
+msgid "Uploaded by"
+msgstr "Geüpload door"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:38
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:9
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:54
+msgid "Replace"
+msgstr "Vervangen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:42
+msgid "Detach"
+msgstr "Loskoppelen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "File history"
+msgstr "Bestandshistorie"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "revisions"
+msgstr "revisie"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:66
+msgid "There are no attachments for this article."
+msgstr "Er zijn geen bijlagen bij dit artikel"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:76
+msgid "Upload new file"
+msgstr "Upload nieuw bestand"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:88
+msgid "Upload file"
+msgstr "Upload bestand"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:99
+msgid "Search and add file"
+msgstr "Bestand zoeken en toevoegen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:105
+msgid ""
+"You can reuse files from other articles. These files are subject to updates "
+"on other articles which may or may not be a good thing."
+msgstr "Je kunt bestanden uit andere artikelen hergebruiken. Deze bestanden zijn onderhevig aan wijzigingen in andere artikelen, hergebruik wordt daarom afgeraden. "
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:124
+msgid "Restore attachments"
+msgstr "Bijlagen herstellen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:137
+#: templates/wiki/deleted.html:25 templates/wiki/deleted.html:30
+#: templates/wiki/deleted_list.html:24
+msgid "Restore"
+msgstr "Herstellen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:144
+msgid "Nothing to restore"
+msgstr "Er is niets om te herstellen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:160
+msgid ""
+"The article is currently locked for editing, and therefore no new "
+"attachments can be added."
+msgstr "Dit artikel is momenteel vergrendeld voor wijzigingen, nieuwe bijlagen kunnen daarom niet worden toegevoegd."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:6
+msgid "This attachment is not permitted on this page."
+msgstr "Deze bijlage is niet toegestaan op deze pagina."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:8
+msgid "Click to download"
+msgstr "Klik om te downloaden"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:12
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>. Please note "
+"that this attachment is in use on other articles, you may distort contents. "
+"However, do not hestitate to take advantage of this and make replacements "
+"for the listed articles where necessary. This way of working is more "
+"efficient...."
+msgstr "Bij het vervangen van een bijlage wordt het nieuwe bestand toegevoegd. Alle verwijzingen naar het bestand worden hierdoor gewijzigd en het nieuwe bestand kan worden gedownload als <strong>%(filename)s</strong>. Let er op dat als deze bijlage in andere artikelen wordt gebruikt, de inhoud van deze andere artikelen verstoord kan worden.  Het is echter raadzaam om het bestand voor de genoemde artikelen aan te passen."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:17
+#, python-format
+msgid "Articles using %(filename)s"
+msgstr "Artikelen die gebruik maken van %(filename)s"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:26
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>."
+msgstr "Het vervangen van een bijlage betekent dat een nieuw bestand zal worden gebruikt. Alle verwijzingen naar het bestand worden vervangen door het bestand dat wordt geüpload. Het bestand zal worden gedownload als <strong>%(filename)s</strong>."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:43
+#: plugins/images/templates/wiki/plugins/images/index.html:45
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:27
+msgid "Upload replacement"
+msgstr "Vervanging uploaden"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:5
+msgid "Add file to"
+msgstr "Bestand toevoegen aan"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:9
+msgid "Add attachment from other article"
+msgstr "Bestand uit een ander artikel toevoegen"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:17
+msgid "Search files and articles"
+msgstr "Bestanden en artikelen zoeken"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:27
+msgid "Main article"
+msgstr "Hoofdartikel"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:59
+msgid "Add to article"
+msgstr "Toevoegen aan artikel"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:67
+msgid "Your search did not return any results"
+msgstr "Je zoekopdracht heeft geen resultaten opgeleverd"
+
+#: plugins/attachments/views.py:51
+#, python-format
+msgid "Successfully added: %s"
+msgstr "Succesvol toegevoegd: %s"
+
+#: plugins/attachments/views.py:57
+#, python-format
+msgid "%s was successfully added."
+msgstr "%s is succesvol toegevoegd."
+
+#: plugins/attachments/views.py:153
+#, python-format
+msgid "%s uploaded and replaces old attachment."
+msgstr "%s is toegevoegd en vervangt oude bijlage."
+
+#: plugins/attachments/views.py:157
+#, python-format
+msgid "Your file could not be saved: %s"
+msgstr "Je bestand kan niet worden opgeslagen: %s"
+
+#: plugins/attachments/views.py:186
+msgid ""
+"Your new file will automatically be renamed to match the file already "
+"present. Files with different extensions are not allowed."
+msgstr "Je nieuwe bestand zal automatisch worden hernoemd zodat het overeenkomt met het reeds bestaande bestand. Bestandsnamen met verschillende extensies zijn niet toegestaan."
+
+#: plugins/attachments/views.py:276
+#, python-format
+msgid "Current revision changed for %s."
+msgstr "Huidige revisie gewijzigd voor %s."
+
+#: plugins/attachments/views.py:308
+#, python-format
+msgid "Added a reference to \"%(att)s\" from \"%(art)s\"."
+msgstr "Er is een verwijzing toegevoegd naar \"%(att)s\" vanuit \"%(art)s\"."
+
+#: plugins/attachments/views.py:313
+#, python-format
+msgid "\"%(att)s\" is already referenced."
+msgstr "Er bestaat al een verwijzing naar \"%(att)s\"."
+
+#: plugins/attachments/views.py:346
+#, python-format
+msgid "The file %s was deleted."
+msgstr "Bestand \"%s\" is verwijderd."
+
+#: plugins/attachments/views.py:351
+#, python-format
+msgid "This article is no longer related to the file %s."
+msgstr "Dit artikel bevat geen verwijzing meer naar bestand \"%s\"."
+
+#: plugins/attachments/wiki_plugin.py:26
+#, python-format
+msgid "A file was changed: %s"
+msgstr "Het volgende bestand is gewijzigd: %s"
+
+#: plugins/attachments/wiki_plugin.py:29
+#, python-format
+msgid "A file was deleted: %s"
+msgstr "Het volgende bestand is verwijderd: %s"
+
+#: plugins/globalhistory/apps.py:7
+msgid "Wiki Global History"
+msgstr "Wiki Globale Geschiedenis"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:4
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:8
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/menubaritem.html:7
+msgid "Global history"
+msgstr "Globale geschiedenis"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:14
+#, python-format
+msgid "List of <strong>%(cnt)s change</strong> in the wiki."
+msgid_plural "List of <strong>%(cnt)s changes</strong> in the wiki."
+msgstr[0] "Lijst van <strong>%(cnt)sverandering</strong>in de wiki."
+msgstr[1] "Lijst van alle <strong>%(cnt)sveranderingen</strong>in de wiki."
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:25
+msgid "Show all revisions of all articles"
+msgstr "Toon alle revisies van alle artikels"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:28
+msgid "Show last revision of every article"
+msgstr "Toon de laatste revisie van elk artikel"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:39
+msgid "Revision ID"
+msgstr "Revisie ID"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:40
+msgid "Article"
+msgstr "Artikel"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:41
+msgid "Message"
+msgstr "Bericht"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:65
+#: templates/wiki/history.html:72
+msgid "no log message"
+msgstr "geen log bericht"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:71
+#: templates/wiki/includes/revision_info.html:18
+msgid "restored"
+msgstr "hersteld"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:77
+#: templates/wiki/includes/revision_info.html:24
+msgid "unlocked"
+msgstr "ontgrendeld"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:87
+#: templates/wiki/includes/revision_info.html:10
+msgid "anonymous (IP logged)"
+msgstr "anoniem (IP-adres opgeslagen)"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:95
+msgid "Go to article history"
+msgstr "Ga naar de artikelgeschiedenis"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:96
+msgid "Go to article"
+msgstr "Ga naar het artikel"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:105
+msgid "No more changes to display !"
+msgstr "Geen aanpassingen meer te weergeven !"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:106
+msgid "Go back to previous page"
+msgstr "Ga terug naar de vorige pagina"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:108
+msgid "No changes to display !"
+msgstr "Geen aanpassingen te weergeven !"
+
+#: plugins/help/apps.py:7
+msgid "Wiki help"
+msgstr "Wiki help"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:1
+msgid "Adding new articles"
+msgstr "Artikelen toevoegen"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:3
+msgid ""
+"To create a new wiki article, create a link to it. Clicking the link gives "
+"you the creation page."
+msgstr "Klik op de link om een nieuw wiki artikel aan te maken. "
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:6
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:22
+msgid "An external link"
+msgstr "Een externe link"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:9
+msgid "Headers"
+msgstr "Kopteksten"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:10
+msgid ""
+"Use these codes for headers and to automatically generate Tables of "
+"Contents."
+msgstr "Gebruik deze codes voor kopteksten en om automatisch een inhoudsopgave te genereren."
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:25
+msgid "Typography"
+msgstr "Typografie"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:30
+msgid "Lists"
+msgstr "Opsommingen"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:38
+msgid "Tables"
+msgstr "Tabellen"
+
+#: plugins/help/wiki_plugin.py:10
+msgid "Help"
+msgstr "Ondersteuning"
+
+#: plugins/images/apps.py:10
+msgid "Wiki images"
+msgstr "Wiki afbeeldingen"
+
+#: plugins/images/forms.py:17
+#, python-format
+msgid ""
+"New image %s was successfully uploaded. You can use it by selecting it from "
+"the list of available images."
+msgstr "Afbeelding \"%s\" is geüpload. Je kunt het gebruiken door het te selecteren uit de lijst met beschikbare afbeeldingen."
+
+#: plugins/images/forms.py:61
+msgid "Are you sure?"
+msgstr "Weet je het zeker?"
+
+#: plugins/images/models.py:38
+msgid "image"
+msgstr "afbeelding"
+
+#: plugins/images/models.py:39
+msgid "images"
+msgstr "afbeeldingen"
+
+#: plugins/images/models.py:44
+#, python-format
+msgid "Image: %s"
+msgstr "Afbeelding: %s"
+
+#: plugins/images/models.py:46
+msgid "Current revision not set!!"
+msgstr "Huidige revisie is niet ingesteld!"
+
+#: plugins/images/models.py:97
+msgid "image revision"
+msgstr "afbeeldingsrevisie"
+
+#: plugins/images/models.py:98
+msgid "image revisions"
+msgstr "afbeeldingsrevisies"
+
+#: plugins/images/models.py:104
+#, python-format
+msgid "Image Revision: %d"
+msgstr "Afbeeldingsrevisie: %d"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:5
+#: plugins/images/wiki_plugin.py:15
+msgid "Images"
+msgstr "Afbeeldingen"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:8
+msgid ""
+"The following images are available for this article. Copy the markdown tag "
+"to directly refer to an image from the article text."
+msgstr "De volgende afbeeldingen zijn beschikbaar voor dit artikel. Kopieer de markdown tag om in de tekst van het artikel direct naar een afbeelding te verwijzen."
+
+#: plugins/images/templates/wiki/plugins/images/index.html:12
+msgid "Back to edit page"
+msgstr "Terug naar de wijzig-pagina"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:19
+msgid "No file"
+msgstr "Geen bestand"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:36
+msgid "Upload and publish new image"
+msgstr "Nieuwe afbeelding uploaden en publiceren"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:40
+msgid "Restore image"
+msgstr "Afbeelding herstellen"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:49
+msgid "Remove image"
+msgstr "Afbeelding verwijderen"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:56
+msgid "Completely delete"
+msgstr "Volledig verwijderen"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:70
+#: templates/wiki/history.html:5
+msgid "History"
+msgstr "Historie"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:89
+msgid "Revert to this version"
+msgstr "Deze versie herstellen"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:102
+msgid "There are no images for this article."
+msgstr "Er zijn geen afbeeldingen voor dit artikel."
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:5
+#: templates/wiki/deleted.html:40
+msgid "Purge deletion"
+msgstr "Opschonen"
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:14
+msgid "Purge image: Completely remove image file and all revisions."
+msgstr "Afbeelding opschonen: bestand en alle revisies volledig verwijderen."
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:27
+msgid "Remove it completely!"
+msgstr "Volledig verwijderen!"
+
+#: plugins/images/templates/wiki/plugins/images/render.html:13
+msgid "Image not found"
+msgstr "Afbeelding niet gevonden"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:5
+msgid "Replace image"
+msgstr "Afbeelding vervangen"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:14
+msgid "Choose an image file to replace current image."
+msgstr "Selecteer afbeelding om de huidige afbeelding te vervangen."
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:9
+msgid "Insert Image"
+msgstr "Afbeelding Invoegen"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:50
+msgid "Image id"
+msgstr "Afbeelding ID"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:52
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:15
+msgid "Insert"
+msgstr "Invoegen"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:68
+msgid "No images found for this article"
+msgstr "Geen afbeeldingen gevonden voor dit artikel"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:76
+msgid "Manage images"
+msgstr "Afbeeldingen beheren"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:81
+msgid "Add new image"
+msgstr "Nieuwe afbeelding toevoegen"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:124
+msgid "Add image"
+msgstr "Afbeelding toevoegen"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:132
+msgid "You do not have permissions to add images."
+msgstr "Je hebt geen rechten voor het toevoegen van afbeeldingen."
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:139
+msgid "How to use images"
+msgstr "Gebruik van afbeeldingen"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:142
+msgid ""
+"After uploading an image, it is attached to this particular article and can "
+"be used only here. Other users may replace the image, but older versions are"
+" kept. To show the image press the Insert button and select the options you "
+"want to use. You can use Markdown in the caption. The Markdown code syntax "
+"for images looks like this"
+msgstr "Zodra de afbeelding is geüpload wordt het aan dit artikel gekoppeld en kan het alleen hier worden gebruikt. Andere gebruikers kunnen de afbeelding vervangen, maar oudere versies blijven behouden. Om de afbeelding van een onderschrift te voorzien klik je op de Invoegen knop en voer je een tekst in. Het is ook mogelijk om de afbeelding rechts of links van de inhoud te positioneren en om gebruik te maken van Markdown. De syntax voor afbeeldingen en mogelijke waarden voor links en rechts zijn:"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:145
+msgid "Possible values for align are"
+msgstr "Mogelijke waardes voor de uitlijning zijn"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:146
+msgid "Possible values for size are"
+msgstr "Mogelijke waardes voor de grootte zijn"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:159
+msgid "Alignment"
+msgstr "Uitlijning"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:177
+msgid "Caption"
+msgstr "Bijschrift"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:178
+msgid "Enter caption"
+msgstr "Vul een bijschrijft in"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:183
+msgid "Insert image"
+msgstr "Afbeelding invoegen"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:184
+msgid "Cancel"
+msgstr "Annuleer"
+
+#: plugins/images/views.py:78
+#, python-format
+msgid "%s has been restored"
+msgstr "%s is hersteld"
+
+#: plugins/images/views.py:80
+#, python-format
+msgid "%s has been marked as deleted"
+msgstr "%s is gemarkeerd om te worden verwijderd"
+
+#: plugins/images/views.py:140
+#, python-format
+msgid "%(file)s has been changed to revision #%(revision)d"
+msgstr "%(file)s is gewijzigd naar revisie #%(revision)d"
+
+#: plugins/images/views.py:185
+#, python-format
+msgid "%(file)s has been saved."
+msgstr "%(file)s is opgeslagen."
+
+#: plugins/images/wiki_plugin.py:26
+#, python-format
+msgid "An image was added: %s"
+msgstr "De volgende afbeelding is toegevoegd: %s"
+
+#: plugins/links/apps.py:7
+msgid "Wiki links"
+msgstr "Wiki verwijzingen"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:3
+msgid "Link to another wiki page"
+msgstr "Link naar een andere wiki pagina"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:6
+msgid ""
+"Type in something from another wiki page's title and auto-complete will help"
+" you create a tag for your wiki link. Tags for links look like this:"
+msgstr "Voer een deel van de titel uit een andere wiki titel in om een tag voor je wiki-link te aan te maken. Tags voor links zien er als volgt uit:"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:25
+msgid ""
+"You can link to another website simply by inserting an address example.com "
+"or http://example.com or by using the markdown syntax:"
+msgstr "Je kunt een link naar een andere locatie maken door een url in te voegen, bv. http://example.com of door gebruik te maken van Markdown:"
+
+#: plugins/links/wiki_plugin.py:20
+msgid "Links"
+msgstr "Verwijzingen"
+
+#: plugins/macros/apps.py:7
+msgid "Wiki macros"
+msgstr "Wiki macros"
+
+#: plugins/macros/mdx/macro.py:67
+msgid "Article list"
+msgstr "Lijst met artikelen"
+
+#: plugins/macros/mdx/macro.py:68
+msgid "Insert a list of articles in this level."
+msgstr "Lijst met artikelen op het huidige niveau invoegen."
+
+#: plugins/macros/mdx/macro.py:70
+msgid "Maximum depth to show levels for."
+msgstr "Maximale diepte waarop niveaus worden getoond."
+
+#: plugins/macros/mdx/macro.py:76
+msgid "Table of contents"
+msgstr "Inhoudsopgave"
+
+#: plugins/macros/mdx/macro.py:77
+msgid "Insert a table of contents matching the headings."
+msgstr "Inhoudsopgave invoegen op basis van kopteksten."
+
+#: plugins/macros/mdx/macro.py:85
+msgid "WikiLinks"
+msgstr "WikiLink"
+
+#: plugins/macros/mdx/macro.py:87
+msgid "Insert a link to another wiki page with a short notation."
+msgstr "Link invoegen met een korte notatie naar een ander wiki artikel"
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:6
+msgid "Article index"
+msgstr "Index artikelen"
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:10
+msgid "Nothing below this level"
+msgstr "Geen inhoud onder dit niveau"
+
+#: plugins/macros/wiki_plugin.py:11
+msgid "Macros"
+msgstr "Macro's"
+
+#: plugins/notifications/apps.py:7
+msgid "Wiki notifications"
+msgstr "Wiki notificaties"
+
+#: plugins/notifications/forms.py:16
+#, python-format
+msgid "Receive notifications %(interval)s"
+msgstr "Notificaties %(interval)s ontvangen"
+
+#: plugins/notifications/forms.py:26
+#, python-format
+msgid "%(title)s - %(url)s"
+msgstr "%(title)s - %(url)s"
+
+#: plugins/notifications/forms.py:43
+msgid "Remove subscriptions"
+msgstr "Abonnering verwijderen"
+
+#: plugins/notifications/forms.py:45
+msgid "Select article subscriptions to remove from notifications"
+msgstr "Selecteer de artikelen waar je geen notificaties meer voor wilt ontvangen"
+
+#: plugins/notifications/forms.py:49
+msgid "Email digests"
+msgstr "E-mail afschriften"
+
+#: plugins/notifications/forms.py:51
+msgid "Unchanged (selected on each article)"
+msgstr "Ongewijzigd (geselecteerd op elk artikel)"
+
+#: plugins/notifications/forms.py:52
+msgid "No emails"
+msgstr "Geen e-mails"
+
+#: plugins/notifications/forms.py:53
+msgid "Email on any change"
+msgstr "E-mail bij elke wijziging"
+
+#: plugins/notifications/forms.py:102
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:5
+msgid "Notifications"
+msgstr "Notificaties"
+
+#: plugins/notifications/forms.py:109
+#: templates/wiki/includes/article_menu.html:9 templates/wiki/settings.html:5
+msgid "Settings"
+msgstr "Instellingen"
+
+#: plugins/notifications/forms.py:113
+msgid "When this article is edited"
+msgstr "Als het artikel is gewijzigd"
+
+#: plugins/notifications/forms.py:116
+msgid "Also receive emails about article edits"
+msgstr "Ontvang ook e-mails bij artikel wijzigingen"
+
+#: plugins/notifications/forms.py:158
+msgid "Your notification settings were updated."
+msgstr "Je notificatie instellingen zijn gewijzigd."
+
+#: plugins/notifications/forms.py:161
+msgid "Your notification settings were unchanged, so nothing saved."
+msgstr "Je notificatie instellingen zijn niet gewijzigd, er is dus niets opgeslagen."
+
+#: plugins/notifications/models.py:20
+#, python-format
+msgid "%(user)s subscribing to %(article)s (%(type)s)"
+msgstr "aanmelding %(user)s op %(article)s (%(type)s)"
+
+#: plugins/notifications/models.py:46
+#, python-format
+msgid "Article deleted: %s"
+msgstr "Artikel verwijderd: %s"
+
+#: plugins/notifications/models.py:54
+#, python-format
+msgid "Article modified: %s"
+msgstr "Artikel gewijzigd: %s"
+
+#: plugins/notifications/models.py:62
+#, python-format
+msgid "New article created: %s"
+msgstr "Artikel toegevoegd: %s"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:4
+msgid "No notifications"
+msgstr "Geen notificaties"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:9
+msgid "Clear notifications list"
+msgstr "Lijst met notificaties wissen"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:15
+msgid "Notification settings"
+msgstr "Notificatie instellingen"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:9
+msgid "Your notification settings"
+msgstr "Je notificatie instellingen"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:11
+msgid "Manage how often you receive notifications"
+msgstr "Wijzig hoe frequent je notificaties ontvangt"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "Settings for"
+msgstr "Instellingen voor"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "articles"
+msgstr "artikelen"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:27
+msgid "You are not subscribed to any notifications yet."
+msgstr "Je ontvangt nog geen noticaties."
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:35
+#: templates/wiki/edit.html:36 templates/wiki/edit.html:83
+#: templates/wiki/settings.html:17
+msgid "Save changes"
+msgstr "Wijzigingen opslaan"
+
+#: plugins/notifications/views.py:25
+#, python-format
+msgid "You will receive notifications %(interval)s for %(articles)d articles"
+msgstr "Je zult %(interval)s notificaties ontvangen voor %(articles)d artikelen"
+
+#: plugins/redlinks/apps.py:7
+msgid "Wiki red links"
+msgstr "Wiki rode verwijzingen"
+
+#: templates/wiki/accounts/account_settings.html:4
+#: templates/wiki/accounts/account_settings.html:7
+#: templates/wiki/base_site.html:79
+msgid "Account Settings"
+msgstr "Account Instellingen"
+
+#: templates/wiki/accounts/account_settings.html:11
+msgid "Update"
+msgstr "Updaten"
+
+#: templates/wiki/accounts/login.html:4 templates/wiki/base_site.html:109
+msgid "Log in"
+msgstr "Inloggen"
+
+#: templates/wiki/accounts/login.html:10
+msgid "Please log in"
+msgstr "Log in"
+
+#: templates/wiki/accounts/login.html:18
+msgid "Log me in..."
+msgstr "Inloggen..."
+
+#: templates/wiki/accounts/login.html:25
+msgid "Don't have an account?"
+msgstr "Heb je nog geen account?"
+
+#: templates/wiki/accounts/login.html:25 templates/wiki/accounts/signup.html:3
+#: templates/wiki/accounts/signup.html:6 templates/wiki/base_site.html:113
+msgid "Sign up"
+msgstr "Aanmelden"
+
+#: templates/wiki/accounts/signup.html:14
+msgid "Sign me up..."
+msgstr "Aanmelden..."
+
+#: templates/wiki/article.html:39
+msgid "This article was last modified:"
+msgstr "Dit artikel is voor het laatst gewijzigd op:"
+
+#: templates/wiki/base_site.html:53
+msgid "Search from current article..."
+msgstr "Zoeken vanaf huidig artikel..."
+
+#: templates/wiki/base_site.html:55
+msgid "Search whole wiki..."
+msgstr "Hele wiki doorzoeken"
+
+#: templates/wiki/base_site.html:86
+msgid "Log out"
+msgstr "Uitloggen"
+
+#: templates/wiki/base_site.html:93
+msgid "Deleted articles"
+msgstr "Verwijderde artikels"
+
+#: templates/wiki/base_site.html:121
+msgid "Home"
+msgstr "Home"
+
+#: templates/wiki/base_site.html:122
+msgid "About"
+msgstr "Over"
+
+#: templates/wiki/base_site.html:147
+msgid ""
+"Powered by <a href=\"http://www.django-wiki.org\">django-wiki</a>, an open "
+"source application under the <a href=\"http://www.gnu.org/licenses/quick-"
+"guide-gplv3.html\">GPLv3</a> license. Let knowledge be the cure."
+msgstr "Mogelijk gemaakt door <a href=\"http://www.django-wiki.org\">django-wiki</a>, een open-source applicaties onder de <a href=\"http://www.gnu.org/licenses/quick-guide-gplv3.html\">GPLv3</a> licentie. <em>Let knowledge be the cure.</em>"
+
+#: templates/wiki/create.html:5 templates/wiki/create.html:31
+msgid "Add new article"
+msgstr "Artikel toevoegen"
+
+#: templates/wiki/create.html:44
+msgid "Create article"
+msgstr "Artikel aanmaken"
+
+#: templates/wiki/create_root.html:4
+msgid "Create root article"
+msgstr "Hoofdartikel aanmaken"
+
+#: templates/wiki/create_root.html:22 templates/wiki/root_missing.html:10
+msgid "Congratulations!"
+msgstr "Gefeliciteerd!"
+
+#: templates/wiki/create_root.html:24
+msgid ""
+"You have django-wiki installed... but there are no articles. So it's time to"
+" create the first one, the root article."
+msgstr "Je hebt django-wiki geïnstalleerd... Er zijn alleen nog geen artikelen dus laten we daar mee beginnen door een hoofdartikel aan te maken."
+
+#: templates/wiki/create_root.html:25
+msgid ""
+"In the beginning, it will only be editable by administrators, but you can "
+"define permissions after."
+msgstr "Aanvankelijk kan het alleen door beheerders worden gewijzigd, maar je kunt later toegangsrechten instellen."
+
+#: templates/wiki/create_root.html:28
+msgid "Root article"
+msgstr "Hoofdartikel"
+
+#: templates/wiki/create_root.html:35
+msgid "Create root"
+msgstr "Hoofdartikel aanmaken"
+
+#: templates/wiki/delete.html:5 templates/wiki/delete.html:52
+#: templates/wiki/edit.html:49
+msgid "Delete article"
+msgstr "Artikel verwijderen"
+
+#: templates/wiki/delete.html:11
+msgid "You cannot delete a root article."
+msgstr "Je kunt het hoofdartikel niet verwijderen."
+
+#: templates/wiki/delete.html:17
+msgid ""
+"You cannot delete this article because you do not have permission to delete "
+"articles with children. Try to remove the children manually one-by-one."
+msgstr "Je kunt dit artikel niet verwijderen omdat je geen toegangsrechten hebt om artikelen met onderliggende items te verwijderen. Verwijder eerst de onderliggende items."
+
+#: templates/wiki/delete.html:23
+msgid ""
+"You are deleting an article. This means that its children will be deleted as"
+" well. If you choose to purge, children will also be purged!"
+msgstr "Je staat op het punt om een artikel te verwijderen. Dit houdt in dat onderliggende artikelen ook worden verwijderd. Als je het artikel definitief opschoont dan geldt dit ook voor onderliggende items!"
+
+#: templates/wiki/delete.html:25
+msgid "Articles that will be deleted"
+msgstr "Artikelen die verwijderd zullen worden"
+
+#: templates/wiki/delete.html:31
+msgid "...and more!"
+msgstr "... en meer!"
+
+#: templates/wiki/delete.html:39
+msgid "You are deleting an article. Please confirm."
+msgstr "Weet je zeker dat je het artikel wilt verwijderen?"
+
+#: templates/wiki/deleted.html:5 templates/wiki/deleted.html:14
+msgid "Article deleted"
+msgstr "Artikel is verwijderd"
+
+#: templates/wiki/deleted.html:17
+msgid "The article you were looking for has been deleted."
+msgstr "Het artikel dat je zocht is verwijderd."
+
+#: templates/wiki/deleted.html:26
+msgid "You may restore this article and its children by clicking restore."
+msgstr "Je kunt dit artikel en onderliggende items herstellen door op \"herstellen\" te klikken"
+
+#: templates/wiki/deleted.html:41
+msgid ""
+"You may remove this article and any children permanently and free their "
+"slugs by clicking the below button. This action cannot be undone."
+msgstr "Je kunt het artikel en onderliggende items en onderliggende items definitief verwijderen door op onderstaande button te klikken. Deze handeling kan niet ongedaan worden gemaakt."
+
+#: templates/wiki/deleted_list.html:4
+msgid "Admin Panel"
+msgstr "Admin Paneel"
+
+#: templates/wiki/deleted_list.html:8
+msgid "Deleted Articles"
+msgstr "Verwijderde Artikels"
+
+#: templates/wiki/deleted_list.html:13
+msgid "Page Title"
+msgstr "Paginatitel"
+
+#: templates/wiki/deleted_list.html:14
+msgid "Date Deleted"
+msgstr "Verwijderdatum"
+
+#: templates/wiki/deleted_list.html:15
+msgid "Restore Article"
+msgstr "Herstel artikel"
+
+#: templates/wiki/deleted_list.html:30
+msgid "No deleted articles to display"
+msgstr "Geen verwijderde artikels te weergeven"
+
+#: templates/wiki/dir.html:5
+msgid "Listing articles in"
+msgstr "Weergave van artikelen in"
+
+#: templates/wiki/dir.html:17
+msgid "Up one level"
+msgstr "Eén niveau naar boven"
+
+#: templates/wiki/dir.html:22
+msgid "Add article"
+msgstr "Artikel toevoegen"
+
+#: templates/wiki/dir.html:30
+msgid "clear"
+msgstr "wissen"
+
+#: templates/wiki/dir.html:40
+msgid "article,articles"
+msgstr "artikel, artikelen"
+
+#: templates/wiki/dir.html:40
+msgid "is,are"
+msgstr "is,zijn"
+
+#: templates/wiki/dir.html:40
+#, python-format
+msgid ""
+"Browsing <strong><a href=\"%(self_url)s\">/%(path)s</a></strong>. There "
+"%(articles_plur_verb)s <strong>%(cnt)s %(articles_plur)s</strong> in this "
+"level."
+msgstr "Bladeren in <strong><a href=\"%(self_url)s\">/%(path)s</a></strong>. Er zijn %(articles_plur_verb)s <strong>%(cnt)s %(articles_plur)s</strong> op dit niveau."
+
+#: templates/wiki/dir.html:50 templates/wiki/search.html:36
+msgid "Last modified"
+msgstr "Laatst gewijzigd"
+
+#: templates/wiki/dir.html:74 templates/wiki/search.html:45
+msgid "There are no articles in this level"
+msgstr "Er zijn geen artikelen op dit niveau"
+
+#: templates/wiki/edit.html:5 templates/wiki/includes/article_menu.html:34
+msgid "Edit"
+msgstr "Wijzigen"
+
+#: templates/wiki/edit.html:11
+msgid ""
+"<strong>Warning:</strong> You are not logged in. Your IP address will be "
+"logged."
+msgstr "<strong>Waarschuwing:</strong> Je bent niet ingelogd, je IP-adres wordt opgeslagen."
+
+#: templates/wiki/edit.html:12
+msgid "Click here to log in"
+msgstr "Klik hier om in te loggen"
+
+#: templates/wiki/edit.html:32
+msgid "Preview"
+msgstr "Voorvertoning"
+
+#: templates/wiki/edit.html:43 templates/wiki/move.html:41
+msgid "Move article"
+msgstr "Verplaats artikel"
+
+#: templates/wiki/edit.html:79
+msgid "Back to editor"
+msgstr "Terug naar de editor"
+
+#: templates/wiki/error.html:5 templates/wiki/error.html:26
+msgid "Error"
+msgstr "Fout"
+
+#: templates/wiki/error.html:15
+msgid "Not found"
+msgstr "Niet gevonden"
+
+#: templates/wiki/error.html:18
+msgid "This article was not found, and neither was its parent article."
+msgstr "Het artikel is niet gevonden, evenals het bovenliggende artikel."
+
+#: templates/wiki/error.html:20
+msgid "Start page"
+msgstr "Startpagina"
+
+#: templates/wiki/error.html:30
+msgid "There was some sort of error accessing this page. Sorry!"
+msgstr "Er is een fout opgetreden bij het openen van de pagina, sorry!"
+
+#: templates/wiki/error.html:38
+msgid "Back to"
+msgstr "Terug naar"
+
+#: templates/wiki/history.html:49
+msgid ""
+"Click each revision to see a list of edited lines. Click the Preview button "
+"to see how the article looked at this stage. At the bottom of this page, you"
+" can change to a particular revision or merge an old revision with the "
+"current one."
+msgstr "Klik op een revisie om een lijst met gewijzigde regels te tonen. Klik op de button Voorvertoning om een voorbeeld van de pagina in deze revisie te zien. Onderaan de pagina kun je een bepaalde revisie herstellen of een oude revisie samenvoegen met de huidige."
+
+#: templates/wiki/history.html:84 templates/wiki/history.html:89
+msgid "Preview this revision"
+msgstr "Voorvertoning van deze revisie tonen"
+
+#: templates/wiki/history.html:103
+msgid "Auto log:"
+msgstr "Automatische log:"
+
+#: templates/wiki/history.html:111
+msgid "Change"
+msgstr "Wijzigen"
+
+#: templates/wiki/history.html:129
+msgid "Merge selected with current..."
+msgstr "Geselecteerde inhoud samenvoegen met de huidige..."
+
+#: templates/wiki/history.html:133
+msgid "Switch to selected version"
+msgstr "Overschakelen naar de geselecteerde versie"
+
+#: templates/wiki/history.html:152 templates/wiki/history.html:183
+msgid "Back to history view"
+msgstr "Terug naar de weergavehistorie"
+
+#: templates/wiki/history.html:157 templates/wiki/history.html:162
+msgid "Switch to this version"
+msgstr "Overschakelen naar deze versie"
+
+#: templates/wiki/history.html:174
+msgid "Merge with current"
+msgstr "Samenvoegen met huidige"
+
+#: templates/wiki/history.html:175
+msgid ""
+"When you merge a revision with the current, all data will be retained from "
+"both versions and merged at its approximate location from each revision."
+msgstr "Bij het samenvoegen van een revisie met de huidige versie zal data zo veel mogelijk worden samengevoegd."
+
+#: templates/wiki/history.html:175
+msgid "After this, it's important to do a manual review."
+msgstr "Hierna is het van belang dat er een handmatige controle plaatsvindt."
+
+#: templates/wiki/history.html:188 templates/wiki/history.html:193
+msgid "Create new merged version"
+msgstr "Samengevoegde versie aanmaken"
+
+#: templates/wiki/includes/anonymous_blocked.html:7
+#, python-format
+msgid ""
+"You need to <a href=\"%(login_url)s\">log in</a> or <a "
+"href=\"%(signup_url)s\">sign up</a> to use this function."
+msgstr "Je dient  <a href=\"%(login_url)s\">in te loggen</a> of <a href=\"%(signup_url)s\">aan te melden</a> om deze functie te gebruiken."
+
+#: templates/wiki/includes/anonymous_blocked.html:11
+msgid "You need to log in or sign up to use this function."
+msgstr "Je dient in te loggen of aan te melden om deze functie te gebruiken."
+
+#: templates/wiki/includes/article_menu.html:26
+msgid "Changes"
+msgstr "Wijzigingen"
+
+#: templates/wiki/includes/article_menu.html:41
+msgid "View Source"
+msgstr "Bron bekijken"
+
+#: templates/wiki/includes/article_menu.html:49
+msgid "View"
+msgstr "Weergeven"
+
+#: templates/wiki/includes/breadcrumbs.html:13
+#: templates/wiki/includes/breadcrumbs.html:39
+msgid "Sub-articles for"
+msgstr "Onderliggende artikelen voor"
+
+#: templates/wiki/includes/breadcrumbs.html:25
+msgid "No sub-articles"
+msgstr "Geen onderliggende artikelen"
+
+#: templates/wiki/includes/breadcrumbs.html:28
+msgid "...and more"
+msgstr "... en meer"
+
+#: templates/wiki/includes/breadcrumbs.html:32
+msgid "Browse articles in this level"
+msgstr "Bladeren door artikelen op dit niveau"
+
+#: templates/wiki/includes/breadcrumbs.html:48
+#, python-format
+msgid "New article next to %(title)s"
+msgstr "Nieuw artikel naast %(title)s"
+
+#: templates/wiki/includes/breadcrumbs.html:53
+#, python-format
+msgid "New article below %(title)s"
+msgstr "Nieuw artikel onder %(title)s"
+
+#: templates/wiki/includes/revision_info.html:10
+msgid "by"
+msgstr "door"
+
+#: templates/wiki/move.html:4
+msgid "Move"
+msgstr "Verplaatsen"
+
+#: templates/wiki/move.html:23
+#, python-format
+msgid ""
+"%(cnt)s nested article will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s article nested in this hierarchy will not be updated."
+msgid_plural ""
+"%(cnt)s nested articles will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s articles nested in this hierarchy will not be updated."
+msgstr[0] "%(cnt)s enest artikel zal ook verplaatst worden.<br> Let op, links naar dit artikel en %(cnt)s artikel dat genest is in deze hiërarchie, zullen niet worden geüpdatet."
+msgstr[1] "%(cnt)s geneste artikelen zullen ook verplaatst worden<br> Let op, links naar dit artikel en %(cnt)s artikelen die genest zijn in deze hiërarchie, zullen niet worden geüpdatet."
+
+#: templates/wiki/permission_denied.html:8
+msgid "Permission Denied"
+msgstr "Toegang geweigerd"
+
+#: templates/wiki/permission_denied.html:11
+msgid "Sorry, you don't have permission to access this page."
+msgstr "Sorry, je hebt geen toegangsrechten voor deze pagina."
+
+#: templates/wiki/permission_denied.html:16
+msgid "This article is locked for editing."
+msgstr "Dit artikel is vergrendeld en kan daarom niet worden gewijzigd."
+
+#: templates/wiki/permission_denied.html:22
+msgid "Back to article"
+msgstr "Terug naar het artikel"
+
+#: templates/wiki/preview_inline.html:8
+msgid "Previewing revision"
+msgstr "Voorbeeld tonen van revisie"
+
+#: templates/wiki/preview_inline.html:15
+msgid "Previewing merge between"
+msgstr "Voorbeeld tonen van samenvoeging tussen"
+
+#: templates/wiki/preview_inline.html:17
+msgid "and"
+msgstr "en"
+
+#: templates/wiki/preview_inline.html:22 views/article.py:924
+msgid "You cannot merge with a deleted revision"
+msgstr "Je kunt een verwijderde revisie niet samenvoegen"
+
+#: templates/wiki/preview_inline.html:31
+msgid "This revision has been deleted."
+msgstr "Deze revisie is verwijderd."
+
+#: templates/wiki/preview_inline.html:32
+msgid "Restoring to this revision will mark the article as deleted."
+msgstr "Door deze revisie te herstellen zal het artikel worden gemarkeerd voor verwijdering."
+
+#: templates/wiki/root_missing.html:12
+msgid ""
+"You have django-wiki installed and it seems to be working. But there are no "
+"articles yet."
+msgstr "Je hebt django-wiki geïnstalleerd en alles lijkt te werken, er zijn alleen nog geen artikelen."
+
+#: templates/wiki/root_missing.html:17
+msgid ""
+"Not to worry! You simply have to login with a superuser account and create "
+"the first article in the root of the URL hierarchy."
+msgstr "Geen zorgen! Log in met een superuser account en maak een artikel op het hoofdniveau aan."
+
+#: templates/wiki/root_missing.html:21
+msgid "Click here to login"
+msgstr "Klik hier om in te loggen"
+
+#: templates/wiki/root_missing.html:27
+msgid ""
+"But since you're logged in as a superuser, we should really get started..."
+msgstr "Maar omdat je al bent ingelogd als superuser kun je gelijk aan de slag."
+
+#: templates/wiki/root_missing.html:29
+msgid "Yes, I'll go and create the first article"
+msgstr "Ja, laten we het eerste artikel gaan toevoegen."
+
+#: templates/wiki/root_missing.html:30
+msgid "No thanks, I'd rather read the documentation"
+msgstr "Nee dank je, ik ga me eerst in de documentatie verdiepen"
+
+#: templates/wiki/search.html:5 templates/wiki/search.html:9
+msgid "Search results for:"
+msgstr "Zoekresultaten voor:"
+
+#: templates/wiki/search.html:15
+msgid "Searching in"
+msgstr "Zoeken in"
+
+#: templates/wiki/search.html:17
+msgid "Searching whole wiki"
+msgstr "Aan het zoeken in  de hele wiki"
+
+#: templates/wiki/search.html:28
+#, python-format
+msgid "Your search returned <strong>%(cnt)s</strong> results."
+msgstr "Je zoekopdracht heeft <strong>%(cnt)s</strong> resultaten opgeleverd."
+
+#: templates/wiki/source.html:5
+msgid "Source of"
+msgstr "Bron van"
+
+#: templates/wiki/source.html:10
+msgid "This article is currently locked for editing."
+msgstr "Dit artikel is momenteel vergrendeld en kan niet worden gewijzigd."
+
+#: views/accounts.py:41
+msgid "Account signup is only allowed for administrators."
+msgstr "Het aanmelden van nieuwe accounts is alleen toegestaan voor beheerders."
+
+#: views/accounts.py:55
+msgid "You are now signed up... and now you can sign in!"
+msgstr "Je bent aangemeld en je kunt nu inloggen!"
+
+#: views/accounts.py:68
+msgid "You are no longer logged in. Bye bye!"
+msgstr "Je bent niet meer ingelogd. Tot ziens!"
+
+#: views/accounts.py:101
+msgid "You are now logged in! Have fun!"
+msgstr "Je bent nu ingelogd. Have fun!"
+
+#: views/accounts.py:138
+msgid "Account info saved!"
+msgstr "Account info opgeslagen!"
+
+#: views/article.py:90
+#, python-format
+msgid "New article '%s' created."
+msgstr "Artikel \"%s\" is aangemaakt"
+
+#: views/article.py:98
+#, python-format
+msgid "There was an error creating this article: %s"
+msgstr "Er is een fout opgetreden bij het aanmaken van dit artikel: %s"
+
+#: views/article.py:101
+msgid "There was an error creating this article."
+msgstr "Er is een fout opgetreden bij het aanmaken van dit artikel."
+
+#: views/article.py:191
+msgid ""
+"This article cannot be deleted because it has children or is a root article."
+msgstr "Dit artikel kan niet worden verwijderd omdat het onderliggende items bevat of omdat het een hoofdartikel betreft."
+
+#: views/article.py:201
+msgid ""
+"This article together with all its contents are now completely gone! Thanks!"
+msgstr "Het artikel en de onderliggende inhoud zijn geheel verwijderd!"
+
+#: views/article.py:210
+#, python-format
+msgid ""
+"The article \"%s\" is now marked as deleted! Thanks for keeping the site "
+"free from unwanted material!"
+msgstr "Artikel \"%s\" is gemarkeerd om te worden verwijderd."
+
+#: views/article.py:322
+msgid "Your changes were saved."
+msgstr "Je wijzigingen zijn opgeslagen."
+
+#: views/article.py:336
+msgid "Please note that your article text has not yet been saved!"
+msgstr "Let op, de tekst van je artikel is nog niet opgeslagen!"
+
+#: views/article.py:367
+msgid "A new revision of the article was successfully added."
+msgstr "Een nieuwe revisie van het artikel is toegevoegd!"
+
+#: views/article.py:416
+msgid "This article cannot be moved because it is a root article."
+msgstr "Dit artikel kan niet verplaatst worden, omdat het een root artikel is."
+
+#: views/article.py:430
+msgid "This article cannot be moved to a child of itself."
+msgstr "Dit artikel kan niet verplaatst worden naar zijn eigen kind."
+
+#: views/article.py:483
+#, python-brace-format
+msgid "Moved: {title}"
+msgstr "Verplaatst: {title}"
+
+#: views/article.py:484
+#, python-brace-format
+msgid "Article moved to {link}"
+msgstr "Artikel verplaatst naar {link}"
+
+#: views/article.py:485
+msgid "Created redirect (auto)"
+msgstr "Doorverwijzing (auto) is aangemaakt."
+
+#: views/article.py:493
+#, python-brace-format
+msgid "Article successfully moved! Created {n} redirect."
+msgid_plural "Article successfully moved! Created {n} redirects."
+msgstr[0] "Verplaatsen van het artikel is voltooid! Er is {n} doorverwijzing aangemaakt."
+msgstr[1] "Verplaatsen van het artikel is voltooid! Er zijn {n} doorverwijzingen aangemaakt."
+
+#: views/article.py:502
+msgid "Article successfully moved!"
+msgstr "Verplaatsen van het artikel is voltooid!"
+
+#: views/article.py:544
+msgid "Restoring article"
+msgstr "Artikel wordt hersteld"
+
+#: views/article.py:548
+#, python-format
+msgid "The article \"%s\" and its children are now restored."
+msgstr "Artikel \"%s\" en alle onderliggende items worden hersteld."
+
+#: views/article.py:816
+#, python-format
+msgid ""
+"The article %(title)s is now set to display revision #%(revision_number)d"
+msgstr "Artikel \"%(title)s\" is is nu ingesteld om revisie #%(revision_number)d te tonen"
+
+#: views/article.py:890
+msgid "New title"
+msgstr "Nieuwe titel"
+
+#: views/article.py:937
+#, python-format
+msgid "Merge between revision #%(r1)d and revision #%(r2)d"
+msgstr "Samenvoegen van revisie #%(r1)d en revisie #%(r2)d"
+
+#: views/article.py:948
+#, python-format
+msgid ""
+"A new revision was created: Merge between revision #%(r1)d and revision "
+"#%(r2)d"
+msgstr "Er is een nieuwe revisie aangemaakt: revisie #%(r1)d en #%(r2)d samenvoegen"

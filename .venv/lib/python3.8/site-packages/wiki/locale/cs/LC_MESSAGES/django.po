@@ -1,0 +1,2040 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Jan Lána <lana.jan@gmail.com>, 2017-2018,2020
+# Mirek Zvolský <zvolsky@seznam.cz>, 2020
+# Vojtěch Pejša <vojtechpejsa7@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: django-wiki\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-05 14:47+0200\n"
+"PO-Revision-Date: 2020-10-04 14:06+0000\n"
+"Last-Translator: Mirek Zvolský <zvolsky@seznam.cz>\n"
+"Language-Team: Czech (http://www.transifex.com/django-wiki/django-wiki/language/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+#: admin.py:85 models/article.py:38
+msgid "created"
+msgstr "Datum vytvoření"
+
+#: apps.py:12
+msgid "Wiki"
+msgstr "Wiki"
+
+#: conf/settings.py:63 forms.py:198 forms.py:342
+msgid "Contents"
+msgstr "Obsah"
+
+#: core/plugins/base.py:63
+msgid "Settings for plugin"
+msgstr "Nastavení modulu"
+
+#: forms.py:26
+msgid "A 'slug' cannot consist solely of numbers."
+msgstr "Cesta nemůže být vytvořena jen z číslic"
+
+#: forms.py:53
+msgid "A slug may not begin with an underscore."
+msgstr "Cesta nemůže začínat podtržítkem"
+
+#: forms.py:56
+msgid "'admin' is not a permitted slug name."
+msgstr "'admin' není povolená cesta"
+
+#: forms.py:71
+#, python-format
+msgid "A deleted article with slug \"%s\" already exists."
+msgstr "Smazaný článek s cestou „%s“ již existuje."
+
+#: forms.py:75
+#, python-format
+msgid "A slug named \"%s\" already exists."
+msgstr "Článek s cestou „%s“ již existuje."
+
+#: forms.py:84
+msgid "This slug conflicts with an existing URL."
+msgstr "Tato cesta koliduje s už existujícím URL."
+
+#: forms.py:119
+msgid ""
+"Spam protection failed to find both a logged in user and an IP address."
+msgstr "Ochraně proti spamu se nepodařilo najít přihlášeného uživatele a IP adresu."
+
+#: forms.py:134
+#, python-format
+msgid ""
+"Spam protection: You are only allowed to create or edit %(revisions)d "
+"article(s) per %(interval_name)s."
+msgstr "Ochrana proti spamu: je možné vytvořit nebo editovat jen %(revisions)d za %(interval_name)s"
+
+#: forms.py:152
+msgid "minute"
+msgstr "minuta"
+
+#: forms.py:153
+#, python-format
+msgid "%d minutes"
+msgstr "%d minut"
+
+#: forms.py:162
+msgid "hour"
+msgstr "hodina"
+
+#: forms.py:168 forms.py:196 forms.py:335 templates/wiki/dir.html:48
+#: templates/wiki/search.html:35
+msgid "Title"
+msgstr "Titulek"
+
+#: forms.py:170
+msgid "Initial title of the article. May be overridden with revision titles."
+msgstr "Počáteční nadpis článku, může být přepsán nadpisem revize."
+
+#: forms.py:172
+msgid "Type in some contents"
+msgstr "Napište obsah"
+
+#: forms.py:174
+msgid ""
+"This is just the initial contents of your article. After creating it, you "
+"can use more complex features like adding plugins, meta data, related "
+"articles etc..."
+msgstr "Toto je pouze počáteční obsah vašeho článku. Po jeho vytvoření můžete používat více komplexní vlastnosti, jako přidávání pluginů, meta data, související články atd..."
+
+#: forms.py:180
+msgid "Destination"
+msgstr "Cíl"
+
+#: forms.py:182
+msgid "Redirect pages"
+msgstr "Přesměrování stránek"
+
+#: forms.py:183
+msgid "Create a redirect page for every moved article?"
+msgstr "Vytvořit přesměrování pro všechny smazané články?"
+
+#: forms.py:203 forms.py:347
+msgctxt "Revision comment"
+msgid "Summary"
+msgstr "Přehled"
+
+#: forms.py:205
+msgid ""
+"Give a short reason for your edit, which will be stated in the revision log."
+msgstr "Uveďte krátký důvod pro editaci, který bude uveden v logu revizí."
+
+#: forms.py:261
+msgid "Article is missing title or has an invalid title"
+msgstr "Článek nemá nadpis, nebo nadpis není validní."
+
+#: forms.py:275
+msgid ""
+"While you were editing, someone else changed the revision. Your contents "
+"have been automatically merged with the new contents. Please review the text"
+" below."
+msgstr "Zatímco jste editoval, někdo další změnil revizi. Váš obsah byl automaticky sloučen s novým obsahem. Prosím zkontrolujte níže uvedený text."
+
+#: forms.py:278
+msgid "No changes made. Nothing to save."
+msgstr "Nebyly provedeny žádné změny. Není co uložit."
+
+#: forms.py:305
+msgid "Select an option"
+msgstr "Vyberte možnost"
+
+#: forms.py:337 templates/wiki/dir.html:49
+msgid "Slug"
+msgstr "Cesta"
+
+#: forms.py:339
+msgid ""
+"This will be the address where your article can be found. Use only "
+"alphanumeric characters and - or _.<br>Note: If you change the slug later "
+"on, links pointing to this article are <b>not</b> updated."
+msgstr "Toto bude adresa, na níž se bude zobrazovat váš článek. Použij jen alfanumerické znaky a - nebo _.<br>Poznámka: Jestliže změníš identifikátor (slug) později, odkazy na článek <b>nebudou</b> aktualizovány."
+
+#: forms.py:348
+msgid "Write a brief message for the article's history log."
+msgstr "Napište krátký popis pro log historie článku."
+
+#: forms.py:367
+msgid "Yes, I am sure"
+msgstr "Ano, jsem si jist"
+
+#: forms.py:370 templates/wiki/deleted.html:47
+msgid "Purge"
+msgstr "Smazat navždy"
+
+#: forms.py:372
+msgid ""
+"Purge the article: Completely remove it (and all its contents) with no undo."
+" Purging is a good idea if you want to free the slug such that users can "
+"create new articles in its place."
+msgstr "Trvale smazat článek: Kompletně smaže článek ( a všechen jeho obsah ), bez možnosti návratu. Trvalé smazání je dobrý nápad pokud chcete uvolnit místo, tak aby zde mohli uživatelé vytvořit nové články."
+
+#: forms.py:379 plugins/attachments/forms.py:163 plugins/images/forms.py:66
+msgid "You are not sure enough!"
+msgstr "Nejste si dostatečně jist!"
+
+#: forms.py:382
+msgid "While you tried to delete this article, it was modified. TAKE CARE!"
+msgstr "Článek byl modifikován zatímco jste se jej snažil smazat. POZOR!"
+
+#: forms.py:389
+msgid "Lock article"
+msgstr "Uzamknout článek"
+
+#: forms.py:390
+msgid "Deny all users access to edit this article."
+msgstr "Zakázat všem uživatelům úpravy článku."
+
+#: forms.py:393
+msgid "Permissions"
+msgstr "Přístupová práva"
+
+#: forms.py:399
+msgid "Owner"
+msgstr "Vlastník"
+
+#: forms.py:400
+msgid "Enter the username of the owner."
+msgstr "Zadejte uživatelské jméno vlastníka."
+
+#: forms.py:403 forms.py:458 plugins/notifications/util.py:12
+msgid "(none)"
+msgstr "(prázdné)"
+
+#: forms.py:404
+msgid "Group"
+msgstr "Skupina"
+
+#: forms.py:410
+msgid "Inherit permissions"
+msgstr "Zdědit oprávnění"
+
+#: forms.py:411
+msgid ""
+"Check here to apply the above permissions (excluding group and owner of the "
+"article) recursively to articles below this one."
+msgstr "Zde označte, jestliže chcete aplikovat stejná oprávnění (s výjimkou skupiny a vlastníka článku) rekurzivně na články, zařazené pod tento článek."
+
+#: forms.py:415
+msgid "Inherit owner"
+msgstr "Zdědit vlastníka"
+
+#: forms.py:416
+msgid ""
+"Check here to apply the ownership setting recursively to articles below this"
+" one."
+msgstr "Zde označte, jestliže chcete nastavit vlastníka článku rekurzivně i pro články, zařazené pod tento článek."
+
+#: forms.py:420
+msgid "Inherit group"
+msgstr "Zdědit skupinu"
+
+#: forms.py:421
+msgid ""
+"Check here to apply the group setting recursively to articles below this "
+"one."
+msgstr "Zde označte, jestliže chcete nastavit skupinu rekurzivně i pro články, zařazené pod tento článek."
+
+#: forms.py:426
+msgid "Permission settings for the article were updated."
+msgstr "Nastavení oprávnění pro článek bylo změněno."
+
+#: forms.py:428
+msgid "Your permission settings were unchanged, so nothing saved."
+msgstr "Nastavení oprávnění je beze změny, není co uložit."
+
+#: forms.py:486
+msgid "No user with that username"
+msgstr "Žádný uživatel s tímto uživatelským jménem"
+
+#: forms.py:521
+msgid "Article locked for editing"
+msgstr "Článek je pro editování uzamčen"
+
+#: forms.py:528
+msgid "Article unlocked for editing"
+msgstr "Článek je možné editovat"
+
+#: forms.py:555
+msgid "Filter..."
+msgstr "Filtr..."
+
+#: forms.py:565
+msgid "Search..."
+msgstr "Hledat..."
+
+#: forms.py:614
+msgid "Passwords don't match"
+msgstr "Hesla se neshodují"
+
+#: models/article.py:30 models/pluginbase.py:165
+#: plugins/attachments/models.py:26
+msgid "current revision"
+msgstr "současná verze"
+
+#: models/article.py:34
+msgid ""
+"The revision being displayed for this article. If you need to do a roll-"
+"back, simply change the value of this field."
+msgstr "Číslo revize tohoto článku. Pokud se potřebujete vrátit ke starší verzi, jednoduše změňte hodnotu v tomto poli."
+
+#: models/article.py:42
+msgid "modified"
+msgstr "změněno"
+
+#: models/article.py:43
+msgid "Article properties last modified"
+msgstr "Vlastnosti článku naposledy změněny"
+
+#: models/article.py:46
+msgid "owner"
+msgstr "vlastník"
+
+#: models/article.py:49
+msgid ""
+"The owner of the article, usually the creator. The owner always has both "
+"read and write access."
+msgstr "Vlastník článku, většinou tvůrce. Vlastník má vždy právo čtení a zápisu."
+
+#: models/article.py:53
+msgid "group"
+msgstr "skupina"
+
+#: models/article.py:56
+msgid ""
+"Like in a UNIX file system, permissions can be given to a user according to "
+"group membership. Groups are handled through the Django auth system."
+msgstr "Oprávnění mohou být přidělené uživateli na základě členství ve skupině, jako v UNIXovém souborovém systému. Skupinu jsou spravovány pomocí Django auth system."
+
+#: models/article.py:61
+msgid "group read access"
+msgstr "oprávnění ke čtení pro skupinu"
+
+#: models/article.py:64
+msgid "group write access"
+msgstr "oprávnění k zápisu pro skupinu"
+
+#: models/article.py:67
+msgid "others read access"
+msgstr "oprávnění ke čtení pro ostatní"
+
+#: models/article.py:70
+msgid "others write access"
+msgstr "oprávnění k zápisu pro ostatní"
+
+#: models/article.py:179
+#, python-format
+msgid "Article without content (%(id)d)"
+msgstr "Článek neobsahuje text (%(id)d)"
+
+#: models/article.py:184
+msgid "Can edit all articles and lock/unlock/restore"
+msgstr "Může upravovat všechny články a uzamkout/odemknout/obnovit"
+
+#: models/article.py:185
+msgid "Can change ownership of any article"
+msgstr "Může změnit vlastnictví článku"
+
+#: models/article.py:186
+msgid "Can assign permissions to other users"
+msgstr "Může přidat oprávnění ostatním uživatelům"
+
+#: models/article.py:261
+msgid "content type"
+msgstr "typ obsahu"
+
+#: models/article.py:263
+msgid "object ID"
+msgstr "ID objektu"
+
+#: models/article.py:272
+msgid "Article for object"
+msgstr "Článek pro objekt"
+
+#: models/article.py:273
+msgid "Articles for object"
+msgstr "Článek pro objekty"
+
+#: models/article.py:285
+msgid "revision number"
+msgstr "číslo revize"
+
+#: models/article.py:291
+msgid "IP address"
+msgstr "IP adresa"
+
+#: models/article.py:295
+msgid "user"
+msgstr "uživatel"
+
+#: models/article.py:310
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:23
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:25
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:44
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:68
+#: templates/wiki/includes/revision_info.html:15
+msgid "deleted"
+msgstr "smazáno"
+
+#: models/article.py:314
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:74
+#: templates/wiki/article.html:23
+#: templates/wiki/includes/revision_info.html:21
+msgid "locked"
+msgstr "uzamčeno"
+
+#: models/article.py:352 models/pluginbase.py:44 models/urlpath.py:56
+msgid "article"
+msgstr "článek"
+
+#: models/article.py:355
+msgid "article contents"
+msgstr "obsah článku"
+
+#: models/article.py:360
+msgid "article title"
+msgstr "nadpis článku"
+
+#: models/article.py:363
+msgid ""
+"Each revision contains a title field that must be filled out, even if the "
+"title has not changed"
+msgstr "Každá revize obsahuje titulek, který je třeba vyplnit i tehdy, když se titulek nezměnil."
+
+#: models/pluginbase.py:85
+msgid "original article"
+msgstr "původní článek"
+
+#: models/pluginbase.py:87
+msgid "Permissions are inherited from this article"
+msgstr "Oprávnění jsou zděděna z tohoto článku"
+
+#: models/pluginbase.py:150
+msgid "A plugin was changed"
+msgstr "Plugin byl změněn"
+
+#: models/pluginbase.py:171
+msgid ""
+"The revision being displayed for this plugin. If you need to do a roll-back,"
+" simply change the value of this field."
+msgstr "Číslo revize, jak se zobrazí pro tento plugin. Pokud se potřebujete vrátit ke starší verzi, jednoduše změňte hodnotu v tomto poli."
+
+#: models/urlpath.py:58
+msgid ""
+"This field is automatically updated, but you need to populate it when "
+"creating a new URL path."
+msgstr "Toto pole je automaticky aktualizováno, ale musíte ho vyplnit při vytváření nové URL cesty."
+
+#: models/urlpath.py:65
+msgid "slug"
+msgstr "cesta"
+
+#: models/urlpath.py:74
+msgid "Position of URL path in the tree."
+msgstr "Umístění URL cesty ve stromu"
+
+#: models/urlpath.py:78
+msgid "Moved to"
+msgstr "Přesunuto do"
+
+#: models/urlpath.py:79
+msgid "Article path was moved to this location"
+msgstr "Cesta ke článku byla přesunuta do tohoto umístění"
+
+#: models/urlpath.py:180
+msgid "(root)"
+msgstr "(kořen/root)"
+
+#: models/urlpath.py:188
+msgid "URL path"
+msgstr "URL cesta"
+
+#: models/urlpath.py:189
+msgid "URL paths"
+msgstr "URL cesty"
+
+#: models/urlpath.py:195
+msgid "Sorry but you cannot have a root article with a slug."
+msgstr "Kořenový článek nemůže mít identifikátor (slug)."
+
+#: models/urlpath.py:198
+msgid "A non-root note must always have a slug."
+msgstr "Jiný než kořenový článek musí vždy mít identifikátor (slug)."
+
+#: models/urlpath.py:204
+#, python-format
+msgid "There is already a root node on %s"
+msgstr "Kořenový uzel už existuje pro %s"
+
+#: models/urlpath.py:405
+msgid ""
+"Articles who lost their parents\n"
+"===============================\n"
+"\n"
+"The children of this article have had their parents deleted. You should probably find a new home for them."
+msgstr "Články, které ztratily nadřazený článek\n==================================\n\nU těchto článků byl zrušen jejich nadřazený článek. Doporučuje se je zařadit do nového umístění."
+
+#: models/urlpath.py:408
+msgid "Lost and found"
+msgstr "Ztraceno a nalezeno"
+
+#: plugins/attachments/apps.py:7
+msgid "Wiki attachments"
+msgstr "Wiki - přílohy"
+
+#: plugins/attachments/forms.py:15
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:14
+msgid "Description"
+msgstr "Popis"
+
+#: plugins/attachments/forms.py:16
+msgid "A short summary of what the file contains"
+msgstr "Krátký popis obsahu souboru"
+
+#: plugins/attachments/forms.py:65
+msgid "Remove previous"
+msgstr "Odstranit předchozí"
+
+#: plugins/attachments/forms.py:66
+msgid "Remove previous attachment revisions and their files (to save space)?"
+msgstr "Odstranit předchozí verze příloh a jejich soubory (pro úsporu místa)?"
+
+#: plugins/attachments/forms.py:75
+msgid "File or zip archive"
+msgstr "Soubor, nebo zip archiv"
+
+#: plugins/attachments/forms.py:80
+msgid "Unzip file"
+msgstr "Rozbalit soubor"
+
+#: plugins/attachments/forms.py:82
+msgid ""
+"Create individual attachments for files in a .zip file - directories do not "
+"work."
+msgstr "Vytvořit jednotlivé přílohy pro soubory v archivu (ne pro adresáře v archivu)."
+
+#: plugins/attachments/forms.py:103
+msgid "Not a zip file"
+msgstr "Toto není archiv"
+
+#: plugins/attachments/forms.py:112
+msgid "User not allowed to moderate this article"
+msgstr "Uživatel nedovolil moderovat tento článek"
+
+#: plugins/attachments/forms.py:158
+msgid "Yes I am sure..."
+msgstr "Ano, jsem si jistý..."
+
+#: plugins/attachments/models.py:30
+msgid ""
+"The revision of this attachment currently in use (on all articles using the "
+"attachment)"
+msgstr "Právě používaná revize této přílohy (u všech článků, které tuto přílohu obsahují)"
+
+#: plugins/attachments/models.py:34
+msgid "original filename"
+msgstr "původní název souboru"
+
+#: plugins/attachments/models.py:47
+msgid "attachment"
+msgstr "přiloha"
+
+#: plugins/attachments/models.py:48
+msgid "attachments"
+msgstr "přilohy"
+
+#: plugins/attachments/models.py:67
+msgid "No file extension found in filename. That's not okay!"
+msgstr "Chybí přípona souboru. To není vhodné!"
+
+#: plugins/attachments/models.py:73
+msgid ""
+"The following filename is illegal: {filename:s}. Extension has to be one of "
+"{extensions:s}"
+msgstr "Nedovolené jméno souboru: {filename:s}. Přípona má být jedna z těchto: {extensions:s}"
+
+#: plugins/attachments/models.py:119
+msgid "file"
+msgstr "soubor"
+
+#: plugins/attachments/models.py:125
+msgid "attachment revision"
+msgstr "verze přílohy"
+
+#: plugins/attachments/models.py:126
+msgid "attachment revisions"
+msgstr "verze přílohy"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:10
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:40
+#: templates/wiki/delete.html:8
+msgid "Delete"
+msgstr "Smazat"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:12
+msgid ""
+"The file may be referenced on other articles. Deleting it means that they "
+"will loose their references to this file. The following articles reference "
+"this file:"
+msgstr "Na soubor může odkazovat více článků. Jeho zrušení způsobí, že na něj zůstanou nefunkční odkazy. Na tento soubor odkazují následující články:"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:27
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:51
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:49
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:39
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:75
+#: plugins/images/templates/wiki/plugins/images/purge.html:23
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:23
+#: templates/wiki/create.html:40 templates/wiki/delete.html:12
+#: templates/wiki/delete.html:48 templates/wiki/move.html:37
+msgid "Go back"
+msgstr "Zpět"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:31
+msgid "Delete it!"
+msgstr "Smaž to!"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:38
+msgid "Remove"
+msgstr "Odstranit"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:40
+msgid ""
+"You can remove a reference to a file, but it will retain its references on "
+"other articles."
+msgstr "Můžete smazat odkaz na soubor. Odkazy z ostatních článků zůstanou zachovány."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:55
+msgid "Remove reference"
+msgstr "Odstranit odkaz"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:9
+msgid "History of"
+msgstr "Historie"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:12
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:28
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:43
+msgid "Date"
+msgstr "Datum"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:13
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:42
+msgid "User"
+msgstr "Uživatel"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:15
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:26
+msgid "File"
+msgstr "Soubor"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:16
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:34
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:30
+#: plugins/images/templates/wiki/plugins/images/index.html:22
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:167
+msgid "Size"
+msgstr "Velikost"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:17
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:31
+msgid "Action"
+msgstr "Akce"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:28
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:37
+msgid "<em>No description</em>"
+msgstr "<em>Žádný popis</em>"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:36
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:55
+msgid "Download"
+msgstr "Stažení"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:41
+msgid "Use this!"
+msgstr "Použij !"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:5
+#: plugins/attachments/wiki_plugin.py:18
+msgid "Attachments"
+msgstr "Přílohy"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:10
+msgid ""
+"The following files are available for this article. Copy the markdown tag to"
+" directly refer to a file from the article text."
+msgstr "Následující soubory jsou k dispozici k tomuto článku. Zkopíruj markdown značku pro přímý odkaz na soubor v textu článku."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:11
+msgid ""
+"Complete markdown code syntax: <code>[attachment:id title:\"text\" "
+"size]</code><br> &nbsp;&nbsp;title: Link text replacement for the file name."
+" size: Show file size after the title."
+msgstr "Úplná markdown syntaxe: <code>[attachment:id title:\"text\" size]</code><br> &nbsp;&nbsp;title: Náhradní text místo jména souboru. size: Zobrazuj velikost  souboru za názvem."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:32
+#: plugins/images/templates/wiki/plugins/images/index.html:20
+msgid "Markdown tag"
+msgstr "Markdown značka"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:33
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:29
+#: plugins/images/templates/wiki/plugins/images/index.html:21
+msgid "Uploaded by"
+msgstr "Nahráno"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:38
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:9
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:54
+msgid "Replace"
+msgstr "Nahradit"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:42
+msgid "Detach"
+msgstr "Odpojit"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "File history"
+msgstr "Historie souboru"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "revisions"
+msgstr "revize"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:66
+msgid "There are no attachments for this article."
+msgstr "Článek nemá přílohy."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:76
+msgid "Upload new file"
+msgstr "Nahrát nový soubor"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:88
+msgid "Upload file"
+msgstr "Nahrát soubor"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:99
+msgid "Search and add file"
+msgstr "Hledej a přidej soubor"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:105
+msgid ""
+"You can reuse files from other articles. These files are subject to updates "
+"on other articles which may or may not be a good thing."
+msgstr "Můžeš sdílet soubor, použitý i v jiných článcích. Z jiných článků může být soubor upraven, což může být praktické, ale jindy zase nevhodné."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:124
+msgid "Restore attachments"
+msgstr "Obnov přílohy"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:137
+#: templates/wiki/deleted.html:25 templates/wiki/deleted.html:30
+#: templates/wiki/deleted_list.html:24
+msgid "Restore"
+msgstr "Obnovit"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:144
+msgid "Nothing to restore"
+msgstr "Nic k obnovení"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:160
+msgid ""
+"The article is currently locked for editing, and therefore no new "
+"attachments can be added."
+msgstr "Článek je uzamčen pro editaci, takže nelze ani přidávat přílohy."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:6
+msgid "This attachment is not permitted on this page."
+msgstr "Tato příloha není možná na této stránce."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:8
+msgid "Click to download"
+msgstr "Klikněte pro stažení"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:12
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>. Please note "
+"that this attachment is in use on other articles, you may distort contents. "
+"However, do not hestitate to take advantage of this and make replacements "
+"for the listed articles where necessary. This way of working is more "
+"efficient...."
+msgstr "Náhrada přílohy znamená, že ve stejném místě bude nadále nový soubor. Všechny odkazy se změní na soubor, který nahraješ. Soubor bude možné stáhnout jako <strong>%(filename)s</strong>. Poznámka: Soubor používají i další články, takže můžete narušit jejich obsah. Nicméně jestliže je tato změna to, co s jistotou chceš, proveď ji - je to efektivní způsob práce...."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:17
+#, python-format
+msgid "Articles using %(filename)s"
+msgstr "Články, které použivají %(filename)s"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:26
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>."
+msgstr "Náhrada přílohy znamená, že ve stejném místě bude nadále nový soubor. Všechny odkazy se změní na soubor, který nahraješ. Soubor bude možné stáhnout jako <strong>%(filename)s</strong>."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:43
+#: plugins/images/templates/wiki/plugins/images/index.html:45
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:27
+msgid "Upload replacement"
+msgstr "Nahrát náhradu"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:5
+msgid "Add file to"
+msgstr "Přidat soubor do"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:9
+msgid "Add attachment from other article"
+msgstr "Přidat přílohu z jiného článku"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:17
+msgid "Search files and articles"
+msgstr "Prohledat soubory a články"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:27
+msgid "Main article"
+msgstr "Hlavní článek"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:59
+msgid "Add to article"
+msgstr "Přidat do článku"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:67
+msgid "Your search did not return any results"
+msgstr "Vaše vyhledávání nevrátilo žádné výsledky"
+
+#: plugins/attachments/views.py:51
+#, python-format
+msgid "Successfully added: %s"
+msgstr "Úspěšně přidáno: %s"
+
+#: plugins/attachments/views.py:57
+#, python-format
+msgid "%s was successfully added."
+msgstr "%s bylo úspěšně přidáno."
+
+#: plugins/attachments/views.py:153
+#, python-format
+msgid "%s uploaded and replaces old attachment."
+msgstr "%s bylo nahráno a nahrazuje původní přílohu."
+
+#: plugins/attachments/views.py:157
+#, python-format
+msgid "Your file could not be saved: %s"
+msgstr "Váš soubor nemůže být uložen %s"
+
+#: plugins/attachments/views.py:186
+msgid ""
+"Your new file will automatically be renamed to match the file already "
+"present. Files with different extensions are not allowed."
+msgstr "Váš nový soubor bude automaticky přejmenován na jméno dosavadního souboru. Nejsou povoleny soubory s odlišnou příponou."
+
+#: plugins/attachments/views.py:276
+#, python-format
+msgid "Current revision changed for %s."
+msgstr "Aktuální revize se změnila pro %s."
+
+#: plugins/attachments/views.py:308
+#, python-format
+msgid "Added a reference to \"%(att)s\" from \"%(art)s\"."
+msgstr "Byl přidán odkaz na \"%(att)s\" z \"%(art)s\"."
+
+#: plugins/attachments/views.py:313
+#, python-format
+msgid "\"%(att)s\" is already referenced."
+msgstr "\"%(att)s\" už je odkazován."
+
+#: plugins/attachments/views.py:346
+#, python-format
+msgid "The file %s was deleted."
+msgstr "Soubor %s byl zrušen."
+
+#: plugins/attachments/views.py:351
+#, python-format
+msgid "This article is no longer related to the file %s."
+msgstr "Tento článek nadále nemá vazbu na soubor %s."
+
+#: plugins/attachments/wiki_plugin.py:26
+#, python-format
+msgid "A file was changed: %s"
+msgstr "Soubor byl změněn: %s"
+
+#: plugins/attachments/wiki_plugin.py:29
+#, python-format
+msgid "A file was deleted: %s"
+msgstr "Soubor byl smazán: %s"
+
+#: plugins/globalhistory/apps.py:7
+msgid "Wiki Global History"
+msgstr "Globální historie Wiki"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:4
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:8
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/menubaritem.html:7
+msgid "Global history"
+msgstr "Globální historie"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:14
+#, python-format
+msgid "List of <strong>%(cnt)s change</strong> in the wiki."
+msgid_plural "List of <strong>%(cnt)s changes</strong> in the wiki."
+msgstr[0] "<strong>%(cnt)s změna</strong> ve wiki."
+msgstr[1] "Seznam <strong>%(cnt)s změn</strong> ve wiki."
+msgstr[2] "Seznam <strong>%(cnt)s změn</strong> ve wiki."
+msgstr[3] "<strong>%(cnt)s změn</strong> ve wiki."
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:25
+msgid "Show all revisions of all articles"
+msgstr "Zobrazit všechny revize všech článků"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:28
+msgid "Show last revision of every article"
+msgstr "Zobrazit aktuální revizi všech článků"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:39
+msgid "Revision ID"
+msgstr "ID revize"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:40
+msgid "Article"
+msgstr "Článek"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:41
+msgid "Message"
+msgstr "Zpráva"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:65
+#: templates/wiki/history.html:72
+msgid "no log message"
+msgstr "žádná logovaná zpráva"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:71
+#: templates/wiki/includes/revision_info.html:18
+msgid "restored"
+msgstr "obnoveno"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:77
+#: templates/wiki/includes/revision_info.html:24
+msgid "unlocked"
+msgstr "odemčeno"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:87
+#: templates/wiki/includes/revision_info.html:10
+msgid "anonymous (IP logged)"
+msgstr "anonym (IP adresa)"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:95
+msgid "Go to article history"
+msgstr "Přejít k historii článku"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:96
+msgid "Go to article"
+msgstr "Přejít na článek"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:105
+msgid "No more changes to display !"
+msgstr "Žádné další změny ke zobrazení."
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:106
+msgid "Go back to previous page"
+msgstr "Vrať se na předchozí stránku"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:108
+msgid "No changes to display !"
+msgstr "Žádné změny ke zobrazení."
+
+#: plugins/help/apps.py:7
+msgid "Wiki help"
+msgstr "Nápověda pro wiki"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:1
+msgid "Adding new articles"
+msgstr "Přidávání nových článků"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:3
+msgid ""
+"To create a new wiki article, create a link to it. Clicking the link gives "
+"you the creation page."
+msgstr "Pro vytvoření nového článku ve wiki vytvoř odkaz na něj. Proklik odkazu ti pak zpřístupní vytváření stránky."
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:6
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:22
+msgid "An external link"
+msgstr "Externí odkaz"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:9
+msgid "Headers"
+msgstr "Hlavičky"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:10
+msgid ""
+"Use these codes for headers and to automatically generate Tables of "
+"Contents."
+msgstr "Použij tyto kódy pro hlavičky a automaticky vygeneruj Obsah."
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:25
+msgid "Typography"
+msgstr "Typografie"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:30
+msgid "Lists"
+msgstr "Seznamy"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:38
+msgid "Tables"
+msgstr "Tabulky"
+
+#: plugins/help/wiki_plugin.py:10
+msgid "Help"
+msgstr "Nápověda"
+
+#: plugins/images/apps.py:10
+msgid "Wiki images"
+msgstr "Wiki - obrázky"
+
+#: plugins/images/forms.py:17
+#, python-format
+msgid ""
+"New image %s was successfully uploaded. You can use it by selecting it from "
+"the list of available images."
+msgstr "Nový obrázek %s byl úspěšně nahrán. Můžeš jej požít tak, že jej vybereš ze seznamu dostupných obrázků."
+
+#: plugins/images/forms.py:61
+msgid "Are you sure?"
+msgstr "Jste si jistý?"
+
+#: plugins/images/models.py:38
+msgid "image"
+msgstr "obrázek"
+
+#: plugins/images/models.py:39
+msgid "images"
+msgstr "obrázky"
+
+#: plugins/images/models.py:44
+#, python-format
+msgid "Image: %s"
+msgstr "Obrázek: %s"
+
+#: plugins/images/models.py:46
+msgid "Current revision not set!!"
+msgstr "Není nastavena aktuální revize."
+
+#: plugins/images/models.py:97
+msgid "image revision"
+msgstr "verze obrázku"
+
+#: plugins/images/models.py:98
+msgid "image revisions"
+msgstr "verze obrázku"
+
+#: plugins/images/models.py:104
+#, python-format
+msgid "Image Revision: %d"
+msgstr "Verze obrázku: %d"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:5
+#: plugins/images/wiki_plugin.py:15
+msgid "Images"
+msgstr "Obrázky"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:8
+msgid ""
+"The following images are available for this article. Copy the markdown tag "
+"to directly refer to an image from the article text."
+msgstr "Ke článku jsou k dispozici tyto obrázky. Zkopíruj markdown značku, jestliže chceš na obrázek odkazovat přímo uvnitř textu."
+
+#: plugins/images/templates/wiki/plugins/images/index.html:12
+msgid "Back to edit page"
+msgstr "Zpět na editaci"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:19
+msgid "No file"
+msgstr "Žádný soubor"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:36
+msgid "Upload and publish new image"
+msgstr "Nahrát a zveřejnit nový obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:40
+msgid "Restore image"
+msgstr "Obnov obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:49
+msgid "Remove image"
+msgstr "Odebrat obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:56
+msgid "Completely delete"
+msgstr "Definitivně smazat"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:70
+#: templates/wiki/history.html:5
+msgid "History"
+msgstr "Historie"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:89
+msgid "Revert to this version"
+msgstr "Obnovit na tuto verzi"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:102
+msgid "There are no images for this article."
+msgstr "Nejsou zde žádné obrázku pro tento článek."
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:5
+#: templates/wiki/deleted.html:40
+msgid "Purge deletion"
+msgstr "Definitivní smazání"
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:14
+msgid "Purge image: Completely remove image file and all revisions."
+msgstr "Definitivní smazání obrázku: Bude smazán včetně všech jeho verzí."
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:27
+msgid "Remove it completely!"
+msgstr "Odstraň jej definitivně !"
+
+#: plugins/images/templates/wiki/plugins/images/render.html:13
+msgid "Image not found"
+msgstr "Obrázek nenalezen"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:5
+msgid "Replace image"
+msgstr "Nahradit obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:14
+msgid "Choose an image file to replace current image."
+msgstr "Vyberte obrázek pro nahrazení současného obrázku."
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:9
+msgid "Insert Image"
+msgstr "Vložit obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:50
+msgid "Image id"
+msgstr "id obrázku"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:52
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:15
+msgid "Insert"
+msgstr "Vložit"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:68
+msgid "No images found for this article"
+msgstr "K tomuto článku nejsou žádné obrázky"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:76
+msgid "Manage images"
+msgstr "Spravovat obrázky"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:81
+msgid "Add new image"
+msgstr "Přidat nový obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:124
+msgid "Add image"
+msgstr "Přidat obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:132
+msgid "You do not have permissions to add images."
+msgstr "Nemáte oprávnění přidávat obrázky."
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:139
+msgid "How to use images"
+msgstr "Jak používat obrázky"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:142
+msgid ""
+"After uploading an image, it is attached to this particular article and can "
+"be used only here. Other users may replace the image, but older versions are"
+" kept. To show the image press the Insert button and select the options you "
+"want to use. You can use Markdown in the caption. The Markdown code syntax "
+"for images looks like this"
+msgstr "Po nahrání obrázku bude přiřazen k tomuto konkrétnímu článku a může být použit jen zde. Ostatní uživatelé mohou obrázek nahradit, ale starší verze zůstanou uchovány. Pro zobrazení obrázku stiskněte tlačítko Vložit a vyberte možnost, kterou chcete použít. Můžete použít Markdown v titulku, Markdown syntaxe je následující:"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:145
+msgid "Possible values for align are"
+msgstr "Možná nastavení pro zarovnání"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:146
+msgid "Possible values for size are"
+msgstr "Možná nastavení pro rozměr"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:159
+msgid "Alignment"
+msgstr "Zarovnání"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:177
+msgid "Caption"
+msgstr "Nadpis"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:178
+msgid "Enter caption"
+msgstr "Zadej titulek"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:183
+msgid "Insert image"
+msgstr "Vložit obrázek"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:184
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: plugins/images/views.py:78
+#, python-format
+msgid "%s has been restored"
+msgstr "%s byl obnoven"
+
+#: plugins/images/views.py:80
+#, python-format
+msgid "%s has been marked as deleted"
+msgstr "%s byl označen jako zrušený"
+
+#: plugins/images/views.py:140
+#, python-format
+msgid "%(file)s has been changed to revision #%(revision)d"
+msgstr "%(file)s byl změněn na verzi #%(revision)d"
+
+#: plugins/images/views.py:185
+#, python-format
+msgid "%(file)s has been saved."
+msgstr "%(file)s byl uložen."
+
+#: plugins/images/wiki_plugin.py:26
+#, python-format
+msgid "An image was added: %s"
+msgstr "Obrázek byl přidán: %s"
+
+#: plugins/links/apps.py:7
+msgid "Wiki links"
+msgstr "Odkazy ve Wiki"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:3
+msgid "Link to another wiki page"
+msgstr "Odkaz na jinou stránku wiki"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:6
+msgid ""
+"Type in something from another wiki page's title and auto-complete will help"
+" you create a tag for your wiki link. Tags for links look like this:"
+msgstr "Zadejte něco z titulku jiné wiki stránky a auto-complete vám pomůže vytvořit tag pro váš odkaz. Tagy pro odkazy vypadají takto:"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:25
+msgid ""
+"You can link to another website simply by inserting an address example.com "
+"or http://example.com or by using the markdown syntax:"
+msgstr "Můžete se odkazovat na jinou webovou stránku jednoduše zadáním adresy jako example.com nebo https://example.com a nebo pomocí Markdown syntaxe:"
+
+#: plugins/links/wiki_plugin.py:20
+msgid "Links"
+msgstr "Odkazy"
+
+#: plugins/macros/apps.py:7
+msgid "Wiki macros"
+msgstr "Makra ve Wiki"
+
+#: plugins/macros/mdx/macro.py:67
+msgid "Article list"
+msgstr "Seznam článků"
+
+#: plugins/macros/mdx/macro.py:68
+msgid "Insert a list of articles in this level."
+msgstr "Vlož seznam článků na této úrovni."
+
+#: plugins/macros/mdx/macro.py:70
+msgid "Maximum depth to show levels for."
+msgstr "Maximální hloubka zobrazování úrovní"
+
+#: plugins/macros/mdx/macro.py:76
+msgid "Table of contents"
+msgstr "Obsah"
+
+#: plugins/macros/mdx/macro.py:77
+msgid "Insert a table of contents matching the headings."
+msgstr "Vložit Obsah, sestavený z titulků."
+
+#: plugins/macros/mdx/macro.py:85
+msgid "WikiLinks"
+msgstr "WikiLinks"
+
+#: plugins/macros/mdx/macro.py:87
+msgid "Insert a link to another wiki page with a short notation."
+msgstr "Vložit odkaz na jinou stránku s krátkým popisem."
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:6
+msgid "Article index"
+msgstr "Seznam článků"
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:10
+msgid "Nothing below this level"
+msgstr "Nic dalšího na nižší úrovni"
+
+#: plugins/macros/wiki_plugin.py:11
+msgid "Macros"
+msgstr "Makra"
+
+#: plugins/notifications/apps.py:7
+msgid "Wiki notifications"
+msgstr "Wiki - upozornění"
+
+#: plugins/notifications/forms.py:16
+#, python-format
+msgid "Receive notifications %(interval)s"
+msgstr "Získávat notifikace %(interval)s"
+
+#: plugins/notifications/forms.py:26
+#, python-format
+msgid "%(title)s - %(url)s"
+msgstr "%(title)s - %(url)s"
+
+#: plugins/notifications/forms.py:43
+msgid "Remove subscriptions"
+msgstr "Zrušit odběr"
+
+#: plugins/notifications/forms.py:45
+msgid "Select article subscriptions to remove from notifications"
+msgstr "Vybrat přihlášené odběry článku k odhlášení od zpráv"
+
+#: plugins/notifications/forms.py:49
+msgid "Email digests"
+msgstr "Emailová shrnutí"
+
+#: plugins/notifications/forms.py:51
+msgid "Unchanged (selected on each article)"
+msgstr "Nezměněno (vybráno u každého z článků)"
+
+#: plugins/notifications/forms.py:52
+msgid "No emails"
+msgstr "Žádné emaily"
+
+#: plugins/notifications/forms.py:53
+msgid "Email on any change"
+msgstr "Email při každé změně"
+
+#: plugins/notifications/forms.py:102
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:5
+msgid "Notifications"
+msgstr "Notifikace"
+
+#: plugins/notifications/forms.py:109
+#: templates/wiki/includes/article_menu.html:9 templates/wiki/settings.html:5
+msgid "Settings"
+msgstr "Nastavení"
+
+#: plugins/notifications/forms.py:113
+msgid "When this article is edited"
+msgstr "Když je tento článek upraven"
+
+#: plugins/notifications/forms.py:116
+msgid "Also receive emails about article edits"
+msgstr "Také dostávat emaily o editaci článku"
+
+#: plugins/notifications/forms.py:158
+msgid "Your notification settings were updated."
+msgstr "Nastavení pro notifikace byla změněna."
+
+#: plugins/notifications/forms.py:161
+msgid "Your notification settings were unchanged, so nothing saved."
+msgstr "Nebyly provedeny žádné změny, proto nic neukládám."
+
+#: plugins/notifications/models.py:20
+#, python-format
+msgid "%(user)s subscribing to %(article)s (%(type)s)"
+msgstr "%(user)s přihlášen(a) k odběru %(article)s (%(type)s)"
+
+#: plugins/notifications/models.py:46
+#, python-format
+msgid "Article deleted: %s"
+msgstr "Článek zrušen: %s"
+
+#: plugins/notifications/models.py:54
+#, python-format
+msgid "Article modified: %s"
+msgstr "Článek změněn: %s"
+
+#: plugins/notifications/models.py:62
+#, python-format
+msgid "New article created: %s"
+msgstr "Vytvořen nový článek: %s"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:4
+msgid "No notifications"
+msgstr "Žádné notifikace"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:9
+msgid "Clear notifications list"
+msgstr "Smazat seznam notifikací"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:15
+msgid "Notification settings"
+msgstr "Nastavení notifikací"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:9
+msgid "Your notification settings"
+msgstr "Vaše nastavení pro notifikace"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:11
+msgid "Manage how often you receive notifications"
+msgstr "Nastavit, jak často budeš dostávat notifikace"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "Settings for"
+msgstr "Nastavení pro"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "articles"
+msgstr "články"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:27
+msgid "You are not subscribed to any notifications yet."
+msgstr "Zatím nejste přihlášen(a) k odběru žádných notifikací."
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:35
+#: templates/wiki/edit.html:36 templates/wiki/edit.html:83
+#: templates/wiki/settings.html:17
+msgid "Save changes"
+msgstr "Uložit změny"
+
+#: plugins/notifications/views.py:25
+#, python-format
+msgid "You will receive notifications %(interval)s for %(articles)d articles"
+msgstr "Budeš dostávat oznámení %(interval)s pro %(articles)d články"
+
+#: plugins/redlinks/apps.py:7
+msgid "Wiki red links"
+msgstr "Nefunkční odkazy ve Wiki"
+
+#: templates/wiki/accounts/account_settings.html:4
+#: templates/wiki/accounts/account_settings.html:7
+#: templates/wiki/base_site.html:79
+msgid "Account Settings"
+msgstr "Nastavení účtu"
+
+#: templates/wiki/accounts/account_settings.html:11
+msgid "Update"
+msgstr "Aktualizace"
+
+#: templates/wiki/accounts/login.html:4 templates/wiki/base_site.html:109
+msgid "Log in"
+msgstr "Přihlásit"
+
+#: templates/wiki/accounts/login.html:10
+msgid "Please log in"
+msgstr "Prosím, přihlaš se"
+
+#: templates/wiki/accounts/login.html:18
+msgid "Log me in..."
+msgstr "Přihlaš mne..."
+
+#: templates/wiki/accounts/login.html:25
+msgid "Don't have an account?"
+msgstr "Nemáš účet?"
+
+#: templates/wiki/accounts/login.html:25 templates/wiki/accounts/signup.html:3
+#: templates/wiki/accounts/signup.html:6 templates/wiki/base_site.html:113
+msgid "Sign up"
+msgstr "Zaregistrovat se"
+
+#: templates/wiki/accounts/signup.html:14
+msgid "Sign me up..."
+msgstr "Zaregistruj mne..."
+
+#: templates/wiki/article.html:39
+msgid "This article was last modified:"
+msgstr "Tento článek byl naposledy upraven:"
+
+#: templates/wiki/base_site.html:53
+msgid "Search from current article..."
+msgstr "Hledat v tomto článku..."
+
+#: templates/wiki/base_site.html:55
+msgid "Search whole wiki..."
+msgstr "Hledat na celé wiki..."
+
+#: templates/wiki/base_site.html:86
+msgid "Log out"
+msgstr "Odhlásit se"
+
+#: templates/wiki/base_site.html:93
+msgid "Deleted articles"
+msgstr "Zrušené články"
+
+#: templates/wiki/base_site.html:121
+msgid "Home"
+msgstr "Hlavní stránka"
+
+#: templates/wiki/base_site.html:122
+msgid "About"
+msgstr "O programu"
+
+#: templates/wiki/base_site.html:147
+msgid ""
+"Powered by <a href=\"http://www.django-wiki.org\">django-wiki</a>, an open "
+"source application under the <a href=\"http://www.gnu.org/licenses/quick-"
+"guide-gplv3.html\">GPLv3</a> license. Let knowledge be the cure."
+msgstr "Vytvořeno ve <a href=\"http://www.django-wiki.org\">django-wiki</a>, což je opensource aplikace s<a href=\"http://www.gnu.org/licenses/quick-guide-gplv3.html\">GPLv3</a> licencí."
+
+#: templates/wiki/create.html:5 templates/wiki/create.html:31
+msgid "Add new article"
+msgstr "Přidat nový článek"
+
+#: templates/wiki/create.html:44
+msgid "Create article"
+msgstr "Vytvořit článek"
+
+#: templates/wiki/create_root.html:4
+msgid "Create root article"
+msgstr "Vytvořit výchozí článek"
+
+#: templates/wiki/create_root.html:22 templates/wiki/root_missing.html:10
+msgid "Congratulations!"
+msgstr "Gratuluji!"
+
+#: templates/wiki/create_root.html:24
+msgid ""
+"You have django-wiki installed... but there are no articles. So it's time to"
+" create the first one, the root article."
+msgstr "Instaloval(a) jste django-wiki, ale zatím chybí jakýkoli článek. Vytvořte proto první, výchozí článek."
+
+#: templates/wiki/create_root.html:25
+msgid ""
+"In the beginning, it will only be editable by administrators, but you can "
+"define permissions after."
+msgstr "Ve výchozím stavu mohou úpravy provádět administrátoři. Můžete ale později nastavit jiná oprávnění."
+
+#: templates/wiki/create_root.html:28
+msgid "Root article"
+msgstr "Výchozí (kořenový) článek"
+
+#: templates/wiki/create_root.html:35
+msgid "Create root"
+msgstr "Vytvořit výchozí"
+
+#: templates/wiki/delete.html:5 templates/wiki/delete.html:52
+#: templates/wiki/edit.html:49
+msgid "Delete article"
+msgstr "Zrušit článek"
+
+#: templates/wiki/delete.html:11
+msgid "You cannot delete a root article."
+msgstr "Není možné zrušit výchozí článek."
+
+#: templates/wiki/delete.html:17
+msgid ""
+"You cannot delete this article because you do not have permission to delete "
+"articles with children. Try to remove the children manually one-by-one."
+msgstr "Nemůžeš zrušit tento článek, protože nejsi oprávněn rušit články, ke kterým jsou přidány závislé články. Můžeš ale zkusit rušit jednotlivé závislé články."
+
+#: templates/wiki/delete.html:23
+msgid ""
+"You are deleting an article. This means that its children will be deleted as"
+" well. If you choose to purge, children will also be purged!"
+msgstr "Chystáte se smazat článek. To znamená, že současně budou smazány i na něm závislé články. Jestliže potvrdíte smazání, budou smazáni i potomci !"
+
+#: templates/wiki/delete.html:25
+msgid "Articles that will be deleted"
+msgstr "Články, které budou smazány"
+
+#: templates/wiki/delete.html:31
+msgid "...and more!"
+msgstr "... a další!"
+
+#: templates/wiki/delete.html:39
+msgid "You are deleting an article. Please confirm."
+msgstr "Chystáš se smazat článek. Potvrď, že se to má provést."
+
+#: templates/wiki/deleted.html:5 templates/wiki/deleted.html:14
+msgid "Article deleted"
+msgstr "Článek smazán"
+
+#: templates/wiki/deleted.html:17
+msgid "The article you were looking for has been deleted."
+msgstr "Článek, který hledáš, byl zrušen."
+
+#: templates/wiki/deleted.html:26
+msgid "You may restore this article and its children by clicking restore."
+msgstr "Můžeš obnovit tento článek včetně na něm závislých článků: volbou Obnovit."
+
+#: templates/wiki/deleted.html:41
+msgid ""
+"You may remove this article and any children permanently and free their "
+"slugs by clicking the below button. This action cannot be undone."
+msgstr "Použitím tlačítka níže můžeš odstranit tento článek a na něm závislé články (potomky) trvale a tak uvolnit jejich identifikátory (slug). Tuto akci nelze pak vzít zpět."
+
+#: templates/wiki/deleted_list.html:4
+msgid "Admin Panel"
+msgstr "Administrační panel"
+
+#: templates/wiki/deleted_list.html:8
+msgid "Deleted Articles"
+msgstr "Zrušené články"
+
+#: templates/wiki/deleted_list.html:13
+msgid "Page Title"
+msgstr "Titulek stránky"
+
+#: templates/wiki/deleted_list.html:14
+msgid "Date Deleted"
+msgstr "Datum zrušení"
+
+#: templates/wiki/deleted_list.html:15
+msgid "Restore Article"
+msgstr "Obnov článek"
+
+#: templates/wiki/deleted_list.html:30
+msgid "No deleted articles to display"
+msgstr "Nejsou žádné zrušené články"
+
+#: templates/wiki/dir.html:5
+msgid "Listing articles in"
+msgstr "Vypsat články v"
+
+#: templates/wiki/dir.html:17
+msgid "Up one level"
+msgstr "O úroveň výše"
+
+#: templates/wiki/dir.html:22
+msgid "Add article"
+msgstr "Přidat článek"
+
+#: templates/wiki/dir.html:30
+msgid "clear"
+msgstr "smazat"
+
+#: templates/wiki/dir.html:40
+msgid "article,articles"
+msgstr "článek, články"
+
+#: templates/wiki/dir.html:40
+msgid "is,are"
+msgstr "je, jsou"
+
+#: templates/wiki/dir.html:40
+#, python-format
+msgid ""
+"Browsing <strong><a href=\"%(self_url)s\">/%(path)s</a></strong>. There "
+"%(articles_plur_verb)s <strong>%(cnt)s %(articles_plur)s</strong> in this "
+"level."
+msgstr "Zobrazeno <strong><a href=\"%(self_url)s\">/%(path)s</a></strong>.  %(articles_plur_verb)s <strong>%(cnt)s %(articles_plur)s</strong> na této úrovni."
+
+#: templates/wiki/dir.html:50 templates/wiki/search.html:36
+msgid "Last modified"
+msgstr "Naposledy upraveno"
+
+#: templates/wiki/dir.html:74 templates/wiki/search.html:45
+msgid "There are no articles in this level"
+msgstr "Na této úrovni nejsou žádné články"
+
+#: templates/wiki/edit.html:5 templates/wiki/includes/article_menu.html:34
+msgid "Edit"
+msgstr "Edit"
+
+#: templates/wiki/edit.html:11
+msgid ""
+"<strong>Warning:</strong> You are not logged in. Your IP address will be "
+"logged."
+msgstr "<strong>Pozor:</strong> Nejsi přihlášen. Tvoje IP adresa bude zaznamenána."
+
+#: templates/wiki/edit.html:12
+msgid "Click here to log in"
+msgstr "Klikni sem pro přihlášení"
+
+#: templates/wiki/edit.html:32
+msgid "Preview"
+msgstr "Náhled"
+
+#: templates/wiki/edit.html:43 templates/wiki/move.html:41
+msgid "Move article"
+msgstr "Přesunout článek"
+
+#: templates/wiki/edit.html:79
+msgid "Back to editor"
+msgstr "Zpět k editaci"
+
+#: templates/wiki/error.html:5 templates/wiki/error.html:26
+msgid "Error"
+msgstr "Chyba"
+
+#: templates/wiki/error.html:15
+msgid "Not found"
+msgstr "Nenalezeno"
+
+#: templates/wiki/error.html:18
+msgid "This article was not found, and neither was its parent article."
+msgstr "Článek nebyl nalezen."
+
+#: templates/wiki/error.html:20
+msgid "Start page"
+msgstr "Úvodní stránka"
+
+#: templates/wiki/error.html:30
+msgid "There was some sort of error accessing this page. Sorry!"
+msgstr "Během zobrazení stránky došlo k chybám. Omlouváme se."
+
+#: templates/wiki/error.html:38
+msgid "Back to"
+msgstr "Zpět"
+
+#: templates/wiki/history.html:49
+msgid ""
+"Click each revision to see a list of edited lines. Click the Preview button "
+"to see how the article looked at this stage. At the bottom of this page, you"
+" can change to a particular revision or merge an old revision with the "
+"current one."
+msgstr "Klepnutím na revizi zobrazíte seznam upravených řádek. Pomocí tlačítka pro Náhled (Preview) uvidíte stav článku v této verzi. Dole na konci stránky můžete nastavit požadovanou revizi a případně ji sloučit s aktuální revizí."
+
+#: templates/wiki/history.html:84 templates/wiki/history.html:89
+msgid "Preview this revision"
+msgstr "Náhled (Preview) této verze"
+
+#: templates/wiki/history.html:103
+msgid "Auto log:"
+msgstr "Automatický log:"
+
+#: templates/wiki/history.html:111
+msgid "Change"
+msgstr "Změnit"
+
+#: templates/wiki/history.html:129
+msgid "Merge selected with current..."
+msgstr "Sloučit vybranou s aktuální..."
+
+#: templates/wiki/history.html:133
+msgid "Switch to selected version"
+msgstr "Přepnout na vybranou verzi"
+
+#: templates/wiki/history.html:152 templates/wiki/history.html:183
+msgid "Back to history view"
+msgstr "Zpět na náhled historie"
+
+#: templates/wiki/history.html:157 templates/wiki/history.html:162
+msgid "Switch to this version"
+msgstr "Přepnout na tuto verzi"
+
+#: templates/wiki/history.html:174
+msgid "Merge with current"
+msgstr "Sloučit s aktuální"
+
+#: templates/wiki/history.html:175
+msgid ""
+"When you merge a revision with the current, all data will be retained from "
+"both versions and merged at its approximate location from each revision."
+msgstr "Jestliže zvolíte sloučení revizí, texty z obou se použijí a umístí do přibližně odpovídajících pozic."
+
+#: templates/wiki/history.html:175
+msgid "After this, it's important to do a manual review."
+msgstr "Poté bude potřeba revidovat výsledný text."
+
+#: templates/wiki/history.html:188 templates/wiki/history.html:193
+msgid "Create new merged version"
+msgstr "Vytvořit novou, sloučenou verzi"
+
+#: templates/wiki/includes/anonymous_blocked.html:7
+#, python-format
+msgid ""
+"You need to <a href=\"%(login_url)s\">log in</a> or <a "
+"href=\"%(signup_url)s\">sign up</a> to use this function."
+msgstr "Musíte se <a href=\"%(login_url)s\">přihlásit</a> nebo <a href=\"%(signup_url)s\">zaregistrovat</a>, abyste mohl(a) používat tuto funkci."
+
+#: templates/wiki/includes/anonymous_blocked.html:11
+msgid "You need to log in or sign up to use this function."
+msgstr "Musíte se přihlásit a nebo zaregistrovat, abyste mohl(a) používat tuto funkci."
+
+#: templates/wiki/includes/article_menu.html:26
+msgid "Changes"
+msgstr "Změny"
+
+#: templates/wiki/includes/article_menu.html:41
+msgid "View Source"
+msgstr "Zobrazit zdroj"
+
+#: templates/wiki/includes/article_menu.html:49
+msgid "View"
+msgstr "Zobrazit"
+
+#: templates/wiki/includes/breadcrumbs.html:13
+#: templates/wiki/includes/breadcrumbs.html:39
+msgid "Sub-articles for"
+msgstr "Závislé články (potomci) pro"
+
+#: templates/wiki/includes/breadcrumbs.html:25
+msgid "No sub-articles"
+msgstr "Žádné závislé články (potomci)"
+
+#: templates/wiki/includes/breadcrumbs.html:28
+msgid "...and more"
+msgstr "... a další"
+
+#: templates/wiki/includes/breadcrumbs.html:32
+msgid "Browse articles in this level"
+msgstr "Zobrazit články na této úrovni"
+
+#: templates/wiki/includes/breadcrumbs.html:48
+#, python-format
+msgid "New article next to %(title)s"
+msgstr "Nový článek u %(title)s"
+
+#: templates/wiki/includes/breadcrumbs.html:53
+#, python-format
+msgid "New article below %(title)s"
+msgstr "Nový článek pod %(title)s"
+
+#: templates/wiki/includes/revision_info.html:10
+msgid "by"
+msgstr "od"
+
+#: templates/wiki/move.html:4
+msgid "Move"
+msgstr "Přesunout"
+
+#: templates/wiki/move.html:23
+#, python-format
+msgid ""
+"%(cnt)s nested article will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s article nested in this hierarchy will not be updated."
+msgid_plural ""
+"%(cnt)s nested articles will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s articles nested in this hierarchy will not be updated."
+msgstr[0] "%(cnt)s závislý článek bude také přesunut.<br> Pozor: odkazy na článek a na %(cnt)s závislý článek nebudou automaticky aktualizovány."
+msgstr[1] "%(cnt)s závislé články budou také přesunuty.<br> Pozor: odkazy na článek a na %(cnt)s závislé články nebudou automaticky aktualizovány."
+msgstr[2] "%(cnt)s závislých článků bude také přesunuto.<br> Pozor: odkazy na článek a na %(cnt)s závislých článků nebudou automaticky aktualizovány."
+msgstr[3] "%(cnt)s závislých článků bude také přesunuto.<br> Pozor: odkazy na článek a na %(cnt)s závislých článků nebudou automaticky aktualizovány."
+
+#: templates/wiki/permission_denied.html:8
+msgid "Permission Denied"
+msgstr "Chybí oprávnění"
+
+#: templates/wiki/permission_denied.html:11
+msgid "Sorry, you don't have permission to access this page."
+msgstr "Nejste oprávněn(a) pro přístup na tuto stránku."
+
+#: templates/wiki/permission_denied.html:16
+msgid "This article is locked for editing."
+msgstr "Tento článek má blokovanou možnost úprav."
+
+#: templates/wiki/permission_denied.html:22
+msgid "Back to article"
+msgstr "Zpět na článek"
+
+#: templates/wiki/preview_inline.html:8
+msgid "Previewing revision"
+msgstr "Náhled na verzi"
+
+#: templates/wiki/preview_inline.html:15
+msgid "Previewing merge between"
+msgstr "Náhled na sloučení"
+
+#: templates/wiki/preview_inline.html:17
+msgid "and"
+msgstr "a"
+
+#: templates/wiki/preview_inline.html:22 views/article.py:924
+msgid "You cannot merge with a deleted revision"
+msgstr "Nelze sloučit se zrušenou verzí"
+
+#: templates/wiki/preview_inline.html:31
+msgid "This revision has been deleted."
+msgstr "Tato verze byla zrušena."
+
+#: templates/wiki/preview_inline.html:32
+msgid "Restoring to this revision will mark the article as deleted."
+msgstr "Přechod na tuto verzi označí článek jako zrušený."
+
+#: templates/wiki/root_missing.html:12
+msgid ""
+"You have django-wiki installed and it seems to be working. But there are no "
+"articles yet."
+msgstr "Django-wiki je instalována a zdá se, že správně běží. Zatím na ní ale chybí články."
+
+#: templates/wiki/root_missing.html:17
+msgid ""
+"Not to worry! You simply have to login with a superuser account and create "
+"the first article in the root of the URL hierarchy."
+msgstr "Jednoduše se přihlaste s účtem superuser a vytvořte úvodní článek."
+
+#: templates/wiki/root_missing.html:21
+msgid "Click here to login"
+msgstr "Klepněte sem pro přihlášení"
+
+#: templates/wiki/root_missing.html:27
+msgid ""
+"But since you're logged in as a superuser, we should really get started..."
+msgstr "Protože jsi přihlášen jako superuser, pojďme začít..."
+
+#: templates/wiki/root_missing.html:29
+msgid "Yes, I'll go and create the first article"
+msgstr "Ano, chci vytvořit úvodní článek"
+
+#: templates/wiki/root_missing.html:30
+msgid "No thanks, I'd rather read the documentation"
+msgstr "Díky, nejprve si spíš přečtu dokumentaci"
+
+#: templates/wiki/search.html:5 templates/wiki/search.html:9
+msgid "Search results for:"
+msgstr "Vyhledat výsledky pro:"
+
+#: templates/wiki/search.html:15
+msgid "Searching in"
+msgstr "Prohledává se"
+
+#: templates/wiki/search.html:17
+msgid "Searching whole wiki"
+msgstr "Prohledává se celá wiki"
+
+#: templates/wiki/search.html:28
+#, python-format
+msgid "Your search returned <strong>%(cnt)s</strong> results."
+msgstr "Nalezeno: <strong>%(cnt)s</strong>."
+
+#: templates/wiki/source.html:5
+msgid "Source of"
+msgstr "Zdroj pro"
+
+#: templates/wiki/source.html:10
+msgid "This article is currently locked for editing."
+msgstr "Tento článek je momentálně blokován pro úpravy."
+
+#: views/accounts.py:41
+msgid "Account signup is only allowed for administrators."
+msgstr "Registrace účtů je dovolena pouze administrátorům."
+
+#: views/accounts.py:55
+msgid "You are now signed up... and now you can sign in!"
+msgstr "Jsi zaregistrován(a). Nyní se můžeš přihlásit."
+
+#: views/accounts.py:68
+msgid "You are no longer logged in. Bye bye!"
+msgstr "Jsi odhlášen(a). Těšíme se příště..."
+
+#: views/accounts.py:101
+msgid "You are now logged in! Have fun!"
+msgstr "Nyní jsi přihlášen(a)."
+
+#: views/accounts.py:138
+msgid "Account info saved!"
+msgstr "Informace o účtu byly uloženy."
+
+#: views/article.py:90
+#, python-format
+msgid "New article '%s' created."
+msgstr "Nový článek '%s' byl vytvořen."
+
+#: views/article.py:98
+#, python-format
+msgid "There was an error creating this article: %s"
+msgstr "Při vytváření článku nastala chyba: %s"
+
+#: views/article.py:101
+msgid "There was an error creating this article."
+msgstr "Při vytváření článku nastala chyba."
+
+#: views/article.py:191
+msgid ""
+"This article cannot be deleted because it has children or is a root article."
+msgstr "Článek nemůže být zrušen, protože má potomky a nebo se jedná o úvodní článek."
+
+#: views/article.py:201
+msgid ""
+"This article together with all its contents are now completely gone! Thanks!"
+msgstr "Dokončeno, děkujeme."
+
+#: views/article.py:210
+#, python-format
+msgid ""
+"The article \"%s\" is now marked as deleted! Thanks for keeping the site "
+"free from unwanted material!"
+msgstr "Článek \"%s\" byl označen jako zrušený."
+
+#: views/article.py:322
+msgid "Your changes were saved."
+msgstr "Změny byly uloženy."
+
+#: views/article.py:336
+msgid "Please note that your article text has not yet been saved!"
+msgstr "Pozor: text tvého článku nebyl ještě uložen."
+
+#: views/article.py:367
+msgid "A new revision of the article was successfully added."
+msgstr "Nová verze článku byla úspěšně uložena."
+
+#: views/article.py:416
+msgid "This article cannot be moved because it is a root article."
+msgstr "Tento článek nelze přesouvat, protože se jedná o úvodní článek."
+
+#: views/article.py:430
+msgid "This article cannot be moved to a child of itself."
+msgstr "Článek nemůže být přesunut jako potomek sebe sama."
+
+#: views/article.py:483
+#, python-brace-format
+msgid "Moved: {title}"
+msgstr "Přesunuto: {title}"
+
+#: views/article.py:484
+#, python-brace-format
+msgid "Article moved to {link}"
+msgstr "Článek byl přesunut jako {link}"
+
+#: views/article.py:485
+msgid "Created redirect (auto)"
+msgstr "Vytvořené přesměrování (automatické)"
+
+#: views/article.py:493
+#, python-brace-format
+msgid "Article successfully moved! Created {n} redirect."
+msgid_plural "Article successfully moved! Created {n} redirects."
+msgstr[0] "Článek byl úspěšně přesunut. Bylo vytvořeno {n} přesměrování."
+msgstr[1] "Článek byl úspěšně přesunut. Byla vytvořena {n} přesměrování."
+msgstr[2] "Článek byl úspěšně přesunut. Bylo vytvořeno {n} přesměrování."
+msgstr[3] "Článek byl úspěšně přesunut. Bylo vytvořeno {n} přesměrování."
+
+#: views/article.py:502
+msgid "Article successfully moved!"
+msgstr "Článek úspěšně přesunut!"
+
+#: views/article.py:544
+msgid "Restoring article"
+msgstr "Obnovení článku"
+
+#: views/article.py:548
+#, python-format
+msgid "The article \"%s\" and its children are now restored."
+msgstr "Článek \"%s\" je obnoven, včetně na něm závislých článků (potomků)."
+
+#: views/article.py:816
+#, python-format
+msgid ""
+"The article %(title)s is now set to display revision #%(revision_number)d"
+msgstr "Článek %(title)s je nyní nastaven na verzi #%(revision_number)d"
+
+#: views/article.py:890
+msgid "New title"
+msgstr "Nový nadpis"
+
+#: views/article.py:937
+#, python-format
+msgid "Merge between revision #%(r1)d and revision #%(r2)d"
+msgstr "Sloučení revize #%(r1)d a revize #%(r2)d"
+
+#: views/article.py:948
+#, python-format
+msgid ""
+"A new revision was created: Merge between revision #%(r1)d and revision "
+"#%(r2)d"
+msgstr "Byla vytvořena nová verze, a to sloučením revize #%(r1)d a revize #%(r2)d"

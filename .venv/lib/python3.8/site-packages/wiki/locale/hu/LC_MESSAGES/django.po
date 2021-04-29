@@ -1,0 +1,2032 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Zoltan Szalai <defaultdict@gmail.com>, 2020-2021
+msgid ""
+msgstr ""
+"Project-Id-Version: django-wiki\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-05 14:47+0200\n"
+"PO-Revision-Date: 2021-03-01 19:06+0000\n"
+"Last-Translator: Zoltan Szalai <defaultdict@gmail.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/django-wiki/django-wiki/language/hu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:85 models/article.py:38
+msgid "created"
+msgstr "létrehozva"
+
+#: apps.py:12
+msgid "Wiki"
+msgstr "Wiki"
+
+#: conf/settings.py:63 forms.py:198 forms.py:342
+msgid "Contents"
+msgstr "Tartalom"
+
+#: core/plugins/base.py:63
+msgid "Settings for plugin"
+msgstr "Plugin beállítások"
+
+#: forms.py:26
+msgid "A 'slug' cannot consist solely of numbers."
+msgstr "A \"slug\" csak számokat tartalmazhat."
+
+#: forms.py:53
+msgid "A slug may not begin with an underscore."
+msgstr "A slug nem kezdődhet aláhúzással."
+
+#: forms.py:56
+msgid "'admin' is not a permitted slug name."
+msgstr "Az \"admin\" slug nem megengedett."
+
+#: forms.py:71
+#, python-format
+msgid "A deleted article with slug \"%s\" already exists."
+msgstr "Már létezik egy törölt cikk a \"%s\" slug-gal."
+
+#: forms.py:75
+#, python-format
+msgid "A slug named \"%s\" already exists."
+msgstr "Ez a slug már létezik: %s"
+
+#: forms.py:84
+msgid "This slug conflicts with an existing URL."
+msgstr "A slug ütközik egy már létező URL-lel."
+
+#: forms.py:119
+msgid ""
+"Spam protection failed to find both a logged in user and an IP address."
+msgstr "A spam elleni védelem nem talált se bejelentkezett felhasználót, se IP-címet."
+
+#: forms.py:134
+#, python-format
+msgid ""
+"Spam protection: You are only allowed to create or edit %(revisions)d "
+"article(s) per %(interval_name)s."
+msgstr "Spam elleni védelem: Csak %(revisions)d cikket tud létrehozni vagy szerkeszteni %(interval_name)salatt."
+
+#: forms.py:152
+msgid "minute"
+msgstr "perc"
+
+#: forms.py:153
+#, python-format
+msgid "%d minutes"
+msgstr "%d perc"
+
+#: forms.py:162
+msgid "hour"
+msgstr "óra"
+
+#: forms.py:168 forms.py:196 forms.py:335 templates/wiki/dir.html:48
+#: templates/wiki/search.html:35
+msgid "Title"
+msgstr "Cím"
+
+#: forms.py:170
+msgid "Initial title of the article. May be overridden with revision titles."
+msgstr "A cikk kezdeti címe. A verziók címével felülírható."
+
+#: forms.py:172
+msgid "Type in some contents"
+msgstr "Írjon be valami tartalmat"
+
+#: forms.py:174
+msgid ""
+"This is just the initial contents of your article. After creating it, you "
+"can use more complex features like adding plugins, meta data, related "
+"articles etc..."
+msgstr "Ez csak a cikk kezdeti tartalma. A létrehozás után további funkciók érhetőek majd el: pluginek, meta adatok, kapcsolódó cikkek stb."
+
+#: forms.py:180
+msgid "Destination"
+msgstr "Cél"
+
+#: forms.py:182
+msgid "Redirect pages"
+msgstr "Átirányított oldalak"
+
+#: forms.py:183
+msgid "Create a redirect page for every moved article?"
+msgstr "Átirányított oldal létrehozása az összes átmozgatott cikkhez?"
+
+#: forms.py:203 forms.py:347
+msgctxt "Revision comment"
+msgid "Summary"
+msgstr "Összegzés"
+
+#: forms.py:205
+msgid ""
+"Give a short reason for your edit, which will be stated in the revision log."
+msgstr "Röviden írja le a módosítás okát, ami meg fog jelenni a verziónaplóban."
+
+#: forms.py:261
+msgid "Article is missing title or has an invalid title"
+msgstr "A cikk címe hiányzik vagy érvénytelen"
+
+#: forms.py:275
+msgid ""
+"While you were editing, someone else changed the revision. Your contents "
+"have been automatically merged with the new contents. Please review the text"
+" below."
+msgstr "Amíg szerkesztett, valaki megváltoztatta a verziót. A módosítások automatikusan összevonódtak az új tartalommal. Kérjük, nézze át az alábbi szöveget!"
+
+#: forms.py:278
+msgid "No changes made. Nothing to save."
+msgstr "Nem történt változás, nincs mit menteni."
+
+#: forms.py:305
+msgid "Select an option"
+msgstr "Válasszon ki egy lehetőséget"
+
+#: forms.py:337 templates/wiki/dir.html:49
+msgid "Slug"
+msgstr "Slug"
+
+#: forms.py:339
+msgid ""
+"This will be the address where your article can be found. Use only "
+"alphanumeric characters and - or _.<br>Note: If you change the slug later "
+"on, links pointing to this article are <b>not</b> updated."
+msgstr "Itt lesz majd elérhető a cikk. Csak alfanumerikus karaktereket, kötőjelet vagy aláhúzást használjon!<br>Megjegyzés: Ha később megváltoztatja a slugot, az erre a cikkre mutató linkek <b>nem</b> fognak frissülni."
+
+#: forms.py:348
+msgid "Write a brief message for the article's history log."
+msgstr "Adjon meg egy tömör üzenetet, ami a cikk előzményeknél fog megjelenni!"
+
+#: forms.py:367
+msgid "Yes, I am sure"
+msgstr "Igen, biztos vagyok benne"
+
+#: forms.py:370 templates/wiki/deleted.html:47
+msgid "Purge"
+msgstr "Teljes törlés"
+
+#: forms.py:372
+msgid ""
+"Purge the article: Completely remove it (and all its contents) with no undo."
+" Purging is a good idea if you want to free the slug such that users can "
+"create new articles in its place."
+msgstr "A cikk teljes törlése. Teljes eltávolítás a cikk minden tartalmával együtt, visszavonási lehetőség nélkül. A teljes törlés akkor javasolt, ha a cikkhez tartozó slugot fel akarja szabadítani annak érdekében, hogy új cikk kerülhessen a helyére."
+
+#: forms.py:379 plugins/attachments/forms.py:163 plugins/images/forms.py:66
+msgid "You are not sure enough!"
+msgstr "Nem elég biztos benne!"
+
+#: forms.py:382
+msgid "While you tried to delete this article, it was modified. TAKE CARE!"
+msgstr "Módosult a cikk, miközben törölni akarta. Járjon el óvatosan!"
+
+#: forms.py:389
+msgid "Lock article"
+msgstr "Cikk zárolása"
+
+#: forms.py:390
+msgid "Deny all users access to edit this article."
+msgstr "Minden felhasználó szerkeszési jogának tiltása."
+
+#: forms.py:393
+msgid "Permissions"
+msgstr "Jogosultságok"
+
+#: forms.py:399
+msgid "Owner"
+msgstr "Tulajdonos"
+
+#: forms.py:400
+msgid "Enter the username of the owner."
+msgstr "Adja meg a tulajdonos felhasználónevét!"
+
+#: forms.py:403 forms.py:458 plugins/notifications/util.py:12
+msgid "(none)"
+msgstr "(semmi)"
+
+#: forms.py:404
+msgid "Group"
+msgstr "Csoport"
+
+#: forms.py:410
+msgid "Inherit permissions"
+msgstr "Jogosultságok örököltetése"
+
+#: forms.py:411
+msgid ""
+"Check here to apply the above permissions (excluding group and owner of the "
+"article) recursively to articles below this one."
+msgstr "Ha ezt bekapcsolja, akkor a jogosultságok (a csoport és tulajdonost kivéve) az összes alcikknél érvényesülni fognak."
+
+#: forms.py:415
+msgid "Inherit owner"
+msgstr "Tulajdonos örököltetése"
+
+#: forms.py:416
+msgid ""
+"Check here to apply the ownership setting recursively to articles below this"
+" one."
+msgstr "Ha ezt bekapcsolja, akkor a tulajdonosi beállítosok az összes alcikknél érvényesülni fognak."
+
+#: forms.py:420
+msgid "Inherit group"
+msgstr "Csoport örököltetése"
+
+#: forms.py:421
+msgid ""
+"Check here to apply the group setting recursively to articles below this "
+"one."
+msgstr "Ha ezt bekapcsolja, akkor a csoport beállítások az összes alcikknél érvényesülni fognak."
+
+#: forms.py:426
+msgid "Permission settings for the article were updated."
+msgstr "A cikk jogosultsági beállításai frissültek."
+
+#: forms.py:428
+msgid "Your permission settings were unchanged, so nothing saved."
+msgstr "A jogosultsági beállítások nem változtak, nem történt mentés."
+
+#: forms.py:486
+msgid "No user with that username"
+msgstr "Nincs felhasználó ezzel a felhasználónévvel"
+
+#: forms.py:521
+msgid "Article locked for editing"
+msgstr "A cikk szerkesztése zárolva"
+
+#: forms.py:528
+msgid "Article unlocked for editing"
+msgstr "A cikk szerkesztésének zárolása feloldva"
+
+#: forms.py:555
+msgid "Filter..."
+msgstr "Szűrés..."
+
+#: forms.py:565
+msgid "Search..."
+msgstr "Keresés..."
+
+#: forms.py:614
+msgid "Passwords don't match"
+msgstr "Nem egyeznek a jelszavak"
+
+#: models/article.py:30 models/pluginbase.py:165
+#: plugins/attachments/models.py:26
+msgid "current revision"
+msgstr "jelenlegi verzió"
+
+#: models/article.py:34
+msgid ""
+"The revision being displayed for this article. If you need to do a roll-"
+"back, simply change the value of this field."
+msgstr "A cikknél jelenleg mutatott verzió. Ha meg akarja változtatni, akkor változtassa meg ezt a mezőt."
+
+#: models/article.py:42
+msgid "modified"
+msgstr "módosítva"
+
+#: models/article.py:43
+msgid "Article properties last modified"
+msgstr "A cikk tulajdonságai utojára módosítva"
+
+#: models/article.py:46
+msgid "owner"
+msgstr "tulajdonos"
+
+#: models/article.py:49
+msgid ""
+"The owner of the article, usually the creator. The owner always has both "
+"read and write access."
+msgstr "A cikk tulajdonosa, általában a létrehozója. A tulajdonosnak mindig van olvasási és írási joga."
+
+#: models/article.py:53
+msgid "group"
+msgstr "csoport"
+
+#: models/article.py:56
+msgid ""
+"Like in a UNIX file system, permissions can be given to a user according to "
+"group membership. Groups are handled through the Django auth system."
+msgstr "Hasonlóan a UNIX filerendszerhez, jogosultságok adhatóak felhasználóknak csoport tagság alapján. A csoportokat a Django authentikációs rendszere kezeli."
+
+#: models/article.py:61
+msgid "group read access"
+msgstr "csoport olvasási joga"
+
+#: models/article.py:64
+msgid "group write access"
+msgstr "csoport írási joga"
+
+#: models/article.py:67
+msgid "others read access"
+msgstr "többiek olvasási joga"
+
+#: models/article.py:70
+msgid "others write access"
+msgstr "többiek írási joga"
+
+#: models/article.py:179
+#, python-format
+msgid "Article without content (%(id)d)"
+msgstr "Cikk tartalom nélkül (%(id)d)"
+
+#: models/article.py:184
+msgid "Can edit all articles and lock/unlock/restore"
+msgstr "Minden cikket tud szerkeszteni és zárolni/zárolást feloldani/visszállítani"
+
+#: models/article.py:185
+msgid "Can change ownership of any article"
+msgstr "Meg tudja változtatni egy cikk tulajdonosát"
+
+#: models/article.py:186
+msgid "Can assign permissions to other users"
+msgstr "Jogosultságot tud adni egyéb felhasználónak"
+
+#: models/article.py:261
+msgid "content type"
+msgstr "tartalomtípus"
+
+#: models/article.py:263
+msgid "object ID"
+msgstr "objektum ID"
+
+#: models/article.py:272
+msgid "Article for object"
+msgstr "Objektum cikke"
+
+#: models/article.py:273
+msgid "Articles for object"
+msgstr "Objektum cikkei"
+
+#: models/article.py:285
+msgid "revision number"
+msgstr "verzió száma"
+
+#: models/article.py:291
+msgid "IP address"
+msgstr "IP-cím"
+
+#: models/article.py:295
+msgid "user"
+msgstr "felhasználó"
+
+#: models/article.py:310
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:23
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:25
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:44
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:68
+#: templates/wiki/includes/revision_info.html:15
+msgid "deleted"
+msgstr "törölve"
+
+#: models/article.py:314
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:74
+#: templates/wiki/article.html:23
+#: templates/wiki/includes/revision_info.html:21
+msgid "locked"
+msgstr "zárolva"
+
+#: models/article.py:352 models/pluginbase.py:44 models/urlpath.py:56
+msgid "article"
+msgstr "cikk"
+
+#: models/article.py:355
+msgid "article contents"
+msgstr "cikk tartalma"
+
+#: models/article.py:360
+msgid "article title"
+msgstr "cikk címe"
+
+#: models/article.py:363
+msgid ""
+"Each revision contains a title field that must be filled out, even if the "
+"title has not changed"
+msgstr "Minden verzió tartalmaz egy cím mezőt, amit ki kell tölteni, még akkor is, ha a cím nem változott."
+
+#: models/pluginbase.py:85
+msgid "original article"
+msgstr "eredeti cikk"
+
+#: models/pluginbase.py:87
+msgid "Permissions are inherited from this article"
+msgstr "Jogosultságok ebből a cikkből származódnak"
+
+#: models/pluginbase.py:150
+msgid "A plugin was changed"
+msgstr "A plugin megváltozott"
+
+#: models/pluginbase.py:171
+msgid ""
+"The revision being displayed for this plugin. If you need to do a roll-back,"
+" simply change the value of this field."
+msgstr "Ehhez a pluginhoz megjelenített verzió. Egy korábbi verizóra való visszállításhoz, változtassa meg ennek a mezőnek az értékét."
+
+#: models/urlpath.py:58
+msgid ""
+"This field is automatically updated, but you need to populate it when "
+"creating a new URL path."
+msgstr "Ez a mező automatikusan frissült, de új URL elérési út létrehozása esetén be kell állítani."
+
+#: models/urlpath.py:65
+msgid "slug"
+msgstr "slug"
+
+#: models/urlpath.py:74
+msgid "Position of URL path in the tree."
+msgstr "Az URL elérési út pozíciója a fában"
+
+#: models/urlpath.py:78
+msgid "Moved to"
+msgstr "Átmozgatva ide:"
+
+#: models/urlpath.py:79
+msgid "Article path was moved to this location"
+msgstr "A cikk elérési útvonala erre a helyre változott"
+
+#: models/urlpath.py:180
+msgid "(root)"
+msgstr "(alapcikk)"
+
+#: models/urlpath.py:188
+msgid "URL path"
+msgstr "URL elérési út"
+
+#: models/urlpath.py:189
+msgid "URL paths"
+msgstr "URL elérési utak"
+
+#: models/urlpath.py:195
+msgid "Sorry but you cannot have a root article with a slug."
+msgstr "Elnézést, de az alapcikknek nem lehet slugja."
+
+#: models/urlpath.py:198
+msgid "A non-root note must always have a slug."
+msgstr "Az alapcikk kivételével az összesnél kell slug."
+
+#: models/urlpath.py:204
+#, python-format
+msgid "There is already a root node on %s"
+msgstr "Már van alapcikk itt: %s"
+
+#: models/urlpath.py:405
+msgid ""
+"Articles who lost their parents\n"
+"===============================\n"
+"\n"
+"The children of this article have had their parents deleted. You should probably find a new home for them."
+msgstr "Szülő nélküli cikkek\n===============================\n\nA cikk allcikkjeinek szülei törölve lettek. Új helyet kellene nekik találni."
+
+#: models/urlpath.py:408
+msgid "Lost and found"
+msgstr "Elveszett dolgok"
+
+#: plugins/attachments/apps.py:7
+msgid "Wiki attachments"
+msgstr "Wiki csatolmányok"
+
+#: plugins/attachments/forms.py:15
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:14
+msgid "Description"
+msgstr "Leírás"
+
+#: plugins/attachments/forms.py:16
+msgid "A short summary of what the file contains"
+msgstr "A file tartalmának rövid összefoglalása"
+
+#: plugins/attachments/forms.py:65
+msgid "Remove previous"
+msgstr "Előző törlése"
+
+#: plugins/attachments/forms.py:66
+msgid "Remove previous attachment revisions and their files (to save space)?"
+msgstr "Az előző csatolmány verziók és file-jaik törlése (hogy hely szabaduljon fel) ?"
+
+#: plugins/attachments/forms.py:75
+msgid "File or zip archive"
+msgstr "File vagy zip file"
+
+#: plugins/attachments/forms.py:80
+msgid "Unzip file"
+msgstr "File unzipelése"
+
+#: plugins/attachments/forms.py:82
+msgid ""
+"Create individual attachments for files in a .zip file - directories do not "
+"work."
+msgstr "A zip-ben található file-okból különálló csatolmányok létrehozása - kivéve a könyvtárakat."
+
+#: plugins/attachments/forms.py:103
+msgid "Not a zip file"
+msgstr "Nem zip file"
+
+#: plugins/attachments/forms.py:112
+msgid "User not allowed to moderate this article"
+msgstr "A felhasználónak nem megengedett a cikk moderálása"
+
+#: plugins/attachments/forms.py:158
+msgid "Yes I am sure..."
+msgstr "Igen, biztos vagyok benne..."
+
+#: plugins/attachments/models.py:30
+msgid ""
+"The revision of this attachment currently in use (on all articles using the "
+"attachment)"
+msgstr "A csatolmány verziója jelenleg használatban van (minden cikkben, ami használja a csatolmányt)"
+
+#: plugins/attachments/models.py:34
+msgid "original filename"
+msgstr "eredeti filenév"
+
+#: plugins/attachments/models.py:47
+msgid "attachment"
+msgstr "csatolmány"
+
+#: plugins/attachments/models.py:48
+msgid "attachments"
+msgstr "csatolmányok"
+
+#: plugins/attachments/models.py:67
+msgid "No file extension found in filename. That's not okay!"
+msgstr "A filenak nincs kiterjesztése. Ez nincs rendben!"
+
+#: plugins/attachments/models.py:73
+msgid ""
+"The following filename is illegal: {filename:s}. Extension has to be one of "
+"{extensions:s}"
+msgstr "Ez a filenév nem megengedett: {filename:s}. Ezek a kiterjesztések megengedettek: {extensions:s}"
+
+#: plugins/attachments/models.py:119
+msgid "file"
+msgstr "file"
+
+#: plugins/attachments/models.py:125
+msgid "attachment revision"
+msgstr "csatolmány verzió"
+
+#: plugins/attachments/models.py:126
+msgid "attachment revisions"
+msgstr "csatolmány verziók"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:10
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:40
+#: templates/wiki/delete.html:8
+msgid "Delete"
+msgstr "Törlés"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:12
+msgid ""
+"The file may be referenced on other articles. Deleting it means that they "
+"will loose their references to this file. The following articles reference "
+"this file:"
+msgstr "A filera hivatkozhat más cikk is. Ha törli a filet, akkor ezek elvesztik a referenciájukat a filra. Ezek a cikkek hivatkoznak erre a filera:"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:27
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:51
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:49
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:39
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:75
+#: plugins/images/templates/wiki/plugins/images/purge.html:23
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:23
+#: templates/wiki/create.html:40 templates/wiki/delete.html:12
+#: templates/wiki/delete.html:48 templates/wiki/move.html:37
+msgid "Go back"
+msgstr "Vissza"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:31
+msgid "Delete it!"
+msgstr "Törlés"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:38
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:40
+msgid ""
+"You can remove a reference to a file, but it will retain its references on "
+"other articles."
+msgstr "Egy filera hivatkozás eltávolítható, de a hivatkozások egyéb cikkekből megmaradnak."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/delete.html:55
+msgid "Remove reference"
+msgstr "Hivatkozás eltávolítása"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:9
+msgid "History of"
+msgstr "Előzmények"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:12
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:28
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:43
+msgid "Date"
+msgstr "Dátum"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:13
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:42
+msgid "User"
+msgstr "Felhasználó"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:15
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:26
+msgid "File"
+msgstr "Fájl"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:16
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:34
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:30
+#: plugins/images/templates/wiki/plugins/images/index.html:22
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:167
+msgid "Size"
+msgstr "Méret"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:17
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:31
+msgid "Action"
+msgstr "Művelet"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:28
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:37
+msgid "<em>No description</em>"
+msgstr "<em>Nincs leírás</em>"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:36
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:55
+msgid "Download"
+msgstr "Letöltés"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/history.html:41
+msgid "Use this!"
+msgstr "Használd ezt!"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:5
+#: plugins/attachments/wiki_plugin.py:18
+msgid "Attachments"
+msgstr "Csatolmányok"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:10
+msgid ""
+"The following files are available for this article. Copy the markdown tag to"
+" directly refer to a file from the article text."
+msgstr "A következő fileok állnak rendelkezésre ehhez a cikkhez. A markdown tag másolásával közvetlenül lehet hivatkozni a fileokra a cikk szövegéből."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:11
+msgid ""
+"Complete markdown code syntax: <code>[attachment:id title:\"text\" "
+"size]</code><br> &nbsp;&nbsp;title: Link text replacement for the file name."
+" size: Show file size after the title."
+msgstr "Teljes markdown kód szintaxis: <code>[attachment:id title:\"text\" size]</code><br>&nbsp;&nbsp;title: Link szöveg lecserélése. size: Fileméret mutatása a cím után."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:32
+#: plugins/images/templates/wiki/plugins/images/index.html:20
+msgid "Markdown tag"
+msgstr "Markdown tag"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:33
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:29
+#: plugins/images/templates/wiki/plugins/images/index.html:21
+msgid "Uploaded by"
+msgstr "Feltöltötte"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:38
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:5
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:9
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:54
+msgid "Replace"
+msgstr "Lecserélés"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:42
+msgid "Detach"
+msgstr "Lecsatlakoztatás"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "File history"
+msgstr "File előzmények"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:51
+msgid "revisions"
+msgstr "verziók"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:66
+msgid "There are no attachments for this article."
+msgstr "A cikkhez nem tartoznak csatolmányok,"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:76
+msgid "Upload new file"
+msgstr "Új fájl feltöltése"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:88
+msgid "Upload file"
+msgstr "Fájl feltöltése"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:99
+msgid "Search and add file"
+msgstr "Fájl keresése és hozzáadása"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:105
+msgid ""
+"You can reuse files from other articles. These files are subject to updates "
+"on other articles which may or may not be a good thing."
+msgstr "Felhasználhat fileokat más cikkekből. Ezek a fileok megváltozhatnak más cikkekben, ami nem feltétlenül jó dolog."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:124
+msgid "Restore attachments"
+msgstr "Csatolmányok visszaállítása"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:137
+#: templates/wiki/deleted.html:25 templates/wiki/deleted.html:30
+#: templates/wiki/deleted_list.html:24
+msgid "Restore"
+msgstr "Visszaállítás"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:144
+msgid "Nothing to restore"
+msgstr "Nincs mit visszaállítani"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/index.html:160
+msgid ""
+"The article is currently locked for editing, and therefore no new "
+"attachments can be added."
+msgstr "A cikk szerkesztése jelenleg zárolva van, így nem lehet új csatolmányokat hozzáadni."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:6
+msgid "This attachment is not permitted on this page."
+msgstr "Ez a csatolmány nem megengedett ezen az oldalon."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/render.html:8
+msgid "Click to download"
+msgstr "Letöltés"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:12
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>. Please note "
+"that this attachment is in use on other articles, you may distort contents. "
+"However, do not hestitate to take advantage of this and make replacements "
+"for the listed articles where necessary. This way of working is more "
+"efficient...."
+msgstr "Egy csatolmány lecserélése azt jelenti, hogy az új file lesz használatban helyette. Minden hivatkozás rá le lesz cserélve azzal, amit feltölt és a file így lesz letöltve:  <strong>%(filename)s</strong>. Vegye figyelembe, hogy ez a csatolmány más cikkekben használatban van, így azok tartalma sérülhet. De ne féljen kihasználni ezt, és cseréket végreajtani a listázott cikkekben, ahol szükséges. Így sokkal hatékonyabb..."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:17
+#, python-format
+msgid "Articles using %(filename)s"
+msgstr "A cikkek, amelyek ezt használják: %(filename)s"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:26
+#, python-format
+msgid ""
+"Replacing an attachment means adding a new file that will be used in its "
+"place. All references to the file will be replaced by the one you upload and"
+" the file will be downloaded as <strong>%(filename)s</strong>."
+msgstr "Egy csatolmány lecserélése azt jelenti, hogy az új file lesz használatban helyette. Minden hivatkozás rá le lesz cserélve azzal, amit feltölt és a file így lesz letöltve: <strong>%(filename)s</strong>."
+
+#: plugins/attachments/templates/wiki/plugins/attachments/replace.html:43
+#: plugins/images/templates/wiki/plugins/images/index.html:45
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:27
+msgid "Upload replacement"
+msgstr "Csere feltöltése"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:5
+msgid "Add file to"
+msgstr "File hozzáadása ehhez: "
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:9
+msgid "Add attachment from other article"
+msgstr "Más cikkből csatolmány hozzáadása"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:17
+msgid "Search files and articles"
+msgstr "Fileok és cikkek keresése"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:27
+msgid "Main article"
+msgstr "Fő cikk"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:59
+msgid "Add to article"
+msgstr "Hozzáadás cikkhez"
+
+#: plugins/attachments/templates/wiki/plugins/attachments/search.html:67
+msgid "Your search did not return any results"
+msgstr "A keresés nem adott eredményt"
+
+#: plugins/attachments/views.py:51
+#, python-format
+msgid "Successfully added: %s"
+msgstr "Sikeresen hozzáadva: %s"
+
+#: plugins/attachments/views.py:57
+#, python-format
+msgid "%s was successfully added."
+msgstr "%ssikeresen hozzáadva."
+
+#: plugins/attachments/views.py:153
+#, python-format
+msgid "%s uploaded and replaces old attachment."
+msgstr "%s feltöltve és a régi csatolmány lecserélve."
+
+#: plugins/attachments/views.py:157
+#, python-format
+msgid "Your file could not be saved: %s"
+msgstr "A filet nem sikerült menteni: %s"
+
+#: plugins/attachments/views.py:186
+msgid ""
+"Your new file will automatically be renamed to match the file already "
+"present. Files with different extensions are not allowed."
+msgstr "Az új file automatikusan megkapja a már meglévő nevét. Más kiterjesztésű file nem megengedett."
+
+#: plugins/attachments/views.py:276
+#, python-format
+msgid "Current revision changed for %s."
+msgstr "%s aktuális verziója megváltozott."
+
+#: plugins/attachments/views.py:308
+#, python-format
+msgid "Added a reference to \"%(att)s\" from \"%(art)s\"."
+msgstr "Hivatkozása hozzádva innen:%(art)s ide: %(att)s."
+
+#: plugins/attachments/views.py:313
+#, python-format
+msgid "\"%(att)s\" is already referenced."
+msgstr "Erre már van hivatkozás: %(att)s"
+
+#: plugins/attachments/views.py:346
+#, python-format
+msgid "The file %s was deleted."
+msgstr "A file %s törölve."
+
+#: plugins/attachments/views.py:351
+#, python-format
+msgid "This article is no longer related to the file %s."
+msgstr "A cikk már nem kapcsolódik ehhez a filehoz: %s."
+
+#: plugins/attachments/wiki_plugin.py:26
+#, python-format
+msgid "A file was changed: %s"
+msgstr "Egy file megváltozott: %s"
+
+#: plugins/attachments/wiki_plugin.py:29
+#, python-format
+msgid "A file was deleted: %s"
+msgstr "Egy file törölve: %s"
+
+#: plugins/globalhistory/apps.py:7
+msgid "Wiki Global History"
+msgstr "Wiki globális előzmények"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:4
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:8
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/menubaritem.html:7
+msgid "Global history"
+msgstr "Globális előzmények"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:14
+#, python-format
+msgid "List of <strong>%(cnt)s change</strong> in the wiki."
+msgid_plural "List of <strong>%(cnt)s changes</strong> in the wiki."
+msgstr[0] "<strong>%(cnt)s </strong> wiki változtatás listája."
+msgstr[1] "<strong>%(cnt)sa</strong>wiki változtatás listája."
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:25
+msgid "Show all revisions of all articles"
+msgstr "Az összes cikk összes verzójának megtekintése"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:28
+msgid "Show last revision of every article"
+msgstr "Az összes cikk utolsó verziójának megtekintése"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:39
+msgid "Revision ID"
+msgstr "Verzió azonosító"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:40
+msgid "Article"
+msgstr "Cikk"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:41
+msgid "Message"
+msgstr "Üzenet"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:65
+#: templates/wiki/history.html:72
+msgid "no log message"
+msgstr "nincs napló üzenet"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:71
+#: templates/wiki/includes/revision_info.html:18
+msgid "restored"
+msgstr "visszaállítva"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:77
+#: templates/wiki/includes/revision_info.html:24
+msgid "unlocked"
+msgstr "zárolás feloldva"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:87
+#: templates/wiki/includes/revision_info.html:10
+msgid "anonymous (IP logged)"
+msgstr "ismeretlen (IP-cím naplózva)"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:95
+msgid "Go to article history"
+msgstr "Ugrás a cikk előzményekhez"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:96
+msgid "Go to article"
+msgstr "Ugrás a cikkhez"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:105
+msgid "No more changes to display !"
+msgstr "Nincs több megjelenítendő változás!"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:106
+msgid "Go back to previous page"
+msgstr "Vissza az előző oldalra"
+
+#: plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html:108
+msgid "No changes to display !"
+msgstr "Nincs megjelenítendő változás!"
+
+#: plugins/help/apps.py:7
+msgid "Wiki help"
+msgstr "Wiki segítségnyújtás"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:1
+msgid "Adding new articles"
+msgstr "Új cikkek hozzáadása"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:3
+msgid ""
+"To create a new wiki article, create a link to it. Clicking the link gives "
+"you the creation page."
+msgstr "Új cikk létrehozásához hozzon létre egy linket! A linkre kattintás átvezet a cikk létrehozó oldalra."
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:6
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:22
+msgid "An external link"
+msgstr "Egy külső link"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:9
+msgid "Headers"
+msgstr "Fejlécek"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:10
+msgid ""
+"Use these codes for headers and to automatically generate Tables of "
+"Contents."
+msgstr "Használja ezeket a jelöléseket a címsorokban az automatikus tartalomjegyzék generáláshoz."
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:25
+msgid "Typography"
+msgstr "Tipográfia"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:30
+msgid "Lists"
+msgstr "Listák"
+
+#: plugins/help/templates/wiki/plugins/help/sidebar.html:38
+msgid "Tables"
+msgstr "Táblázatok"
+
+#: plugins/help/wiki_plugin.py:10
+msgid "Help"
+msgstr "Segítség"
+
+#: plugins/images/apps.py:10
+msgid "Wiki images"
+msgstr "Wiki képek"
+
+#: plugins/images/forms.py:17
+#, python-format
+msgid ""
+"New image %s was successfully uploaded. You can use it by selecting it from "
+"the list of available images."
+msgstr "Kép sikeresen feltöltve: %s  Az elérhető képek listájából kiválasztva tudja használatba venni."
+
+#: plugins/images/forms.py:61
+msgid "Are you sure?"
+msgstr "Biztos benne?"
+
+#: plugins/images/models.py:38
+msgid "image"
+msgstr "kép"
+
+#: plugins/images/models.py:39
+msgid "images"
+msgstr "képek"
+
+#: plugins/images/models.py:44
+#, python-format
+msgid "Image: %s"
+msgstr "Kép: %s"
+
+#: plugins/images/models.py:46
+msgid "Current revision not set!!"
+msgstr "Nincs beállítva aktuális verzió!"
+
+#: plugins/images/models.py:97
+msgid "image revision"
+msgstr "kép verzió"
+
+#: plugins/images/models.py:98
+msgid "image revisions"
+msgstr "kép verziók"
+
+#: plugins/images/models.py:104
+#, python-format
+msgid "Image Revision: %d"
+msgstr "Kép verzió: %d"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:5
+#: plugins/images/wiki_plugin.py:15
+msgid "Images"
+msgstr "Képek"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:8
+msgid ""
+"The following images are available for this article. Copy the markdown tag "
+"to directly refer to an image from the article text."
+msgstr "Ezek a képek érhetőek el ehhez a cikkhez. A képre való közvetlen hivatkozáshoz használja a markdown taget."
+
+#: plugins/images/templates/wiki/plugins/images/index.html:12
+msgid "Back to edit page"
+msgstr "Vissza a szerkesztési oldalra"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:19
+msgid "No file"
+msgstr "Nincs fájl"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:36
+msgid "Upload and publish new image"
+msgstr "Új kép feltöltése és publikálása"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:40
+msgid "Restore image"
+msgstr "Kép visszaállítása"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:49
+msgid "Remove image"
+msgstr "Kép törlése"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:56
+msgid "Completely delete"
+msgstr "Teljes törlés"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:70
+#: templates/wiki/history.html:5
+msgid "History"
+msgstr "Előzmények"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:89
+msgid "Revert to this version"
+msgstr "Visszaállítás erre a változatra"
+
+#: plugins/images/templates/wiki/plugins/images/index.html:102
+msgid "There are no images for this article."
+msgstr "Ehhez a cikkhez nem tartoznak képek."
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:5
+#: templates/wiki/deleted.html:40
+msgid "Purge deletion"
+msgstr "Teljes törlés"
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:14
+msgid "Purge image: Completely remove image file and all revisions."
+msgstr "Kép törlése: a kép és összes verzójának eltávolítása."
+
+#: plugins/images/templates/wiki/plugins/images/purge.html:27
+msgid "Remove it completely!"
+msgstr "Teljes eltávolítás"
+
+#: plugins/images/templates/wiki/plugins/images/render.html:13
+msgid "Image not found"
+msgstr "Kép nem található"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:5
+msgid "Replace image"
+msgstr "Kép lecserélése"
+
+#: plugins/images/templates/wiki/plugins/images/revision_add.html:14
+msgid "Choose an image file to replace current image."
+msgstr "Válasszon egy kép fájlt a jelenlegi kép lecseréléséhez!"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:9
+msgid "Insert Image"
+msgstr "Kép beillesztése"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:50
+msgid "Image id"
+msgstr "Kép azonosító"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:52
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:15
+msgid "Insert"
+msgstr "Beillesztés"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:68
+msgid "No images found for this article"
+msgstr "A cikkhez nem találhatóak képek"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:76
+msgid "Manage images"
+msgstr "Képek kezelése"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:81
+msgid "Add new image"
+msgstr "Új kép hozzáadása"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:124
+msgid "Add image"
+msgstr "Kép hozzáadása"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:132
+msgid "You do not have permissions to add images."
+msgstr "Kép hozzádásához nincs jogosultsága"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:139
+msgid "How to use images"
+msgstr "Hogyan használjuk a képeket"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:142
+msgid ""
+"After uploading an image, it is attached to this particular article and can "
+"be used only here. Other users may replace the image, but older versions are"
+" kept. To show the image press the Insert button and select the options you "
+"want to use. You can use Markdown in the caption. The Markdown code syntax "
+"for images looks like this"
+msgstr "Egy kép feltöltése után az hozzárendelődik ehhez a cikkhez, és csak itt lehet használni. Más felhasználók lecserélhetik a képet, de a régi verziók megmaradnak. A kép megjelenítéséhez nyomja meg a Beillesztés gombot, és válasszon a lehetőségek közül. A képaláírásban használhat Markdownt. A Markdown kód szintaxis a képek esetén így néz ki"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:145
+msgid "Possible values for align are"
+msgstr "Az igazítás lehetséges értékei:"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:146
+msgid "Possible values for size are"
+msgstr "A méret lehetséges értékei:"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:159
+msgid "Alignment"
+msgstr "Igazítás"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:177
+msgid "Caption"
+msgstr "Képaláírás"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:178
+msgid "Enter caption"
+msgstr "Képaláírás megadása"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:183
+msgid "Insert image"
+msgstr "Kép beillesztése"
+
+#: plugins/images/templates/wiki/plugins/images/sidebar.html:184
+msgid "Cancel"
+msgstr "Mégse"
+
+#: plugins/images/views.py:78
+#, python-format
+msgid "%s has been restored"
+msgstr "%svisszaállítva"
+
+#: plugins/images/views.py:80
+#, python-format
+msgid "%s has been marked as deleted"
+msgstr "%smegjelölve töröltként"
+
+#: plugins/images/views.py:140
+#, python-format
+msgid "%(file)s has been changed to revision #%(revision)d"
+msgstr "%(file)s erre a verzióra változott #%(revision)d"
+
+#: plugins/images/views.py:185
+#, python-format
+msgid "%(file)s has been saved."
+msgstr "%(file)s elmentve."
+
+#: plugins/images/wiki_plugin.py:26
+#, python-format
+msgid "An image was added: %s"
+msgstr "Kép hozzáadva: %s"
+
+#: plugins/links/apps.py:7
+msgid "Wiki links"
+msgstr "Wiki linkek"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:3
+msgid "Link to another wiki page"
+msgstr "Link egy másik wiki oldalra"
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:6
+msgid ""
+"Type in something from another wiki page's title and auto-complete will help"
+" you create a tag for your wiki link. Tags for links look like this:"
+msgstr "Írjon be valamit egy másik wiki oldal címéből, és az automatikus kitöltés segít létrehozni egy címkét a wiki linkhez. A linkek címkéi így néznek ki: "
+
+#: plugins/links/templates/wiki/plugins/links/sidebar.html:25
+msgid ""
+"You can link to another website simply by inserting an address example.com "
+"or http://example.com or by using the markdown syntax:"
+msgstr "Egy másik weboldalra linkelhet egyszerűen egy cím beillesztésével (example.com vagy http://example.com) vagy ezt a markdown szintaxist használva:"
+
+#: plugins/links/wiki_plugin.py:20
+msgid "Links"
+msgstr "Linkek"
+
+#: plugins/macros/apps.py:7
+msgid "Wiki macros"
+msgstr "Wiki makrók"
+
+#: plugins/macros/mdx/macro.py:67
+msgid "Article list"
+msgstr "Cikk lista"
+
+#: plugins/macros/mdx/macro.py:68
+msgid "Insert a list of articles in this level."
+msgstr "Cikk lista beillesztése erre a szintre."
+
+#: plugins/macros/mdx/macro.py:70
+msgid "Maximum depth to show levels for."
+msgstr "Maximális mélység beállítása."
+
+#: plugins/macros/mdx/macro.py:76
+msgid "Table of contents"
+msgstr "Tartalomjegyzék"
+
+#: plugins/macros/mdx/macro.py:77
+msgid "Insert a table of contents matching the headings."
+msgstr "Tartalomjegyzék beillesztése a címek alapján."
+
+#: plugins/macros/mdx/macro.py:85
+msgid "WikiLinks"
+msgstr "Wikilinkek"
+
+#: plugins/macros/mdx/macro.py:87
+msgid "Insert a link to another wiki page with a short notation."
+msgstr "Link beillesztése egy másik wiki oldalra egy rövid szöveggel."
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:6
+msgid "Article index"
+msgstr "Cikk index"
+
+#: plugins/macros/templates/wiki/plugins/macros/article_list.html:10
+msgid "Nothing below this level"
+msgstr "Nincs semmi ezalatt a szint alatt"
+
+#: plugins/macros/wiki_plugin.py:11
+msgid "Macros"
+msgstr "Makrók"
+
+#: plugins/notifications/apps.py:7
+msgid "Wiki notifications"
+msgstr "Wiki értesítések"
+
+#: plugins/notifications/forms.py:16
+#, python-format
+msgid "Receive notifications %(interval)s"
+msgstr "Email értesítések kérése %(interval)s"
+
+#: plugins/notifications/forms.py:26
+#, python-format
+msgid "%(title)s - %(url)s"
+msgstr "%(title)s - %(url)s"
+
+#: plugins/notifications/forms.py:43
+msgid "Remove subscriptions"
+msgstr "Feliratkozások eltávolítása"
+
+#: plugins/notifications/forms.py:45
+msgid "Select article subscriptions to remove from notifications"
+msgstr "Jelölje ki azokat a cikkeket, amelyekről nem kér értesítést"
+
+#: plugins/notifications/forms.py:49
+msgid "Email digests"
+msgstr "Összevont email értesítések"
+
+#: plugins/notifications/forms.py:51
+msgid "Unchanged (selected on each article)"
+msgstr "Változatlan"
+
+#: plugins/notifications/forms.py:52
+msgid "No emails"
+msgstr "Nincsenek emailek"
+
+#: plugins/notifications/forms.py:53
+msgid "Email on any change"
+msgstr "Email értesítés minden változtatás esetén"
+
+#: plugins/notifications/forms.py:102
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:5
+msgid "Notifications"
+msgstr "Értesítések"
+
+#: plugins/notifications/forms.py:109
+#: templates/wiki/includes/article_menu.html:9 templates/wiki/settings.html:5
+msgid "Settings"
+msgstr "Beállítások"
+
+#: plugins/notifications/forms.py:113
+msgid "When this article is edited"
+msgstr "Amikor a cikket módosítják"
+
+#: plugins/notifications/forms.py:116
+msgid "Also receive emails about article edits"
+msgstr "Email értesítések cikk módosításokról is"
+
+#: plugins/notifications/forms.py:158
+msgid "Your notification settings were updated."
+msgstr "Az értesítési beállítások frissültek."
+
+#: plugins/notifications/forms.py:161
+msgid "Your notification settings were unchanged, so nothing saved."
+msgstr "Az értesítési beállítások nem változtak, nem történt mentés."
+
+#: plugins/notifications/models.py:20
+#, python-format
+msgid "%(user)s subscribing to %(article)s (%(type)s)"
+msgstr "%(user)s feliratkozása a(z) %(article)scikkre  (%(type)s)"
+
+#: plugins/notifications/models.py:46
+#, python-format
+msgid "Article deleted: %s"
+msgstr "Cikk törölve: %s"
+
+#: plugins/notifications/models.py:54
+#, python-format
+msgid "Article modified: %s"
+msgstr "Cikk módosítva: %s"
+
+#: plugins/notifications/models.py:62
+#, python-format
+msgid "New article created: %s"
+msgstr "Új cikk létrehozva: %s"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:4
+msgid "No notifications"
+msgstr "Nincsenek értesítések"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:9
+msgid "Clear notifications list"
+msgstr "Értesítések törlése"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:15
+msgid "Notification settings"
+msgstr "Értesítési beállítások"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:9
+msgid "Your notification settings"
+msgstr "Értesítési beállításai"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:11
+msgid "Manage how often you receive notifications"
+msgstr "Állítsa be, milyen gyakran kap értesítéseket"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "Settings for"
+msgstr "Beállítások ehhez:"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:20
+msgid "articles"
+msgstr "cikkek"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:27
+msgid "You are not subscribed to any notifications yet."
+msgstr "Még nincs feliratkozva egyetlen értesítésre sem,"
+
+#: plugins/notifications/templates/wiki/plugins/notifications/settings.html:35
+#: templates/wiki/edit.html:36 templates/wiki/edit.html:83
+#: templates/wiki/settings.html:17
+msgid "Save changes"
+msgstr "Változások mentése"
+
+#: plugins/notifications/views.py:25
+#, python-format
+msgid "You will receive notifications %(interval)s for %(articles)d articles"
+msgstr "Ilyen időközönként fog értesítéseket kapni %(articles)d cikkhez: %(interval)s"
+
+#: plugins/redlinks/apps.py:7
+msgid "Wiki red links"
+msgstr "Piros wiki linkek"
+
+#: templates/wiki/accounts/account_settings.html:4
+#: templates/wiki/accounts/account_settings.html:7
+#: templates/wiki/base_site.html:79
+msgid "Account Settings"
+msgstr "Felhasználói beállítások"
+
+#: templates/wiki/accounts/account_settings.html:11
+msgid "Update"
+msgstr "Mentés"
+
+#: templates/wiki/accounts/login.html:4 templates/wiki/base_site.html:109
+msgid "Log in"
+msgstr "Bejelentkezés"
+
+#: templates/wiki/accounts/login.html:10
+msgid "Please log in"
+msgstr "Kérjük jelentkezzen be!"
+
+#: templates/wiki/accounts/login.html:18
+msgid "Log me in..."
+msgstr "Bejelentkezek..."
+
+#: templates/wiki/accounts/login.html:25
+msgid "Don't have an account?"
+msgstr "Még nincs felhasználói fiókja?"
+
+#: templates/wiki/accounts/login.html:25 templates/wiki/accounts/signup.html:3
+#: templates/wiki/accounts/signup.html:6 templates/wiki/base_site.html:113
+msgid "Sign up"
+msgstr "Regisztráció"
+
+#: templates/wiki/accounts/signup.html:14
+msgid "Sign me up..."
+msgstr "Regisztrálok..."
+
+#: templates/wiki/article.html:39
+msgid "This article was last modified:"
+msgstr "A cikk utoljára módosítva:"
+
+#: templates/wiki/base_site.html:53
+msgid "Search from current article..."
+msgstr "Jelenlegi cikkben keresés..."
+
+#: templates/wiki/base_site.html:55
+msgid "Search whole wiki..."
+msgstr "Az egész wikin keresés..."
+
+#: templates/wiki/base_site.html:86
+msgid "Log out"
+msgstr "Kijelentkezés"
+
+#: templates/wiki/base_site.html:93
+msgid "Deleted articles"
+msgstr "Törölt cikkek"
+
+#: templates/wiki/base_site.html:121
+msgid "Home"
+msgstr "Kezdőlap"
+
+#: templates/wiki/base_site.html:122
+msgid "About"
+msgstr "Bemutatkozás"
+
+#: templates/wiki/base_site.html:147
+msgid ""
+"Powered by <a href=\"http://www.django-wiki.org\">django-wiki</a>, an open "
+"source application under the <a href=\"http://www.gnu.org/licenses/quick-"
+"guide-gplv3.html\">GPLv3</a> license. Let knowledge be the cure."
+msgstr "Az oldal a <a href=\"http://www.django-wiki.org\">django-wiki</a>-vel készült, ami egy  <a href=\"http://www.gnu.org/licenses/quick-guide-gplv3.html\">GPLv3</a> licenszű, nyílt forráskódú alkalmazás."
+
+#: templates/wiki/create.html:5 templates/wiki/create.html:31
+msgid "Add new article"
+msgstr "Új cikk hozzáadása"
+
+#: templates/wiki/create.html:44
+msgid "Create article"
+msgstr "Cikk létrehozása"
+
+#: templates/wiki/create_root.html:4
+msgid "Create root article"
+msgstr "Alapcikk létrehozása"
+
+#: templates/wiki/create_root.html:22 templates/wiki/root_missing.html:10
+msgid "Congratulations!"
+msgstr "Gratulálok!"
+
+#: templates/wiki/create_root.html:24
+msgid ""
+"You have django-wiki installed... but there are no articles. So it's time to"
+" create the first one, the root article."
+msgstr "Telepítette a django-wikit, de még nincsenek cikkek. Itt az ideje létrehozni az elsőt, az alapcikket."
+
+#: templates/wiki/create_root.html:25
+msgid ""
+"In the beginning, it will only be editable by administrators, but you can "
+"define permissions after."
+msgstr "Először csak adminisztrátorok tudják majd szerkeszteni, de majd be lehet állítani jogosultságokat."
+
+#: templates/wiki/create_root.html:28
+msgid "Root article"
+msgstr "Alapcikk"
+
+#: templates/wiki/create_root.html:35
+msgid "Create root"
+msgstr "Alapcikk létrehozása"
+
+#: templates/wiki/delete.html:5 templates/wiki/delete.html:52
+#: templates/wiki/edit.html:49
+msgid "Delete article"
+msgstr "Cikk törlése"
+
+#: templates/wiki/delete.html:11
+msgid "You cannot delete a root article."
+msgstr "Az alapcikket nem lehet törölni."
+
+#: templates/wiki/delete.html:17
+msgid ""
+"You cannot delete this article because you do not have permission to delete "
+"articles with children. Try to remove the children manually one-by-one."
+msgstr "Ez a cikk nem törölhető, mert nincs jogosultsága olyan cikkeket törölni, amiknek van alcikke. Próbálja meg az alcikkeket egyesével eltávolítani!"
+
+#: templates/wiki/delete.html:23
+msgid ""
+"You are deleting an article. This means that its children will be deleted as"
+" well. If you choose to purge, children will also be purged!"
+msgstr "Egy cikket szeretne törölni. Ez azt jelenti, hogy a gyerekei szintén törlődni fognak."
+
+#: templates/wiki/delete.html:25
+msgid "Articles that will be deleted"
+msgstr "A cikkek, amik törlésre kerülnek"
+
+#: templates/wiki/delete.html:31
+msgid "...and more!"
+msgstr "...és még több!"
+
+#: templates/wiki/delete.html:39
+msgid "You are deleting an article. Please confirm."
+msgstr "Erősítse meg a cikk törlését!"
+
+#: templates/wiki/deleted.html:5 templates/wiki/deleted.html:14
+msgid "Article deleted"
+msgstr "Cikk törölve"
+
+#: templates/wiki/deleted.html:17
+msgid "The article you were looking for has been deleted."
+msgstr "A keresett cikk törölve lett."
+
+#: templates/wiki/deleted.html:26
+msgid "You may restore this article and its children by clicking restore."
+msgstr "Visszaállíthatja a cikket és az alcikkeit a \"visszaállítás\"-ra kattintva."
+
+#: templates/wiki/deleted.html:41
+msgid ""
+"You may remove this article and any children permanently and free their "
+"slugs by clicking the below button. This action cannot be undone."
+msgstr "Az alábbi gombra kattintva ez a cikk és minden alcikke végérvényesen eltávolítható, és a slugjaik is felszabadulnak. A műveletet nem lehet visszavonni."
+
+#: templates/wiki/deleted_list.html:4
+msgid "Admin Panel"
+msgstr "Adminisztrátor panel"
+
+#: templates/wiki/deleted_list.html:8
+msgid "Deleted Articles"
+msgstr "Törölt cikkek"
+
+#: templates/wiki/deleted_list.html:13
+msgid "Page Title"
+msgstr "Oldal címe"
+
+#: templates/wiki/deleted_list.html:14
+msgid "Date Deleted"
+msgstr "Törlés dátuma"
+
+#: templates/wiki/deleted_list.html:15
+msgid "Restore Article"
+msgstr "Cikk visszaállítása"
+
+#: templates/wiki/deleted_list.html:30
+msgid "No deleted articles to display"
+msgstr "Nincsenek törölt cikkek"
+
+#: templates/wiki/dir.html:5
+msgid "Listing articles in"
+msgstr "Cikkek listázása itt:"
+
+#: templates/wiki/dir.html:17
+msgid "Up one level"
+msgstr "Egy szintet fel"
+
+#: templates/wiki/dir.html:22
+msgid "Add article"
+msgstr "Cikk hozzáadása"
+
+#: templates/wiki/dir.html:30
+msgid "clear"
+msgstr "törlés"
+
+#: templates/wiki/dir.html:40
+msgid "article,articles"
+msgstr "cikk,cikkek"
+
+#: templates/wiki/dir.html:40
+msgid "is,are"
+msgstr " "
+
+#: templates/wiki/dir.html:40
+#, python-format
+msgid ""
+"Browsing <strong><a href=\"%(self_url)s\">/%(path)s</a></strong>. There "
+"%(articles_plur_verb)s <strong>%(cnt)s %(articles_plur)s</strong> in this "
+"level."
+msgstr "<strong><a href=\"%(self_url)s\">/%(path)s</a></strong> tallózása.  %(articles_plur_verb)s <strong>%(cnt)s %(articles_plur)s</strong> van ezen a szinten."
+
+#: templates/wiki/dir.html:50 templates/wiki/search.html:36
+msgid "Last modified"
+msgstr "Utoljára módosítva"
+
+#: templates/wiki/dir.html:74 templates/wiki/search.html:45
+msgid "There are no articles in this level"
+msgstr "Ezen a szinten nincsenek cikkek"
+
+#: templates/wiki/edit.html:5 templates/wiki/includes/article_menu.html:34
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: templates/wiki/edit.html:11
+msgid ""
+"<strong>Warning:</strong> You are not logged in. Your IP address will be "
+"logged."
+msgstr "<strong>Figyelmeztetés:</strong> Nincs bejelentkezve. Az IP-címe naplózva lesz."
+
+#: templates/wiki/edit.html:12
+msgid "Click here to log in"
+msgstr "Kattintson ide a bejelentkezéshez"
+
+#: templates/wiki/edit.html:32
+msgid "Preview"
+msgstr "Előnézet"
+
+#: templates/wiki/edit.html:43 templates/wiki/move.html:41
+msgid "Move article"
+msgstr "Cikk átmozgatása"
+
+#: templates/wiki/edit.html:79
+msgid "Back to editor"
+msgstr "Vissza a szerkesztőhöz"
+
+#: templates/wiki/error.html:5 templates/wiki/error.html:26
+msgid "Error"
+msgstr "Hiba"
+
+#: templates/wiki/error.html:15
+msgid "Not found"
+msgstr "Nem található"
+
+#: templates/wiki/error.html:18
+msgid "This article was not found, and neither was its parent article."
+msgstr "Ez a cikk nem található, és a szülőcikke sem."
+
+#: templates/wiki/error.html:20
+msgid "Start page"
+msgstr "Kezdőoldal"
+
+#: templates/wiki/error.html:30
+msgid "There was some sort of error accessing this page. Sorry!"
+msgstr "Valemilyen hiba lépett fel az oldal hozzáférésekor. Elnézést!"
+
+#: templates/wiki/error.html:38
+msgid "Back to"
+msgstr "Vissza ide:"
+
+#: templates/wiki/history.html:49
+msgid ""
+"Click each revision to see a list of edited lines. Click the Preview button "
+"to see how the article looked at this stage. At the bottom of this page, you"
+" can change to a particular revision or merge an old revision with the "
+"current one."
+msgstr "A verzióra való kattintással megtekinthetőek a módosított sorok. Az \"Előnézet\" gombra kattintással megnézhető, hogy hogyan nézett ki a cikk ebben a fázisban. A lap alján lehetősége van egy konkrét verzióra átállni vagy egy korábbi verziót összevonni a jelenlegivel."
+
+#: templates/wiki/history.html:84 templates/wiki/history.html:89
+msgid "Preview this revision"
+msgstr "A verzió előnézete"
+
+#: templates/wiki/history.html:103
+msgid "Auto log:"
+msgstr "Automatikus log:"
+
+#: templates/wiki/history.html:111
+msgid "Change"
+msgstr "Megváltoztat"
+
+#: templates/wiki/history.html:129
+msgid "Merge selected with current..."
+msgstr "A kijelölt összevonása a jelenlegivel..."
+
+#: templates/wiki/history.html:133
+msgid "Switch to selected version"
+msgstr "A kijelölt verzióra váltás"
+
+#: templates/wiki/history.html:152 templates/wiki/history.html:183
+msgid "Back to history view"
+msgstr "Vissza az előzmény nézethez"
+
+#: templates/wiki/history.html:157 templates/wiki/history.html:162
+msgid "Switch to this version"
+msgstr "Váltás erre a verzióra"
+
+#: templates/wiki/history.html:174
+msgid "Merge with current"
+msgstr "Összevonás a jelenlegivel"
+
+#: templates/wiki/history.html:175
+msgid ""
+"When you merge a revision with the current, all data will be retained from "
+"both versions and merged at its approximate location from each revision."
+msgstr "Amikor összevon egy verziót a jelenlegivel, akkor minden adat megtartásra kerül mindkét verzióból."
+
+#: templates/wiki/history.html:175
+msgid "After this, it's important to do a manual review."
+msgstr "Ezután fontos manuális ellenőrzést végezni."
+
+#: templates/wiki/history.html:188 templates/wiki/history.html:193
+msgid "Create new merged version"
+msgstr "Új összevont verzió létrehozása"
+
+#: templates/wiki/includes/anonymous_blocked.html:7
+#, python-format
+msgid ""
+"You need to <a href=\"%(login_url)s\">log in</a> or <a "
+"href=\"%(signup_url)s\">sign up</a> to use this function."
+msgstr "<a href=\"%(login_url)s\">Be kell jelentkeznie</a> vagy <a href=\"%(signup_url)s\">regisztrálnia</a> a funkció használatához."
+
+#: templates/wiki/includes/anonymous_blocked.html:11
+msgid "You need to log in or sign up to use this function."
+msgstr "Be kell jelentkeznie vagy regisztrálnia a funckió használatához."
+
+#: templates/wiki/includes/article_menu.html:26
+msgid "Changes"
+msgstr "Változások"
+
+#: templates/wiki/includes/article_menu.html:41
+msgid "View Source"
+msgstr "Forrás megtekintése"
+
+#: templates/wiki/includes/article_menu.html:49
+msgid "View"
+msgstr "Megtekintés"
+
+#: templates/wiki/includes/breadcrumbs.html:13
+#: templates/wiki/includes/breadcrumbs.html:39
+msgid "Sub-articles for"
+msgstr "Alcikkek ehhez:"
+
+#: templates/wiki/includes/breadcrumbs.html:25
+msgid "No sub-articles"
+msgstr "Nincsenek alcikkek"
+
+#: templates/wiki/includes/breadcrumbs.html:28
+msgid "...and more"
+msgstr "...és mégtöbb"
+
+#: templates/wiki/includes/breadcrumbs.html:32
+msgid "Browse articles in this level"
+msgstr "Cikkek böngészése ezen a szinten"
+
+#: templates/wiki/includes/breadcrumbs.html:48
+#, python-format
+msgid "New article next to %(title)s"
+msgstr "Új cikk ez mellé: %(title)s"
+
+#: templates/wiki/includes/breadcrumbs.html:53
+#, python-format
+msgid "New article below %(title)s"
+msgstr "Új cikk ez alá: %(title)s"
+
+#: templates/wiki/includes/revision_info.html:10
+msgid "by"
+msgstr " "
+
+#: templates/wiki/move.html:4
+msgid "Move"
+msgstr "Átmozgatás"
+
+#: templates/wiki/move.html:23
+#, python-format
+msgid ""
+"%(cnt)s nested article will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s article nested in this hierarchy will not be updated."
+msgid_plural ""
+"%(cnt)s nested articles will also be moved.<br> Be careful, links to this "
+"article and %(cnt)s articles nested in this hierarchy will not be updated."
+msgstr[0] "%(cnt)s alcikk szintén át lesz mozgatva.<br> Legyen óvatos, az erre a cikkre és %(cnt)s kapcsolódó alcikkre mutató linkek nem fognak frissülni."
+msgstr[1] "%(cnt)s alcikk szintén át lesz mozgatva.<br> Legyen óvatos, az erre a cikkre és %(cnt)s kapcsolódó alcikkre mutató linkek nem fognak frissülni."
+
+#: templates/wiki/permission_denied.html:8
+msgid "Permission Denied"
+msgstr "Hozzáférés megtagadva"
+
+#: templates/wiki/permission_denied.html:11
+msgid "Sorry, you don't have permission to access this page."
+msgstr "Elnézést, nincs jogosultsága hozzáférni ehhez az oldalhoz."
+
+#: templates/wiki/permission_denied.html:16
+msgid "This article is locked for editing."
+msgstr "A cikk szerkesztése zárolva van."
+
+#: templates/wiki/permission_denied.html:22
+msgid "Back to article"
+msgstr "Vissza a cikkhez"
+
+#: templates/wiki/preview_inline.html:8
+msgid "Previewing revision"
+msgstr "Verzió előnézete"
+
+#: templates/wiki/preview_inline.html:15
+msgid "Previewing merge between"
+msgstr "Összevonás előnézete"
+
+#: templates/wiki/preview_inline.html:17
+msgid "and"
+msgstr "és"
+
+#: templates/wiki/preview_inline.html:22 views/article.py:924
+msgid "You cannot merge with a deleted revision"
+msgstr "Törölt verzióval nem lehet összevonni"
+
+#: templates/wiki/preview_inline.html:31
+msgid "This revision has been deleted."
+msgstr "Ez a verzió törölve lett."
+
+#: templates/wiki/preview_inline.html:32
+msgid "Restoring to this revision will mark the article as deleted."
+msgstr "Az erre a verzióra való visszállítása töröltnek fogja jelölni a cikket."
+
+#: templates/wiki/root_missing.html:12
+msgid ""
+"You have django-wiki installed and it seems to be working. But there are no "
+"articles yet."
+msgstr "A django-wiki telepítve van és működik. De még nincsenek cikkek."
+
+#: templates/wiki/root_missing.html:17
+msgid ""
+"Not to worry! You simply have to login with a superuser account and create "
+"the first article in the root of the URL hierarchy."
+msgstr "Aggodalomra semmi ok. Be kell jelentkeznie superuser-ként és létrehozni az első cikket, az alapcikket."
+
+#: templates/wiki/root_missing.html:21
+msgid "Click here to login"
+msgstr "Kattintson ide a bejelentkezéshez!"
+
+#: templates/wiki/root_missing.html:27
+msgid ""
+"But since you're logged in as a superuser, we should really get started..."
+msgstr "Mivel superuserként van bejelentkezve, kezdjünk is bele..."
+
+#: templates/wiki/root_missing.html:29
+msgid "Yes, I'll go and create the first article"
+msgstr "Igen, létrehozom az első cikket"
+
+#: templates/wiki/root_missing.html:30
+msgid "No thanks, I'd rather read the documentation"
+msgstr "Köszönöm, de nem, inkább elolvasnám a dokumentációt"
+
+#: templates/wiki/search.html:5 templates/wiki/search.html:9
+msgid "Search results for:"
+msgstr "Keresési eredmények erre:"
+
+#: templates/wiki/search.html:15
+msgid "Searching in"
+msgstr "Keresés"
+
+#: templates/wiki/search.html:17
+msgid "Searching whole wiki"
+msgstr "Az egész wiki keresése"
+
+#: templates/wiki/search.html:28
+#, python-format
+msgid "Your search returned <strong>%(cnt)s</strong> results."
+msgstr "A kereséshez <strong>%(cnt)s</strong>találat van."
+
+#: templates/wiki/source.html:5
+msgid "Source of"
+msgstr "Forrás"
+
+#: templates/wiki/source.html:10
+msgid "This article is currently locked for editing."
+msgstr "A cikk szerkesztése jelenleg zárolva van."
+
+#: views/accounts.py:41
+msgid "Account signup is only allowed for administrators."
+msgstr "Felhasználói regisztráció csak adminisztrátorok számára engedélyezett."
+
+#: views/accounts.py:55
+msgid "You are now signed up... and now you can sign in!"
+msgstr "Sikeresen regisztrált és most már be tud jelentkezni."
+
+#: views/accounts.py:68
+msgid "You are no longer logged in. Bye bye!"
+msgstr "Már nincs bejelentkezve. Viszlát!"
+
+#: views/accounts.py:101
+msgid "You are now logged in! Have fun!"
+msgstr "Be van jelentkezve, sok sikert!"
+
+#: views/accounts.py:138
+msgid "Account info saved!"
+msgstr "Fiók beállítások elmentve."
+
+#: views/article.py:90
+#, python-format
+msgid "New article '%s' created."
+msgstr "Új cikk létrehozva: '%s'"
+
+#: views/article.py:98
+#, python-format
+msgid "There was an error creating this article: %s"
+msgstr "Hiba történt a cikk létrehozásakor: %s"
+
+#: views/article.py:101
+msgid "There was an error creating this article."
+msgstr "Hiba történt a cikk létrehozásakor."
+
+#: views/article.py:191
+msgid ""
+"This article cannot be deleted because it has children or is a root article."
+msgstr "Ezt a cikket nem lehet törölni, mivel vannak alcikkei vagy ez az alapcikk."
+
+#: views/article.py:201
+msgid ""
+"This article together with all its contents are now completely gone! Thanks!"
+msgstr "A cikk az összes allcikkével együtt nincs többé! Köszönöm!"
+
+#: views/article.py:210
+#, python-format
+msgid ""
+"The article \"%s\" is now marked as deleted! Thanks for keeping the site "
+"free from unwanted material!"
+msgstr "A \"%s\" nevű cikk töröltként megjelölve. Köszönjük, hogy a nem kívánt tartalmaktól mentesen tartja az oldalt!"
+
+#: views/article.py:322
+msgid "Your changes were saved."
+msgstr "Változások elmentve."
+
+#: views/article.py:336
+msgid "Please note that your article text has not yet been saved!"
+msgstr "A cikk szövege még nem mentődött."
+
+#: views/article.py:367
+msgid "A new revision of the article was successfully added."
+msgstr "A cikk új verziója sikeresen hozzáadva."
+
+#: views/article.py:416
+msgid "This article cannot be moved because it is a root article."
+msgstr "Ezt a cikket nem lehet átmozgatni, mert ez az alapcikk."
+
+#: views/article.py:430
+msgid "This article cannot be moved to a child of itself."
+msgstr "Ez a cikk nem mozgatható át saját maga alá."
+
+#: views/article.py:483
+#, python-brace-format
+msgid "Moved: {title}"
+msgstr "Átmozgatva: {title}"
+
+#: views/article.py:484
+#, python-brace-format
+msgid "Article moved to {link}"
+msgstr "A cikk átmozgatva ide: {link}"
+
+#: views/article.py:485
+msgid "Created redirect (auto)"
+msgstr "Átirányítás létrehozva (auto)"
+
+#: views/article.py:493
+#, python-brace-format
+msgid "Article successfully moved! Created {n} redirect."
+msgid_plural "Article successfully moved! Created {n} redirects."
+msgstr[0] "A cikk sikeresen átt lett mozgatva. {n} átirányítás létrehozva."
+msgstr[1] "A cikk sikeresen át lett mozgatva. {n} átirányítás létrehozva."
+
+#: views/article.py:502
+msgid "Article successfully moved!"
+msgstr "A cikk sikeresen át lett mozgatva."
+
+#: views/article.py:544
+msgid "Restoring article"
+msgstr "Cikk visszaállítása"
+
+#: views/article.py:548
+#, python-format
+msgid "The article \"%s\" and its children are now restored."
+msgstr "A(z) \"%s\"cikk és a gyerekei visszaállításra kerültek."
+
+#: views/article.py:816
+#, python-format
+msgid ""
+"The article %(title)s is now set to display revision #%(revision_number)d"
+msgstr "A(z) %(title)scikk beállítva, hogy ezt a verziót mutassa: #%(revision_number)d"
+
+#: views/article.py:890
+msgid "New title"
+msgstr "Új cím"
+
+#: views/article.py:937
+#, python-format
+msgid "Merge between revision #%(r1)d and revision #%(r2)d"
+msgstr "#%(r1)d és #%(r2)dverziók összevonása"
+
+#: views/article.py:948
+#, python-format
+msgid ""
+"A new revision was created: Merge between revision #%(r1)d and revision "
+"#%(r2)d"
+msgstr "Új verzió létrehozva #%(r1)d és #%(r2)d verziók összevonásával"
