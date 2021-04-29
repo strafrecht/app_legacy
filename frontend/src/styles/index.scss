@@ -1,0 +1,23 @@
+$body-color: slateblue;
+
+body {
+  color: $body-color;
+  font-family: sans-serif;
+}
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "old/base.css";
+@import "old/columns.css";
+@import "old/comments.css";
+@import "old/content.css";
+@import "old/custom-wagtail-columns.css";
+//@import "old/django-pwa-app.css";
+//@import "old/main.css";
+@import "old/mysite.css";
+@import "old/navbar.css";
+@import "old/person_index_page.css";
+@import "old/person_page.css";
+@import "old/polls.css";
+@import "old/sidebar.css";
+@import "old/website_index_page.css";
+@import "old/wiki.css";

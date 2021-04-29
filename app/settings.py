@@ -72,15 +72,16 @@ INSTALLED_APPS = [
     # Assets
     'pipeline',
     'pwa',
+    'manifest_loader',
 
     # Pages
     'app',
     'core',
     'pages',
     'news',
-    'emails',
+    #'emails',
     'profiles',
-    'leaflet',
+    #'#leaflet',
     'feedback',
 
     # Wagtail
@@ -284,6 +285,10 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/build')
+]
+
 WAGTAIL_SITE_NAME = 'strafrecht-online'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -356,17 +361,19 @@ CHAT_WS_SERVER_HOST = 'localhost'
 CHAT_WS_SERVER_PORT = 5002
 CHAT_WS_SERVER_PROTOCOL = 'ws'
 
-import os
-if os.name == 'nt':
-    import platform
-    OSGEO4W = r"C:\OSGeo4W"
-    if '64' in platform.architecture()[0]:
-        OSGEO4W += "64"
-    assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
-    os.environ['OSGEO4W_ROOT'] = OSGEO4W
-    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
-    os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
-    os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
+#import os
+#if os.name == 'nt':
+#    import platform
+#    OSGEO4W = r"C:\OSGeo4W"
+#    if '64' in platform.architecture()[0]:
+#        OSGEO4W += "64"
+#    assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
+#    os.environ['OSGEO4W_ROOT'] = OSGEO4W
+#    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
+#    os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
+#    os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
+#else:
+#    GDAL_LIBRARY_PATH = '/usr/include/gdal'
 
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:8080",
@@ -422,6 +429,9 @@ AVATAR_EXPOSE_USERNAMES = False
 AVATAR_MAX_AVATARS_PER_USER = '1'
 
 # CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'", "'unsafe-inline'",)
+<<<<<<< HEAD
 
 COMMENTS_APP = 'django_comments_xtd'
 COMMENTS_XTD_MAX_THREAD_LEVEL = 5
+=======
+>>>>>>> webpack-integration
