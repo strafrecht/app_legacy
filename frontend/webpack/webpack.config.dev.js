@@ -18,13 +18,14 @@ module.exports = merge(common, {
     hot: true,
   },
   plugins: [
+    new VueLoaderPlugin(),
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
     new StylelintPlugin({
       files: Path.join('src', '**/*.s?(a|c)ss'),
     }),
-    new MiniCssExtractPlugin({filename: 'css/app.css',})
+    new MiniCssExtractPlugin({filename: 'css/app.css',}),
   ],
   module: {
     rules: [
@@ -35,11 +36,7 @@ module.exports = merge(common, {
       {
         test: /\.js$/,
         include: Path.resolve(__dirname, '../src'),
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
-        },
+        loader: 'babel-loader',
       },
       {
         test: /\.html$/i,
@@ -56,8 +53,4 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [
-    // make sure to include the plugin!
-    new VueLoaderPlugin()
-  ]
 });

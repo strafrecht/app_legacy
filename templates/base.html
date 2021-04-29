@@ -89,8 +89,6 @@
 				<script src="https://use.fontawesome.com/2f4f67fb08.js"></script>
 				<script src="https://browser.sentry-cdn.com/5.25.0/bundle.min.js" integrity="sha384-2p7fXoWSRPG49ZgmmJlTEI/01BY1LgxCNFQFiWpImAERmS/bROOQm+cJMdq/kmWS" crossorigin="anonymous"></script>
 				<!-- include VueJS first -->
-				<script src="https://unpkg.com/vue@latest"></script>
-
 				<!-- use the latest vue-select release -->
 				<script src="https://unpkg.com/vue-select@latest"></script>
 				<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
@@ -113,11 +111,6 @@
       })(document,"script");
     </script>
 
-				{% javascript 'base' %}
-
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
 
 				<script src="{% static 'js/vendors.js' %}"></script>
 				<script src="{% static 'js/app.js' %}"></script>

@@ -16,7 +16,7 @@ module.exports = {
     	chunks: 'all',
     	name: 'vendors',
   	},
-	},
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({ patterns: [{ from: Path.resolve(__dirname, '../public'), to: 'public' }] }),
