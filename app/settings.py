@@ -81,7 +81,7 @@ INSTALLED_APPS = [
     'news',
     #'emails',
     'profiles',
-    #'#leaflet',
+    #'leaflet',
     'feedback',
 
     # Wagtail
