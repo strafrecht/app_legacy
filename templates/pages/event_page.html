@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% load wagtailcore_tags wagtailimages_tags website_tags %}
-{% load leaflet_tags %}
 
 {% block extra_css %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/event_page.css' %}">
-	{% leaflet_css %}
 {% endblock %}
 
 {% block extra_js %}
-	{% leaflet_js %}
 {% endblock %}
 
 {% block body_class %}template-websitepage{% endblock %}
@@ -24,9 +21,6 @@
 					{% endif %}
 					<h2 class="font-weight-bold" style="width: 100%;margin-bottom:0px;">{{ event.name }}</h2>
 					{% if event.showmap %}
-					<div style="margin-bottom: 20px;">
-					{% leaflet_map "event-4" callback="window.map_init_basic" %}
-					</div>
 					{% endif %}
 					
 					{% if event.speaker %}

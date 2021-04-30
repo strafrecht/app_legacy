@@ -11,6 +11,7 @@
 {% block content %}
 {% csrf_token %}
 <div class="container">
+	<div id="hello-world"></div>
 	<div class="col-md-8">
 		<h2 class="font-weight-bold">{{ newsitem.title }}</h2>
 		<p>Von <a href="/personen/{{ page.owner.id }}">{{ page.owner }}</a></p>
