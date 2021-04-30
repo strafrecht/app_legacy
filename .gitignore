@@ -7,6 +7,7 @@ db.sqlite3
 media
 frontend/node_modules/
 static
+static/
 .idea
 
 # Backup files # 
