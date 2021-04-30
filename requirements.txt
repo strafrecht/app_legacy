@@ -4,7 +4,7 @@ anyascii==0.1.7
 asgiref==3.3.4
 async-timeout==3.0.1
 attrs==20.2.0
-autobahn==20.7.1
+autobahn==20.12.3
 Automat==20.2.0
 beautifulsoup4==4.8.2
 billiard==3.6.3.0
