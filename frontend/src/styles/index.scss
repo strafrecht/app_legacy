@@ -1,4 +1,9 @@
+$body-color: 	rgb(61, 61, 61);
 
+body {
+  color: $body-color;
+  font-family: sans-serif;
+}
 
 @import "~bootstrap/scss/bootstrap.scss";
 @import "old/base.css";
