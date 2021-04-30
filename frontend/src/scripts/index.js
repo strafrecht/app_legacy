@@ -9,7 +9,7 @@ import Vuetify from "vue";
 import Vue from "vuetify";
 import calendar from "./vue/calendar.vue";
 
-Vue.config.productionTip = true;
+// Vue.config.productionTip = true;
 
 new Vue({
   render: (h) => h(calendar),
