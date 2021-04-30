@@ -30,6 +30,8 @@ django-cors-headers = "*"
 django-pwa = "*"
 markdownify = "==0.6.3"
 wagtail-treemodeladmin = "*"
+channels = "*"
+channels-redis = "*"
 
 [requires]
 python_version = "3.8"

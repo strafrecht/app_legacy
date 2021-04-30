@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'profiles',
     #'leaflet',
     'feedback',
+    'chat',
 
     # Wagtail
     'wagtail.contrib.forms',
@@ -149,6 +150,8 @@ INSTALLED_APPS = [
     # cors-headers
     'corsheaders',
 
+    'channels',
+
 ]
 
 MIDDLEWARE = [
@@ -191,7 +194,7 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'wsgi.application'
+# WSGI_APPLICATION = 'wsgi.application'
 ASGI_APPLICATION = 'app.routing.application'
 
 if DEBUG:
@@ -241,13 +244,30 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CHANNEL_LAYERS = {
-  'default': {
-      'BACKEND': 'channels_redis.core.RedisChannelLayer',
-      'CONFIG': {
-        'hosts': [('127.0.0.1', 6379)],
-      },
-  },
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
 }
+
+# CHANNEL_LAYERS = {
+#   'default': {
+#       'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#       'CONFIG': {
+#         'hosts': [('127.0.0.1', 6379)],
+#       },
+#   },
+# }
+
+
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": os.environ['REDIS_URL'],
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient"
+#         }
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
