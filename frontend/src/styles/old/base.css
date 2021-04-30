@@ -16,7 +16,7 @@
 @font-face {
 	font-family: 'Corporal';
 	font-style: normal;
-	src: local('Corporal'), url('/static/fonts/corporal-webfont.ttf') format('truetype');
+	/*src: local('Corporal'), url('./../../static/fonts/corporal-webfont.ttf') format('truetype');*/
 }
 
 
