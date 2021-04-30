@@ -1,29 +1,5 @@
-main.container {
-	margin-top: 40px;
-	max-width: 900px;
-}
-footer {
-	border-top: 1px solid #eee;
-	margin-top: 50px;
-	padding: 10px 0 10px 0;
-}
-footer .container {
-	max-width: 900px;
-}
-
-footer ul {
-	margin: 0px;
-	padding: 0px;
-}
-footer ul li {
-	display: inline-block;
-	font-size: 13px;
-	margin: 0 15px 0 0;
-}
-
-* {
-	font-family: 'Roboto', sans-serif;
-}
+/* Fonts */
+/* -------------------------------------------------------------------------------------------- */
 
 @font-face {
   font-family: "Corporal";
@@ -37,6 +13,32 @@ footer ul li {
   font-style: normal;
 }
 
+@font-face {
+	font-family: 'Corporal';
+	font-style: normal;
+	src: local('Corporal'), url('/static/fonts/corporal-webfont.ttf') format('truetype');
+}
+
+
+/* Handle basic element styling */
+/* -------------------------------------------------------------------------------------------- */
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+.brand {
+	font-family: 'Corporal' !important;
+}
+main.container {
+	margin-top: 40px;
+	max-width: 900px;
+}
+p.roofline {
+	color: #4c9dbb;
+	font-size: 0.97em;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
 .content .col-8 h2 {
 	font-weight: 900;
 	font-size: 1.6em;
@@ -73,6 +75,11 @@ footer ul li {
 .content .col-8 ul li {
 	margin-bottom: 7px;
 }
+
+
+/* Header */
+/* -------------------------------------------------------------------------------------------- */
+
 body .header-image {
 	margin-bottom: 35px;
 }
@@ -93,6 +100,27 @@ body .header-image .header-caption {
 	opacity: 0.75;
 	font-weight: normal;
 }
+
+
+/* Footer */
+/* -------------------------------------------------------------------------------------------- */
+footer {
+	border-top: 1px solid #eee;
+	margin-top: 50px;
+	padding: 10px 0 10px 0;
+}
+footer .container {
+	max-width: 900px;
+}
+footer ul {
+	margin: 0px;
+	padding: 0px;
+}
+footer ul li {
+	display: inline-block;
+	font-size: 13px;
+	margin: 0 15px 0 0;
+}
 a.social-media-icon {
 	font-size: 25px !important;
 	width: 25px !important;
@@ -105,6 +133,27 @@ a.social-media-icon:hover {
 	text-decoration: none;
 	color: #6c757d !important;
 }
+
+
+/* Forms */
+/* -------------------------------------------------------------------------------------------- */
+
+.btn-primary {
+    background-color: #4c9ebb !important;
+    border-color: #4c9ebb !important;
+}
+.btn-primary:hover {
+    background-color: #3e7d94 !important;
+    border-color: #3e7d94 !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    border-color: #4c9ebb !important;
+    background-color: #4c9ebb !important;
+}
+
+
+/* Labels/Tags */
+/* -------------------------------------------------------------------------------------------- */
 
 .label:after {
 	margin-left: 0.5em;
@@ -126,13 +175,6 @@ a.social-media-icon:hover {
 	content: "NEU";
 	background: rgb(225, 213, 196);
 	color: #b2ab40;
-}
-
-p.roofline {
-	color: #4c9dbb;
-	font-size: 0.97em;
-	font-weight: 600;
-	margin-bottom: 10px;
 }
 .Draftail-block--roofline {
 	color: #4c9dbb !important;
@@ -166,10 +208,19 @@ p.roofline {
 	line-height: 1.5em !important;
 }
 
+
+/* Handle specific elements nested in the DOM  */
+/* -------------------------------------------------------------------------------------------- */
+
 .content-list { border: 1px solid red; }
 
 .columns-block {
 	display: flex;
+}
+
+.comments .comment .well .row {
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 #exam-table-page .v-label {
@@ -179,15 +230,9 @@ p.roofline {
 	display: inline-table;
 }
 
-@font-face {
-	font-family: 'Corporal';
-	font-style: normal;
-	/*src: local('Corporal'), url('./../../static/fonts/corporal-webfont.ttf') format('truetype');*/
-}
 
-.brand {
-	font-family: 'Corporal' !important;
-}
+/* Handle Responsive Design  */
+/* -------------------------------------------------------------------------------------------- */
 
 @media screen and (max-width: 1000px) {
 	.row {
