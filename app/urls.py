@@ -8,7 +8,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.core import urls as wagtail_urls
 
 from wagtailpolls.views.vote import vote
-from birdsong import urls as birdsong_urls
+#from birdsong import urls as birdsong_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +24,7 @@ urlpatterns = [
     path('quiz/', include('core.urls')),
     path('run/', include('core.urls')),
 
-    path('mail/', include(birdsong_urls)),
+    #path('mail/', include(birdsong_urls)),
     path('', include('pwa.urls')),
 
     #path('chat/', include('django_chatter.urls')),

@@ -72,7 +72,6 @@ INSTALLED_APPS = [
     # Assets
     'pipeline',
     'pwa',
-    'manifest_loader',
 
     # Pages
     'app',
@@ -139,7 +138,7 @@ INSTALLED_APPS = [
 
     # Wagtail Newsletter
     #'mjml',
-    'birdsong',
+    #'birdsong',
 
     # Link Checker
     #'wagtaillinkchecker',
