@@ -1,4 +1,4 @@
-# Strafecht App
+# Strafecht App!
 
 ## Running locally
 
