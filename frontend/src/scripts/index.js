@@ -5,14 +5,15 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import moment from "moment";
 
 
-import Vue from "vue";
-import Calendar from "./vue/calendar.vue";
+import Vuetify from "vue";
+import Vue from "vuetify";
+import calendar from "./vue/calendar.vue";
 
 Vue.config.productionTip = true;
 
 new Vue({
-  render: (h) => h(HelloWorld),
-}).$mount("#calendar");
+  render: (h) => h(calendar),
+}).$mount("calendar");
 
 
 $(document).ready(function () {
