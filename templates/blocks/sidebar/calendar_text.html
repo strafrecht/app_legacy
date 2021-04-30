@@ -3,7 +3,7 @@
 <div id="calendar-widget">
 	<div class="sidebar sidebar-calendar-text">
 		<div id="calendar">
-			<calendar date="2021-04-20" />
+			<calendar date="{{ value.calendar|date:"Y-m-d" }}" />
 		</div>
 		<div class="text">
 			{{ value.content }}
