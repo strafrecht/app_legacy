@@ -4,11 +4,10 @@
 *.pyc
 __pycache__
 db.sqlite3
-media
+media/
 frontend/node_modules/
-static
 static/
-.idea
+.idea/
 
 # Backup files # 
 *.bak 
