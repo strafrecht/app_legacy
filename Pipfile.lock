@@ -23,12 +23,7 @@
                 "sha256:18a77d22da66f2b5e6951f7f365b543656f16c5d7c68f7c70055f030767df403",
                 "sha256:7036c5fdefa40fe9d73a6552ac4f2821916a2a29c1368925f0b7846e536bd2ac"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.3'",
-            "version": "==0.1.7"
-=======
             "version": "==0.2.0"
->>>>>>> 87ed51d493f045afa61a03469a225a771867074b
         },
         "asgiref": {
             "hashes": [
@@ -284,12 +279,7 @@
                 "sha256:9f947b7fe330875ac7f05f9616f42ef90df9253b639ca102a9449dd34cec0cab",
                 "sha256:b9ed6e94bad0bed3bf062a6be7ee3db117fda02c6419c680d614197364ea018b"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.5'",
-            "version": "==1.3.0"
-=======
             "version": "==1.4.0"
->>>>>>> 87ed51d493f045afa61a03469a225a771867074b
         },
         "django-treebeard": {
             "hashes": [
@@ -312,12 +302,7 @@
                 "sha256:686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125",
                 "sha256:cf316c8370a737a022b72b56874f6602acf974a37a9fba42ec2876387549fc61"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
-            "version": "==0.17"
-=======
             "version": "==0.17.1"
->>>>>>> 87ed51d493f045afa61a03469a225a771867074b
         },
         "draftjs-exporter": {
             "hashes": [
