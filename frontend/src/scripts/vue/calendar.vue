@@ -4,6 +4,9 @@
     <strong>{{ month }}</strong>
     <span>{{ day }}</span>
   </time>
+  <p>
+    {{ datenew }}
+  </p>
 </template>
 
 <script>
@@ -21,10 +24,10 @@ export default {
       day: moment(this.date, "YYYY-MM-DD").format("D"),
       month: moment(this.date, "YYYY-MM-DD").format("MMMM"),
       weekday: moment(this.date, "YYYY-MM-DD").format("dddd"),
+      datenew: this.date,
     };
   },
 };
-console.log(this.date);
 </script>
 
 <style scoped>
