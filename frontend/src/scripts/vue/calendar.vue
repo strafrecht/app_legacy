@@ -17,14 +17,14 @@ moment.updateLocale("de", localization);
 export default {
   name: "calendar",
   props: {
-    date: String,
+    eventdate: String,
   },
   data() {
     return {
-      day: moment(this.date, "YYYY-MM-DD").format("D"),
-      month: moment(this.date, "YYYY-MM-DD").format("MMMM"),
-      weekday: moment(this.date, "YYYY-MM-DD").format("dddd"),
-      datenew: this.date,
+      day: moment(this.eventdate, "YYYY-MM-DD").format("D"),
+      month: moment(this.eventdate, "YYYY-MM-DD").format("MMMM"),
+      weekday: moment(this.eventdate, "YYYY-MM-DD").format("dddd"),
+      datenew: this.eventdate,
     };
   },
 };
