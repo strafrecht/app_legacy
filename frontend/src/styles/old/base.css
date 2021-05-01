@@ -146,6 +146,14 @@ a.social-media-icon:hover {
     background-color: #3e7d94 !important;
     border-color: #3e7d94 !important;
 }
+.btn-secondary {
+    background-color: #f9f9f9 !important;
+    border-color: #ececec !important;
+}
+.btn-secondary:hover {
+    background-color: #ececec !important;
+    border-color: #ececec !important;
+}
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     border-color: #4c9ebb !important;
     background-color: #4c9ebb !important;
