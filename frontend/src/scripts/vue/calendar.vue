@@ -22,9 +22,9 @@ export default {
       month: moment(this.date, "YYYY-MM-DD").format("MMMM"),
       weekday: moment(this.date, "YYYY-MM-DD").format("dddd"),
     };
-  console.log(this.date);
   },
 };
+console.log(this.date);
 </script>
 
 <style scoped>
