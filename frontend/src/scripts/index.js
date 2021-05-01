@@ -5,8 +5,8 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import moment from "moment";
 
 
-import Vuetify from "vue";
-import Vue from "vuetify";
+import Vue from "vue";
+// import Vuetify from "vuetify";
 import calendar from "./vue/calendar.vue";
 
 // Vue.config.productionTip = true;
