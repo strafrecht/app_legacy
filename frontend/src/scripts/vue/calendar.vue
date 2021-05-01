@@ -22,6 +22,7 @@ export default {
       month: moment(this.date, "YYYY-MM-DD").format("MMMM"),
       weekday: moment(this.date, "YYYY-MM-DD").format("dddd"),
     };
+  console.log(this.date);
   },
 };
 </script>
@@ -36,7 +37,7 @@ time.icon {
   width: 7em;
   height: 7em;
   background-color: #fff;
-  margin: 2em auto;
+  margin: auto auto;
   border-radius: 0.6em;
   box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff,
     0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
