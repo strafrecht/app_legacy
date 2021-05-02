@@ -5,6 +5,9 @@
     <span>{{ day }}</span>
   </time>
   <p>
+    {{ testprop }}
+  </p>
+  <p>
     {{ datenew }}
   </p>
 </template>
@@ -18,6 +21,7 @@ export default {
   name: "calendar",
   props: {
     eventdate: String,
+    testprop: String,
   },
   data() {
     return {
