@@ -146,6 +146,7 @@ INSTALLED_APPS = [
     # Wagtail Polls
     'wagtailpolls',
     'wagtail.contrib.modeladmin',
+    'wagtailstreamforms',
 
     # DRF
     'rest_framework',
