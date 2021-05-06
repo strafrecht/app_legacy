@@ -194,8 +194,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'wsgi.application'
-ASGI_APPLICATION = 'app.routing.application'
+
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
@@ -243,20 +242,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
-}
+WSGI_APPLICATION = 'app.wsgi.application'
+ASGI_APPLICATION = 'app.routing.application'
+# ASGI_APPLICATION = 'app.agsi.application'
 
 # CHANNEL_LAYERS = {
-#   'default': {
-#       'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#       'CONFIG': {
-#         'hosts': [('127.0.0.1', 6379)],
-#       },
-#   },
+#     "default": {
+#         "BACKEND": "channels.layers.InMemoryChannelLayer"
+#     }
 # }
+
+CHANNEL_LAYERS = {
+  'default': {
+      'BACKEND': 'channels_redis.core.RedisChannelLayer',
+      'CONFIG': {
+        'hosts': [('127.0.0.1', 6379)],
+      },
+  },
+}
 
 
 # CACHES = {
