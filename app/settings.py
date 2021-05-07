@@ -150,8 +150,8 @@ INSTALLED_APPS = [
     # cors-headers
     'corsheaders',
 
+    # Django channels
     'channels',
-
 ]
 
 MIDDLEWARE = [
