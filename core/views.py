@@ -107,6 +107,7 @@ def category_question(request, category_id, question_id):
         question = Question.objects.get(pk=question_id)
         # user
         user = User.objects.get(pk=request.user.id)
+        print(request.user.id)
 
         # If user starts a new quiz, create quiz object
         if request.GET.get('state') == 'start':
