@@ -7,6 +7,7 @@
 	<ul class="fields">
 		{% for child, ratio in columns %}
 			<li style="flex: {{ratio}};" {% if child.block.required %} class="required" {% endif %}>
+				LOL
 				<label{% if child.id_for_label %} for="{{child.id_for_label}}" {% endif %}>Column {{forloop.counter}}</label>
 				{{ child.render_form }}
 			</li>

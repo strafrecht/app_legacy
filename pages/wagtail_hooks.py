@@ -6,7 +6,12 @@ import wagtail.admin.rich_text.editors.draftail.features as draftail_features
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin, ModelAdminGroup, modeladmin_register
 )
-from pages.models import People, NodeAdmin, Events, Sessions, Exams
+
+from pages.sections.people.models import People
+from pages.sections.events.models import Events
+from pages.sections.sessions.models import Sessions
+from pages.sections.exams.models import Exams
+
 from wagtailpolls.models import Poll
 
 class PeopleModelAdmin(ModelAdmin):
@@ -44,7 +49,7 @@ class ExamsModelAdmin(ModelAdmin):
     menu_order= 200
     list_display = ('type', 'difficulty', 'date')
 
-modeladmin_register(NodeAdmin)
+#modeladmin_register(NodeAdmin)
 modeladmin_register(PeopleModelAdmin)
 modeladmin_register(EventsModelAdmin)
 modeladmin_register(SessionsModelAdmin)

@@ -16,11 +16,11 @@ from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
-from pages.models import WebsitePage
+from .base import PageMixin
 
 #class NewsIndexPage(Page):
 
-class NewsArticleIndexPage(Page):
+class NewsArticleIndexPage(PageMixin):
     cover = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -84,20 +84,20 @@ class NewsNewsletterPage(WebsitePage):
         context['semesters'] = semesters
         return context
 
-def get_semester(doc):
-        date_string = doc.filename.split("Lehrstuhlnewsletter20vom20")[-1].split(".pdf")[0]
-        d = datetime.datetime.strptime(date_string, '%d.%m.%Y')
+    def get_semester(doc):
+            date_string = doc.filename.split("Lehrstuhlnewsletter20vom20")[-1].split(".pdf")[0]
+            d = datetime.datetime.strptime(date_string, '%d.%m.%Y')
 
-        if d.month in [4,5,6,7,8,9]:
-            title = "SS-{}".format(d.year)
-            return {"title": title, "year": d.year}
-        else:
-            if d.month in [1,2,3]:
-                title = "WS-{}".format(d.year-1)
-                return {"title": title, "year": d.year-1}
-            else:
-                title = "WS-{}".format(d.year)
+            if d.month in [4,5,6,7,8,9]:
+                title = "SS-{}".format(d.year)
                 return {"title": title, "year": d.year}
+            else:
+                if d.month in [1,2,3]:
+                    title = "WS-{}".format(d.year-1)
+                    return {"title": title, "year": d.year-1}
+                else:
+                    title = "WS-{}".format(d.year)
+                    return {"title": title, "year": d.year}
 
 class NewsEvaluationIndexPage(Page):
     def get_context(self, request):

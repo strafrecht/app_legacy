@@ -7,11 +7,11 @@ from wagtail.core.fields import RichTextField
 
 from wagtailnews.models import NewsIndexMixin, AbstractNewsItem, AbstractNewsItemRevision
 from wagtailnews.decorators import newsindex
-
+from pages.models.pages import BasePage
 
 # The decorator registers this model as a news index
 @newsindex
-class NewsIndex(NewsIndexMixin, Page):
+class NewsIndex(NewsIndexMixin, BasePage):
     # Add extra fields here, as in a normal Wagtail Page class, if required
     newsitem_model = 'NewsItem'
 

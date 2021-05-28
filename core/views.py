@@ -26,7 +26,7 @@ from django.contrib.auth.models import User
 from django.core import serializers
 from wiki.models import Article, ArticleRevision, URLPath
 from .models import Question, QuestionVersion, AnswerVersion, Quiz, UserAnswer, Choice
-from pages.models import Exams
+from pages.sections.exams.models import Exams
 
 from rest_framework import viewsets, permissions, mixins, generics, response
 from .serializers import QuestionSerializer, ChoiceSerializer, UserAnswerSerializer, QuizSerializer, AnswerSerializer, \
