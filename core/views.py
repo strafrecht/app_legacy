@@ -34,22 +34,27 @@ from .serializers import QuestionSerializer, ChoiceSerializer, UserAnswerSeriali
 
 logger = logging.getLogger('django')
 
+
 def index(request):
     categories = get_at_categories()
     return render(request, "core/quiz.html", {"categories": categories})
+
 
 def index_bt(request):
     categories = get_bt_categories()
     return render(request, "core/quiz.html", {"categories": categories})
 
+
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'core/question.html', {'question': question})
+
 
 def category(request, category_id):
     category = get_object_or_404(Article, id=category_id)
     questions = Question.objects.filter(category_id=category_id)
     return render(request, 'core/category.html', {'category': category, 'questions': questions})
+
 
 def category_question(request, category_id, question_id):
     category = get_object_or_404(Article, id=category_id)
@@ -68,6 +73,7 @@ def category_question(request, category_id, question_id):
             )
             user_answer.save()
 
+            # print('QUIZ ID', quiz.id)
             logger.error(request.POST)
             for answer in request.POST.getlist('answer'):
                 choice = Choice(
@@ -79,17 +85,20 @@ def category_question(request, category_id, question_id):
             questions = _get_questions_for_category(category_id)
 
             next_question = questions.filter(id__gt=question_id).first()
-
-            #return render(request, 'core/category_question.html', {'category': category, 'question': next_question, 'questions': questions})
+            # return render(request, 'core/category_question.html', {'category': category, 'question': next_question, 'questions': questions})
             if request.POST.get('state') == 'finished':
                 quiz.completed = True
                 quiz.save()
 
                 return HttpResponseRedirect('/profile/quizzes')
             else:
-                return HttpResponseRedirect('/quiz/category/{}/question/{}'.format(category.id, next_question.id))
+                if next_question:
+                    return HttpResponseRedirect('/quiz/category/{}/question/{}'.format(category.id, next_question.id))
+                else:
+                    return HttpResponseRedirect('/profile/quiz/{}'.format(quiz.id))
         else:
             request.session['category'][category_id]['question'][question_id]['answer'][answer_id]
+
     else:
         category = get_object_or_404(Article, id=category_id)
 
@@ -107,7 +116,7 @@ def category_question(request, category_id, question_id):
         question = Question.objects.get(pk=question_id)
         # user
         user = User.objects.get(pk=request.user.id)
-        print(request.user.id)
+        # print(request.user.id)
 
         # If user starts a new quiz, create quiz object
         if request.GET.get('state') == 'start':
@@ -119,18 +128,33 @@ def category_question(request, category_id, question_id):
             quiz.save()
 
             question = questions.first()
+        else:
+            # not sure
+            quiz = Quiz.objects.filter(category__id=category.id).filter(user__id=user.id).filter(completed=False).last()
 
-        #question_version = QuestionVersion.objects.first()
+        # question_version = QuestionVersion.objects.first()
         question_version = question.questionversion_set.all().first()
 
         question = question_version
+
+        questions_ids = []
+        for item in questions:
+            questions_ids.append(item.id)
+
+        quest_num = question.question.id
+        current_question = questions_ids.index(quest_num) + 1
+
+
 
         return render(request, 'core/category_question.html', {
             'category': category,
             'question': question,
             'questions': questions,
-            'categories': get_bt_categories() if '/bt' in category.get_absolute_url() else get_at_categories()
+            'current_question': current_question,
+            'categories': get_bt_categories() if '/bt' in category.get_absolute_url() else get_at_categories(),
+            'quiz':quiz
         })
+
 
 def category_summary(request, category_id):
     category = get_object_or_404(Article, id=category_id)
@@ -140,6 +164,7 @@ def category_summary(request, category_id):
     quiz.save()
 
     return render(request, 'core/category_summary.html', {'category': category})
+
 
 def _get_questions_for_category(category_id):
     id = category_id
@@ -186,10 +211,10 @@ def scrape(request):
         filecounter += 1
 
     # run main code
-    #for root, dirs, files in os.walk(base_dir, topdown=True, onerror=on_error):
+    # for root, dirs, files in os.walk(base_dir, topdown=True, onerror=on_error):
     for root, dirs, files in tqdm(os.walk(base_dir, topdown=True, onerror=on_error), total=filecounter, unit=" files"):
 
-        #if "grundlagen" in root:
+        # if "grundlagen" in root:
         if True:
             for file in files:
                 path = os.path.join(root, file)
@@ -204,7 +229,7 @@ def scrape(request):
                         "root": root,
                         "slug": root.split("/")[-1],
                         "name": soup.article.h1.text.strip(),
-                        #"long_name": extract("long_name", soup),
+                        # "long_name": extract("long_name", soup),
                     }
 
                     create_category(cat)
@@ -215,7 +240,7 @@ def scrape(request):
                         "root": root,
                         "slug": root.split("/")[-1],
                         "name": soup.article.h1.text.strip(),
-                        #"long_name": extract("long_name", soup),
+                        # "long_name": extract("long_name", soup),
                         "tags": extract("tags", soup),
                         "content": extract("content", soup),
                     }
@@ -227,10 +252,10 @@ def scrape(request):
                     question = {
                         "root": root,
                         "slug": root.split("/")[-1],
-                        "category": "", #Category
-                        #"title": extract("question", soup),
+                        "category": "",  # Category
+                        # "title": extract("question", soup),
                         "answers": extract("answers", soup),
-                        #"description": extract("description", soup),
+                        # "description": extract("description", soup),
                         "order": extract("order", soup),
                     }
 
@@ -246,45 +271,47 @@ def scrape(request):
                     create_question_version(question_version)
 
     # output
-    #categories = Category.objects.all()
+    # categories = Category.objects.all()
     return render(request, "core/categories.html", {
         "categories": [],
         "wikis": [],
         "questions": [],
     })
 
+
 def traverse_ancestors(parent, slug_list):
-    #print("  ENTER: traverse_ancestors()")
-    #print("  parent: {}, slug_list: {}".format(parent, slug_list))
+    # print("  ENTER: traverse_ancestors()")
+    # print("  parent: {}, slug_list: {}".format(parent, slug_list))
 
     if len(slug_list) == 0:
-        #print("    POS: 1")
+        # print("    POS: 1")
         return parent
     else:
-        #print("    POS: 2")
+        # print("    POS: 2")
         remaining = slug_list
         up = remaining.popleft()
-        #print("    UP: {}".format(up))
+        # print("    UP: {}".format(up))
 
         try:
             children = parent.get_children()
             child = list(filter(lambda c: c.slug == up, children))
 
-            #print("      CHILDREN: {}".format(child))
+            # print("      CHILDREN: {}".format(child))
 
             if len(child) == 1:
-                #print("        POS: 4")
+                # print("        POS: 4")
                 return traverse_ancestors(child[0], remaining)
             else:
                 raise URLPath.DoesNotExist
         except URLPath.DoesNotExist:
-            #print("      POS: 5")
+            # print("      POS: 5")
             return parent
 
-        #print("    POS: 6")
+        # print("    POS: 6")
         return parent
 
-    #print("  EXIT: traverse_ancestors()")
+    # print("  EXIT: traverse_ancestors()")
+
 
 def old_create_category(wiki):
     admin = User.objects.first()
@@ -296,7 +323,7 @@ def old_create_category(wiki):
     # create Article
     article = Article(
         owner=admin,
-        #is_category=True,
+        # is_category=True,
     )
     article.save()
 
@@ -315,7 +342,7 @@ def old_create_category(wiki):
     article_revision = ArticleRevision(
         article=article,
         title=wiki['name'],
-        #long_name=wiki['long_name'],
+        # long_name=wiki['long_name'],
         content="LINKS",
         revision_number=1
     )
@@ -324,17 +351,18 @@ def old_create_category(wiki):
     article_revision.save()
 
     # add tags
-    #article_revision.tags.add(*tags)
+    # article_revision.tags.add(*tags)
+
 
 def create_category(wiki):
-    #print("ENTER: create_category()")
+    # print("ENTER: create_category()")
     root = Article.objects.first().urlpath_set.first()
     slug_list = deque(wiki["root"].split("/")[1:])
     parent = traverse_ancestors(root, slug_list)
 
-    #print("root: {}".format(root))
-    #print("slug_list: {}".format(slug_list))
-    #print("parent: {}".format(parent))
+    # print("root: {}".format(root))
+    # print("slug_list: {}".format(slug_list))
+    # print("parent: {}".format(parent))
 
     urlpath = URLPath.create_urlpath(
         parent=parent,
@@ -348,17 +376,18 @@ def create_category(wiki):
     )
 
     urlpath.save()
-    #print("EXIT: create_category()")
+    # print("EXIT: create_category()")
+
 
 def create_wiki(wiki):
-    #print("ENTER: create_wiki()")
+    # print("ENTER: create_wiki()")
     root = Article.objects.first().urlpath_set.first()
     slug_list = deque(wiki["root"].split("/")[1:])
     parent = traverse_ancestors(root, slug_list)
 
-    #print("root: {}".format(root))
-    #print("slug_list: {}".format(slug_list))
-    #print("parent: {}".format(parent))
+    # print("root: {}".format(root))
+    # print("slug_list: {}".format(slug_list))
+    # print("parent: {}".format(parent))
 
     urlpath = URLPath.create_urlpath(
         parent=parent,
@@ -373,8 +402,9 @@ def create_wiki(wiki):
 
     urlpath.save()
 
-    #print("NEW: {}".format(urlpath))
-    #print("EXIT: create_wiki()")
+    # print("NEW: {}".format(urlpath))
+    # print("EXIT: create_wiki()")
+
 
 def old_create_wiki(wiki):
     tags = wiki['tags']
@@ -405,7 +435,7 @@ def old_create_wiki(wiki):
     article_revision = ArticleRevision(
         article=article,
         title=wiki['name'],
-        #long_name=wiki['long_name'],
+        # long_name=wiki['long_name'],
         content=wiki['content'],
         revision_number=1
     )
@@ -416,6 +446,7 @@ def old_create_wiki(wiki):
     # add tags
     # article.tags.add(*tags)
 
+
 def create_question(question_data):
     root = Article.objects.first().urlpath_set.first()
     slug_list = deque(question_data["root"].split("/")[1:-2])
@@ -424,9 +455,9 @@ def create_question(question_data):
     question = Question(
         filepath=question_data['root'],
         slug=question_data['slug'],
-        #title=question_data['title'],
+        # title=question_data['title'],
         order=question_data['order'],
-        #description=question_data['description'],
+        # description=question_data['description'],
         category=parent.article,
     )
 
@@ -435,15 +466,16 @@ def create_question(question_data):
 
     return question
 
+
 def create_question_version(question_data):
     answers = question_data['answers']
 
     question_version = QuestionVersion(
         question_id=question_data['question_id'],
         title=question_data['title'],
-        #title="placeholder title",
+        # title="placeholder title",
         description=question_data['description'],
-        #description="placeholder description"
+        # description="placeholder description"
     )
 
     question_version.save()
@@ -452,8 +484,10 @@ def create_question_version(question_data):
     for answer in answers:
         question_version.answerversion_set.create(text=answer['text'], correct=answer['correct'])
 
+
 def get_type(soup):
     return extract("type", soup)
+
 
 def extract(field, soup):
     if field == "question":
@@ -464,9 +498,9 @@ def extract(field, soup):
     if field == "answers":
         header = soup.find(lambda tag: tag.name == "h2")
         answers = [{
-                'text': md(answer.decode_contents(formatter="html").replace("\n", "")),
-                'correct': 'correct' in answer.attrs.values().__str__()
-            } for answer in soup.find("ul").findAll("li")]
+            'text': md(answer.decode_contents(formatter="html").replace("\n", "")),
+            'correct': 'correct' in answer.attrs.values().__str__()
+        } for answer in soup.find("ul").findAll("li")]
         return answers
 
     if field == "description":
@@ -489,7 +523,9 @@ def extract(field, soup):
 
     #
     if field == "content":
-        header = soup.article.find(lambda tag: tag.name == "h2" and ("Sachverhalt" in tag.text) or ("Problemaufriss" in tag.text) or ("Tags" in tag.text))
+        header = soup.article.find(
+            lambda tag: tag.name == "h2" and ("Sachverhalt" in tag.text) or ("Problemaufriss" in tag.text) or (
+                        "Tags" in tag.text))
         if "siehe hier" in soup.prettify():
             nextNode = soup.article.find("p")
         else:
@@ -502,7 +538,7 @@ def extract(field, soup):
             except AttributeError:
                 tag_name = "none"
 
-            if tag_name in ["h2","p","ol","li","span", "\n", "h5"]:
+            if tag_name in ["h2", "p", "ol", "li", "span", "\n", "h5"]:
                 # if element has class, remove it
                 if 'class' in nextNode.attrs.keys():
                     del nextNode.attrs['class']
@@ -513,8 +549,10 @@ def extract(field, soup):
                         del nextNode.findChild("span").attrs['class']
 
                 # replace <u> with <b>
-                #html = str(nextNode).replace("<u>", " <b>").replace("</u>", "</b> ").replace("<a", " <a").replace("/a>", "/a> ").replace("<span>", "").replace("</span>", "")
-                html = str(nextNode).replace("<u>", " <b>").replace("</u>", "</b> ").replace("<span>", "").replace("</span>", "").replace("<em>", "<i>").replace("</em>", "</i>").replace("<h5", "<p").replace("</h5>", "</p>")
+                # html = str(nextNode).replace("<u>", " <b>").replace("</u>", "</b> ").replace("<a", " <a").replace("/a>", "/a> ").replace("<span>", "").replace("</span>", "")
+                html = str(nextNode).replace("<u>", " <b>").replace("</u>", "</b> ").replace("<span>", "").replace(
+                    "</span>", "").replace("<em>", "<i>").replace("</em>", "</i>").replace("<h5", "<p").replace("</h5>",
+                                                                                                                "</p>")
 
                 if "Fragment" in html: html = html.replace("<!--StartFragment-->", "").replace("<!--EndFragment-->", "")
                 if "siehe hier" in soup.prettify():
@@ -547,10 +585,12 @@ def extract(field, soup):
     if field == "type":
         return soup.article.attrs["data-type"].split("/")[-1]
 
+
 def on_error(e):
     raise e
 
-#def match_category(root):
+
+# def match_category(root):
 #    list = root.split("/")[:-1]
 #    filepath = "/".join(list)
 #
@@ -565,6 +605,7 @@ def _create_category(node, cat):
     remaining = deque(cat["root"].split("/")[1:])
     traverse_category(node, remaining, cat)
 
+
 def _traverse_category(node, remaining, cat):
     # if any items remain in path list, keep traversing
     if remaining:
@@ -577,11 +618,12 @@ def _traverse_category(node, remaining, cat):
             child = node.add_child(
                 name=cat["name"],
                 slug=cat["slug"],
-                #long_name=cat["long_name"],
+                # long_name=cat["long_name"],
                 filepath=cat["root"]
             )
             traverse_category(child, remaining, cat)
             child.save()
+
 
 def exams(request):
     import csv
@@ -645,18 +687,18 @@ def exams(request):
         return HttpResponse('<p>failed</p>')
 
 
-def search_wiki(request, query = False):
+def search_wiki(request, query=False):
     from django.contrib.postgres.search import SearchVector, TrigramSimilarity, TrigramDistance
-    #articles = Article.objects.annotate(
+    # articles = Article.objects.annotate(
     #    #similarity=TrigramSimilarity('current_revision__title', query),
     #    distance=TrigramDistance('current_revision__content', query),
-    #).filter(distance__gt=0.7).order_by('distance')
+    # ).filter(distance__gt=0.7).order_by('distance')
 
     if query:
         results = Article.objects.annotate(
             search=SearchVector(
-            #'current_revision__title',
-            'current_revision__content',
+                # 'current_revision__title',
+                'current_revision__content',
             ),
         ).filter(search__icontains=query)
     else:
@@ -666,7 +708,7 @@ def search_wiki(request, query = False):
         'title': article.current_revision.title,
         'url': article.get_absolute_url(),
         'content': article.current_revision.content,
-        #'breadcrumb': " / ".join([ancestor.article.current_revision.title for ancestor in article.ancestor_objects()])
+        # 'breadcrumb': " / ".join([ancestor.article.current_revision.title for ancestor in article.ancestor_objects()])
     } for article in results if sum(1 for x in article.get_children()) == 0 and article.id != 1]
 
     # get breadcrumb
@@ -674,21 +716,23 @@ def search_wiki(request, query = False):
 
     return JsonResponse({'data': articles})
 
+
 def api_exams(request):
     exams = Exams.objects.all()
 
     data = [{
-    	'id': exam.id,
-    	'type': exam.type,
-    	'datetime': exam.date,
-    	'difficulty': exam.difficulty,
-    	'paragraphs': exam.paragraphs,
-    	'problems': exam.problems,
-    	'situation': exam.sachverhalt_link,
-    	'solution': exam.loesung_link,
+        'id': exam.id,
+        'type': exam.type,
+        'datetime': exam.date,
+        'difficulty': exam.difficulty,
+        'paragraphs': exam.paragraphs,
+        'problems': exam.problems,
+        'situation': exam.sachverhalt_link,
+        'solution': exam.loesung_link,
     } for exam in exams]
 
     return JsonResponse({'data': data})
+
 
 def get_first_at(cat):
     categories = [child for child in cat.get_descendants()]
@@ -700,9 +744,11 @@ def get_first_at(cat):
     else:
         Question.objects.first()
 
+
 def get_first_bt(cat):
     cur_question_set = cat.article.question_set.all()
-    question_set = [sub.article.question_set.all() for sub in cat.get_descendants() if len(sub.article.question_set.all()) > 0]
+    question_set = [sub.article.question_set.all() for sub in cat.get_descendants() if
+                    len(sub.article.question_set.all()) > 0]
 
     pre = [[q for q in question] for question in question_set]
     result = list(chain.from_iterable(pre)) + [question for question in list(cur_question_set)]
@@ -710,8 +756,9 @@ def get_first_bt(cat):
     if len(result) > 0:
         return result[0]
     else:
-        #print("YYY")
+        # print("YYY")
         Question.objects.first()
+
 
 def get_at_categories():
     at = URLPath.objects.filter(slug='at').last()
@@ -719,34 +766,36 @@ def get_at_categories():
 
     categories = [
         {"category": child,
-        "first": get_first_at(child),
-        "questions": [
-            [
-                question for question in sub.article.question_set.all() if len(sub.article.question_set.all()) > 1
-            ] for sub in child.get_descendants() if len(child.get_descendants()) > 0
-        ]} for child in at.get_children()]
+         "first": get_first_at(child),
+         "questions": [
+             [
+                 question for question in sub.article.question_set.all() if len(sub.article.question_set.all()) > 1
+             ] for sub in child.get_descendants() if len(child.get_descendants()) > 0
+         ]} for child in at.get_children()]
 
     categories.insert(0, {
         "category": grundlagen,
         "first": grundlagen.article.question_set.first(),
         "questions": [
-            question for question in grundlagen.article.question_set.all() if len(grundlagen.article.question_set.all()) > 1
+            question for question in grundlagen.article.question_set.all() if
+            len(grundlagen.article.question_set.all()) > 1
         ]
     })
 
     return categories
+
 
 def get_bt_categories():
     bt = URLPath.objects.filter(slug='bt').first()
 
     categories = [
         {"category": child,
-        "first": get_first_bt(child),
-        "questions": [
-            [
-            question for question in child.article.question_set.all() if len(child.article.question_set.all()) > 0
-        ]
-    ]} for child in bt.get_children()]
+         "first": get_first_bt(child),
+         "questions": [
+             [
+                 question for question in child.article.question_set.all() if len(child.article.question_set.all()) > 0
+             ]
+         ]} for child in bt.get_children()]
 
     categories.sort(key=lambda c: c["category"].path)
 
@@ -763,7 +812,7 @@ class QuestionViewSet(mixins.CreateModelMixin, generics.GenericAPIView):
     serializer_class = QuestionSerializer
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [AllowAny,]
+    permission_classes = [AllowAny, ]
 
     def post(self, request, *args, **kwargs):
         data = request.data
@@ -829,10 +878,12 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     serializer_class = ChoiceSerializer
     permission_classes = [AllowAny]
 
+
 def get_category_tree(request):
     root = URLPath.objects.first()
     tree = create_categories(root)
     return JsonResponse(tree)
+
 
 def create_categories(category):
     return {

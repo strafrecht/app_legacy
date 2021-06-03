@@ -65,22 +65,42 @@ class Quiz(models.Model):
                 answers = set()
                 uanswers = set()
 
-                if hasattr(y, 'question'):
-
-                    for answer in user_answer.question.answer_set.all():
+                for q_ver in user_answer.question.questionversion_set.all():
+                    for answer in q_ver.answerversion_set.all():
                         if answer.correct:
                             answers.add(answer.id)
 
-                    for choice in user_answer.choice_set.all():
-                        uanswers.add(choice.answer.id)
+                for choice in user_answer.choice_set.all():
+                    uanswers.add(choice.answer.id)
 
-                    # real answers
-                    x[user_answer.question.id] = answers
-                    # user answers
-                    y[user_answer.question.id] = uanswers
+                # real answers
+                x[user_answer.question.id] = answers
+                # user answers
+                y[user_answer.question.id] = uanswers
 
-                    if y[user_answer.question.id] == x[user_answer.question.id]:
-                        total += 1
+                if y[user_answer.question.id] == x[user_answer.question.id]:
+                    total += 1
+
+                # Old code:
+                # if hasattr(y, 'question'): # this verification can never happen, change y (?)
+                #     # answer is None in user_answer. Why?
+                #
+                #
+                #     for answer in user_answer.question.answer_set.all():
+                #     # To use user_answer.question.answer_set.all() change UserAnswer->question to UserAnswer->question_version (?)
+                #         if answer.correct:
+                #             answers.add(answer.id)
+                #
+                #     for choice in user_answer.choice_set.all():
+                #         uanswers.add(choice.answer.id)
+                #
+                #     # real answers
+                #     x[user_answer.question.id] = answers
+                #     # user answers
+                #     y[user_answer.question.id] = uanswers
+                #
+                #     if y[user_answer.question.id] == x[user_answer.question.id]:
+                #         total += 1
 
             return total
 

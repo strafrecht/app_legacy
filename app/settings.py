@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'pagedown',
     'django_filters',
-    'debug_toolbar',
+    # 'debug_toolbar',
 
     # Assets
     'pipeline',
@@ -169,7 +169,7 @@ MIDDLEWARE = [
     #'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     #'livereload.middleware.LiveReloadScript',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     # 'csp.middleware.CSPMiddleware',
 ]
 
