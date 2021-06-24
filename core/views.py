@@ -158,8 +158,8 @@ def _get_questions_for_category(category_id):
 def scrape(request):
     # init
     path = os.path.abspath("core")
-    # os.chdir('/home/admin/Workspace/app/core')
-    os.chdir('C://Users//sfvso//Documents//serg1o//straf//app//core')
+    os.chdir('/home/admin/Workspace/app/core')
+    #os.chdir('C://Users//sfvso//Documents//serg1o//straf//app//core')
 
     # delete all wiki/categories
     URLPath.objects.all().delete()
@@ -455,7 +455,8 @@ def create_question_version(question_data):
 
     # save answers
     for answer in answers:
-        question_version.answerversion_set.create(text=answer['text'], correct=answer['correct'])
+        #question_version.answerversion_set.create(text=answer['text'], correct=answer['correct'])
+        question_version.answers.create(text=answer['text'], correct=answer['correct'])
 
 def get_type(soup):
     return extract("type", soup)

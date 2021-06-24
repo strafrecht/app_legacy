@@ -1,20 +1,28 @@
-/** global: django */
+'use strict';
+{
+    // Call function fn when the DOM is loaded and ready. If it is already
+    // loaded, call the function now.
+    // http://youmightnotneedjquery.com/#ready
+    function ready(fn) {
+        if (document.readyState !== 'loading') {
+            fn();
+        } else {
+            document.addEventListener('DOMContentLoaded', fn);
+        }
+    }
 
-if (typeof(django) !== 'undefined' && typeof(django.jQuery) !== 'undefined') {
-    (function($) {
-        'use strict';
-        $(document).ready(function() {
-            $('.cancel-link').click(function(e) {
-                e.preventDefault();
-                var parentWindow = window.parent;
-                if (parentWindow && typeof(parentWindow.dismissRelatedObjectModal) === 'function' && parentWindow !== window) {
-                    parentWindow.dismissRelatedObjectModal();
-                } else {
-                    // fallback to default behavior
-                    window.history.back();
-                }
-                return false;
-            });
+    ready(function() {
+        function handleClick(event) {
+            event.preventDefault();
+            if (window.location.search.indexOf('&_popup=1') === -1) {
+                window.history.back(); // Go back if not a popup.
+            } else {
+                window.close(); // Otherwise, close the popup.
+            }
+        }
+
+        document.querySelectorAll('.cancel-link').forEach(function(el) {
+            el.addEventListener('click', handleClick);
         });
-    })(django.jQuery);
+    });
 }

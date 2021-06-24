@@ -25,8 +25,8 @@ from .blocks import HomeJurcoachBlock
 # Sidebar
 class ContentBlocks(blocks.StreamBlock):
     richtext = blocks.RichTextBlock()
-    #home_news_block = HomeNewsBlock()
-    #home_jurcoach_block = HomeJurcoachBlock()
+    home_news_block = HomeNewsBlock()
+    home_jurcoach_block = HomeJurcoachBlock()
 
 class SidebarBlocks(blocks.StreamBlock):
     sidebar_title = SidebarTitleBlock()
@@ -78,7 +78,7 @@ class BasePage(Page):
     })
 
     sidebar = StreamField([
-        ('sidebar', SidebarBlocks()),
+        ('sidebar', SidebarBlocks(required=False)),
     ], block_counts={
         'sidebar': {'min_num': 0, 'max_num': 1},
     })
@@ -95,9 +95,13 @@ class BasePage(Page):
 
 
 class HomePage(BasePage):
+    #class Meta:
+    #    abstract = True
+
     def get_context(self, request):
         context = super().get_context(request)
         context['request'] = request
+        #context['block_name'] =
         return context
 
     content_panels = BasePage.content_panels

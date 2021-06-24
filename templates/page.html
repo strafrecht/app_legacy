@@ -4,7 +4,7 @@
 
 {% block content %}
 {% csrf_token %}
-	<div class="w-full" style="width: 100%;">
+	<div class="flex flex-grow" style="width: 100%;">
 		<div class="header-image">
 			{% image page.cover original %}
 			{% if page.cover_caption %}
@@ -17,3 +17,9 @@
 		</div>
 	</div>
 {% endblock content %}
+
+{% block sidebar %}
+	<div class="col-12 sidebar no-gutters overflow-hidden flex-md-row position-relative">
+		{% include_block page.sidebar %}
+	</div>
+{% endblock %}

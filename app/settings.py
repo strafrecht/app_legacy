@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Admin Interface
-    'admin_interface',
+    #'admin_interface',
     'colorfield',
     'django.contrib.admin',
     'pagedown',
@@ -219,7 +219,7 @@ else:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
+        'NAME': 'strafrecht',
         'USER': 'django',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
