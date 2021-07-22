@@ -9,7 +9,7 @@
       :loading="loadTable"
       loading-text="Loading Leaderboard... Please wait"
     >
-      <template v-slot:item.avatar="{ item, index }">
+      <template v-slot:[`item.avatar`]="{ item, index }">
         <v-badge avatar bordered overlap v-if="index < 3">
           <template v-slot:badge v-if="index < 3">
             <v-avatar>
@@ -37,17 +37,17 @@
           <span v-else>{{ initials(item.name) }}</span>
         </v-avatar>
       </template>
-      <template v-slot:item.points30="{ item }">
+      <template v-slot:[`item.points30`]="{ item }">
         <v-chip :color="getColor(item.points30)">
           {{ item.points30 }}
         </v-chip>
       </template>
-      <template v-slot:item.pointsalltime="{ item }">
+      <template v-slot:[`item.pointsalltime`]="{ item }">
         <v-chip :color="getColor(item.pointsalltime)">
           {{ item.pointsalltime }}
         </v-chip>
       </template>
-      <template v-slot:item.trend="{ item }">
+      <template v-slot:[`item.trend`]="{ item }">
         <v-sparkline
           :value="item.trend_values"
           :gradient="gradient"
@@ -62,7 +62,8 @@
           auto-draw
         ></v-sparkline>
       </template>
-      <template v-slot:item.info="{ item, index }">
+      <!-- <template v-slot:[`item.info`]="{ item, index }"> -->
+      <template v-slot:[`item.info`]="{ item }">
         <v-btn
           icon
           color="primary"

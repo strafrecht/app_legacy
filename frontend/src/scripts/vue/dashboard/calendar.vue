@@ -1,15 +1,17 @@
 <template>
-  <time class="icon">
-    <em>{{ weekday }}</em>
-    <strong>{{ month }}</strong>
-    <span>{{ day }}</span>
-  </time>
-  <p>
-    {{ testprop }}
-  </p>
-  <p>
-    {{ datenew }}
-  </p>
+  <div>
+    <time class="icon">
+      <em>{{ weekday }}</em>
+      <strong>{{ month }}</strong>
+      <span>{{ day }}</span>
+    </time>
+    <p>
+      {{ testprop }}
+    </p>
+    <p>
+      {{ datenew }}
+    </p>
+  </div>
 </template>
 
 <script>
@@ -49,7 +51,9 @@ time.icon {
   box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff,
     0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
   overflow: hidden;
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform: none; 
   -webkit-transform: rotate(0deg) skewY(0deg);
   -webkit-transform-origin: 50% 10%;
   transform-origin: 50% 10%;
@@ -70,13 +74,13 @@ time.icon strong {
   top: 0;
   padding: 0.4em 0;
   color: #fff;
-  background-color: #D94440;
+  background-color: #d94440;
 }
 
 time.icon em {
   position: absolute;
   bottom: 0.3em;
-  color: #D94440;
+  color: #d94440;
 }
 
 time.icon span {
