@@ -79,7 +79,7 @@ service-identity==18.1.0
 six==1.15.0
 sorl-thumbnail==12.7.0
 soupsieve==2.2.1
-sqlparse==0.4.1
+sqlparse==0.4.2
 tablib==3.0.0
 tqdm==4.60.0
 Twisted==21.2.0
