@@ -91,7 +91,7 @@ wagtailfontawesome==1.2.1
 wagtailmenus==3.0.2
 wagtailnews==2.7.1
 webencodings==0.5.1
-wiki==0.7.5
+wiki==0.7.9
 Willow==1.4
 xlrd==2.0.1
 XlsxWriter==1.4.0
